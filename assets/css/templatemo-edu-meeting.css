@@ -244,8 +244,8 @@ header
 }
 
 .background-header {
-  background-color: #fff!important;
-  height: 80px!important;
+  background-color: #ffffff!important;
+  height: 100px!important;
   position: fixed!important;
   top: 0!important;
   left: 0;
@@ -704,7 +704,7 @@ banner
 
 .video-overlay {
     position: absolute;
-    background-color: rgba(50, 65, 90, 0.498);
+    /*background-color: rgba(50, 65, 90, 0.498);*/
     top: 0;
     left: 0;
     bottom: 0;
@@ -773,7 +773,7 @@ services
 */
 
 .services {
-  margin-top: -135px;
+  margin-top: -150px;
   position: absolute;
   width: 100%;
 }
