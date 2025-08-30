@@ -1,0 +1,29 @@
+
+/* app/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base */
+:root { color-scheme: light; }
+html, body { background: #fff; }
+
+/* Reusable primitives */
+@layer components {
+  .container { @apply max-w-4xl mx-auto px-4; }
+
+  .card { @apply border bg-white rounded-2xl shadow-card; }
+  .card-body { @apply p-5; }
+
+  .btn { @apply inline-flex items-center gap-2 px-4 py-2 rounded-xl border font-medium transition; }
+  .btn-primary { @apply bg-brand-900 text-white border-brand-900 hover:opacity-90; }
+  .btn-ghost { @apply bg-transparent text-brand-900 border-brand-900/60 hover:border-brand-900; }
+
+  .tag { @apply inline-flex items-center px-2.5 py-1 rounded-full text-xs border bg-white; }
+  .tag-accent { @apply border-brand-accent/40; }
+}
+
+/* Optional: prose tweaks (safe without theme() calls) */
+.prose :where(h1,h2,h3,h4) { @apply text-brand-900 font-serif; }
+.prose :where(p,li) { @apply text-gray-700; }
+.prose a { @apply text-brand-900 underline-offset-2 hover:underline; }
