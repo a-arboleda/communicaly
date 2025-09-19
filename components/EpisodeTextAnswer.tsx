@@ -160,21 +160,22 @@ export default function EpisodeTextAnswer({ episodeId, overrideQuestions, overri
 
   return (
     <div className="space-y-3">
-      <div className="flex flex-wrap gap-2 mt-[10px] mb-[15px]">
+      <ul className="mt-[10px] mb-[15px] list-none flex flex-col gap-2 sm:flex-row sm:flex-wrap" role="list">
         {(Object.keys(TEMPLATES) as Cat[]).map((k) => {
           const active = cat === k
           return (
-            <button
-              key={k}
-              type="button"
-              onClick={() => setCat(k)}
-              className={`btn ${active ? "btn-primary" : "btn-muted"}`}
-            >
-              {TEMPLATES[k].label}
-            </button>
+            <li key={k} className="w-full sm:w-auto">
+              <button
+                type="button"
+                onClick={() => setCat(k)}
+                className={`btn ${active ? "btn-primary" : "btn-muted"} w-full justify-start text-left sm:w-auto sm:justify-center`}
+              >
+                {TEMPLATES[k].label}
+              </button>
+            </li>
           )
         })}
-      </div>
+      </ul>
 
       {current && (
         <div className="space-y-2">

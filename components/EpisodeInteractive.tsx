@@ -262,11 +262,7 @@ export default function EpisodeInteractive({
         window.clearInterval(timerRef.current)
         timerRef.current = null
       }
-      setAutoResetNotice(
-        reason === "auto"
-          ? "Session reset after leaving this page. Save your recording or PDF before switching tabs."
-          : null,
-      )
+      setAutoResetNotice(null)
       try {
         localStorage.removeItem(STORAGE_EP)
         if (episodeId) {
