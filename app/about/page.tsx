@@ -1,6 +1,6 @@
 export default function About() {
   return (
-    <article className="prose max-w-none">
+    <article className="prose max-w-none prose-headings:text-black">
       <p className="inline-flex items-center gap-2 px-3 py-1 rounded-full border text-sm text-gray-600">
         About this project
       </p>
@@ -14,6 +14,24 @@ export default function About() {
       <p>
         A growing library of short audios about ordinary moments: coffee, commuting, cooking, cleaning, chatting with a friend, and more.
         Each episode links to an interactive page where you answer a question and build sentences that match your reality.
+      </p>
+
+      <h2>Watch on YouTube</h2>
+      <p className="inline-flex items-center gap-2 flex-wrap">
+        Some episodes include short video segments hosted on our YouTube channel. If you prefer watching there or want to support the project,
+        subscribe here:
+        <a
+          className="inline-flex items-center gap-1 rounded-full bg-red-600 text-white px-2 py-0.5 text-xs font-semibold hover:bg-red-500 transition-colors no-underline hover:no-underline"
+          href="https://www.youtube.com/channel/UCB_cZrc77ZPV8ArS72sZpmg"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Communicaly on YouTube (opens in a new tab)"
+        >
+          <svg className="h-3.5 w-3.5 text-white" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+            <path d="M8 5v14l11-7z" />
+          </svg>
+          <span className="text-white">YouTube</span>
+        </a>
       </p>
 
       <h2>Why it works</h2>
@@ -45,10 +63,13 @@ export default function About() {
       <h2>FAQ</h2>
       <p><strong>Do I need an account?</strong> No. Your inputs save locally in your browser.</p>
       <p><strong>Can I use this on my phone?</strong> Yes, pages are mobile-friendly.</p>
-      <p><strong>Where can I listen?</strong> Right on each episode page, or on YouTube/Spotify if you publish them.</p>
 
       <h2>Contact</h2>
-      <p>Questions or ideas? <a href="mailto:hello@speakbetterdaily.example">Email me</a></p>
+      <p>
+        Questions or ideas? Email me at
+        {" "}
+        <a href="mailto:communicaly@gmail.com">communicaly@gmail.com</a>
+      </p>
     </article>
   )
 }

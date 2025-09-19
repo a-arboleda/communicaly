@@ -23,7 +23,7 @@ export default function RecordYourself() {
       }
       mr.start()
       setRecording(true)
-    } catch (e) {
+    } catch {
       setPermissionDenied(true)
     }
   }

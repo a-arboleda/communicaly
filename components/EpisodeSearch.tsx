@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { useEffect, useMemo, useState } from "react"
+import { displayTitle } from "@/utils/format"
 
 type EpisodeItem = {
   slug: string
@@ -98,29 +99,31 @@ export default function EpisodeSearch({ episodes }: { episodes: EpisodeItem[] })
 
       <p className="text-sm text-gray-600">Showing {filtered.length} of {episodes.length}</p>
 
-      <ul className="space-y-4">
+      <ul className="grid gap-4">
         {filtered.length === 0 && (
           <li className="text-gray-600">No episodes match your search.</li>
         )}
         {filtered.map((ep) => (
-          <li key={ep.slug} className="card">
-            <div className="card-body flex items-start justify-between gap-4">
-              <div className="space-y-1">
-                <h3 className="text-lg font-semibold">
-                  <Link href={`/episodes/${ep.slug}`}>{ep.title}</Link>
-                </h3>
-                {/* date intentionally omitted to avoid hydration mismatches */}
-                {ep.excerpt && <p className="text-gray-700 mt-1">{ep.excerpt}</p>}
-                {!!ep.tags?.length && (
-                  <div className="mt-2 flex flex-wrap gap-2">
-                    {ep.tags.map((t) => (
-                      <span key={t} className="tag tag-accent">{t}</span>
-                    ))}
-                  </div>
-                )}
+          <li key={ep.slug}>
+            <Link
+              href={`/episodes/${ep.slug}`}
+              className="card block group overflow-hidden transition-all duration-200 hover:shadow-[0_8px_24px_rgba(59,130,246,0.25)] hover:-translate-y-0.5"
+            >
+              <div className="card-body flex items-start justify-between gap-4">
+                <div className="space-y-1">
+                  <h3 className="text-lg font-semibold">{displayTitle(ep.title)}</h3>
+                  {ep.excerpt && <p className="text-gray-700 mt-1">{ep.excerpt}</p>}
+                  {!!ep.tags?.length && (
+                    <div className="mt-2 flex flex-wrap gap-2">
+                      {ep.tags.map((t) => (
+                        <span key={t} className="tag tag-accent">{t}</span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+                <span className="btn btn-muted shrink-0">Open</span>
               </div>
-              <Link href={`/episodes/${ep.slug}`} className="btn btn-ghost shrink-0">Open</Link>
-            </div>
+            </Link>
           </li>
         ))}
       </ul>

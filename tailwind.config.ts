@@ -15,21 +15,22 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          900: "#463F3A",
-          700: "#8A817C",
-          500: "#BCB8B1",
-          200: "#F4F3EE",
-          accent: "#E0AFA0",
+          // Light blue theme
+          900: "#2563EB", // primary (blue-600)
+          700: "#3B82F6", // blue-500
+          500: "#60A5FA", // blue-400
+          200: "#DBEAFE", // blue-100
+          accent: "#93C5FD", // blue-300
         },
       },
       fontFamily: {
-        // Make sure your layout.tsx sets CSS vars with next/font (Inter/Playfair)
-        // e.g. <html className={`${inter.variable} ${playfair.variable}`}>
-        sans: ["var(--font-sans)", ...defaultTheme.fontFamily.sans],
-        serif: ["var(--font-serif)", ...defaultTheme.fontFamily.serif],
+        // Prefer local Inter (fallback), then system sans
+        sans: ["Inter", ...defaultTheme.fontFamily.sans],
+        // Use Inter as serif fallback too to unify look
+        serif: ["Inter", ...defaultTheme.fontFamily.sans],
       },
       boxShadow: {
-        card: "0 10px 30px rgba(70,63,58,.08)",
+        card: "0 10px 30px rgba(30,58,138,.08)", // subtle blue-tinted shadow
       },
       borderRadius: {
         xl: "1rem",

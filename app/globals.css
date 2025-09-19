@@ -6,7 +6,12 @@
 
 /* Base */
 :root { color-scheme: light; }
-html, body { background: #fff; }
+html, body { background: white; }
+
+/* UX: remove mobile tap highlight for designated elements */
+@layer components {
+  .no-tap-highlight { -webkit-tap-highlight-color: transparent; }
+}
 
 /* Reusable primitives */
 @layer components {
@@ -16,14 +21,28 @@ html, body { background: #fff; }
   .card-body { @apply p-5; }
 
   .btn { @apply inline-flex items-center gap-2 px-4 py-2 rounded-xl border font-medium transition; }
+  .btn-sm { @apply text-sm px-3 py-1.5; }
   .btn-primary { @apply bg-brand-900 text-white border-brand-900 hover:opacity-90; }
-  .btn-ghost { @apply bg-transparent text-brand-900 border-brand-900/60 hover:border-brand-900; }
+  .btn-ghost { @apply bg-white text-brand-900 border-brand-900/60 hover:border-brand-900; }
+  .btn-muted { @apply bg-white text-gray-700 border-gray-300 hover:border-gray-400; }
 
   .tag { @apply inline-flex items-center px-2.5 py-1 rounded-full text-xs border bg-white; }
   .tag-accent { @apply border-brand-accent/40; }
 }
 
-/* Optional: prose tweaks (safe without theme() calls) */
-.prose :where(h1,h2,h3,h4) { @apply text-brand-900 font-serif; }
+/* Optional: prose tweaks */
+.prose :where(h1,h2,h3,h4) { @apply text-brand-900 font-sans; }
 .prose :where(p,li) { @apply text-gray-700; }
-.prose a { @apply text-brand-900 underline-offset-2 hover:underline; }
+.prose a { @apply text-brand-900 no-underline hover:no-underline; }
+
+/* Remove underline on all link hovers app-wide */
+@layer base {
+  a { text-decoration-line: none; }
+  a:hover { text-decoration-line: none !important; }
+}
+
+/* Neutralize underline utilities on hover/group-hover */
+@layer utilities {
+  .hover\:underline:hover { text-decoration-line: none !important; }
+  .group:hover .group-hover\:underline { text-decoration-line: none !important; }
+}

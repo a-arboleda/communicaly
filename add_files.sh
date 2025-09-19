@@ -437,13 +437,14 @@ EOF
 
 # content example
 mkdir -p public/audio
-cat > content/episodes/morning-coffee-1.mdx <<'EOF'
+  cat > content/episodes/morning-coffee-1.mdx <<'EOF'
 ---
 title: "Episode 1 — Morning Coffee"
 date: "2025-08-20"
 audioUrl: "https://www2.cs.uic.edu/~i101/SoundFiles/StarWars60.wav"
 excerpt: "Interactive practice: listen, answer, record yourself (with self-rating), and save your personal phrasebook (PDF export)."
 tags: ["routines","coffee"]
+question: "How about you? Do you usually make your coffee at home, or buy it outside?"
 ---
 
 <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border text-sm text-gray-600">Episode 1</span>
@@ -459,15 +460,7 @@ Listen • Answer • **Record yourself** (with self-rating) • Save your phras
 
 ---
 
-### Episode question
-How about you? Do you usually make your coffee at home, or buy it outside?
-
-### Shadowing practice — sentence starters
-- I usually start my day with ___.
-- Most days I ___, but sometimes I ___.
-- I prefer ___ because ___.
-- If I’m in a rush, I ___.
-- My small morning ritual is ___.
+###
 EOF
 
 echo "✅ Files added."

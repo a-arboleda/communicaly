@@ -8,22 +8,32 @@ export type EpisodeMeta = {
   title: string;
   date: string;
   audioUrl?: string;
+  youtubeStart?: number;
+  youtubeEnd?: number;
   tags?: string[];
   excerpt?: string;
+  question?: string;
+  imageUrl?: string;
+  imageAlt?: string;
+  story?: string[];
+  keyDetails?: string[];
+  tryThis?: string[];
 };
 
-export function getAllEpisodes() {
-  if (!fs.existsSync(EP_DIR)) return [] as any[];
+export type EpisodeSummary = EpisodeMeta & { slug: string };
+
+export function getAllEpisodes(): EpisodeSummary[] {
+  if (!fs.existsSync(EP_DIR)) return [];
   const files = fs.readdirSync(EP_DIR).filter((f) => f.endsWith(".mdx"));
-  const items = files.map((filename) => {
+  const items: EpisodeSummary[] = files.map((filename) => {
     const slug = filename.replace(/\.mdx$/, "");
     const raw = fs.readFileSync(path.join(EP_DIR, filename), "utf8");
     const { data } = matter(raw);
-    return { slug, ...(data as EpisodeMeta) };
+    const meta = data as EpisodeMeta;
+    return { slug, ...meta };
   });
   return items.sort(
-    (a: any, b: any) =>
-      new Date(b.date).valueOf() - new Date(a.date).valueOf()
+    (a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf()
   );
 }
 

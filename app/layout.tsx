@@ -15,10 +15,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
-      <body>
+    <html lang="en" className={`${inter.variable} ${playfair.variable} scroll-smooth`}>
+      <body className="bg-white text-gray-900 antialiased">
         <Navbar />
-        <main className="max-w-4xl mx-auto px-4 py-8">{children}</main>
+        {/* Print-only brand header (repeats on each page) */}
+        <div className="hidden print:flex print:fixed print:top-0 print:left-0 print:right-0 print:z-50 print:bg-brand-200 items-center gap-3 px-6 py-3 border-b">
+          <strong className="text-base">Communicaly — My Phrasebook</strong>
+        </div>
+        <main className="container py-8 print:mt-28">{children}</main>
         <Footer />
       </body>
     </html>
