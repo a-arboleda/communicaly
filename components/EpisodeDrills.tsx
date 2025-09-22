@@ -76,12 +76,16 @@ export default function EpisodeDrills() {
 
   const episodeOptions = useMemo(() => {
     const m = new Map<string, string>()
-    for (const it of ALL_ITEMS) if (it.source) m.set(it.source.slug, it.source.title)
+    for (const it of ALL_ITEMS) {
+      if (it.type === "phrasal" && it.source) {
+        m.set(it.source.slug, it.source.title)
+      }
+    }
     return [...m.entries()].map(([slug, title]) => ({ slug, title }))
   }, [])
 
   const items = useMemo<DeckItem[]>(() => {
-    const pool = ALL_ITEMS.filter(i => i.source && (!ep || i.source.slug === ep))
+    const pool = ALL_ITEMS.filter(i => i.type === "phrasal" && i.source && (!ep || i.source.slug === ep))
     return pool
   }, [ep])
 
