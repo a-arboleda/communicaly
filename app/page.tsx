@@ -9,7 +9,6 @@ const testimonials = [
     name: "Mariana",
     initials: "MG",
     occupation: "Marketing Professional",
-    headline: "Finding My English Identity",
     quote:
       "I never realized how important it was to build my English identity until my tutor and I started a weekly class focused on sounding more like myself. Now, I feel so much more confident when I speak.",
     rating: 5,
@@ -19,7 +18,6 @@ const testimonials = [
     name: "Daniel",
     initials: "DM",
     occupation: "Software Engineer",
-    headline: "Hearing Myself Differently",
     quote:
       "Being able to reflect on my answers, record myself, and then listen back has been a game-changer. I didn't know how much I needed this to really improve my listening skills.",
     rating: 4,
@@ -29,7 +27,6 @@ const testimonials = [
     name: "Laura",
     initials: "LL",
     occupation: "English Tutor",
-    headline: "A Tutor's Secret Weapon",
     quote:
       "As a tutor, this tool has been incredibly helpful. I feel I can plan my lessons so much better, and my students truly feel they've made progress.",
     rating: 5,
@@ -110,9 +107,6 @@ export default function Home() {
                 ))}
               </div>
               <span className="sr-only">Rated {story.rating} out of 5 stars</span>
-              <p className="text-sm font-semibold text-gray-600">
-                {story.headline}
-              </p>
               <blockquote className="text-sm text-gray-700 leading-relaxed">“{story.quote}”</blockquote>
               <div className="flex items-center gap-4 mt-auto">
                 <span
