@@ -4,6 +4,8 @@ import "@/app/globals.css"
 import Navbar from "@/components/Navbar"
 import Footer from "@/components/Footer"
 import { Inter, Playfair_Display } from "next/font/google"
+import { Analytics } from "@vercel/analytics/next"
+
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" })
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-serif" })
@@ -27,6 +29,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </div>
         <main className="container py-8 print:mt-28">{children}</main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   )

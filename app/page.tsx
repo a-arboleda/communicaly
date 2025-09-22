@@ -4,6 +4,39 @@ import { getAllEpisodes } from "@/utils/episodes"
 import { displayTitle } from "@/utils/format"
 // Removed search from Home
 
+const testimonials = [
+  {
+    name: "Mariana",
+    initials: "MG",
+    occupation: "Marketing Professional",
+    headline: "Finding My English Identity",
+    quote:
+      "I never realized how important it was to build my English identity until my tutor and I started a weekly class focused on sounding more like myself. Now, I feel so much more confident when I speak.",
+    rating: 5,
+    avatarGradient: "from-amber-200 via-rose-200 to-pink-300",
+  },
+  {
+    name: "Daniel",
+    initials: "DM",
+    occupation: "Software Engineer",
+    headline: "Hearing Myself Differently",
+    quote:
+      "Being able to reflect on my answers, record myself, and then listen back has been a game-changer. I didn't know how much I needed this to really improve my listening skills.",
+    rating: 4,
+    avatarGradient: "from-sky-200 via-cyan-200 to-emerald-200",
+  },
+  {
+    name: "Laura",
+    initials: "LL",
+    occupation: "English Tutor",
+    headline: "A Tutor's Secret Weapon",
+    quote:
+      "As a tutor, this tool has been incredibly helpful. I feel I can plan my lessons so much better, and my students truly feel they've made progress.",
+    rating: 5,
+    avatarGradient: "from-indigo-200 via-purple-200 to-violet-200",
+  },
+]
+
 export default function Home() {
   const episodes = getAllEpisodes()
   const latest = episodes.slice(0, 3)
@@ -32,21 +65,69 @@ export default function Home() {
       <section className="space-y-3">
         <h2 className="font-serif text-2xl font-semibold">How it works</h2>
         <div className="grid gap-3 sm:grid-cols-3">
-          <div className="rounded-2xl border p-4 bg-white/60 transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-[0_8px_24px_rgba(59,130,246,0.2)] hover:bg-brand-50/60">
+          <div className="rounded-2xl border p-4 bg-white/60 transition-colors duration-200 ease-out hover:border-brand-300 hover:shadow-[0_8px_24px_rgba(59,130,246,0.2)] hover:bg-brand-50/60">
             <div className="text-2xl" aria-hidden>🎧</div>
             <h3 className="font-semibold mt-1">Listen</h3>
             <p className="text-gray-700 text-sm mt-1">Play a short, natural audio about daily life.</p>
           </div>
-          <div className="rounded-2xl border p-4 bg-white/60 transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-[0_8px_24px_rgba(59,130,246,0.2)] hover:bg-brand-50/60">
+          <div className="rounded-2xl border p-4 bg-white/60 transition-colors duration-200 ease-out hover:border-brand-300 hover:shadow-[0_8px_24px_rgba(59,130,246,0.2)] hover:bg-brand-50/60">
             <div className="text-2xl" aria-hidden>🗣️</div>
             <h3 className="font-semibold mt-1">Answer</h3>
             <p className="text-gray-700 text-sm mt-1">Write what you’d really say in that situation.</p>
           </div>
-          <div className="rounded-2xl border p-4 bg-white/60 transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-[0_8px_24px_rgba(59,130,246,0.2)] hover:bg-brand-50/60">
+          <div className="rounded-2xl border p-4 bg-white/60 transition-colors duration-200 ease-out hover:border-brand-300 hover:shadow-[0_8px_24px_rgba(59,130,246,0.2)] hover:bg-brand-50/60">
             <div className="text-2xl" aria-hidden>🎙️</div>
             <h3 className="font-semibold mt-1">Record</h3>
             <p className="text-gray-700 text-sm mt-1">Record yourself, self‑rate, and save your phrases.</p>
           </div>
+        </div>
+      </section>
+
+      {/* Learner stories */}
+      <section className="space-y-6">
+        <div className="space-y-3 max-w-3xl text-center mx-auto">
+          <p className="tag tag-accent w-fit">Community voices</p>
+          <h2 className="font-serif text-3xl font-semibold text-gray-900">Learners finding their voice</h2>
+          <p className="text-gray-700">
+            Communicaly is built around your identity. These learners use the daily reflections to talk about their real jobs,
+            families, and communities—and it shows in their confidence.
+          </p>
+        </div>
+        <div className="grid gap-4 sm:grid-cols-3 mt-4 sm:mt-6">
+          {testimonials.map((story) => (
+            <figure
+              key={story.name}
+              className="flex h-full flex-col gap-3 rounded-3xl border border-gray-100 bg-white p-6 sm:p-7 shadow-lg"
+            >
+              <div className="flex items-center gap-1 text-lg" aria-hidden>
+                {Array.from({ length: 5 }).map((_, index) => (
+                  <span
+                    key={index}
+                    className={index < story.rating ? "text-yellow-400" : "text-gray-300"}
+                  >
+                    ★
+                  </span>
+                ))}
+              </div>
+              <span className="sr-only">Rated {story.rating} out of 5 stars</span>
+              <p className="text-sm font-semibold text-gray-600">
+                {story.headline}
+              </p>
+              <blockquote className="text-sm text-gray-700 leading-relaxed">“{story.quote}”</blockquote>
+              <div className="flex items-center gap-4 mt-auto">
+                <span
+                  className={`flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br ${story.avatarGradient} text-base font-semibold text-brand-900 shadow-inner`}
+                  aria-hidden
+                >
+                  {story.initials}
+                </span>
+                <div className="flex-1">
+                  <p className="text-base font-semibold text-gray-900">{story.name}</p>
+                  <p className="text-xs text-gray-500">— {story.occupation}</p>
+                </div>
+              </div>
+            </figure>
+          ))}
         </div>
       </section>
 
@@ -61,7 +142,7 @@ export default function Home() {
             <li key={ep.slug}>
               <Link
                 href={`/episodes/${ep.slug}`}
-                className="rounded-2xl border bg-white block group h-full overflow-hidden transition-colors duration-150 hover:border-brand-300"
+                className="rounded-2xl border bg-white/60 block group h-full overflow-hidden transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-[0_8px_24px_rgba(59,130,246,0.2)] hover:bg-brand-50/60"
               >
                 <div className="p-4 flex flex-col justify-between gap-2 h-full">
                   <div className="space-y-1.5">
