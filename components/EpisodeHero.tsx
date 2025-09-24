@@ -25,6 +25,10 @@ export default function EpisodeHero({
     fallbackUrl = "/images/cooking-dinner-2.png"
     fallbackAlt = "Animated person cooking dinner"
   }
+  if (slug === "a-budget-dilemma-5") {
+    fallbackUrl = "/images/a-budget-dilemma-5.png"
+    fallbackAlt = "Illustration of someone balancing decor choices with a budget"
+  }
 
   const src = imageUrl || fallbackUrl
   const alt = imageAlt || fallbackAlt || "Episode illustration"

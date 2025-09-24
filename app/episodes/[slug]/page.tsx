@@ -46,6 +46,13 @@ const TEXT_ANSWER_OVERRIDE_MAP: Record<string, Partial<Record<TextAnswerCat, str
     conversation: "What question would you ask the speaker to keep the chat going while you both wait?",
     summary: "In a sentence or two, how would you sum up their commuting dilemma?",
   },
+  "a-budget-dilemma-5": {
+    short: "What’s one small upgrade that would make your place feel more like home right now?",
+    reflective: "How do you decide between saving money and making your space comfortable?",
+    personal: "Tell a quick story about a time you stretched your budget to improve your space.",
+    conversation: "What could you ask the speaker to understand their plan for staying on budget?",
+    summary: "How would you describe the trade-off at the heart of this episode in one or two sentences?",
+  },
 }
 
 const TEXT_HELPER_OVERRIDE_MAP: Record<string, Partial<Record<TextAnswerCat, string[]>>> = {
@@ -107,6 +114,33 @@ const TEXT_HELPER_OVERRIDE_MAP: Record<string, Partial<Record<TextAnswerCat, str
       "It all comes down to…",
     ],
   },
+  "a-budget-dilemma-5": {
+    short: [
+      "A quick win for me is…",
+      "Even with a tight budget, I…",
+      "If friends are coming over, I focus on…",
+    ],
+    reflective: [
+      "It makes me rethink how I balance…",
+      "When money is limited, I remind myself…",
+      "I notice that comfort usually comes from…",
+    ],
+    personal: [
+      "Last time I moved, I…",
+      "I once borrowed…",
+      "My go-to DIY trick is…",
+    ],
+    conversation: [
+      "Could you walk me through how you…?",
+      "Would it help if we shared…?",
+      "Have you considered swapping…?",
+    ],
+    summary: [
+      "Bottom line: …",
+      "It’s really a choice between…",
+      "The dilemma is balancing…",
+    ],
+  },
 }
 
 const JOURNAL_REFLECTION_OVERRIDE_MAP: Record<string, string[] | undefined> = {
@@ -138,6 +172,13 @@ const JOURNAL_REFLECTION_OVERRIDE_MAP: Record<string, string[] | undefined> = {
     "Who could you call if you needed a ride, and why them?",
     "What small habit keeps you calm while you wait?",
     "If you redesigned this bus schedule, what would you change first?",
+  ],
+  "a-budget-dilemma-5": [
+    "What feelings come up when your space doesn’t match the home you imagine?",
+    "Which small purchases or swaps give you the most comfort per dollar?",
+    "Who do you turn to for home or budget advice, and what do they usually suggest?",
+    "How do you track ‘nice-to-have’ items so they don’t derail your savings?",
+    "What’s one hosting tip that makes people feel welcome without spending much?",
   ],
 }
 

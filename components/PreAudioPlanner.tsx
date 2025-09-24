@@ -6,6 +6,7 @@ const PLACEHOLDER_BY_EPISODE: Record<string, string> = {
   "cooking-dinner-2": "e.g. Use: “throw something together…”, “sheet pan dinner…”, and a sentence like “On busy nights I roast veggies while I set the table.”",
   "decisions-decisions-3": "e.g. Use: “weigh my options…”, “either way…”, and a sentence like “When I’m stuck, I set a timer and pick the choice that feels lighter.”",
   "one-bus-an-hour-4": "e.g. Use: “one bus an hour…”, “backup plan…”, and a sentence like “If I miss it, I text a friend and start walking to the next stop.”",
+  "a-budget-dilemma-5": "e.g. Use: “stretch my budget…”, “borrowed from a friend…”, and a sentence like “I’ll invest in one lamp now and wait on the rug.”",
 }
 
 const DEFAULT_PLACEHOLDER = "e.g. Use: “ended up…”, “supposed to…”, and a sentence like “When I walk in, I’m heading straight to the kitchen.”"
