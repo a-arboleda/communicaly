@@ -50,6 +50,8 @@ export const PHRASES: DeckItem[] = [
   { id: "e4-use-the-wait", type: "phrase", phrase: "I use the wait wisely", meaning: "I stay productive while waiting", example: "I use the wait wisely by clearing a couple of messages.", source: { slug: "one-bus-an-hour-4", title: "Episode 4 — One Bus an Hour" } },
 ]
 
+// NOTE: When you ship a new episode, add its phrasal verbs here with the matching slug
+// so the Practice Lab episode picker stays in sync.
 export const PHRASAL_VERBS: DeckItem[] = [
   { id: "pv-pick-up", type: "phrasal", phrase: "pick up", meaning: "collect or learn", example: "I’ll pick up the kids at 5." },
   { id: "pv-drop-off", type: "phrasal", phrase: "drop off", meaning: "take and leave somewhere", example: "Can you drop me off at the station?" },
@@ -89,6 +91,14 @@ export const PHRASAL_VERBS: DeckItem[] = [
   { id: "pv-kill-time", type: "phrasal", phrase: "kill time", meaning: "do something to make the wait feel shorter", example: "I kill time by walking to the corner shop.", source: { slug: "one-bus-an-hour-4", title: "Episode 4 — One Bus an Hour" } },
   { id: "pv-check-in-with", type: "phrasal", phrase: "check in with", meaning: "contact someone to update or ask for help", example: "I check in with a friend to see if she’s driving past.", source: { slug: "one-bus-an-hour-4", title: "Episode 4 — One Bus an Hour" } },
   { id: "pv-set-a-timer", type: "phrasal", phrase: "set a timer", meaning: "use a timer to manage waiting", example: "I set a timer so I don’t stare at the road for an hour.", source: { slug: "one-bus-an-hour-4", title: "Episode 4 — One Bus an Hour" } },
+  // From Episode 5 — Making a House a Home
+  { id: "pv-spruce-up", type: "phrasal", phrase: "spruce up", meaning: "make something look fresher", example: "I spruce up the living room with plants and new lighting.", source: { slug: "a-budget-dilemma-5", title: "Episode 5 — Making a House a Home" } },
+  { id: "pv-scale-back", type: "phrasal", phrase: "scale back", meaning: "reduce plans or spending", example: "I had to scale back my decor wishlist to stay on budget.", source: { slug: "a-budget-dilemma-5", title: "Episode 5 — Making a House a Home" } },
+  { id: "pv-fall-back-on", type: "phrasal", phrase: "fall back on", meaning: "rely on something when other options fail", example: "When the rug costs too much, I fall back on a borrowed one.", source: { slug: "a-budget-dilemma-5", title: "Episode 5 — Making a House a Home" } },
+  { id: "pv-move-around", type: "phrasal", phrase: "move around", meaning: "rearrange the position of items", example: "I move around the furniture to make the room feel cozier.", source: { slug: "a-budget-dilemma-5", title: "Episode 5 — Making a House a Home" } },
+  { id: "pv-tug-at", type: "phrasal", phrase: "tug at", meaning: "pull gently or stir an emotion", example: "String lights tug at the room just enough to make it feel inviting.", source: { slug: "a-budget-dilemma-5", title: "Episode 5 — Making a House a Home" } },
+  { id: "pv-swap-out", type: "phrasal", phrase: "swap out", meaning: "replace one item with another", example: "I swap out a bright lamp for one with a softer glow.", source: { slug: "a-budget-dilemma-5", title: "Episode 5 — Making a House a Home" } },
+  { id: "pv-layer-in", type: "phrasal", phrase: "layer in", meaning: "add elements gradually to build depth", example: "I layer in textures with pillows and blankets to warm up the space.", source: { slug: "a-budget-dilemma-5", title: "Episode 5 — Making a House a Home" } },
 ]
 
 export const ALL_ITEMS: DeckItem[] = [...PHRASES, ...PHRASAL_VERBS]
