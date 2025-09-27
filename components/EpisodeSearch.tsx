@@ -80,21 +80,33 @@ export default function EpisodeSearch({ episodes }: { episodes: EpisodeItem[] })
       </div>
 
       {allTags.length > 0 && (
-        <div className="flex flex-wrap gap-2">
-          {allTags.map((t) => {
-            const active = selected.has(t)
-            return (
-              <button
-                key={t}
-                onClick={() => toggleTag(t)}
-                className={`tag ${active ? "bg-brand-accent/10 border-brand-accent text-brand-accent" : "tag-accent"}`}
-                aria-pressed={active}
-              >
-                {t}
-              </button>
-            )
-          })}
-        </div>
+        <fieldset className="rounded-xl border border-gray-200 p-3">
+          <legend className="text-sm font-medium text-gray-700">Filter by tag</legend>
+          <div className="mt-2 flex flex-wrap gap-2">
+            {allTags.map((t) => {
+              const active = selected.has(t)
+              return (
+                <label
+                  key={t}
+                  className={`tag cursor-pointer select-none transition ${
+                    active
+                      ? "bg-brand-accent/10 border-brand-accent text-brand-accent"
+                      : "tag-accent"
+                  }`}
+                >
+                  <input
+                    type="checkbox"
+                    value={t}
+                    checked={active}
+                    onChange={() => toggleTag(t)}
+                    className="sr-only"
+                  />
+                  <span>{t}</span>
+                </label>
+              )
+            })}
+          </div>
+        </fieldset>
       )}
 
       <p className="text-sm text-gray-600">Showing {filtered.length} of {episodes.length}</p>

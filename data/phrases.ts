@@ -7,6 +7,9 @@ export type DeckItem = {
   source?: { slug: string; title: string }
 }
 
+const CORE_VERBS_SOURCE = { slug: "core-verbs", title: "Core verbs — everyday English" }
+const CORE_PHRASALS_SOURCE = { slug: "core-phrasals", title: "Core phrasal verbs — everyday English" }
+
 export const PHRASES: DeckItem[] = [
   { id: "p-running-late", type: "phrase", phrase: "I'm running late", meaning: "I'll arrive later than planned", example: "Sorry, I'm running late — be there in 10 minutes." },
   { id: "p-rain-check", type: "phrase", phrase: "I'll take a rain check", meaning: "I'll pass for now, maybe later", example: "Thanks for the invite, but I'll take a rain check tonight." },
@@ -48,33 +51,49 @@ export const PHRASES: DeckItem[] = [
   { id: "e4-if-i-miss-it", type: "phrase", phrase: "If I miss it, I'm stuck", meaning: "Missing the bus leaves me waiting a long time", example: "If I miss it, I'm stuck for another sixty minutes.", source: { slug: "one-bus-an-hour-4", title: "Episode 4 — One Bus an Hour" } },
   { id: "e4-plan-a-backup", type: "phrase", phrase: "I plan a backup ride", meaning: "I prepare an alternative way to travel", example: "I plan a backup ride in case the bus never shows up.", source: { slug: "one-bus-an-hour-4", title: "Episode 4 — One Bus an Hour" } },
   { id: "e4-use-the-wait", type: "phrase", phrase: "I use the wait wisely", meaning: "I stay productive while waiting", example: "I use the wait wisely by clearing a couple of messages.", source: { slug: "one-bus-an-hour-4", title: "Episode 4 — One Bus an Hour" } },
+  // Episode 6 — Where Are My Keys? The Rush-Hour Scramble
+  { id: "e6-pat-down-my-pockets", type: "phrase", phrase: "I pat down my pockets", meaning: "I quickly check every pocket for something missing", example: "Before I panic, I pat down my pockets just in case the keys are there.", source: { slug: "where-are-my-keys-6", title: "Episode 6 — Where Are My Keys? The Rush-Hour Scramble" } },
+  { id: "e6-rush-hour-scramble", type: "phrase", phrase: "It turns into a rush-hour scramble", meaning: "The moment becomes fast and stressful right before leaving", example: "As soon as the phone disappears, it turns into a rush-hour scramble.", source: { slug: "where-are-my-keys-6", title: "Episode 6 — Where Are My Keys? The Rush-Hour Scramble" } },
+  { id: "e6-retrace-my-steps", type: "phrase", phrase: "I retrace my steps", meaning: "I walk back through recent actions to find something", example: "When I lose my wallet, I retrace my steps from the kitchen to the door.", source: { slug: "where-are-my-keys-6", title: "Episode 6 — Where Are My Keys? The Rush-Hour Scramble" } },
+  { id: "e6-drop-spot-by-the-door", type: "phrase", phrase: "I drop them in the dish by the door", meaning: "I place important items in the same spot near the exit", example: "To avoid searching later, I drop them in the dish by the door every night.", source: { slug: "where-are-my-keys-6", title: "Episode 6 — Where Are My Keys? The Rush-Hour Scramble" } },
+  // Practice Lab — Core verbs
+  { id: "core-verb-grab", type: "phrase", phrase: "grab", meaning: "take something quickly before you leave", example: "Grab your keys before you walk out.", source: CORE_VERBS_SOURCE },
+  { id: "core-verb-find", type: "phrase", phrase: "find", meaning: "discover where something is", example: "Did you find the charger under the couch?", source: CORE_VERBS_SOURCE },
+  { id: "core-verb-forget", type: "phrase", phrase: "forget", meaning: "fail to remember something important", example: "I always forget to turn off the lights.", source: CORE_VERBS_SOURCE },
+  { id: "core-verb-remember", type: "phrase", phrase: "remember", meaning: "keep something in mind so you can do it", example: "Remember to send the message after lunch.", source: CORE_VERBS_SOURCE },
+  { id: "core-verb-check", type: "phrase", phrase: "check", meaning: "look to make sure something is correct", example: "Check the train times before you leave.", source: CORE_VERBS_SOURCE },
+  { id: "core-verb-plan", type: "phrase", phrase: "plan", meaning: "decide what you will do ahead of time", example: "Plan your route the night before a big meeting.", source: CORE_VERBS_SOURCE },
+  { id: "core-verb-rush", type: "phrase", phrase: "rush", meaning: "move quickly because you're short on time", example: "I had to rush out the door to make the bus.", source: CORE_VERBS_SOURCE },
+  { id: "core-verb-breathe", type: "phrase", phrase: "breathe", meaning: "take calm breaths to steady yourself", example: "Breathe slowly so you don't panic.", source: CORE_VERBS_SOURCE },
+  { id: "core-verb-organize", type: "phrase", phrase: "organize", meaning: "arrange things so they are easy to find", example: "Organize your bag so everything has a spot.", source: CORE_VERBS_SOURCE },
+  { id: "core-verb-keep", type: "phrase", phrase: "keep", meaning: "continue to store something in the same place", example: "Keep your keys in the bowl by the door.", source: CORE_VERBS_SOURCE },
 ]
 
 // NOTE: When you ship a new episode, add its phrasal verbs here with the matching slug
 // so the Practice Lab episode picker stays in sync.
 export const PHRASAL_VERBS: DeckItem[] = [
-  { id: "pv-pick-up", type: "phrasal", phrase: "pick up", meaning: "collect or learn", example: "I’ll pick up the kids at 5." },
-  { id: "pv-drop-off", type: "phrasal", phrase: "drop off", meaning: "take and leave somewhere", example: "Can you drop me off at the station?" },
-  { id: "pv-figure-out", type: "phrasal", phrase: "figure out", meaning: "find the answer / understand", example: "We need to figure out a better plan." },
-  { id: "pv-find-out", type: "phrasal", phrase: "find out", meaning: "discover information", example: "I'll find out and let you know." },
-  { id: "pv-work-out", type: "phrasal", phrase: "work out", meaning: "exercise or solve", example: "It took a while to work out the issue." },
-  { id: "pv-set-up", type: "phrasal", phrase: "set up", meaning: "arrange / establish", example: "Let's set up a meeting for Friday." },
-  { id: "pv-turn-on", type: "phrasal", phrase: "turn on/off", meaning: "switch a device", example: "Please turn off the lights when you leave." },
-  { id: "pv-put-off", type: "phrasal", phrase: "put off", meaning: "postpone / delay", example: "We had to put off the presentation." },
-  { id: "pv-bring-up", type: "phrasal", phrase: "bring up", meaning: "mention a topic", example: "She brought up an interesting point." },
-  { id: "pv-look-after", type: "phrasal", phrase: "look after", meaning: "take care of", example: "Can you look after the cat?" },
-  { id: "pv-look-for", type: "phrasal", phrase: "look for", meaning: "try to find", example: "I'm looking for my keys." },
-  { id: "pv-run-out-of", type: "phrasal", phrase: "run out of", meaning: "have none left", example: "We ran out of milk." },
-  { id: "pv-come-up-with", type: "phrasal", phrase: "come up with", meaning: "think of / create", example: "Can we come up with another idea?" },
-  { id: "pv-get-along", type: "phrasal", phrase: "get along", meaning: "have a good relationship", example: "They get along really well." },
-  { id: "pv-get-over", type: "phrasal", phrase: "get over", meaning: "recover from", example: "It took time to get over the flu." },
-  { id: "pv-give-up", type: "phrasal", phrase: "give up", meaning: "stop trying", example: "Don't give up — you're close!" },
-  { id: "pv-go-on", type: "phrasal", phrase: "go on", meaning: "continue", example: "Please, go on — I'm listening." },
-  { id: "pv-hang-out", type: "phrasal", phrase: "hang out", meaning: "spend time relaxing", example: "We usually hang out on weekends." },
-  { id: "pv-keep-up", type: "phrasal", phrase: "keep up (with)", meaning: "continue at the same pace", example: "It's hard to keep up with all the news." },
-  { id: "pv-look-forward-to", type: "phrasal", phrase: "look forward to", meaning: "be excited about", example: "I look forward to seeing you." },
-  { id: "pv-make-up", type: "phrasal", phrase: "make up", meaning: "invent or reconcile", example: "He made up an excuse for being late." },
-  { id: "pv-pay-off", type: "phrasal", phrase: "pay off", meaning: "bring good results / finish paying", example: "Your hard work will pay off." },
+  { id: "pv-pick-up", type: "phrasal", phrase: "pick up", meaning: "collect or learn", example: "I’ll pick up the kids at 5.", source: CORE_PHRASALS_SOURCE },
+  { id: "pv-drop-off", type: "phrasal", phrase: "drop off", meaning: "take and leave somewhere", example: "Can you drop me off at the station?", source: CORE_PHRASALS_SOURCE },
+  { id: "pv-figure-out", type: "phrasal", phrase: "figure out", meaning: "find the answer / understand", example: "We need to figure out a better plan.", source: CORE_PHRASALS_SOURCE },
+  { id: "pv-find-out", type: "phrasal", phrase: "find out", meaning: "discover information", example: "I'll find out and let you know.", source: CORE_PHRASALS_SOURCE },
+  { id: "pv-work-out", type: "phrasal", phrase: "work out", meaning: "exercise or solve", example: "It took a while to work out the issue.", source: CORE_PHRASALS_SOURCE },
+  { id: "pv-set-up", type: "phrasal", phrase: "set up", meaning: "arrange / establish", example: "Let's set up a meeting for Friday.", source: CORE_PHRASALS_SOURCE },
+  { id: "pv-turn-on", type: "phrasal", phrase: "turn on/off", meaning: "switch a device", example: "Please turn off the lights when you leave.", source: CORE_PHRASALS_SOURCE },
+  { id: "pv-put-off", type: "phrasal", phrase: "put off", meaning: "postpone / delay", example: "We had to put off the presentation.", source: CORE_PHRASALS_SOURCE },
+  { id: "pv-bring-up", type: "phrasal", phrase: "bring up", meaning: "mention a topic", example: "She brought up an interesting point.", source: CORE_PHRASALS_SOURCE },
+  { id: "pv-look-after", type: "phrasal", phrase: "look after", meaning: "take care of", example: "Can you look after the cat?", source: CORE_PHRASALS_SOURCE },
+  { id: "pv-look-for", type: "phrasal", phrase: "look for", meaning: "try to find", example: "I'm looking for my keys.", source: CORE_PHRASALS_SOURCE },
+  { id: "pv-run-out-of", type: "phrasal", phrase: "run out of", meaning: "have none left", example: "We ran out of milk.", source: CORE_PHRASALS_SOURCE },
+  { id: "pv-come-up-with", type: "phrasal", phrase: "come up with", meaning: "think of / create", example: "Can we come up with another idea?", source: CORE_PHRASALS_SOURCE },
+  { id: "pv-get-along", type: "phrasal", phrase: "get along", meaning: "have a good relationship", example: "They get along really well.", source: CORE_PHRASALS_SOURCE },
+  { id: "pv-get-over", type: "phrasal", phrase: "get over", meaning: "recover from", example: "It took time to get over the flu.", source: CORE_PHRASALS_SOURCE },
+  { id: "pv-give-up", type: "phrasal", phrase: "give up", meaning: "stop trying", example: "Don't give up — you're close!", source: CORE_PHRASALS_SOURCE },
+  { id: "pv-go-on", type: "phrasal", phrase: "go on", meaning: "continue", example: "Please, go on — I'm listening.", source: CORE_PHRASALS_SOURCE },
+  { id: "pv-hang-out", type: "phrasal", phrase: "hang out", meaning: "spend time relaxing", example: "We usually hang out on weekends.", source: CORE_PHRASALS_SOURCE },
+  { id: "pv-keep-up", type: "phrasal", phrase: "keep up (with)", meaning: "continue at the same pace", example: "It's hard to keep up with all the news.", source: CORE_PHRASALS_SOURCE },
+  { id: "pv-look-forward-to", type: "phrasal", phrase: "look forward to", meaning: "be excited about", example: "I look forward to seeing you.", source: CORE_PHRASALS_SOURCE },
+  { id: "pv-make-up", type: "phrasal", phrase: "make up", meaning: "invent or reconcile", example: "He made up an excuse for being late.", source: CORE_PHRASALS_SOURCE },
+  { id: "pv-pay-off", type: "phrasal", phrase: "pay off", meaning: "bring good results / finish paying", example: "Your hard work will pay off.", source: CORE_PHRASALS_SOURCE },
   // Phrasal verbs from episodes
   { id: "pv-wake-up", type: "phrasal", phrase: "wake up", meaning: "stop sleeping / become alert", example: "Coffee helps me wake up.", source: { slug: "morning-coffee-1", title: "Episode 1 — Morning Coffee" } },
   { id: "pv-head-out", type: "phrasal", phrase: "head out", meaning: "leave / depart", example: "I head out around 8:30.", source: { slug: "morning-coffee-1", title: "Episode 1 — Morning Coffee" } },
@@ -99,6 +118,11 @@ export const PHRASAL_VERBS: DeckItem[] = [
   { id: "pv-tug-at", type: "phrasal", phrase: "tug at", meaning: "pull gently or stir an emotion", example: "String lights tug at the room just enough to make it feel inviting.", source: { slug: "a-budget-dilemma-5", title: "Episode 5 — Making a House a Home" } },
   { id: "pv-swap-out", type: "phrasal", phrase: "swap out", meaning: "replace one item with another", example: "I swap out a bright lamp for one with a softer glow.", source: { slug: "a-budget-dilemma-5", title: "Episode 5 — Making a House a Home" } },
   { id: "pv-layer-in", type: "phrasal", phrase: "layer in", meaning: "add elements gradually to build depth", example: "I layer in textures with pillows and blankets to warm up the space.", source: { slug: "a-budget-dilemma-5", title: "Episode 5 — Making a House a Home" } },
+  // From Episode 6 — Where Are My Keys? The Rush-Hour Scramble
+  { id: "pv-dig-through", type: "phrasal", phrase: "dig through", meaning: "search through something thoroughly", example: "I dig through the sofa cushions hoping the keys fell there.", source: { slug: "where-are-my-keys-6", title: "Episode 6 — Where Are My Keys? The Rush-Hour Scramble" } },
+  { id: "pv-check-under", type: "phrasal", phrase: "check under", meaning: "look beneath something for a missing item", example: "I check under the mail pile to see if the phone slid away.", source: { slug: "where-are-my-keys-6", title: "Episode 6 — Where Are My Keys? The Rush-Hour Scramble" } },
+  { id: "pv-track-down", type: "phrasal", phrase: "track down", meaning: "find something after searching", example: "It takes five minutes to track down the keys clipped to my bag.", source: { slug: "where-are-my-keys-6", title: "Episode 6 — Where Are My Keys? The Rush-Hour Scramble" } },
+  { id: "pv-calm-down", type: "phrasal", phrase: "calm down", meaning: "slow your breathing and reduce stress", example: "Once everything is in my hands, I calm down before heading out.", source: { slug: "where-are-my-keys-6", title: "Episode 6 — Where Are My Keys? The Rush-Hour Scramble" } },
 ]
 
 export const ALL_ITEMS: DeckItem[] = [...PHRASES, ...PHRASAL_VERBS]

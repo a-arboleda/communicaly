@@ -53,6 +53,13 @@ const TEXT_ANSWER_OVERRIDE_MAP: Record<string, Partial<Record<TextAnswerCat, str
     conversation: "What could you ask the speaker to understand their plan for staying on budget?",
     summary: "How would you describe the trade-off at the heart of this episode in one or two sentences?",
   },
+  "where-are-my-keys-6": {
+    short: "What’s the first thing you do when you realize your keys are missing?",
+    reflective: "How do those frantic pre-departure moments usually affect the rest of your day?",
+    personal: "Share a quick story about a time a missing item almost made you late.",
+    conversation: "What could you ask the speaker to help them track the keys down faster?",
+    summary: "In one or two sentences, how would you retell this rush-hour scramble?",
+  },
 }
 
 const TEXT_HELPER_OVERRIDE_MAP: Record<string, Partial<Record<TextAnswerCat, string[]>>> = {
@@ -141,6 +148,33 @@ const TEXT_HELPER_OVERRIDE_MAP: Record<string, Partial<Record<TextAnswerCat, str
       "The dilemma is balancing…",
     ],
   },
+  "where-are-my-keys-6": {
+    short: [
+      "First, I check…",
+      "My quick move is…",
+      "I always retrace…",
+    ],
+    reflective: [
+      "Moments like this remind me…",
+      "When I misplace things, I notice…",
+      "It throws off my morning because…",
+    ],
+    personal: [
+      "One time I almost left without…",
+      "I once tore apart the couch because…",
+      "My worst rush-hour search was when…",
+    ],
+    conversation: [
+      "Did you check…?",
+      "Could it be in…?",
+      "Want me to call your phone so we can listen for it?",
+    ],
+    summary: [
+      "Quick recap: …",
+      "Basically, they…",
+      "The whole scene is…",
+    ],
+  },
 }
 
 const JOURNAL_REFLECTION_OVERRIDE_MAP: Record<string, string[] | undefined> = {
@@ -179,6 +213,13 @@ const JOURNAL_REFLECTION_OVERRIDE_MAP: Record<string, string[] | undefined> = {
     "Who do you turn to for home or budget advice, and what do they usually suggest?",
     "How do you track ‘nice-to-have’ items so they don’t derail your savings?",
     "What’s one hosting tip that makes people feel welcome without spending much?",
+  ],
+  "where-are-my-keys-6": [
+    "What routine helps you keep essentials where they belong before you head out?",
+    "How do you steady yourself when a missing item throws off your schedule?",
+    "Who do you text or call when you need a quick rescue, and why them?",
+    "What backup plans keep you from arriving late if the search takes too long?",
+    "What change could make hectic mornings feel calmer next week?",
   ],
 }
 

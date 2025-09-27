@@ -3,6 +3,9 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import { useRouter, useSearchParams } from "next/navigation"
 import { ALL_ITEMS, type DeckItem } from "@/data/phrases"
 
+const CORE_VERBS_SLUG = "core-verbs"
+const CORE_PHRASALS_SLUG = "core-phrasals"
+
 function shuffle<T>(arr: T[]): T[] {
   const a = [...arr]
   for (let i = a.length - 1; i > 0; i--) {
@@ -77,16 +80,33 @@ export default function EpisodeDrills() {
   const episodeOptions = useMemo(() => {
     const m = new Map<string, string>()
     for (const it of ALL_ITEMS) {
-      if (it.type === "phrasal" && it.source) {
+      if (!it.source) continue
+      if (it.type === "phrasal" || it.source.slug === CORE_VERBS_SLUG) {
         m.set(it.source.slug, it.source.title)
       }
     }
-    return [...m.entries()].map(([slug, title]) => ({ slug, title }))
+    const rank = (slug: string) => {
+      if (slug === CORE_VERBS_SLUG) return 0
+      if (slug === CORE_PHRASALS_SLUG) return 1
+      return 2
+    }
+    return [...m.entries()]
+      .map(([slug, title], index) => ({ slug, title, index }))
+      .sort((a, b) => {
+        const diff = rank(a.slug) - rank(b.slug)
+        if (diff !== 0) return diff
+        return a.index - b.index
+      })
+      .map(({ slug, title }) => ({ slug, title }))
   }, [])
 
   const items = useMemo<DeckItem[]>(() => {
-    const pool = ALL_ITEMS.filter(i => i.type === "phrasal" && i.source && (!ep || i.source.slug === ep))
-    return pool
+    return ALL_ITEMS.filter((item) => {
+      if (!item.source) return false
+      if (ep && item.source.slug !== ep) return false
+      if (item.source.slug === CORE_VERBS_SLUG) return true
+      return item.type === "phrasal"
+    })
   }, [ep])
 
   function interleaveByEpisode(pool: DeckItem[], size: number): DeckItem[] {

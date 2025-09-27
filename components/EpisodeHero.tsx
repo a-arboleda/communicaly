@@ -29,6 +29,10 @@ export default function EpisodeHero({
     fallbackUrl = "/images/a-budget-dilemma-5.png"
     fallbackAlt = "Illustration of someone balancing decor choices with a budget"
   }
+  if (slug === "where-are-my-keys-6") {
+    fallbackUrl = "/images/where-are-my-keys-6.png"
+    fallbackAlt = "Illustration of a commuter searching for keys by the door"
+  }
 
   const src = imageUrl || fallbackUrl
   const alt = imageAlt || fallbackAlt || "Episode illustration"
