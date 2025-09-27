@@ -33,6 +33,14 @@ export default function EpisodeHero({
     fallbackUrl = "/images/where-are-my-keys-6.png"
     fallbackAlt = "Illustration of a commuter searching for keys by the door"
   }
+  if (slug === "small-surprises-7") {
+    fallbackUrl = "/images/small-surprises-7.png"
+    fallbackAlt = "Illustration of someone moving through small surprises in a day"
+  }
+  if (slug === "tools-plans-patience-8") {
+    fallbackUrl = "/images/tools-plans-patience-8.png"
+    fallbackAlt = "Illustration of tools, plans, and patience for a small project"
+  }
 
   const src = imageUrl || fallbackUrl
   const alt = imageAlt || fallbackAlt || "Episode illustration"

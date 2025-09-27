@@ -60,6 +60,20 @@ const TEXT_ANSWER_OVERRIDE_MAP: Record<string, Partial<Record<TextAnswerCat, str
     conversation: "What could you ask the speaker to help them track the keys down faster?",
     summary: "In one or two sentences, how would you retell this rush-hour scramble?",
   },
+  "small-surprises-7": {
+    short: "Which small surprise from their day caught your attention?",
+    reflective: "How do little unexpected moments change the way your day feels?",
+    personal: "Share a quick story about a day that shifted because of a tiny surprise.",
+    conversation: "What question would you ask them about discovering that new bakery?",
+    summary: "In a sentence or two, how would you sum up their string of small surprises?",
+  },
+  "tools-plans-patience-8": {
+    short: "What’s the first thing you do when a squeaky hinge or shelf project pops up?",
+    reflective: "How does planning your supplies change the way you feel about a repair?",
+    personal: "Share a home project you prepared for and how it went.",
+    conversation: "What could you ask them about making that hardware-store list?",
+    summary: "In a sentence or two, how would you retell their plan-from-list-to-home moment?",
+  },
 }
 
 const TEXT_HELPER_OVERRIDE_MAP: Record<string, Partial<Record<TextAnswerCat, string[]>>> = {
@@ -175,6 +189,62 @@ const TEXT_HELPER_OVERRIDE_MAP: Record<string, Partial<Record<TextAnswerCat, str
       "The whole scene is…",
     ],
   },
+  "small-surprises-7": {
+    short: [
+      "The surprise that stood out was…",
+      "It’s funny how…",
+      "My favorite tiny moment was…",
+    ],
+    reflective: [
+      "Little surprises usually make me…",
+      "When a day starts rough, I…",
+      "I notice that unexpected moments…",
+    ],
+    personal: [
+      "One morning I…",
+      "I once bumped into…",
+      "My version of a small win is…",
+    ],
+    conversation: [
+      "Did the bakery…?",
+      "How often do you…?",
+      "What made you stop when…?",
+      "Should we compare notes on…?",
+    ],
+    summary: [
+      "Overall, their day…",
+      "In short, they…",
+      "The thread linking everything is…",
+    ],
+  },
+  "tools-plans-patience-8": {
+    short: [
+      "My first step is…",
+      "I always write down…",
+      "Before I head out, I…",
+    ],
+    reflective: [
+      "Planning ahead usually makes me…",
+      "When I’m in a hardware store, I…",
+      "I notice that getting advice…",
+    ],
+    personal: [
+      "One small fix I remember is…",
+      "I once asked an employee…",
+      "My version of prepping is…",
+    ],
+    conversation: [
+      "Could you show me how you…?",
+      "What made you pick…?",
+      "Do you think I should…?",
+      "Should we compare our lists for…?",
+    ],
+    summary: [
+      "Overall, their plan…",
+      "In short, they…",
+      "The key link is…",
+    ],
+  },
 }
 
 const JOURNAL_REFLECTION_OVERRIDE_MAP: Record<string, string[] | undefined> = {
@@ -220,6 +290,20 @@ const JOURNAL_REFLECTION_OVERRIDE_MAP: Record<string, string[] | undefined> = {
     "Who do you text or call when you need a quick rescue, and why them?",
     "What backup plans keep you from arriving late if the search takes too long?",
     "What change could make hectic mornings feel calmer next week?",
+  ],
+  "small-surprises-7": [
+    "When a morning starts messy, what helps you reset the tone of your day?",
+    "How do you notice and remember the small surprises that happen between tasks?",
+    "Who usually pops up in your day unexpectedly, and how do you respond?",
+    "What’s a recent discovery in your neighborhood that made you smile?",
+    "How do you wind down on days that felt ordinary but still held little wins?",
+  ],
+  "tools-plans-patience-8": [
+    "How do you decide which tools or supplies to buy before starting a project?",
+    "What smells, sounds, or sights in a hardware store energize you?",
+    "Who do you ask for help when you’re unsure about what part or tool you need?",
+    "Which small fix taught you the most about patience and planning?",
+    "How do you celebrate finishing a low-key home repair or setup?",
   ],
 }
 

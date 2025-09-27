@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "Escribe tu mensaje de commit:"
+echo "Enter your commit message:"
 read msg
 
 git add .
