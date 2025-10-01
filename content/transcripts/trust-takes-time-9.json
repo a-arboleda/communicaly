@@ -1,0 +1,1785 @@
+{
+  "language_code": null,
+  "segments": [
+    {
+      "text": "Over the years, people have given me all kinds of advice about trusting others. One thing I hear a lot is, \"Trust has to be earned, not given away too easily.\" ",
+      "start_time": 0.099,
+      "end_time": 11.34,
+      "speaker": {
+        "id": "speaker_0",
+        "name": "Speaker 0"
+      },
+      "words": [
+        {
+          "text": "Over",
+          "start_time": 0.099,
+          "end_time": 0.339
+        },
+        {
+          "text": " ",
+          "start_time": 0.339,
+          "end_time": 0.359
+        },
+        {
+          "text": "the",
+          "start_time": 0.359,
+          "end_time": 0.419
+        },
+        {
+          "text": " ",
+          "start_time": 0.419,
+          "end_time": 0.499
+        },
+        {
+          "text": "years,",
+          "start_time": 0.5,
+          "end_time": 1.059
+        },
+        {
+          "text": " ",
+          "start_time": 1.059,
+          "end_time": 1.079
+        },
+        {
+          "text": "people",
+          "start_time": 1.079,
+          "end_time": 1.34
+        },
+        {
+          "text": " ",
+          "start_time": 1.34,
+          "end_time": 1.359
+        },
+        {
+          "text": "have",
+          "start_time": 1.36,
+          "end_time": 1.5
+        },
+        {
+          "text": " ",
+          "start_time": 1.5,
+          "end_time": 1.539
+        },
+        {
+          "text": "given",
+          "start_time": 1.539,
+          "end_time": 1.739
+        },
+        {
+          "text": " ",
+          "start_time": 1.739,
+          "end_time": 1.759
+        },
+        {
+          "text": "me",
+          "start_time": 1.759,
+          "end_time": 1.939
+        },
+        {
+          "text": " ",
+          "start_time": 1.939,
+          "end_time": 2.019
+        },
+        {
+          "text": "all",
+          "start_time": 2.019,
+          "end_time": 2.199
+        },
+        {
+          "text": " ",
+          "start_time": 2.199,
+          "end_time": 2.299
+        },
+        {
+          "text": "kinds",
+          "start_time": 2.299,
+          "end_time": 2.579
+        },
+        {
+          "text": " ",
+          "start_time": 2.579,
+          "end_time": 2.599
+        },
+        {
+          "text": "of",
+          "start_time": 2.599,
+          "end_time": 2.679
+        },
+        {
+          "text": " ",
+          "start_time": 2.679,
+          "end_time": 2.699
+        },
+        {
+          "text": "advice",
+          "start_time": 2.7,
+          "end_time": 3.039
+        },
+        {
+          "text": " ",
+          "start_time": 3.039,
+          "end_time": 3.099
+        },
+        {
+          "text": "about",
+          "start_time": 3.099,
+          "end_time": 3.24
+        },
+        {
+          "text": " ",
+          "start_time": 3.24,
+          "end_time": 3.38
+        },
+        {
+          "text": "trusting",
+          "start_time": 3.38,
+          "end_time": 3.719
+        },
+        {
+          "text": " ",
+          "start_time": 3.719,
+          "end_time": 3.779
+        },
+        {
+          "text": "others.",
+          "start_time": 3.779,
+          "end_time": 4.159
+        },
+        {
+          "text": " ",
+          "start_time": 4.159,
+          "end_time": 4.88
+        },
+        {
+          "text": "One",
+          "start_time": 4.88,
+          "end_time": 5.019
+        },
+        {
+          "text": " ",
+          "start_time": 5.019,
+          "end_time": 5.059
+        },
+        {
+          "text": "thing",
+          "start_time": 5.059,
+          "end_time": 5.179
+        },
+        {
+          "text": " ",
+          "start_time": 5.179,
+          "end_time": 5.279
+        },
+        {
+          "text": "I",
+          "start_time": 5.279,
+          "end_time": 5.359
+        },
+        {
+          "text": " ",
+          "start_time": 5.359,
+          "end_time": 5.399
+        },
+        {
+          "text": "hear",
+          "start_time": 5.4,
+          "end_time": 5.559
+        },
+        {
+          "text": " ",
+          "start_time": 5.559,
+          "end_time": 5.579
+        },
+        {
+          "text": "a",
+          "start_time": 5.579,
+          "end_time": 5.659
+        },
+        {
+          "text": " ",
+          "start_time": 5.659,
+          "end_time": 5.699
+        },
+        {
+          "text": "lot",
+          "start_time": 5.699,
+          "end_time": 5.959
+        },
+        {
+          "text": " ",
+          "start_time": 5.959,
+          "end_time": 6.039
+        },
+        {
+          "text": "is,",
+          "start_time": 6.039,
+          "end_time": 6.319
+        },
+        {
+          "text": " ",
+          "start_time": 6.319,
+          "end_time": 6.839
+        },
+        {
+          "text": "\"Trust",
+          "start_time": 6.839,
+          "end_time": 7.239
+        },
+        {
+          "text": " ",
+          "start_time": 7.239,
+          "end_time": 7.459
+        },
+        {
+          "text": "has",
+          "start_time": 7.46,
+          "end_time": 7.639
+        },
+        {
+          "text": " ",
+          "start_time": 7.639,
+          "end_time": 7.679
+        },
+        {
+          "text": "to",
+          "start_time": 7.679,
+          "end_time": 7.779
+        },
+        {
+          "text": " ",
+          "start_time": 7.779,
+          "end_time": 7.819
+        },
+        {
+          "text": "be",
+          "start_time": 7.819,
+          "end_time": 8.039
+        },
+        {
+          "text": " ",
+          "start_time": 8.039,
+          "end_time": 8.119
+        },
+        {
+          "text": "earned,",
+          "start_time": 8.119,
+          "end_time": 8.659
+        },
+        {
+          "text": " ",
+          "start_time": 8.659,
+          "end_time": 8.699
+        },
+        {
+          "text": "not",
+          "start_time": 8.699,
+          "end_time": 8.9
+        },
+        {
+          "text": " ",
+          "start_time": 8.9,
+          "end_time": 9.02
+        },
+        {
+          "text": "given",
+          "start_time": 9.02,
+          "end_time": 9.239
+        },
+        {
+          "text": " ",
+          "start_time": 9.239,
+          "end_time": 9.34
+        },
+        {
+          "text": "away",
+          "start_time": 9.34,
+          "end_time": 9.619
+        },
+        {
+          "text": " ",
+          "start_time": 9.619,
+          "end_time": 9.639
+        },
+        {
+          "text": "too",
+          "start_time": 9.639,
+          "end_time": 9.779
+        },
+        {
+          "text": " ",
+          "start_time": 9.779,
+          "end_time": 9.84
+        },
+        {
+          "text": "easily.\"",
+          "start_time": 9.84,
+          "end_time": 10.26
+        },
+        {
+          "text": " ",
+          "start_time": 10.26,
+          "end_time": 11.34
+        }
+      ]
+    },
+    {
+      "text": "And to be fair, that really stuck with me. It reminded me not to rush, to let people show me who they are through their actions, not just their words. ",
+      "start_time": 11.34,
+      "end_time": 21.96,
+      "speaker": {
+        "id": "speaker_0",
+        "name": "Speaker 0"
+      },
+      "words": [
+        {
+          "text": "And",
+          "start_time": 11.34,
+          "end_time": 11.439
+        },
+        {
+          "text": " ",
+          "start_time": 11.439,
+          "end_time": 11.46
+        },
+        {
+          "text": "to",
+          "start_time": 11.46,
+          "end_time": 11.539
+        },
+        {
+          "text": " ",
+          "start_time": 11.539,
+          "end_time": 11.579
+        },
+        {
+          "text": "be",
+          "start_time": 11.579,
+          "end_time": 11.739
+        },
+        {
+          "text": " ",
+          "start_time": 11.739,
+          "end_time": 11.799
+        },
+        {
+          "text": "fair,",
+          "start_time": 11.8,
+          "end_time": 12.18
+        },
+        {
+          "text": " ",
+          "start_time": 12.18,
+          "end_time": 12.72
+        },
+        {
+          "text": "that",
+          "start_time": 12.72,
+          "end_time": 12.88
+        },
+        {
+          "text": " ",
+          "start_time": 12.88,
+          "end_time": 12.939
+        },
+        {
+          "text": "really",
+          "start_time": 12.939,
+          "end_time": 13.239
+        },
+        {
+          "text": " ",
+          "start_time": 13.239,
+          "end_time": 13.259
+        },
+        {
+          "text": "stuck",
+          "start_time": 13.259,
+          "end_time": 13.539
+        },
+        {
+          "text": " ",
+          "start_time": 13.539,
+          "end_time": 13.579
+        },
+        {
+          "text": "with",
+          "start_time": 13.579,
+          "end_time": 13.719
+        },
+        {
+          "text": " ",
+          "start_time": 13.719,
+          "end_time": 13.8
+        },
+        {
+          "text": "me.",
+          "start_time": 13.8,
+          "end_time": 14.0
+        },
+        {
+          "text": " ",
+          "start_time": 14.0,
+          "end_time": 14.659
+        },
+        {
+          "text": "It",
+          "start_time": 14.659,
+          "end_time": 14.72
+        },
+        {
+          "text": " ",
+          "start_time": 14.72,
+          "end_time": 14.799
+        },
+        {
+          "text": "reminded",
+          "start_time": 14.799,
+          "end_time": 15.199
+        },
+        {
+          "text": " ",
+          "start_time": 15.199,
+          "end_time": 15.259
+        },
+        {
+          "text": "me",
+          "start_time": 15.259,
+          "end_time": 15.38
+        },
+        {
+          "text": " ",
+          "start_time": 15.38,
+          "end_time": 15.44
+        },
+        {
+          "text": "not",
+          "start_time": 15.44,
+          "end_time": 15.64
+        },
+        {
+          "text": " ",
+          "start_time": 15.64,
+          "end_time": 15.679
+        },
+        {
+          "text": "to",
+          "start_time": 15.679,
+          "end_time": 15.779
+        },
+        {
+          "text": " ",
+          "start_time": 15.779,
+          "end_time": 15.859
+        },
+        {
+          "text": "rush,",
+          "start_time": 15.859,
+          "end_time": 16.199
+        },
+        {
+          "text": " ",
+          "start_time": 16.199,
+          "end_time": 16.84
+        },
+        {
+          "text": "to",
+          "start_time": 16.84,
+          "end_time": 16.92
+        },
+        {
+          "text": " ",
+          "start_time": 16.92,
+          "end_time": 16.96
+        },
+        {
+          "text": "let",
+          "start_time": 16.96,
+          "end_time": 17.059
+        },
+        {
+          "text": " ",
+          "start_time": 17.059,
+          "end_time": 17.179
+        },
+        {
+          "text": "people",
+          "start_time": 17.18,
+          "end_time": 17.399
+        },
+        {
+          "text": " ",
+          "start_time": 17.399,
+          "end_time": 17.5
+        },
+        {
+          "text": "show",
+          "start_time": 17.5,
+          "end_time": 17.64
+        },
+        {
+          "text": " ",
+          "start_time": 17.64,
+          "end_time": 17.699
+        },
+        {
+          "text": "me",
+          "start_time": 17.699,
+          "end_time": 17.78
+        },
+        {
+          "text": " ",
+          "start_time": 17.78,
+          "end_time": 17.84
+        },
+        {
+          "text": "who",
+          "start_time": 17.84,
+          "end_time": 17.959
+        },
+        {
+          "text": " ",
+          "start_time": 17.959,
+          "end_time": 17.98
+        },
+        {
+          "text": "they",
+          "start_time": 17.98,
+          "end_time": 18.12
+        },
+        {
+          "text": " ",
+          "start_time": 18.12,
+          "end_time": 18.18
+        },
+        {
+          "text": "are",
+          "start_time": 18.18,
+          "end_time": 18.299
+        },
+        {
+          "text": " ",
+          "start_time": 18.299,
+          "end_time": 18.379
+        },
+        {
+          "text": "through",
+          "start_time": 18.379,
+          "end_time": 18.5
+        },
+        {
+          "text": " ",
+          "start_time": 18.5,
+          "end_time": 18.539
+        },
+        {
+          "text": "their",
+          "start_time": 18.539,
+          "end_time": 18.719
+        },
+        {
+          "text": " ",
+          "start_time": 18.719,
+          "end_time": 18.819
+        },
+        {
+          "text": "actions,",
+          "start_time": 18.819,
+          "end_time": 19.399
+        },
+        {
+          "text": " ",
+          "start_time": 19.399,
+          "end_time": 19.439
+        },
+        {
+          "text": "not",
+          "start_time": 19.439,
+          "end_time": 19.579
+        },
+        {
+          "text": " ",
+          "start_time": 19.579,
+          "end_time": 19.68
+        },
+        {
+          "text": "just",
+          "start_time": 19.68,
+          "end_time": 19.8
+        },
+        {
+          "text": " ",
+          "start_time": 19.8,
+          "end_time": 19.859
+        },
+        {
+          "text": "their",
+          "start_time": 19.859,
+          "end_time": 20.0
+        },
+        {
+          "text": " ",
+          "start_time": 20.0,
+          "end_time": 20.079
+        },
+        {
+          "text": "words.",
+          "start_time": 20.079,
+          "end_time": 20.539
+        },
+        {
+          "text": " ",
+          "start_time": 20.539,
+          "end_time": 21.96
+        }
+      ]
+    },
+    {
+      "text": "Another piece of advice I've held onto is, \"Pay attention to the small things.\" [laughs] Like if someone keeps the little promises, they're more likely to keep the big ones. If they can't show up for something simple, then maybe they're not ready for real responsibility. ",
+      "start_time": 21.96,
+      "end_time": 38.459,
+      "speaker": {
+        "id": "speaker_0",
+        "name": "Speaker 0"
+      },
+      "words": [
+        {
+          "text": "Another",
+          "start_time": 21.96,
+          "end_time": 22.159
+        },
+        {
+          "text": " ",
+          "start_time": 22.159,
+          "end_time": 22.26
+        },
+        {
+          "text": "piece",
+          "start_time": 22.26,
+          "end_time": 22.399
+        },
+        {
+          "text": " ",
+          "start_time": 22.399,
+          "end_time": 22.42
+        },
+        {
+          "text": "of",
+          "start_time": 22.42,
+          "end_time": 22.479
+        },
+        {
+          "text": " ",
+          "start_time": 22.479,
+          "end_time": 22.52
+        },
+        {
+          "text": "advice",
+          "start_time": 22.52,
+          "end_time": 22.84
+        },
+        {
+          "text": " ",
+          "start_time": 22.84,
+          "end_time": 22.899
+        },
+        {
+          "text": "I've",
+          "start_time": 22.899,
+          "end_time": 23.02
+        },
+        {
+          "text": " ",
+          "start_time": 23.02,
+          "end_time": 23.059
+        },
+        {
+          "text": "held",
+          "start_time": 23.059,
+          "end_time": 23.219
+        },
+        {
+          "text": " ",
+          "start_time": 23.219,
+          "end_time": 23.299
+        },
+        {
+          "text": "onto",
+          "start_time": 23.299,
+          "end_time": 23.62
+        },
+        {
+          "text": " ",
+          "start_time": 23.62,
+          "end_time": 23.68
+        },
+        {
+          "text": "is,",
+          "start_time": 23.68,
+          "end_time": 23.92
+        },
+        {
+          "text": " ",
+          "start_time": 23.92,
+          "end_time": 24.539
+        },
+        {
+          "text": "\"Pay",
+          "start_time": 24.539,
+          "end_time": 24.68
+        },
+        {
+          "text": " ",
+          "start_time": 24.68,
+          "end_time": 24.76
+        },
+        {
+          "text": "attention",
+          "start_time": 24.76,
+          "end_time": 25.2
+        },
+        {
+          "text": " ",
+          "start_time": 25.2,
+          "end_time": 25.279
+        },
+        {
+          "text": "to",
+          "start_time": 25.279,
+          "end_time": 25.36
+        },
+        {
+          "text": " ",
+          "start_time": 25.36,
+          "end_time": 25.399
+        },
+        {
+          "text": "the",
+          "start_time": 25.399,
+          "end_time": 25.46
+        },
+        {
+          "text": " ",
+          "start_time": 25.46,
+          "end_time": 25.579
+        },
+        {
+          "text": "small",
+          "start_time": 25.579,
+          "end_time": 25.899
+        },
+        {
+          "text": " ",
+          "start_time": 25.899,
+          "end_time": 25.959
+        },
+        {
+          "text": "things.\"",
+          "start_time": 25.959,
+          "end_time": 26.399
+        },
+        {
+          "text": " ",
+          "start_time": 26.399,
+          "end_time": 27.0
+        },
+        {
+          "text": "[laughs]",
+          "start_time": 27.0,
+          "end_time": 27.819
+        },
+        {
+          "text": " ",
+          "start_time": 27.819,
+          "end_time": 27.879
+        },
+        {
+          "text": "Like",
+          "start_time": 27.879,
+          "end_time": 28.079
+        },
+        {
+          "text": " ",
+          "start_time": 28.079,
+          "end_time": 28.42
+        },
+        {
+          "text": "if",
+          "start_time": 28.42,
+          "end_time": 28.479
+        },
+        {
+          "text": " ",
+          "start_time": 28.479,
+          "end_time": 28.539
+        },
+        {
+          "text": "someone",
+          "start_time": 28.539,
+          "end_time": 28.779
+        },
+        {
+          "text": " ",
+          "start_time": 28.779,
+          "end_time": 28.839
+        },
+        {
+          "text": "keeps",
+          "start_time": 28.84,
+          "end_time": 29.02
+        },
+        {
+          "text": " ",
+          "start_time": 29.02,
+          "end_time": 29.059
+        },
+        {
+          "text": "the",
+          "start_time": 29.059,
+          "end_time": 29.139
+        },
+        {
+          "text": " ",
+          "start_time": 29.139,
+          "end_time": 29.199
+        },
+        {
+          "text": "little",
+          "start_time": 29.199,
+          "end_time": 29.379
+        },
+        {
+          "text": " ",
+          "start_time": 29.379,
+          "end_time": 29.439
+        },
+        {
+          "text": "promises,",
+          "start_time": 29.439,
+          "end_time": 30.439
+        },
+        {
+          "text": " ",
+          "start_time": 30.439,
+          "end_time": 30.479
+        },
+        {
+          "text": "they're",
+          "start_time": 30.479,
+          "end_time": 30.6
+        },
+        {
+          "text": " ",
+          "start_time": 30.6,
+          "end_time": 30.62
+        },
+        {
+          "text": "more",
+          "start_time": 30.62,
+          "end_time": 30.76
+        },
+        {
+          "text": " ",
+          "start_time": 30.76,
+          "end_time": 30.819
+        },
+        {
+          "text": "likely",
+          "start_time": 30.819,
+          "end_time": 31.079
+        },
+        {
+          "text": " ",
+          "start_time": 31.079,
+          "end_time": 31.12
+        },
+        {
+          "text": "to",
+          "start_time": 31.12,
+          "end_time": 31.2
+        },
+        {
+          "text": " ",
+          "start_time": 31.2,
+          "end_time": 31.259
+        },
+        {
+          "text": "keep",
+          "start_time": 31.26,
+          "end_time": 31.399
+        },
+        {
+          "text": " ",
+          "start_time": 31.399,
+          "end_time": 31.44
+        },
+        {
+          "text": "the",
+          "start_time": 31.44,
+          "end_time": 31.479
+        },
+        {
+          "text": " ",
+          "start_time": 31.479,
+          "end_time": 31.539
+        },
+        {
+          "text": "big",
+          "start_time": 31.539,
+          "end_time": 31.679
+        },
+        {
+          "text": " ",
+          "start_time": 31.679,
+          "end_time": 31.739
+        },
+        {
+          "text": "ones.",
+          "start_time": 31.739,
+          "end_time": 32.1
+        },
+        {
+          "text": " ",
+          "start_time": 32.1,
+          "end_time": 32.879
+        },
+        {
+          "text": "If",
+          "start_time": 32.88,
+          "end_time": 32.959
+        },
+        {
+          "text": " ",
+          "start_time": 32.959,
+          "end_time": 32.979
+        },
+        {
+          "text": "they",
+          "start_time": 32.979,
+          "end_time": 33.08
+        },
+        {
+          "text": " ",
+          "start_time": 33.08,
+          "end_time": 33.119
+        },
+        {
+          "text": "can't",
+          "start_time": 33.119,
+          "end_time": 33.34
+        },
+        {
+          "text": " ",
+          "start_time": 33.34,
+          "end_time": 33.38
+        },
+        {
+          "text": "show",
+          "start_time": 33.38,
+          "end_time": 33.5
+        },
+        {
+          "text": " ",
+          "start_time": 33.5,
+          "end_time": 33.56
+        },
+        {
+          "text": "up",
+          "start_time": 33.56,
+          "end_time": 33.68
+        },
+        {
+          "text": " ",
+          "start_time": 33.68,
+          "end_time": 33.72
+        },
+        {
+          "text": "for",
+          "start_time": 33.72,
+          "end_time": 33.819
+        },
+        {
+          "text": " ",
+          "start_time": 33.819,
+          "end_time": 33.86
+        },
+        {
+          "text": "something",
+          "start_time": 33.86,
+          "end_time": 34.18
+        },
+        {
+          "text": " ",
+          "start_time": 34.18,
+          "end_time": 34.24
+        },
+        {
+          "text": "simple,",
+          "start_time": 34.24,
+          "end_time": 35.04
+        },
+        {
+          "text": " ",
+          "start_time": 35.04,
+          "end_time": 35.08
+        },
+        {
+          "text": "then",
+          "start_time": 35.08,
+          "end_time": 35.22
+        },
+        {
+          "text": " ",
+          "start_time": 35.22,
+          "end_time": 35.26
+        },
+        {
+          "text": "maybe",
+          "start_time": 35.26,
+          "end_time": 35.459
+        },
+        {
+          "text": " ",
+          "start_time": 35.459,
+          "end_time": 35.479
+        },
+        {
+          "text": "they're",
+          "start_time": 35.479,
+          "end_time": 35.639
+        },
+        {
+          "text": " ",
+          "start_time": 35.639,
+          "end_time": 35.659
+        },
+        {
+          "text": "not",
+          "start_time": 35.659,
+          "end_time": 35.799
+        },
+        {
+          "text": " ",
+          "start_time": 35.799,
+          "end_time": 35.86
+        },
+        {
+          "text": "ready",
+          "start_time": 35.86,
+          "end_time": 36.06
+        },
+        {
+          "text": " ",
+          "start_time": 36.06,
+          "end_time": 36.099
+        },
+        {
+          "text": "for",
+          "start_time": 36.099,
+          "end_time": 36.2
+        },
+        {
+          "text": " ",
+          "start_time": 36.2,
+          "end_time": 36.26
+        },
+        {
+          "text": "real",
+          "start_time": 36.26,
+          "end_time": 36.4
+        },
+        {
+          "text": " ",
+          "start_time": 36.4,
+          "end_time": 36.459
+        },
+        {
+          "text": "responsibility.",
+          "start_time": 36.459,
+          "end_time": 37.279
+        },
+        {
+          "text": " ",
+          "start_time": 37.279,
+          "end_time": 38.459
+        }
+      ]
+    },
+    {
+      "text": "And one of my favorite reminders is, \"Don't let fear stop you from trusting,\" because yeah, you might get hurt, but shutting everyone out isn't the answer either. The people who matter will prove themselves over time. That mix of caution and openness has helped me. Take your time, but don't close the door completely. ",
+      "start_time": 38.459,
+      "end_time": 64.5,
+      "speaker": {
+        "id": "speaker_0",
+        "name": "Speaker 0"
+      },
+      "words": [
+        {
+          "text": "And",
+          "start_time": 38.459,
+          "end_time": 38.56
+        },
+        {
+          "text": " ",
+          "start_time": 38.56,
+          "end_time": 38.6
+        },
+        {
+          "text": "one",
+          "start_time": 38.6,
+          "end_time": 38.68
+        },
+        {
+          "text": " ",
+          "start_time": 38.68,
+          "end_time": 38.7
+        },
+        {
+          "text": "of",
+          "start_time": 38.7,
+          "end_time": 38.779
+        },
+        {
+          "text": " ",
+          "start_time": 38.779,
+          "end_time": 38.84
+        },
+        {
+          "text": "my",
+          "start_time": 38.84,
+          "end_time": 39.019
+        },
+        {
+          "text": " ",
+          "start_time": 39.02,
+          "end_time": 39.08
+        },
+        {
+          "text": "favorite",
+          "start_time": 39.08,
+          "end_time": 39.4
+        },
+        {
+          "text": " ",
+          "start_time": 39.4,
+          "end_time": 39.459
+        },
+        {
+          "text": "reminders",
+          "start_time": 39.459,
+          "end_time": 39.979
+        },
+        {
+          "text": " ",
+          "start_time": 39.979,
+          "end_time": 40.06
+        },
+        {
+          "text": "is,",
+          "start_time": 40.06,
+          "end_time": 41.099
+        },
+        {
+          "text": " ",
+          "start_time": 41.099,
+          "end_time": 41.139
+        },
+        {
+          "text": "\"Don't",
+          "start_time": 41.139,
+          "end_time": 41.399
+        },
+        {
+          "text": " ",
+          "start_time": 41.399,
+          "end_time": 41.479
+        },
+        {
+          "text": "let",
+          "start_time": 41.479,
+          "end_time": 41.619
+        },
+        {
+          "text": " ",
+          "start_time": 41.619,
+          "end_time": 41.819
+        },
+        {
+          "text": "fear",
+          "start_time": 41.819,
+          "end_time": 42.139
+        },
+        {
+          "text": " ",
+          "start_time": 42.139,
+          "end_time": 42.22
+        },
+        {
+          "text": "stop",
+          "start_time": 42.22,
+          "end_time": 42.5
+        },
+        {
+          "text": " ",
+          "start_time": 42.5,
+          "end_time": 42.56
+        },
+        {
+          "text": "you",
+          "start_time": 42.56,
+          "end_time": 42.659
+        },
+        {
+          "text": " ",
+          "start_time": 42.659,
+          "end_time": 42.7
+        },
+        {
+          "text": "from",
+          "start_time": 42.7,
+          "end_time": 42.819
+        },
+        {
+          "text": " ",
+          "start_time": 42.819,
+          "end_time": 42.919
+        },
+        {
+          "text": "trusting,\"",
+          "start_time": 42.919,
+          "end_time": 44.479
+        },
+        {
+          "text": " ",
+          "start_time": 44.479,
+          "end_time": 44.54
+        },
+        {
+          "text": "because",
+          "start_time": 44.54,
+          "end_time": 44.779
+        },
+        {
+          "text": " ",
+          "start_time": 44.779,
+          "end_time": 44.879
+        },
+        {
+          "text": "yeah,",
+          "start_time": 44.879,
+          "end_time": 45.2
+        },
+        {
+          "text": " ",
+          "start_time": 45.2,
+          "end_time": 45.26
+        },
+        {
+          "text": "you",
+          "start_time": 45.26,
+          "end_time": 45.34
+        },
+        {
+          "text": " ",
+          "start_time": 45.34,
+          "end_time": 45.36
+        },
+        {
+          "text": "might",
+          "start_time": 45.36,
+          "end_time": 45.52
+        },
+        {
+          "text": " ",
+          "start_time": 45.52,
+          "end_time": 45.58
+        },
+        {
+          "text": "get",
+          "start_time": 45.58,
+          "end_time": 45.68
+        },
+        {
+          "text": " ",
+          "start_time": 45.68,
+          "end_time": 45.76
+        },
+        {
+          "text": "hurt,",
+          "start_time": 45.76,
+          "end_time": 46.74
+        },
+        {
+          "text": " ",
+          "start_time": 46.74,
+          "end_time": 46.799
+        },
+        {
+          "text": "but",
+          "start_time": 46.799,
+          "end_time": 46.959
+        },
+        {
+          "text": " ",
+          "start_time": 46.959,
+          "end_time": 47.02
+        },
+        {
+          "text": "shutting",
+          "start_time": 47.02,
+          "end_time": 47.259
+        },
+        {
+          "text": " ",
+          "start_time": 47.259,
+          "end_time": 47.299
+        },
+        {
+          "text": "everyone",
+          "start_time": 47.299,
+          "end_time": 47.599
+        },
+        {
+          "text": " ",
+          "start_time": 47.599,
+          "end_time": 47.699
+        },
+        {
+          "text": "out",
+          "start_time": 47.7,
+          "end_time": 47.9
+        },
+        {
+          "text": " ",
+          "start_time": 47.9,
+          "end_time": 47.959
+        },
+        {
+          "text": "isn't",
+          "start_time": 47.959,
+          "end_time": 48.2
+        },
+        {
+          "text": " ",
+          "start_time": 48.2,
+          "end_time": 48.22
+        },
+        {
+          "text": "the",
+          "start_time": 48.22,
+          "end_time": 48.299
+        },
+        {
+          "text": " ",
+          "start_time": 48.299,
+          "end_time": 48.36
+        },
+        {
+          "text": "answer",
+          "start_time": 48.36,
+          "end_time": 48.659
+        },
+        {
+          "text": " ",
+          "start_time": 48.659,
+          "end_time": 48.74
+        },
+        {
+          "text": "either.",
+          "start_time": 48.74,
+          "end_time": 49.9
+        },
+        {
+          "text": " ",
+          "start_time": 49.9,
+          "end_time": 49.959
+        },
+        {
+          "text": "The",
+          "start_time": 49.959,
+          "end_time": 50.06
+        },
+        {
+          "text": " ",
+          "start_time": 50.06,
+          "end_time": 50.139
+        },
+        {
+          "text": "people",
+          "start_time": 50.139,
+          "end_time": 50.44
+        },
+        {
+          "text": " ",
+          "start_time": 50.44,
+          "end_time": 50.479
+        },
+        {
+          "text": "who",
+          "start_time": 50.479,
+          "end_time": 50.619
+        },
+        {
+          "text": " ",
+          "start_time": 50.619,
+          "end_time": 50.68
+        },
+        {
+          "text": "matter",
+          "start_time": 50.68,
+          "end_time": 50.979
+        },
+        {
+          "text": " ",
+          "start_time": 50.979,
+          "end_time": 51.02
+        },
+        {
+          "text": "will",
+          "start_time": 51.02,
+          "end_time": 51.219
+        },
+        {
+          "text": " ",
+          "start_time": 51.219,
+          "end_time": 51.279
+        },
+        {
+          "text": "prove",
+          "start_time": 51.279,
+          "end_time": 51.54
+        },
+        {
+          "text": " ",
+          "start_time": 51.54,
+          "end_time": 51.579
+        },
+        {
+          "text": "themselves",
+          "start_time": 51.579,
+          "end_time": 52.079
+        },
+        {
+          "text": " ",
+          "start_time": 52.079,
+          "end_time": 52.139
+        },
+        {
+          "text": "over",
+          "start_time": 52.139,
+          "end_time": 52.339
+        },
+        {
+          "text": " ",
+          "start_time": 52.339,
+          "end_time": 52.4
+        },
+        {
+          "text": "time.",
+          "start_time": 52.4,
+          "end_time": 53.939
+        },
+        {
+          "text": " ",
+          "start_time": 53.939,
+          "end_time": 54.0
+        },
+        {
+          "text": "That",
+          "start_time": 54.0,
+          "end_time": 54.119
+        },
+        {
+          "text": " ",
+          "start_time": 54.119,
+          "end_time": 54.159
+        },
+        {
+          "text": "mix",
+          "start_time": 54.159,
+          "end_time": 54.319
+        },
+        {
+          "text": " ",
+          "start_time": 54.319,
+          "end_time": 54.36
+        },
+        {
+          "text": "of",
+          "start_time": 54.36,
+          "end_time": 54.519
+        },
+        {
+          "text": " ",
+          "start_time": 54.52,
+          "end_time": 54.6
+        },
+        {
+          "text": "caution",
+          "start_time": 54.6,
+          "end_time": 55.259
+        },
+        {
+          "text": " ",
+          "start_time": 55.259,
+          "end_time": 55.319
+        },
+        {
+          "text": "and",
+          "start_time": 55.319,
+          "end_time": 55.5
+        },
+        {
+          "text": " ",
+          "start_time": 55.5,
+          "end_time": 55.58
+        },
+        {
+          "text": "openness",
+          "start_time": 55.58,
+          "end_time": 56.079
+        },
+        {
+          "text": " ",
+          "start_time": 56.079,
+          "end_time": 56.139
+        },
+        {
+          "text": "has",
+          "start_time": 56.139,
+          "end_time": 56.259
+        },
+        {
+          "text": " ",
+          "start_time": 56.259,
+          "end_time": 56.299
+        },
+        {
+          "text": "helped",
+          "start_time": 56.299,
+          "end_time": 56.579
+        },
+        {
+          "text": " ",
+          "start_time": 56.579,
+          "end_time": 56.619
+        },
+        {
+          "text": "me.",
+          "start_time": 56.619,
+          "end_time": 57.939
+        },
+        {
+          "text": " ",
+          "start_time": 57.939,
+          "end_time": 58.02
+        },
+        {
+          "text": "Take",
+          "start_time": 58.02,
+          "end_time": 58.159
+        },
+        {
+          "text": " ",
+          "start_time": 58.159,
+          "end_time": 58.2
+        },
+        {
+          "text": "your",
+          "start_time": 58.2,
+          "end_time": 58.34
+        },
+        {
+          "text": " ",
+          "start_time": 58.34,
+          "end_time": 58.4
+        },
+        {
+          "text": "time,",
+          "start_time": 58.4,
+          "end_time": 59.799
+        },
+        {
+          "text": " ",
+          "start_time": 59.799,
+          "end_time": 59.819
+        },
+        {
+          "text": "but",
+          "start_time": 59.819,
+          "end_time": 59.919
+        },
+        {
+          "text": " ",
+          "start_time": 59.919,
+          "end_time": 59.959
+        },
+        {
+          "text": "don't",
+          "start_time": 59.959,
+          "end_time": 60.18
+        },
+        {
+          "text": " ",
+          "start_time": 60.18,
+          "end_time": 60.22
+        },
+        {
+          "text": "close",
+          "start_time": 60.22,
+          "end_time": 60.479
+        },
+        {
+          "text": " ",
+          "start_time": 60.479,
+          "end_time": 60.54
+        },
+        {
+          "text": "the",
+          "start_time": 60.54,
+          "end_time": 60.619
+        },
+        {
+          "text": " ",
+          "start_time": 60.619,
+          "end_time": 60.659
+        },
+        {
+          "text": "door",
+          "start_time": 60.659,
+          "end_time": 60.84
+        },
+        {
+          "text": " ",
+          "start_time": 60.84,
+          "end_time": 60.9
+        },
+        {
+          "text": "completely.",
+          "start_time": 60.9,
+          "end_time": 63.02
+        },
+        {
+          "text": " ",
+          "start_time": 63.02,
+          "end_time": 64.5
+        }
+      ]
+    },
+    {
+      "text": "Sometimes the risk is exactly what makes the connection worth it.",
+      "start_time": 64.5,
+      "end_time": 68.339,
+      "speaker": {
+        "id": "speaker_0",
+        "name": "Speaker 0"
+      },
+      "words": [
+        {
+          "text": "Sometimes",
+          "start_time": 64.5,
+          "end_time": 65.119
+        },
+        {
+          "text": " ",
+          "start_time": 65.119,
+          "end_time": 65.199
+        },
+        {
+          "text": "the",
+          "start_time": 65.199,
+          "end_time": 65.3
+        },
+        {
+          "text": " ",
+          "start_time": 65.3,
+          "end_time": 65.358
+        },
+        {
+          "text": "risk",
+          "start_time": 65.36,
+          "end_time": 66.319
+        },
+        {
+          "text": " ",
+          "start_time": 66.319,
+          "end_time": 66.379
+        },
+        {
+          "text": "is",
+          "start_time": 66.379,
+          "end_time": 66.479
+        },
+        {
+          "text": " ",
+          "start_time": 66.479,
+          "end_time": 66.54
+        },
+        {
+          "text": "exactly",
+          "start_time": 66.54,
+          "end_time": 66.899
+        },
+        {
+          "text": " ",
+          "start_time": 66.899,
+          "end_time": 66.939
+        },
+        {
+          "text": "what",
+          "start_time": 66.939,
+          "end_time": 67.119
+        },
+        {
+          "text": " ",
+          "start_time": 67.119,
+          "end_time": 67.159
+        },
+        {
+          "text": "makes",
+          "start_time": 67.159,
+          "end_time": 67.339
+        },
+        {
+          "text": " ",
+          "start_time": 67.339,
+          "end_time": 67.4
+        },
+        {
+          "text": "the",
+          "start_time": 67.4,
+          "end_time": 67.499
+        },
+        {
+          "text": " ",
+          "start_time": 67.499,
+          "end_time": 67.519
+        },
+        {
+          "text": "connection",
+          "start_time": 67.519,
+          "end_time": 67.959
+        },
+        {
+          "text": " ",
+          "start_time": 67.959,
+          "end_time": 68.0
+        },
+        {
+          "text": "worth",
+          "start_time": 68.0,
+          "end_time": 68.199
+        },
+        {
+          "text": " ",
+          "start_time": 68.199,
+          "end_time": 68.239
+        },
+        {
+          "text": "it.",
+          "start_time": 68.239,
+          "end_time": 68.339
+        }
+      ]
+    }
+  ]
+}
