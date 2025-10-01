@@ -18,6 +18,14 @@ export type EpisodeMeta = {
   story?: string[];
   keyDetails?: string[];
   tryThis?: string[];
+  practiceActivity?: {
+    tutor?: string[];
+    student?: string[];
+  };
+  practiceQuiz?: Array<{
+    prompt: string;
+    expected: string;
+  }>;
 };
 
 export type EpisodeSummary = EpisodeMeta & { slug: string };

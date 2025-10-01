@@ -488,9 +488,11 @@ export default async function EpisodePage({
       />
 
       <EpisodeHighlights
+        slug={slug}
         story={frontmatter.story}
         keyDetails={frontmatter.keyDetails}
         tryThis={frontmatter.tryThis}
+        practiceQuiz={frontmatter.practiceQuiz}
       />
     </article>
   )

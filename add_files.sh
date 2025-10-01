@@ -110,121 +110,6 @@ export default function AudioPlayer({ src }: { src?: string }) {
 }
 EOF
 
-cat > components/RecordYourself.tsx <<'EOF'
-"use client"
-import { useRef, useState } from "react"
-
-export default function RecordYourself() {
-  const [permissionDenied, setPermissionDenied] = useState(false)
-  const [recording, setRecording] = useState(false)
-  const [audioURL, setAudioURL] = useState<string | null>(null)
-  const mediaRecorderRef = useRef<MediaRecorder | null>(null)
-  const chunksRef = useRef<Blob[]>([])
-
-  async function start() {
-    try {
-      const stream = await navigator.mediaDevices.getUserMedia({ audio: true })
-      const mr = new MediaRecorder(stream)
-      mediaRecorderRef.current = mr
-      chunksRef.current = []
-      mr.ondataavailable = (e) => {
-        if (e.data.size) chunksRef.current.push(e.data)
-      }
-      mr.onstop = () => {
-        const blob = new Blob(chunksRef.current, { type: "audio/webm" })
-        setAudioURL(URL.createObjectURL(blob))
-      }
-      mr.start()
-      setRecording(true)
-    } catch (e) {
-      setPermissionDenied(true)
-    }
-  }
-
-  function stop() {
-    mediaRecorderRef.current?.stop()
-    setRecording(false)
-  }
-
-  if (permissionDenied) {
-    return (
-      <div className="rounded-lg border p-4 bg-gray-100">
-        <p className="text-sm">
-          Recording is optional. You can continue with shadowing and self-rating
-          even without microphone access.
-        </p>
-      </div>
-    )
-  }
-
-  return (
-    <div className="space-y-3">
-      <div className="flex gap-3">
-        {!recording ? (
-          <button onClick={start} className="px-3 py-2 rounded-xl border">
-            Start recording
-          </button>
-        ) : (
-          <button onClick={stop} className="px-3 py-2 rounded-xl border">
-            Stop
-          </button>
-        )}
-      </div>
-      {audioURL && <audio className="w-full" controls src={audioURL} />}
-      <div>
-        <label className="text-sm">Self-rating (1–5): </label>
-        <input
-          type="number"
-          min={1}
-          max={5}
-          defaultValue={3}
-          className="border rounded px-2 py-1 w-20 ml-2"
-        />
-      </div>
-    </div>
-  )
-}
-EOF
-
-cat > components/PhrasebookPdfButton.tsx <<'EOF'
-"use client"
-import jsPDF from "jspdf"
-import html2canvas from "html2canvas"
-import { useRef } from "react"
-
-export default function PhrasebookPdfButton() {
-  const ref = useRef<HTMLDivElement>(null)
-
-  async function handleExport() {
-    const el = ref.current
-    if (!el) return
-    const canvas = await html2canvas(el)
-    const imgData = canvas.toDataURL("image/png")
-    const pdf = new jsPDF({ orientation: "p", unit: "pt", format: "a4" })
-    const pageWidth = pdf.internal.pageSize.getWidth()
-    const pageHeight = (canvas.height * pageWidth) / canvas.width
-    pdf.addImage(imgData, "PNG", 0, 0, pageWidth, pageHeight)
-    pdf.save("phrasebook.pdf")
-  }
-
-  return (
-    <div className="space-y-4">
-      <div ref={ref} className="border rounded-xl p-4">
-        <h3 className="font-semibold mb-2">My Phrasebook</h3>
-        <ul className="list-disc pl-6 space-y-1 text-sm">
-          <li>“Could you say that again, a bit slower?”</li>
-          <li>“Let me make sure I understood…”</li>
-          <li>“Here’s how I’d say it…”</li>
-        </ul>
-      </div>
-      <button onClick={handleExport} className="px-3 py-2 rounded-xl border">
-        Export PDF
-      </button>
-    </div>
-  )
-}
-EOF
-
 # app pages
 cat > app/layout.tsx <<'EOF'
 import type { Metadata } from "next"
@@ -396,8 +281,6 @@ import { notFound } from "next/navigation"
 import { getAllEpisodes, getEpisode } from "@/utils/episodes"
 import { MDXRemote } from "next-mdx-remote/rsc"
 import AudioPlayer from "@/components/AudioPlayer"
-import RecordYourself from "@/components/RecordYourself"
-import PhrasebookPdfButton from "@/components/PhrasebookPdfButton"
 import remarkGfm from "remark-gfm"
 
 export const dynamic = 'force-static'
@@ -423,11 +306,9 @@ export default function EpisodePage({ params }: { params: { slug: string } }){
       <div className="mt-10 space-y-8">
         <section>
           <h2 className="text-xl font-semibold">Record yourself</h2>
-          <RecordYourself />
         </section>
         <section>
           <h2 className="text-xl font-semibold">Save to My Phrasebook</h2>
-          <PhrasebookPdfButton />
         </section>
       </div>
     </article>
