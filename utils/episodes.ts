@@ -24,7 +24,8 @@ export type EpisodeMeta = {
   };
   practiceQuiz?: Array<{
     prompt: string;
-    expected: string;
+    expected?: string;
+    function?: string;
   }>;
 };
 
