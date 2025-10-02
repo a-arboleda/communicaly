@@ -10,6 +10,7 @@ const PLACEHOLDER_BY_EPISODE: Record<string, string> = {
   "where-are-my-keys-6": "e.g. Use: “pat my pockets…”, “rush-hour scramble…”, and a sentence like “I finally spot the keys clipped to my gym bag.”",
   "small-surprises-7": "e.g. Use: “hit snooze…”, “bumped into my neighbor…”, and a sentence like “I wound down watering plants and cooking pasta.”",
   "tools-plans-patience-8": "e.g. Use: “squeaky gate…”, “checked off every aisle…”, and a sentence like “I loaded the car and headed home ready to fix it.”",
+  "trust-takes-time-9": "e.g. Use: “earn my trust…”, “kept the small promise…”, and a sentence like “I stay open but let people prove themselves over time.”",
 }
 
 const DEFAULT_PLACEHOLDER = "e.g. Use: “ended up…”, “supposed to…”, and a sentence like “When I walk in, I’m heading straight to the kitchen.”"

@@ -7,7 +7,9 @@
     "build": "next build --turbopack",
     "start": "next start",
     "lint": "eslint",
-    "deploy": "npm run lint && npm run build && sh ./git-deploy.sh"
+    "deploy": "npm run lint && npm run build && sh ./git-deploy.sh",
+    "check": "npm run lint && npm run build"
+    
   },
   "dependencies": {
     "@vercel/analytics": "^1.5.0",

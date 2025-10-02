@@ -74,6 +74,13 @@ const TEXT_ANSWER_OVERRIDE_MAP: Record<string, Partial<Record<TextAnswerCat, str
     conversation: "What could you ask them about making that hardware-store list?",
     summary: "In a sentence or two, how would you retell their plan-from-list-to-home moment?",
   },
+  "trust-takes-time-9": {
+    short: "Which small promise in the story would make you pay closer attention?",
+    reflective: "How do you usually decide whether someone is earning your trust step by step?",
+    personal: "Tell a quick story about someone who proved themselves to you over time.",
+    conversation: "What follow-up question could you ask the speaker to understand how they balance fear and openness?",
+    summary: "In one or two sentences, how would you retell their advice about letting trust take time?",
+  },
 }
 
 const TEXT_HELPER_OVERRIDE_MAP: Record<string, Partial<Record<TextAnswerCat, string[]>>> = {
@@ -245,6 +252,33 @@ const TEXT_HELPER_OVERRIDE_MAP: Record<string, Partial<Record<TextAnswerCat, str
       "The key link is…",
     ],
   },
+  "trust-takes-time-9": {
+    short: [
+      "The small promise that stood out was…",
+      "I notice trust building when…",
+      "Usually, I wait to see if…",
+    ],
+    reflective: [
+      "Letting trust take time makes me…",
+      "I tend to watch for…",
+      "Balancing caution and openness means…",
+    ],
+    personal: [
+      "One time someone proved themselves by…",
+      "I used to hold back because…",
+      "What changed my mind was…",
+    ],
+    conversation: [
+      "How do you decide who earns your trust?",
+      "What helps you stay open while careful?",
+      "Could you tell me more about the small promises you mentioned?",
+    ],
+    summary: [
+      "In short, they’re saying…",
+      "Overall, their message is…",
+      "The main takeaway for me is…",
+    ],
+  },
 }
 
 const JOURNAL_REFLECTION_OVERRIDE_MAP: Record<string, string[] | undefined> = {
@@ -304,6 +338,13 @@ const JOURNAL_REFLECTION_OVERRIDE_MAP: Record<string, string[] | undefined> = {
     "Who do you ask for help when you’re unsure about what part or tool you need?",
     "Which small fix taught you the most about patience and planning?",
     "How do you celebrate finishing a low-key home repair or setup?",
+  ],
+  "trust-takes-time-9": [
+    "What slows you down when you decide whether to trust someone new?",
+    "Which small promises or actions help you feel ready to rely on someone?",
+    "How do you protect yourself without closing off possible connections?",
+    "Who has earned your trust over time, and what did they consistently do?",
+    "What risk could strengthen a relationship if you took it this month?",
   ],
 }
 
