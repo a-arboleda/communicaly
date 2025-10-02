@@ -2,6 +2,8 @@
 
 import { useState } from "react"
 
+import Details from "./Details"
+
 type TutorStudentQuizItem = {
   prompt: string
   expected?: string
@@ -59,14 +61,13 @@ export default function EpisodeHighlights({
             )}
 
             {showKeyDetails && (
-              <div>
-                <h3 className="font-semibold text-lg text-gray-900">Key details</h3>
-                <ul className="mt-3 list-disc list-inside space-y-2 text-gray-800">
+              <Details title="Key details">
+                <ul className="list-disc list-inside space-y-2 text-gray-800">
                   {keyDetailItems.map((item, idx) => (
                     <li key={`key-${idx}`}>{item}</li>
                   ))}
                 </ul>
-              </div>
+              </Details>
             )}
 
             {showTryThis && (
