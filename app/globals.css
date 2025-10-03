@@ -43,6 +43,8 @@ html, body { background: white; }
 
 /* Neutralize underline utilities on hover/group-hover */
 @layer utilities {
+  .font-journey { font-family: var(--font-serif); }
+  .font-journey-script { font-family: var(--font-journey-script); }
   .hover\:underline:hover { text-decoration-line: none !important; }
   .group:hover .group-hover\:underline { text-decoration-line: none !important; }
 }

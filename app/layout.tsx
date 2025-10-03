@@ -3,13 +3,14 @@ import type { Metadata } from "next"
 import "@/app/globals.css"
 import Navbar from "@/components/Navbar"
 import Footer from "@/components/Footer"
-import { Inter, Playfair_Display } from "next/font/google"
+import { Inter, Playfair_Display, Dancing_Script } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" })
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-serif" })
+const journeyScript = Dancing_Script({ subsets: ["latin"], variable: "--font-journey-script" })
 
 export const metadata: Metadata = {
   title: "Communicaly",
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable} scroll-smooth`}>
+    <html lang="en" className={`${inter.variable} ${playfair.variable} ${journeyScript.variable} scroll-smooth`}>
       <head>
         <link rel="icon" href="/favicon.jpg" />
       </head>
