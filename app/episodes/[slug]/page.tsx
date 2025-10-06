@@ -81,6 +81,13 @@ const TEXT_ANSWER_OVERRIDE_MAP: Record<string, Partial<Record<TextAnswerCat, str
     conversation: "What follow-up question could you ask the speaker to understand how they balance fear and openness?",
     summary: "In one or two sentences, how would you retell their advice about letting trust take time?",
   },
+  "when-meetings-run-long-10": {
+    short: "What clue tells you a meeting is running longer than it should?",
+    reflective: "How do stretched-out meetings change your focus or energy?",
+    personal: "Share a quick story about a meeting that should have ended sooner. What happened?",
+    conversation: "What question could you ask the speaker to help everyone wrap up without sounding rude?",
+    summary: "In one or two sentences, how would you retell their meeting that ran long?",
+  },
 }
 
 const TEXT_HELPER_OVERRIDE_MAP: Record<string, Partial<Record<TextAnswerCat, string[]>>> = {
@@ -279,6 +286,34 @@ const TEXT_HELPER_OVERRIDE_MAP: Record<string, Partial<Record<TextAnswerCat, str
       "The main takeaway for me is…",
     ],
   },
+  "when-meetings-run-long-10": {
+    short: [
+      "I can tell it’s running long when…",
+      "My first clue is…",
+      "Usually I start to…",
+    ],
+    reflective: [
+      "Long meetings usually make me…",
+      "I notice my focus…",
+      "When the agenda drifts, I…",
+    ],
+    personal: [
+      "One meeting dragged because…",
+      "I remember glancing at the clock when…",
+      "Back at my old job, we…",
+    ],
+    conversation: [
+      "Could we park that for later?",
+      "Do you think we should wrap soon?",
+      "What if we summarize the next steps?",
+      "Should we set a follow-up for that?",
+    ],
+    summary: [
+      "In short, the meeting…",
+      "Overall, they realized…",
+      "The main point is…",
+    ],
+  },
 }
 
 const JOURNAL_REFLECTION_OVERRIDE_MAP: Record<string, string[] | undefined> = {
@@ -345,6 +380,13 @@ const JOURNAL_REFLECTION_OVERRIDE_MAP: Record<string, string[] | undefined> = {
     "How do you protect yourself without closing off possible connections?",
     "Who has earned your trust over time, and what did they consistently do?",
     "What risk could strengthen a relationship if you took it this month?",
+  ],
+  "when-meetings-run-long-10": [
+    "What signals tell you a meeting has already lost the room?",
+    "How does an overrunning meeting affect the rest of your tasks or energy?",
+    "Who could help you call time politely, and how would you ask them?",
+    "What phrase or tool keeps side topics from taking over the agenda?",
+    "What boundary will you set before the next long meeting so it ends on time?",
   ],
 }
 
