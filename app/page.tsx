@@ -86,8 +86,8 @@ export default function Home() {
           <p className="tag tag-accent w-fit">Community voices</p>
           <h2 className="font-serif text-3xl font-semibold text-gray-900">Learners finding their voice</h2>
           <p className="text-gray-700">
-            Communicaly is built around your identity. These learners use the daily reflections to talk about their real jobs,
-            families, and communities—and it shows in their confidence.
+            Communicaly helps you speak English more naturally through short audios and reflective questions about everyday life.
+            Each episode lets you listen, write your own response, and record yourself so you can sound more like you in English.
           </p>
         </div>
         <div className="grid gap-4 sm:grid-cols-3 mt-4 sm:mt-6">

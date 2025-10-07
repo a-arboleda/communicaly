@@ -13,8 +13,31 @@ const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-serif"
 const journeyScript = Dancing_Script({ subsets: ["latin"], variable: "--font-journey-script" })
 
 export const metadata: Metadata = {
-  title: "Communicaly",
-  description: "Daily reflections for English learners — active listening & shadowing.",
+  title: {
+    default: "Communicaly | Daily English speaking practice you'll actually use",
+    template: "%s | Communicaly",
+  },
+  description:
+    "Communicaly helps English learners sound like themselves with short audio stories, interactive prompts, and daily speaking drills that build a confident voice.",
+  keywords: [
+    "Communicaly",
+    "daily English practice",
+    "English speaking exercises",
+    "listening and shadowing",
+    "ESL conversation prompts",
+  ],
+  openGraph: {
+    type: "website",
+    title: "Communicaly | Daily English speaking practice you'll actually use",
+    description:
+      "Daily English audio stories, reflection prompts, and speaking drills to help you sound like yourself in every conversation.",
+  },
+  twitter: {
+    card: "summary",
+    title: "Communicaly | Daily English speaking practice you'll actually use",
+    description:
+      "Daily audio reflections and interactive prompts designed to help English learners build a confident, natural voice.",
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
