@@ -47,4 +47,9 @@ html, body { background: white; }
   .font-journey-script { font-family: var(--font-journey-script); }
   .hover\:underline:hover { text-decoration-line: none !important; }
   .group:hover .group-hover\:underline { text-decoration-line: none !important; }
+  .tag-scroll-area { scrollbar-width: thin; scrollbar-color: rgba(59,130,246,0.35) transparent; }
+  .tag-scroll-area::-webkit-scrollbar { width: 6px; }
+  .tag-scroll-area::-webkit-scrollbar-track { background: transparent; }
+  .tag-scroll-area::-webkit-scrollbar-thumb { background: rgba(59,130,246,0.3); border-radius: 9999px; }
+  .tag-scroll-area:hover::-webkit-scrollbar-thumb { background: rgba(59,130,246,0.45); }
 }

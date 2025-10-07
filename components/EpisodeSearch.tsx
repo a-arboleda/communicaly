@@ -82,7 +82,7 @@ export default function EpisodeSearch({ episodes }: { episodes: EpisodeItem[] })
       {allTags.length > 0 && (
         <fieldset className="rounded-xl border border-gray-200 p-3">
           <legend className="text-sm font-medium text-gray-700">Filter by tag</legend>
-          <div className="mt-2 flex flex-wrap gap-2">
+          <div className="mt-2 flex flex-wrap gap-2 max-h-16 overflow-y-auto overflow-x-hidden pr-1 tag-scroll-area">
             {allTags.map((t) => {
               const active = selected.has(t)
               return (
@@ -126,7 +126,7 @@ export default function EpisodeSearch({ episodes }: { episodes: EpisodeItem[] })
                   <h3 className="text-lg font-semibold">{displayTitle(ep.title)}</h3>
                   {ep.excerpt && <p className="text-gray-700 mt-1">{ep.excerpt}</p>}
                   {!!ep.tags?.length && (
-                    <div className="mt-2 flex flex-wrap gap-2">
+                    <div className="mt-2 flex flex-wrap gap-2 max-h-16 overflow-hidden">
                       {ep.tags.map((t) => (
                         <span key={t} className="tag tag-accent">{t}</span>
                       ))}
