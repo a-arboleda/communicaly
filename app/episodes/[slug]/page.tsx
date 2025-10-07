@@ -88,6 +88,13 @@ const TEXT_ANSWER_OVERRIDE_MAP: Record<string, Partial<Record<TextAnswerCat, str
     conversation: "What question could you ask the speaker to help everyone wrap up without sounding rude?",
     summary: "In one or two sentences, how would you retell their meeting that ran long?",
   },
+  "catching-up-11": {
+    short: "Who was the last person you unexpectedly ran into, and what did you say first?",
+    reflective: "How do surprise reunions change the way you think about old friendships?",
+    personal: "Tell a quick story about catching up with someone after years apart.",
+    conversation: "What question could you ask Sophie to keep the catching-up vibe going?",
+    summary: "In one or two sentences, how would you retell this coffee-shop reunion?",
+  },
 }
 
 const TEXT_HELPER_OVERRIDE_MAP: Record<string, Partial<Record<TextAnswerCat, string[]>>> = {
@@ -314,6 +321,34 @@ const TEXT_HELPER_OVERRIDE_MAP: Record<string, Partial<Record<TextAnswerCat, str
       "The main point is…",
     ],
   },
+  "catching-up-11": {
+    short: [
+      "I ran into…",
+      "I almost didn’t recognize…",
+      "The first thing I said was…",
+    ],
+    reflective: [
+      "Surprise reunions make me…",
+      "I notice old memories…",
+      "It reminds me that…",
+    ],
+    personal: [
+      "One time an old friend and I…",
+      "We used to…",
+      "Back in school, we…",
+    ],
+    conversation: [
+      "How have you been since…?",
+      "Where did you end up after…?",
+      "Do you still keep in touch with…?",
+      "Should we plan a call or…?",
+    ],
+    summary: [
+      "In short, they…",
+      "Overall, it felt like…",
+      "The main memory is…",
+    ],
+  },
 }
 
 const JOURNAL_REFLECTION_OVERRIDE_MAP: Record<string, string[] | undefined> = {
@@ -387,6 +422,13 @@ const JOURNAL_REFLECTION_OVERRIDE_MAP: Record<string, string[] | undefined> = {
     "Who could help you call time politely, and how would you ask them?",
     "What phrase or tool keeps side topics from taking over the agenda?",
     "What boundary will you set before the next long meeting so it ends on time?",
+  ],
+  "catching-up-11": [
+    "What usually triggers old memories when you reunite with someone?",
+    "How do you balance swapping updates with listening to theirs?",
+    "Who would you like to reconnect with next, and what would you say first?",
+    "What detail would show them that you still remember your shared history?",
+    "How will you follow up after an unexpected reunion so it doesn’t fade again?",
   ],
 }
 

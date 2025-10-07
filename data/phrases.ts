@@ -76,6 +76,11 @@ export const PHRASES: DeckItem[] = [
   { id: "e10-hit-30-minute-mark", type: "phrase", phrase: "Once we hit the 30-minute mark", meaning: "After reaching the thirty-minute point in the meeting", example: "Once we hit the 30-minute mark, everyone started glancing at the clock.", source: { slug: "when-meetings-run-long-10", title: "Episode 10 — When Meetings Run Long" } },
   { id: "e10-lost-the-room", type: "phrase", phrase: "We lost the room", meaning: "People stopped paying attention to the discussion", example: "We lost the room after the third detour about budgets.", source: { slug: "when-meetings-run-long-10", title: "Episode 10 — When Meetings Run Long" } },
   { id: "e10-need-to-wrap-up", type: "phrase", phrase: "We need to wrap it up", meaning: "It is time to finish the meeting", example: "We need to wrap it up before half the team disappears.", source: { slug: "when-meetings-run-long-10", title: "Episode 10 — When Meetings Run Long" } },
+  // Episode 11 — Catching Up
+  { id: "e11-ran-into", type: "phrase", phrase: "I ran into an old friend", meaning: "I met someone unexpectedly", example: "I ran into an old friend while grabbing coffee downtown.", source: { slug: "catching-up-11", title: "Episode 11 — Catching Up" } },
+  { id: "e11-ended-up-catching-up", type: "phrase", phrase: "We ended up catching up", meaning: "We spent time sharing updates", example: "We ended up catching up for half an hour before she rushed off.", source: { slug: "catching-up-11", title: "Episode 11 — Catching Up" } },
+  { id: "e11-memories-rushing-back", type: "phrase", phrase: "All the memories came rushing back", meaning: "The memories returned suddenly and strongly", example: "As soon as we started talking, all the memories came rushing back.", source: { slug: "catching-up-11", title: "Episode 11 — Catching Up" } },
+  { id: "e11-asked-about-you", type: "phrase", phrase: "She asked about you", meaning: "She wanted to know how you are doing", example: "She asked about you right away and loved hearing your updates.", source: { slug: "catching-up-11", title: "Episode 11 — Catching Up" } },
   // Practice Lab — Core verbs
   { id: "core-verb-grab", type: "phrase", phrase: "grab", meaning: "take something quickly before you leave", example: "Grab your keys before you walk out.", source: CORE_VERBS_SOURCE },
   { id: "core-verb-find", type: "phrase", phrase: "find", meaning: "discover where something is", example: "Did you find the charger under the couch?", source: CORE_VERBS_SOURCE },
@@ -163,6 +168,11 @@ export const PHRASAL_VERBS: DeckItem[] = [
   { id: "pv-check-out-of-meeting", type: "phrasal", phrase: "check out", meaning: "stop paying attention or mentally leave", example: "Once the updates dragged on, half the team checked out.", source: { slug: "when-meetings-run-long-10", title: "Episode 10 — When Meetings Run Long" } },
   { id: "pv-pile-up-during-call", type: "phrasal", phrase: "pile up", meaning: "gather into a growing amount", example: "Emails pile up while the meeting drags on.", source: { slug: "when-meetings-run-long-10", title: "Episode 10 — When Meetings Run Long" } },
   { id: "pv-wrap-up-early", type: "phrasal", phrase: "wrap up", meaning: "finish something completely", example: "Let’s wrap up before everyone loses focus.", source: { slug: "when-meetings-run-long-10", title: "Episode 10 — When Meetings Run Long" } },
+  // From Episode 11 — Catching Up
+  { id: "pv-run-into", type: "phrasal", phrase: "run into", meaning: "meet someone by chance", example: "I run into old classmates more often than you’d think downtown.", source: { slug: "catching-up-11", title: "Episode 11 — Catching Up" } },
+  { id: "pv-catch-up", type: "phrasal", phrase: "catch up", meaning: "share updates after time apart", example: "Let’s catch up properly when you’re back in town.", source: { slug: "catching-up-11", title: "Episode 11 — Catching Up" } },
+  { id: "pv-move-away", type: "phrasal", phrase: "move away", meaning: "leave your current city or town to live elsewhere", example: "She moved away after college and hasn’t been back much.", source: { slug: "catching-up-11", title: "Episode 11 — Catching Up" } },
+  { id: "pv-bring-back", type: "phrasal", phrase: "bring back", meaning: "cause memories to return", example: "Hearing her laugh brought back every after-school hangout.", source: { slug: "catching-up-11", title: "Episode 11 — Catching Up" } },
 ]
 
 export const ALL_ITEMS: DeckItem[] = [...PHRASES, ...PHRASAL_VERBS]
