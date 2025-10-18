@@ -2,6 +2,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import jsPDF from "jspdf"
 import PreAudioPlanner from "@/components/PreAudioPlanner"
+import EpisodeTaskCheckbox from "@/components/EpisodeTaskCheckbox"
 
 type PhraseItem = {
   id: number
@@ -549,6 +550,7 @@ export default function EpisodeInteractive({
             </div>
           </div>
           <p className="text-xs text-gray-500 mt-1">Your recordings + rating stay on this device.</p>
+          <EpisodeTaskCheckbox episodeId={episodeId} task="recorded" />
           </div>
         </section>
       </div>

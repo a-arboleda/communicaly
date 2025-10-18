@@ -1,8 +1,7 @@
 'use client'
 
 import { useState } from "react"
-
-import Details from "./Details"
+import EpisodeTaskCheckbox from "@/components/EpisodeTaskCheckbox"
 
 type TutorStudentQuizItem = {
   prompt: string
@@ -19,71 +18,20 @@ type EpisodeHighlightsProps = {
 }
 
 export default function EpisodeHighlights({
-  story,
-  keyDetails,
-  tryThis,
+  slug,
   practiceQuiz,
 }: EpisodeHighlightsProps) {
-  const showStory = Array.isArray(story) && story.length > 0
-  const showKeyDetails = Array.isArray(keyDetails) && keyDetails.length > 0
-  const showTryThis = Array.isArray(tryThis) && tryThis.length > 0
-
-  const storyItems = showStory ? story ?? [] : []
-  const keyDetailItems = showKeyDetails ? keyDetails ?? [] : []
-  const tryThisItems = showTryThis ? tryThis ?? [] : []
-
   const quizItems = Array.isArray(practiceQuiz)
     ? practiceQuiz.filter((item) => item?.prompt && (item?.function || item?.expected))
     : []
   const hasQuiz = quizItems.length > 0
 
-  const showToolkit = showStory || showKeyDetails || showTryThis
-  const showHighlights = showToolkit || hasQuiz
+  const showHighlights = hasQuiz
 
   if (!showHighlights) return null
 
   return (
     <>
-      {showToolkit && (
-        <section id="highlights" className="not-prose card scroll-mt-20">
-          <div className="card-body space-y-6">
-            <h2 className="text-xl font-semibold text-blue-600">Student&apos;s Story Practice Toolkit</h2>
-
-            {showStory && (
-              <div>
-                <h3 className="font-semibold text-lg text-gray-900">Story</h3>
-                <div className="mt-3 space-y-3 text-gray-800">
-                  {storyItems.map((paragraph, idx) => (
-                    <p key={`story-${idx}`}>{paragraph}</p>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {showKeyDetails && (
-              <Details title="Key details">
-                <ul className="list-disc list-inside space-y-2 text-gray-800">
-                  {keyDetailItems.map((item, idx) => (
-                    <li key={`key-${idx}`}>{item}</li>
-                  ))}
-                </ul>
-              </Details>
-            )}
-
-            {showTryThis && (
-              <div>
-                <h3 className="font-semibold text-lg text-gray-900">Try this</h3>
-                <ul className="mt-3 list-disc list-inside space-y-2 text-gray-800">
-                  {tryThisItems.map((item, idx) => (
-                    <li key={`try-${idx}`}>{item}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
-          </div>
-        </section>
-      )}
-
       {hasQuiz && (
         <section id="practice-quiz" className="not-prose card scroll-mt-20">
           <div className="card-body space-y-4">
@@ -96,6 +44,7 @@ export default function EpisodeHighlights({
                 <QuizCard key={`quiz-${idx}`} item={item} index={idx} />
               ))}
             </div>
+            <EpisodeTaskCheckbox episodeId={slug} task="flipcards" />
           </div>
         </section>
       )}

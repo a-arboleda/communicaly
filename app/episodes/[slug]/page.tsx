@@ -14,6 +14,7 @@ import PracticeJournal from "@/components/PracticeJournal"
 import PracticeTips from "@/components/PracticeTips"
 import EpisodeHero from "@/components/EpisodeHero"
 import EpisodeHighlights from "@/components/EpisodeHighlights"
+import EpisodeTaskCheckbox from "@/components/EpisodeTaskCheckbox"
 
 type TextAnswerCat = "short" | "reflective" | "personal" | "conversation" | "summary"
 
@@ -602,6 +603,7 @@ export default async function EpisodePage({
             reflectionQuestionsOverride={journalReflectionOverrides}
             textAnswerQuestionsOverride={textAnswerOverrides}
           />
+          <EpisodeTaskCheckbox episodeId={slug} task="responded" />
         </div>
       </section>
 

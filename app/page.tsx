@@ -52,10 +52,19 @@ export default function Home() {
 
       <section className="space-y-2">
         <h2 className="font-serif text-2xl font-semibold">What is this?</h2>
-        <p className="text-gray-700 max-w-3xl">
-          Short, natural audios about everyday life. Each episode ends with a question for you.
-          Open its <strong>interactive practice page</strong> to personalize details and write what you’d say in a real conversation.
-        </p>
+        <div className="space-y-2 text-gray-700 max-w-3xl">
+          <p>
+            Short, natural audios about everyday life. Each episode ends with a question for you.
+            Open its <strong>interactive practice page</strong> to personalize details and write what you’d say in a real conversation.
+          </p>
+          <p>
+            When you want to set the tone for the week, visit the{" "}
+            <Link href="/goals" className="text-brand-900 underline-offset-2 hover:underline">
+              Goals page
+            </Link>{" "}
+            to sketch the voice you’re building, choose your weekly spotlight, and download a personal plan.
+          </p>
+        </div>
       </section>
 
       {/* How it works */}

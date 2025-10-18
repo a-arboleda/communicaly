@@ -9,6 +9,7 @@ const links = [
   { href: "/", label: "Home" },
   { href: "/episodes", label: "Episodes" },
   { href: "/practice-lab", label: "Practice Lab" },
+  { href: "/goals", label: "Goals" },
   { href: "/about", label: "About" },
 ] as const satisfies ReadonlyArray<{ href: Route; label: string }>
 
