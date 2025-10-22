@@ -15,12 +15,12 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          // Light blue theme
-          900: "#2563EB", // primary (blue-600)
-          700: "#3B82F6", // blue-500
-          500: "#60A5FA", // blue-400
-          200: "#DBEAFE", // blue-100
-          accent: "#93C5FD", // blue-300
+          // Warm earthy palette
+          900: "#5c2e11ff", // deep cocoa
+          700: "#6E4E31", // roasted chestnut
+          500: "#B2854C", // toasted caramel
+          200: "#E7D7C0", // soft sandstone
+          accent: "#9AAB63", // muted olive
         },
       },
       fontFamily: {
@@ -30,7 +30,7 @@ const config: Config = {
         serif: ["Inter", ...defaultTheme.fontFamily.sans],
       },
       boxShadow: {
-        card: "0 10px 30px rgba(30,58,138,.08)", // subtle blue-tinted shadow
+        card: "0 10px 30px rgba(63,47,37,.08)", // subtle warm shadow
       },
       borderRadius: {
         xl: "1rem",

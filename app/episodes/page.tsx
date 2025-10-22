@@ -1,7 +1,7 @@
 // app/episodes/page.tsx
+// app/episodes/page.tsx
 import { getAllEpisodes } from "@/utils/episodes"
 import EpisodeSearch from "@/components/EpisodeSearch"
-
 
 export const dynamic = "force-static"
 export const runtime = "nodejs"
@@ -17,7 +17,9 @@ export default function Episodes() {
         {/* Removed YouTube badge per request */}
       </div>
       {episodes.length === 0 ? (
-        <p className="text-gray-600">No episodes yet. Add an <code>.mdx</code> file to <code>content/episodes</code>.</p>
+        <p className="text-gray-600">
+          No episodes yet. Add an <code>.mdx</code> file to <code>content/episodes</code>.
+        </p>
       ) : (
         <EpisodeSearch episodes={episodes} />
       )}

@@ -119,7 +119,7 @@ export default function EpisodeSearch({ episodes }: { episodes: EpisodeItem[] })
           <li key={ep.slug}>
             <Link
               href={`/episodes/${ep.slug}`}
-              className="card block group overflow-hidden transition-all duration-200 hover:shadow-[0_8px_24px_rgba(59,130,246,0.25)] hover:-translate-y-0.5"
+              className="card group block overflow-hidden rounded-3xl border border-gray-200 transition-transform transition-colors duration-200 hover:-translate-y-1 hover:border-brand-500 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-700"
             >
               <div className="card-body flex items-start justify-between gap-4">
                 <div className="space-y-1">
@@ -133,7 +133,7 @@ export default function EpisodeSearch({ episodes }: { episodes: EpisodeItem[] })
                     </div>
                   )}
                 </div>
-                <span className="btn btn-muted shrink-0">Open</span>
+                <span className="btn btn-episode shrink-0">Open</span>
               </div>
             </Link>
           </li>

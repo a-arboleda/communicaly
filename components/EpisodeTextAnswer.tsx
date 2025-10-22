@@ -63,7 +63,7 @@ const TEMPLATES: Record<Cat, { label: string; question: string; helpers: string[
 }
 
 export default function EpisodeTextAnswer({ episodeId, overrideQuestions, overrideHelpers }: { episodeId?: string; overrideQuestions?: Partial<Record<Cat, string>>; overrideHelpers?: Partial<Record<Cat, string[]>> }) {
-  const [cat, setCat] = useState<Cat | null>(null)
+  const [cat, setCat] = useState<Cat>("short")
   const taRef = useRef<HTMLTextAreaElement | null>(null)
 
   // Question styling uses brand-blue color and a subtle left border
@@ -118,7 +118,7 @@ export default function EpisodeTextAnswer({ episodeId, overrideQuestions, overri
 
     function clearStoredAnswers() {
       setAnswers(createEmptyAnswers())
-      setCat(null)
+      setCat("short")
       try {
         if (baseKey) {
           CATS.forEach((c) => {
@@ -144,13 +144,12 @@ export default function EpisodeTextAnswer({ episodeId, overrideQuestions, overri
     }
   }, [episodeId, baseKey, catKey])
 
-  const current = cat ? TEMPLATES[cat] : null
-  const currentHelpers: string[] = cat && overrideHelpers && overrideHelpers[cat]
+  const current = TEMPLATES[cat]
+  const currentHelpers: string[] = overrideHelpers && overrideHelpers[cat]
     ? overrideHelpers[cat] as string[]
-    : (current?.helpers || [])
+    : current.helpers
 
   function insertHelper(text: string) {
-    if (!cat) return
     setCatAnswer(cat, (() => {
       const prev = answers[cat]
       return !prev ? text + " " : prev.endsWith(" ") ? prev + text : prev + " " + text
@@ -177,38 +176,36 @@ export default function EpisodeTextAnswer({ episodeId, overrideQuestions, overri
         })}
       </ul>
 
-      {current && (
-        <div className="space-y-2">
-          <div className="text-base sm:text-lg text-brand-900 font-semibold italic pl-3 border-l-2 border-brand-300">{(cat && overrideQuestions?.[cat]) || current.question}</div>
-          <div className="flex flex-wrap gap-2">
-            {currentHelpers.map((h) => (
-              <button
-                key={h}
-                type="button"
-                onClick={() => insertHelper(h)}
-                className="tag tag-accent hover:border-brand-accent"
-                title="Click to add to your answer"
-              >
-                {h}
-              </button>
-            ))}
-          </div>
-          <div>
-            <label htmlFor={`text-answer-${episodeId || "ep"}-${cat || ""}`} className="text-sm text-gray-600">
-              Write your answer
-            </label>
-            <textarea
-              ref={taRef}
-              id={`text-answer-${episodeId || "ep"}-${cat || ""}`}
-              placeholder="Type your answer here..."
-              className="mt-1 w-full rounded-xl border p-2 min-h-[140px]"
-              value={cat ? answers[cat] : ""}
-              onChange={(e) => cat && setCatAnswer(cat, e.target.value)}
-            />
-            <p className="text-xs text-gray-500 mt-1">Saved locally on this device.</p>
-          </div>
+      <div className="space-y-2">
+        <div className="text-base sm:text-lg text-brand-900 font-semibold italic pl-3 border-l-2 border-brand-300">{overrideQuestions?.[cat] || current.question}</div>
+        <div className="flex flex-wrap gap-2">
+          {currentHelpers.map((h) => (
+            <button
+              key={h}
+              type="button"
+              onClick={() => insertHelper(h)}
+              className="tag tag-accent hover:border-brand-accent"
+              title="Click to add to your answer"
+            >
+              {h}
+            </button>
+          ))}
         </div>
-      )}
+        <div>
+          <label htmlFor={`text-answer-${episodeId || "ep"}-${cat}`} className="text-sm text-gray-600">
+            Write your answer
+          </label>
+          <textarea
+            ref={taRef}
+            id={`text-answer-${episodeId || "ep"}-${cat}`}
+            placeholder="Type your answer here..."
+            className="mt-1 w-full rounded-xl border p-2 min-h-[140px]"
+            value={answers[cat] || ""}
+            onChange={(e) => setCatAnswer(cat, e.target.value)}
+          />
+          <p className="text-xs text-gray-500 mt-1">Saved locally on this device.</p>
+        </div>
+      </div>
     </div>
   )
 }

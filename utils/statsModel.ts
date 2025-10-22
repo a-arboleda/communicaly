@@ -3,28 +3,48 @@ const STATS_EVENT = "communicaly:stats-updated"
 
 export const STATS_STORAGE_EVENT = STATS_EVENT
 
+type TimeframeType = "week" | "month" | "day" | "custom"
+
 export type StoredStats = {
   displayName: string
   voiceIdentity: string
+  voiceIdentityTraits: string[]
   weeklyEpisodesGoal: number
   episodesCompletedThisWeek: number
   streak: number
   focusAreas: string
   weeklyFocus: string
   notes: string
+  weeklyAffirmation: string
+  practiceDays: string[]
+  confidenceLevel: number
+  timeframeType: TimeframeType
+  timeframeCustomLabel: string
+  timeframeStartDate: string | null
+  timeframeEndDate: string | null
   lastUpdated: string | null
   episodeCompletions: Record<string, string>
 }
 
+const PRACTICE_DAY_IDS = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
+
 export const DEFAULT_STATS: StoredStats = {
   displayName: "",
   voiceIdentity: "",
-  weeklyEpisodesGoal: 3,
+  voiceIdentityTraits: [],
+  weeklyEpisodesGoal: 0,
   episodesCompletedThisWeek: 0,
   streak: 0,
   focusAreas: "",
   weeklyFocus: "",
   notes: "",
+  weeklyAffirmation: "",
+  practiceDays: [],
+  confidenceLevel: 60,
+  timeframeType: "week",
+  timeframeCustomLabel: "",
+  timeframeStartDate: null,
+  timeframeEndDate: null,
   lastUpdated: null,
   episodeCompletions: {},
 }
@@ -76,9 +96,33 @@ export function loadStats(): StoredStats {
     const raw = window.localStorage.getItem(STATS_STORAGE_KEY)
     if (!raw) return { ...DEFAULT_STATS }
     const parsed = JSON.parse(raw) as Partial<StoredStats>
+    const practiceDays = Array.isArray(parsed?.practiceDays)
+      ? parsed.practiceDays.filter((day): day is string => typeof day === "string" && PRACTICE_DAY_IDS.includes(day))
+      : []
+    const voiceIdentityTraits = Array.isArray(parsed?.voiceIdentityTraits)
+      ? parsed.voiceIdentityTraits.filter((trait): trait is string => typeof trait === "string")
+      : []
+    const timeframeType: TimeframeType =
+      parsed?.timeframeType === "month" || parsed?.timeframeType === "day" || parsed?.timeframeType === "custom"
+        ? parsed.timeframeType
+        : "week"
+    const timeframeCustomLabel =
+      typeof parsed?.timeframeCustomLabel === "string" ? parsed.timeframeCustomLabel : ""
+    const timeframeStartDate =
+      typeof parsed?.timeframeStartDate === "string" && parsed.timeframeStartDate ? parsed.timeframeStartDate : null
+    const timeframeEndDate =
+      typeof parsed?.timeframeEndDate === "string" && parsed.timeframeEndDate ? parsed.timeframeEndDate : null
+    const practiceDaysCount = practiceDays.length
     return withDerivedCounts({
       ...DEFAULT_STATS,
       ...parsed,
+      practiceDays,
+      voiceIdentityTraits,
+      timeframeType,
+      timeframeCustomLabel,
+      timeframeStartDate,
+      timeframeEndDate,
+      weeklyEpisodesGoal: practiceDaysCount,
       episodeCompletions: parsed?.episodeCompletions ?? {},
     })
   } catch (error) {

@@ -5,8 +5,16 @@
 @tailwind utilities;
 
 /* Base */
-:root { color-scheme: light; }
-html, body { background: white; }
+:root {
+  color-scheme: light;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-serif: "Playfair Display", "Georgia", serif;
+  --font-journey-script: "Dancing Script", "Brush Script MT", cursive;
+}
+html, body {
+  background: white;
+  font-family: var(--font-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
+}
 
 /* UX: remove mobile tap highlight for designated elements */
 @layer components {
@@ -25,6 +33,7 @@ html, body { background: white; }
   .btn-primary { @apply bg-brand-900 text-white border-brand-900 hover:opacity-90; }
   .btn-ghost { @apply bg-white text-brand-900 border-brand-900/60 hover:border-brand-900; }
   .btn-muted { @apply bg-white text-gray-700 border-gray-300 hover:border-gray-400; }
+  .btn-episode { @apply bg-emerald-700 text-white border-emerald-800 hover:bg-emerald-600 hover:border-emerald-700; }
 
   .tag { @apply inline-flex items-center px-2.5 py-1 rounded-full text-xs border bg-white; }
   .tag-accent { @apply border-brand-accent/40; }
@@ -43,13 +52,13 @@ html, body { background: white; }
 
 /* Neutralize underline utilities on hover/group-hover */
 @layer utilities {
-  .font-journey { font-family: var(--font-serif); }
-  .font-journey-script { font-family: var(--font-journey-script); }
+  .font-journey { font-family: var(--font-serif, "Georgia", serif); }
+  .font-journey-script { font-family: var(--font-journey-script, "Brush Script MT", cursive); }
   .hover\:underline:hover { text-decoration-line: none !important; }
   .group:hover .group-hover\:underline { text-decoration-line: none !important; }
-  .tag-scroll-area { scrollbar-width: thin; scrollbar-color: rgba(59,130,246,0.35) transparent; }
+  .tag-scroll-area { scrollbar-width: thin; scrollbar-color: rgba(178,133,76,0.6) transparent; }
   .tag-scroll-area::-webkit-scrollbar { width: 6px; }
   .tag-scroll-area::-webkit-scrollbar-track { background: transparent; }
-  .tag-scroll-area::-webkit-scrollbar-thumb { background: rgba(59,130,246,0.3); border-radius: 9999px; }
-  .tag-scroll-area:hover::-webkit-scrollbar-thumb { background: rgba(59,130,246,0.45); }
+  .tag-scroll-area::-webkit-scrollbar-thumb { background: rgba(154,171,99,0.55); border-radius: 9999px; }
+  .tag-scroll-area:hover::-webkit-scrollbar-thumb { background: rgba(178,133,76,0.65); }
 }

@@ -8,8 +8,7 @@ import { useEffect, useState } from "react"
 const links = [
   { href: "/", label: "Home" },
   { href: "/episodes", label: "Episodes" },
-  { href: "/practice-lab", label: "Practice Lab" },
-  { href: "/goals", label: "Goals" },
+  { href: "/goal-plan", label: "Goal Plan" },
   { href: "/about", label: "About" },
 ] as const satisfies ReadonlyArray<{ href: Route; label: string }>
 
@@ -55,7 +54,7 @@ export default function Navbar() {
           </Link>
           <button
             type="button"
-            className="flex h-10 w-10 items-center justify-center rounded-lg border border-transparent text-sm text-gray-600 transition hover:bg-brand-200/60 hover:text-brand-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/40 md:hidden"
+            className="flex h-10 w-10 items-center justify-center rounded-lg border border-transparent text-sm text-gray-600 transition hover:bg-emerald-100/70 hover:text-emerald-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400/60 md:hidden"
             aria-label="Toggle menu"
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen(open => !open)}
@@ -89,10 +88,10 @@ export default function Navbar() {
                   href={l.href}
                   aria-current={selectedHref === l.href ? "page" : undefined}
                   onClick={() => handleNavClick(l.href)}
-                  className={`px-3 py-1.5 rounded-lg border transition transform-gpu duration-300 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/40 active:translate-y-0 motion-reduce:transition-none no-tap-highlight ${
+                  className={`px-3 py-1.5 rounded-lg border transition transform-gpu duration-300 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400/50 active:translate-y-0 motion-reduce:transition-none no-tap-highlight ${
                     selectedHref === l.href
-                      ? "bg-brand-700 text-white border-brand-700 shadow-card"
-                      : "border-transparent hover:bg-brand-200/60 hover:text-brand-900 hover:shadow-card hover:-translate-y-0.5"
+                      ? "bg-emerald-600 text-white border-emerald-600 shadow-card"
+                      : "border-transparent hover:bg-emerald-100/70 hover:text-emerald-900 hover:shadow-card hover:-translate-y-0.5"
                   }`}
                 >
                   {l.label}
@@ -113,10 +112,10 @@ export default function Navbar() {
                   href={l.href}
                   aria-current={selectedHref === l.href ? "page" : undefined}
                   onClick={() => handleNavClick(l.href)}
-                  className={`block rounded-lg border px-3 py-2 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/40 no-tap-highlight ${
+                  className={`block rounded-lg border px-3 py-2 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400/50 no-tap-highlight ${
                     selectedHref === l.href
-                      ? "bg-brand-700 text-white border-brand-700 shadow-card"
-                      : "border-gray-100 bg-white/80 text-gray-700 hover:bg-brand-200/60 hover:text-brand-900"
+                      ? "bg-emerald-600 text-white border-emerald-600 shadow-card"
+                      : "border-gray-100 bg-emerald-50/80 text-emerald-900 hover:bg-emerald-100/80"
                   }`}
                 >
                   {l.label}
