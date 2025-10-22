@@ -29,44 +29,27 @@ export default function EpisodeTaskCheckbox({ episodeId, task, className }: Epis
     updateEpisodeProgress(episodeId, { [task]: next })
   }
 
-  const icon = (
-    <span
-      aria-hidden
-      className={`flex h-5 w-5 items-center justify-center rounded-md border text-xs font-semibold ${
-        checked ? "border-white bg-white/10 text-white" : "border-gray-300 text-gray-500"
-      }`}
-    >
-      {checked ? (
-        <svg
-          viewBox="0 0 16 16"
-          className="h-3.5 w-3.5"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth={2}
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M3 8.5L6.5 12l6.5-8" />
-        </svg>
-      ) : (
-        <span className="sr-only">Not completed</span>
-      )}
-    </span>
-  )
-
   return (
     <button
       type="button"
       onClick={handleToggle}
       aria-pressed={checked}
-      className={`mt-4 inline-flex items-center gap-2 rounded-xl border px-3 py-2 text-sm font-medium transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/40 ${
-        checked
-          ? "border-brand-700 bg-brand-700 text-white shadow-card"
-          : "border-gray-200 bg-white text-gray-700 hover:border-brand-300 hover:bg-brand-50/70"
-      } ${className ?? ""}`}
+      aria-label={checked ? "Mark task as not completed" : "Mark task as completed"}
+      className={`mt-4 inline-flex w-full items-center justify-between gap-4 rounded-2xl bg-transparent px-4 py-3 text-base font-medium text-gray-700 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/40 sm:w-auto sm:justify-start sm:px-2 sm:py-2 sm:text-sm ${className ?? ""}`}
     >
-      {icon}
-      <span>Completed</span>
+      <span
+        aria-hidden
+        className={`relative inline-flex h-6 w-11 items-center rounded-full border transition-colors duration-200 ease-out ${
+          checked ? "border-brand-700 bg-brand-700" : "border-gray-300 bg-gray-200"
+        }`}
+      >
+        <span
+          className={`absolute left-0.5 top-1/2 h-5 w-5 -translate-y-1/2 rounded-full bg-white shadow transition-transform duration-200 ease-out transform ${
+            checked ? "translate-x-[18px]" : "translate-x-0"
+          }`}
+        />
+      </span>
+      <span>{checked ? "Completed" : "Mark complete"}</span>
     </button>
   )
 }

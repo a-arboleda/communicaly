@@ -100,7 +100,7 @@ export default function Home() {
         className="absolute inset-0 -z-10 bg-gradient-to-br from-emerald-50 via-white to-sky-100/70"
         aria-hidden
       />
-      <div className="relative z-10 space-y-16 px-6 py-12 sm:px-12 md:px-16 lg:px-20">
+      <div className="relative z-10 space-y-16 px-2 py-12 sm:px-12 md:px-16 lg:px-0">
         <header className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_320px] items-start">
           <div className="space-y-5 max-w-2xl">
             <p className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50/80 px-3 py-1 text-sm font-medium text-emerald-800">

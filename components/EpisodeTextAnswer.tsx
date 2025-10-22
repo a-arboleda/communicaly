@@ -167,7 +167,7 @@ export default function EpisodeTextAnswer({ episodeId, overrideQuestions, overri
               <button
                 type="button"
                 onClick={() => setCat(k)}
-                className={`btn ${active ? "btn-primary" : "btn-muted"} w-full justify-start text-left sm:w-auto sm:justify-center`}
+                className={`btn btn-ghost ${active ? "border-brand-900 bg-brand-200/40" : ""} w-full justify-start text-left sm:w-auto sm:justify-center`}
               >
                 {TEMPLATES[k].label}
               </button>
