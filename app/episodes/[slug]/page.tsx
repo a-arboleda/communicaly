@@ -433,6 +433,8 @@ const JOURNAL_REFLECTION_OVERRIDE_MAP: Record<string, string[] | undefined> = {
   ],
 }
 
+void JOURNAL_REFLECTION_OVERRIDE_MAP
+
 export const dynamic = "force-static"
 export const runtime = "nodejs"
 
@@ -454,8 +456,6 @@ export default async function EpisodePage({
 
   const textAnswerOverrides = TEXT_ANSWER_OVERRIDE_MAP[slug]
   const textHelperOverrides = TEXT_HELPER_OVERRIDE_MAP[slug]
-  const journalReflectionOverrides = JOURNAL_REFLECTION_OVERRIDE_MAP[slug]
-
   return (
     <article className="space-y-6">
       <div className="flex items-center justify-between">
@@ -599,8 +599,6 @@ export default async function EpisodePage({
             inline
             episodeId={slug}
             audioTitle={frontmatter.title}
-            episodeQuestion={frontmatter.question}
-            reflectionQuestionsOverride={journalReflectionOverrides}
             textAnswerQuestionsOverride={textAnswerOverrides}
           />
           <EpisodeTaskCheckbox episodeId={slug} task="responded" />

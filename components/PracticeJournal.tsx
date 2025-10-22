@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react"
 import jsPDF from "jspdf"
 
 type Cat = "short" | "reflective" | "personal" | "conversation" | "summary"
+type RgbColor = [number, number, number]
 
 const QUESTION_TEMPLATES: Record<Cat, string> = {
   short: "What do you think of what you just heard?",
@@ -13,7 +14,17 @@ const QUESTION_TEMPLATES: Record<Cat, string> = {
   summary: "In 1–2 sentences, what’s your take?",
 }
 
-export default function PracticeJournal({ episodeId, audioTitle, episodeQuestion, reflectionQuestionsOverride, textAnswerQuestionsOverride, inline = false }: { episodeId: string; audioTitle?: string; episodeQuestion?: string; reflectionQuestionsOverride?: string[]; textAnswerQuestionsOverride?: Partial<Record<Cat, string>>; inline?: boolean }) {
+export default function PracticeJournal({
+  episodeId,
+  audioTitle,
+  textAnswerQuestionsOverride,
+  inline = false,
+}: {
+  episodeId: string
+  audioTitle?: string
+  textAnswerQuestionsOverride?: Partial<Record<Cat, string>>
+  inline?: boolean
+}) {
   const STORAGE_EP = useMemo(() => `ep:${episodeId}`, [episodeId])
   const [answer, setAnswer] = useState("")
 
@@ -61,116 +72,155 @@ export default function PracticeJournal({ episodeId, audioTitle, episodeQuestion
 
   async function exportJournal() {
     const pdf = new jsPDF({ orientation: "p", unit: "pt", format: "a4" })
-    const pageWidth = pdf.internal.pageSize.getWidth()
-    const pageHeight = pdf.internal.pageSize.getHeight()
-    const margin = 48
-    const contentWidth = pageWidth - margin * 2
+    let pageWidth = pdf.internal.pageSize.getWidth()
+    let pageHeight = pdf.internal.pageSize.getHeight()
+    const marginX = 56
+    const contentWidth = pageWidth - marginX * 2
+    const footerHeight = 56
     const makeSafe = (s: string) => s.toLowerCase().trim().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")
     const epSafe = makeSafe((audioTitle || episodeId || "episode").toString())
 
-    // Header bg + logo
-    pdf.setFillColor(219, 234, 254) // light blue
-    pdf.rect(0, 0, pageWidth, 64, "F")
-    const brandY = 40
-    pdf.setFont("helvetica", "bold")
-    pdf.setFontSize(16)
-    pdf.text("Communicaly", margin, brandY)
+    const textPrimary: RgbColor = [58, 47, 37]
+    const textSecondary: RgbColor = [104, 95, 85]
+    const accentLine: RgbColor = [189, 166, 136]
+    const cardBorder: RgbColor = [217, 209, 199]
+    const cardFill: RgbColor = [253, 251, 247]
+    const headerBand: RgbColor = [236, 231, 222]
+    const pageBackground: RgbColor = [249, 246, 240]
+    let pageNumber = 1
 
-    // Title + subtitle
-    // Use brand blue for titles
-    pdf.setTextColor(37, 99, 235) // blue-600
-    pdf.setFont("helvetica", "bold")
-    pdf.setFontSize(20)
-    pdf.text("Practice Journal", margin, brandY + 52)
-    pdf.setFont("helvetica", "normal")
-    pdf.setFontSize(11)
-    pdf.setTextColor(75, 85, 99)
-    const subtitle = `${audioTitle ? `${audioTitle}` : ""}`
-    if (subtitle) pdf.text(subtitle, margin, brandY + 76)
+    const setTextColor = ([r, g, b]: RgbColor) => pdf.setTextColor(r, g, b)
+    const setFillColor = ([r, g, b]: RgbColor) => pdf.setFillColor(r, g, b)
+    const setDrawColor = ([r, g, b]: RgbColor) => pdf.setDrawColor(r, g, b)
+    const fillPageBackground = () => {
+      setFillColor(pageBackground)
+      pdf.rect(0, 0, pageWidth, pageHeight, "F")
+    }
 
-    let y = brandY + 116
+    const drawFooter = () => {
+      setDrawColor(accentLine)
+      pdf.setLineWidth(0.6)
+      pdf.line(marginX, pageHeight - footerHeight, pageWidth - marginX, pageHeight - footerHeight)
+      pdf.setFont("helvetica", "normal")
+      pdf.setFontSize(9)
+      setTextColor(textSecondary)
+      pdf.text(`Communicaly Practice Journal • Page ${pageNumber}`, marginX, pageHeight - footerHeight + 28)
+    }
 
-    function addSectionTitle(t: string) {
-      // add a little top space before each section title for clarity
-      y += 8
+    const drawHeader = (firstPage: boolean) => {
+      fillPageBackground()
+      setFillColor(headerBand)
+      pdf.rect(0, 0, pageWidth, 88, "F")
+      if (firstPage) {
+        setTextColor(textPrimary)
+        pdf.setFont("helvetica", "bold")
+        pdf.setFontSize(18)
+        pdf.text("Communicaly Practice Journal", marginX, 52)
+        pdf.setFont("helvetica", "normal")
+        pdf.setFontSize(11)
+        pdf.text("Captured reflections to guide your next session.", marginX, 70)
+        if (audioTitle) {
+          const normalizedTitle = audioTitle.trim()
+          const label = normalizedTitle.toLowerCase().startsWith("episode")
+            ? normalizedTitle
+            : `Episode • ${normalizedTitle}`
+          pdf.setFont("helvetica", "bold")
+          pdf.setFontSize(11)
+          const textWidth = pdf.getTextWidth(label)
+          const padX = 16
+          const badgeWidth = textWidth + padX * 2
+          const badgeHeight = 22
+          const badgeY = 24
+          const badgeX = pageWidth - marginX - badgeWidth
+          setFillColor(cardFill)
+          setDrawColor(cardBorder)
+          pdf.roundedRect(badgeX, badgeY, badgeWidth, badgeHeight, 11, 11, "FD")
+          setTextColor(textPrimary)
+          pdf.text(label, badgeX + badgeWidth / 2, badgeY + badgeHeight / 2 + 3.5, { align: "center" })
+        }
+        return 140
+      }
+
+      setTextColor(textPrimary)
+      pdf.setFont("helvetica", "bold")
+      pdf.setFontSize(12)
+      pdf.text("Communicaly Practice Journal", marginX, 44)
+      return 120
+    }
+
+    let y = drawHeader(true)
+
+    const ensureSpace = (required: number) => {
+      if (y + required <= pageHeight - footerHeight) return
+      drawFooter()
+      pdf.addPage()
+      pageNumber += 1
+      pageWidth = pdf.internal.pageSize.getWidth()
+      pageHeight = pdf.internal.pageSize.getHeight()
+      y = drawHeader(false)
+    }
+
+    const addSectionTitle = (title: string, helper?: string) => {
+      const helperLines = helper ? pdf.splitTextToSize(helper, contentWidth) : []
+      const helperHeight = helperLines.length > 0 ? helperLines.length * 14 + 6 : 0
+      ensureSpace(34 + helperHeight)
+      setTextColor(textPrimary)
       pdf.setFont("helvetica", "bold")
       pdf.setFontSize(13)
-      pdf.setTextColor(37, 99, 235) // blue-600
-      pdf.text(t, margin, y)
+      pdf.text(title, marginX, y)
+      setDrawColor(accentLine)
+      pdf.setLineWidth(0.8)
+      pdf.line(marginX, y + 6, pageWidth - marginX, y + 6)
       y += 18
-    }
-    function ensureSpace(h: number) {
-      if (y + h > pageHeight - margin) {
-        pdf.addPage()
-        // small repeat header
-        pdf.setFillColor(219, 234, 254)
-        pdf.rect(0, 0, pageWidth, 40, "F")
-        y = 76
+      if (helperLines.length > 0) {
+        setTextColor(textSecondary)
+        pdf.setFont("helvetica", "normal")
+        pdf.setFontSize(11)
+        pdf.text(helperLines, marginX, y)
+        y += helperHeight + 8
       }
+    }
+
+    const addAnswerCard = (heading: string, body: string) => {
+      const headingLines = pdf.splitTextToSize(heading, contentWidth - 32)
+      const bodyLines = pdf.splitTextToSize(body, contentWidth - 32)
+      const cardHeight = headingLines.length * 14 + bodyLines.length * 16 + 40
+      ensureSpace(cardHeight + 20)
+      setFillColor(cardFill)
+      setDrawColor(cardBorder)
+      pdf.roundedRect(marginX, y, contentWidth, cardHeight, 14, 14, "FD")
+      setTextColor(textPrimary)
+      pdf.setFont("helvetica", "bold")
+      pdf.setFontSize(11)
+      pdf.text(headingLines, marginX + 20, y + 24)
+      const textYOffset = headingLines.length * 14 + 24
+      setTextColor(textSecondary)
+      pdf.setFont("helvetica", "normal")
+      pdf.setFontSize(11)
+      pdf.text(bodyLines, marginX + 20, y + textYOffset)
+      y += cardHeight + 20
     }
 
     // Your thoughts (supports per-question answers)
-    addSectionTitle("Your Thoughts")
-    pdf.setFont("helvetica", "normal")
-    pdf.setFontSize(12)
-    pdf.setTextColor(31, 41, 55)
+    addSectionTitle("Your Thoughts", "Keep these notes handy for review before your next speaking session.")
     const perQs = readTextAnswers()
     if (perQs.length === 0) {
       const a = (answer || "(no answer recorded)").trim()
-      const wrappedAns = pdf.splitTextToSize(a, contentWidth)
-      ensureSpace(wrappedAns.length * 16)
-      pdf.text(wrappedAns, margin, y)
-      y += wrappedAns.length * 16 + 10
+      addAnswerCard("Journal Entry", a)
     } else {
       for (const item of perQs) {
-        // Label + question
-        pdf.setFont("helvetica", "bold")
-        const headerTxt = `• ${item.label} — ${item.question}`
-        const headerLines = pdf.splitTextToSize(headerTxt, contentWidth)
-        ensureSpace(headerLines.length * 16)
-        pdf.text(headerLines, margin, y)
-        y += headerLines.length * 16
-        // Answer text
-        pdf.setFont("helvetica", "normal")
-        const ansLines = pdf.splitTextToSize(item.text, contentWidth)
-        ensureSpace(ansLines.length * 16 + 6)
-        pdf.text(ansLines, margin + 16, y)
-        y += ansLines.length * 16 + 6
+        const heading = `${item.label} • ${item.question}`
+        addAnswerCard(heading, item.text)
       }
     }
 
-    // (Self‑Rating removed from PDF per request)
+    ensureSpace(24)
+    setTextColor(textSecondary)
+    pdf.setFont("helvetica", "italic")
+    pdf.setFontSize(10)
+    pdf.text("Tip: Revisit this journal before your next session to reconnect with your strongest insights.", marginX, y)
 
-    // (Removed: Phrases from this episode)
-
-    // Extra Reflection questions
-    addSectionTitle("Extra Reflection Questions")
-    // If custom reflection questions are provided, drop the last one from the PDF
-    const overrideQs = reflectionQuestionsOverride && reflectionQuestionsOverride.length
-      ? reflectionQuestionsOverride.slice(0, -1)
-      : null
-    const questions: string[] = overrideQs && overrideQs.length
-      ? overrideQs
-      : [
-          ...(episodeQuestion ? [episodeQuestion] : []),
-          "How would you say this in your own daily context?",
-          "Which phrase will you try today and where?",
-          "What sounded unnatural? How will you fix it?",
-          "What new vocabulary or chunks did you notice?",
-          "What’s your next situation to practice?",
-        ]
-
-    pdf.setFont("helvetica", "normal")
-    pdf.setFontSize(12)
-    pdf.setTextColor(31, 41, 55)
-    const lineHeight = 16
-    for (const q of questions) {
-      const wrappedQ = pdf.splitTextToSize(`• ${q}`, contentWidth)
-      ensureSpace(wrappedQ.length * lineHeight + 12)
-      pdf.text(wrappedQ, margin, y)
-      y += wrappedQ.length * lineHeight + 10
-    }
-
+    drawFooter()
     pdf.save(`practice-journal-${epSafe}.pdf`)
   }
 

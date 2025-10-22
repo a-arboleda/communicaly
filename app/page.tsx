@@ -279,37 +279,39 @@ export default function Home() {
               See all practice sets
             </Link>
           </div>
-          <ul className="grid gap-3 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-            {latest.map((ep) => (
-              <li key={ep.slug}>
-                <Link
-                  href={`/episodes/${ep.slug}`}
-                  className="rounded-2xl border border-white/70 bg-white/75 backdrop-blur-sm block h-full overflow-hidden transition-all duration-200 ease-out hover:-translate-y-1 hover:border-brand-300 hover:bg-white/95"
-                >
-                  <div className="p-4 flex flex-col justify-between gap-2 h-full">
-                    <div className="space-y-1.5">
-                      <h3 className="text-base font-semibold">
-                        {displayTitle(ep.title)}
-                      </h3>
-                      {ep.excerpt && (
-                        <p className="text-gray-600 text-sm">{ep.excerpt}</p>
-                      )}
-                      {!!ep.tags?.length && (
-                        <div className="mt-0.5 flex flex-wrap gap-1.5">
-                          {ep.tags.map((t: string) => (
-                            <span key={t} className="tag tag-accent text-[11px] py-0.5">{t}</span>
-                          ))}
-                        </div>
-                      )}
+          <div className="relative">
+            <ul className="grid gap-3 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+              {latest.map((ep) => (
+                <li key={ep.slug}>
+                  <Link
+                    href={`/episodes/${ep.slug}`}
+                    className="rounded-2xl border border-white/70 bg-white/75 backdrop-blur-sm block h-full overflow-hidden transition-all duration-200 ease-out hover:-translate-y-1 hover:border-brand-300 hover:bg-white/95"
+                  >
+                    <div className="p-4 flex flex-col justify-between gap-2 h-full">
+                      <div className="space-y-1.5">
+                        <h3 className="text-base font-semibold">
+                          {displayTitle(ep.title)}
+                        </h3>
+                        {ep.excerpt && (
+                          <p className="text-gray-600 text-sm">{ep.excerpt}</p>
+                        )}
+                        {!!ep.tags?.length && (
+                          <div className="mt-0.5 flex flex-wrap gap-1.5">
+                            {ep.tags.map((t: string) => (
+                              <span key={t} className="tag tag-accent text-[11px] py-0.5">{t}</span>
+                            ))}
+                          </div>
+                        )}
+                      </div>
                     </div>
-                    <span className="inline-flex items-center gap-1 text-sm text-brand-900">
-                      Start talking <span aria-hidden>→</span>
-                    </span>
-                  </div>
-                </Link>
-              </li>
-            ))}
-          </ul>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <span className="pointer-events-none absolute -bottom-2 right-0 inline-flex items-center gap-1 rounded-full bg-white/80 px-4 py-2 text-sm font-semibold text-brand-900 shadow-sm">
+              Start talkning <span aria-hidden>→</span>
+            </span>
+          </div>
         </section>
       </div>
     </section>
