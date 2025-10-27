@@ -292,6 +292,269 @@ const contentRecommendations: Record<Category, ContentRecommendation[]> = {
   ]
 }
 
+type DailyActivityTemplate = {
+  title: string
+  description: string
+}
+
+const categoryDailyActivities: Record<Category, DailyActivityTemplate[]> = {
+  "Pace & Presence": [
+    {
+      title: "Breath baseline",
+      description: "Record a 60-second voice memo describing your day; inhale for four and speak on the exhale."
+    },
+    {
+      title: "Pause markers",
+      description: "Replay the memo and insert three intentional pauses; note where silence supports meaning."
+    },
+    {
+      title: "Episode pacing",
+      description: "Read Episode 1 — Morning Coffee aloud with a metronome at 70 bpm to steady your delivery."
+    },
+    {
+      title: "Calm openers",
+      description: "Draft two conversation openers and practice starting each one with a grounding breath."
+    },
+    {
+      title: "Walking rehearsal",
+      description: "Walk slowly while reciting tomorrow's agenda, matching your stride to measured sentences."
+    },
+    {
+      title: "Energy check",
+      description: "List three cues that make you rush, then rehearse how you will respond with a pause."
+    },
+    {
+      title: "Evening reflection",
+      description: "Reflect on a recent chat and note when pacing felt balanced versus hurried."
+    },
+    {
+      title: "Countdown breathing",
+      description: "Practice 4-6-8 breathing twice today before speaking with someone."
+    },
+    {
+      title: "Slow story drill",
+      description: "Tell a two-minute story to your phone, focusing on crisp starts and finishes to each idea."
+    },
+    {
+      title: "Pause swaps",
+      description: "Replace filler sounds with a silent two-count during a practice answer."
+    }
+  ],
+  "Clarity & Articulation": [
+    {
+      title: "Jaw release",
+      description: "Spend three minutes on jaw loosening, hums, and lip trills before your first conversation."
+    },
+    {
+      title: "Consonant drill",
+      description: "Read Episode 2 — Cooking Dinner, exaggerating consonants and syllable endings."
+    },
+    {
+      title: "Mirror check",
+      description: "Practice a short script in the mirror, over-enunciating challenging words."
+    },
+    {
+      title: "Tongue twisters",
+      description: "Repeat two tongue twisters five times each, keeping sound crisp rather than quick."
+    },
+    {
+      title: "Warm-up stack",
+      description: "Layer humming, sirens, and easy yawns into a five-minute vocal warm-up."
+    },
+    {
+      title: "Clarity playback",
+      description: "Record yourself explaining a process; replay and circle any muffled words."
+    },
+    {
+      title: "Ending punch",
+      description: "Practice sentences that end in t/d/k sounds, making each closure pop."
+    },
+    {
+      title: "Articulation stretch",
+      description: "Chew gum while reading a paragraph slowly to keep muscles engaged."
+    },
+    {
+      title: "Resonance reset",
+      description: "Hum on an 'm' sound, then speak a sentence, keeping vibration forward."
+    },
+    {
+      title: "Daily clarity log",
+      description: "Note one moment your words sounded strong and one you will refine tomorrow."
+    }
+  ],
+  "Language & Word Choice": [
+    {
+      title: "Verb swap",
+      description: "Rewrite yesterday's email with stronger verbs that show action."
+    },
+    {
+      title: "Episode vocabulary",
+      description: "List five vivid verbs from Episode 5 — Making a House a Home."
+    },
+    {
+      title: "Concise summary",
+      description: "Summarize an article in three sentences, trimming extra clauses."
+    },
+    {
+      title: "Filler audit",
+      description: "Record an answer to 'Tell me about yourself' and tally filler words."
+    },
+    {
+      title: "Pause practice",
+      description: "Repeat the answer, replacing fillers with a purposeful pause."
+    },
+    {
+      title: "Power phrases",
+      description: "Collect five phrases from a podcast that you want to reuse this week."
+    },
+    {
+      title: "Specific nouns",
+      description: "Describe your workspace using precise nouns and sensory details."
+    },
+    {
+      title: "Contrast drill",
+      description: "Draft a before-and-after sentence pair using sharper language."
+    },
+    {
+      title: "Vocabulary deck",
+      description: "Create flashcards for three new words and use each aloud in context."
+    },
+    {
+      title: "Intentional close",
+      description: "Write and speak a one-sentence call-to-action with lively verbs."
+    }
+  ],
+  "Practice & Feedback": [
+    {
+      title: "Quick recording",
+      description: "Capture a two-minute voice memo about your day and label one strength you hear."
+    },
+    {
+      title: "Feedback ask",
+      description: "Send a partner a prompt asking for one note on tone or clarity."
+    },
+    {
+      title: "Episode shadow",
+      description: "Shadow Episode 11 — Catching Up and compare your pacing to the audio."
+    },
+    {
+      title: "Partner swap",
+      description: "Trade recordings with a peer and discuss one improvement focus."
+    },
+    {
+      title: "Question drill",
+      description: "Answer three random questions aloud while timing your responses."
+    },
+    {
+      title: "Review notes",
+      description: "Replay last week's memo and jot the adjustments you want to try today."
+    },
+    {
+      title: "Feedback filter",
+      description: "List the most helpful prior feedback and how you will address it now."
+    },
+    {
+      title: "Practice stack",
+      description: "Combine warm-up, prompt response, and reflection in a 15-minute block."
+    },
+    {
+      title: "Spotlight strength",
+      description: "Record a story highlighting what you already do well."
+    },
+    {
+      title: "Weekend wrap",
+      description: "Summarize the week's learning and decide one tweak for next week."
+    }
+  ],
+  "Preparation & Growth": [
+    {
+      title: "Week preview",
+      description: "Outline the key conversations coming up and note desired outcomes."
+    },
+    {
+      title: "Question planning",
+      description: "Draft five audience questions and sketch fair responses."
+    },
+    {
+      title: "Episode mapping",
+      description: "Map Episode 3 — Decisions, Decisions to your next presentation structure."
+    },
+    {
+      title: "Story bank",
+      description: "Collect three stories you can use to explain current projects."
+    },
+    {
+      title: "Vocabulary refresh",
+      description: "Read an article and highlight phrases to weave into future answers."
+    },
+    {
+      title: "Scenario rehearsal",
+      description: "Script an opening for an upcoming meeting and speak it aloud."
+    },
+    {
+      title: "Reflection loop",
+      description: "Journal about a recent conversation—what worked and what to adjust."
+    },
+    {
+      title: "Prep template",
+      description: "Update your prep checklist with timing, key messages, and follow-up."
+    },
+    {
+      title: "Growth check-in",
+      description: "Write down one skill you advanced this week and one to focus on next."
+    },
+    {
+      title: "Monthly review",
+      description: "Review your notes from this plan and mark what to carry forward."
+    }
+  ]
+}
+
+type SevenDayActivity = {
+  day: number
+  category: Category
+  title: string
+  description: string
+}
+
+const buildSevenDayPlan = (plan: PlanSummary, totalDays = 7): SevenDayActivity[] => {
+  if (plan.categorySummaries.length === 0) return []
+
+  const scoreByCategory = plan.categorySummaries.reduce<Record<Category, number>>((acc, item) => {
+    acc[item.category] = item.average
+    return acc
+  }, {} as Record<Category, number>)
+
+  const sortedCategories = [...plan.categorySummaries]
+    .sort((a, b) => a.average - b.average)
+    .map(item => item.category)
+
+  const selectedCategories = sortedCategories.length > 0 ? sortedCategories : (Object.keys(categoryDailyActivities) as Category[])
+
+  const sequence: Category[] = []
+  while (sequence.length < totalDays) {
+    selectedCategories.forEach(category => {
+      if (sequence.length < totalDays) sequence.push(category)
+    })
+  }
+
+  const usageTracker: Partial<Record<Category, number>> = {}
+
+  return sequence.map((category, index) => {
+    const count = usageTracker[category] ?? 0
+    const templates = categoryDailyActivities[category] ?? []
+    const template = templates[count % Math.max(templates.length, 1)]
+    usageTracker[category] = count + 1
+
+    return {
+      day: index + 1,
+      category,
+      title: template?.title ?? "Micro habit",
+      description: template?.description ?? getRecommendation(category, scoreByCategory[category] ?? 3.5)
+    }
+  })
+}
+
 const classifyScore = (score: number) => {
   if (score >= 4.2) return { label: "On track", tone: "text-emerald-600" }
   if (score >= 3) return { label: "Needs tuning", tone: "text-amber-600" }
@@ -299,12 +562,6 @@ const classifyScore = (score: number) => {
 }
 
 type RgbColor = [number, number, number]
-
-const getPdfScoreMeta = (score: number): { label: string; color: RgbColor } => {
-  if (score >= 4.2) return { label: "On track", color: [16, 185, 129] }
-  if (score >= 3) return { label: "Needs tuning", color: [234, 179, 8] }
-  return { label: "Priority focus", color: [244, 63, 94] }
-}
 
 export default function GoalPlanPage() {
   const [responses, setResponses] = useState<Record<string, LikertValue>>({})
@@ -353,239 +610,171 @@ export default function GoalPlanPage() {
     })
   }
 
+
   const handleDownloadPDF = () => {
     if (!summary) return
 
-    const pdf = new jsPDF({ orientation: "p", unit: "pt", format: "a4" })
-    let pageWidth = pdf.internal.pageSize.getWidth()
-    let pageHeight = pdf.internal.pageSize.getHeight()
-    const marginX = 56
-    const footerHeight = 56
+    const pdf = new jsPDF({ orientation: "landscape", unit: "pt", format: "a4" })
+    const pageWidth = pdf.internal.pageSize.getWidth()
+    const pageHeight = pdf.internal.pageSize.getHeight()
+    const marginX = 48
+    const headerHeight = 84
+    const footerHeight = 48
     const contentWidth = pageWidth - marginX * 2
     const brandPrimary: RgbColor = [5, 122, 85]
-    const brandAccent: RgbColor = [16, 185, 129]
     const slate: RgbColor = [30, 41, 59]
     const slateMuted: RgbColor = [71, 85, 105]
-    const divider: RgbColor = [209, 213, 219]
+    const lightBorder: RgbColor = [187, 247, 208]
+    const softFill: RgbColor = [236, 253, 245]
     const formattedDate = new Intl.DateTimeFormat(undefined, {
       month: "long",
       day: "numeric",
       year: "numeric"
     }).format(new Date())
-    const ownerName = summary.ownerName?.trim() ?? ""
-    let pageNumber = 1
-    let y = 0
+    const ownerName = summary.ownerName?.trim()
+    const sortedSummaries = [...summary.categorySummaries].sort((a, b) => a.average - b.average)
+    const focusAreas = sortedSummaries.slice(0, Math.min(3, sortedSummaries.length))
+    const sevenDayPlan = buildSevenDayPlan(summary)
 
-    const setTextColor = ([r, g, b]: RgbColor) => pdf.setTextColor(r, g, b)
-    const setFillColor = ([r, g, b]: RgbColor) => pdf.setFillColor(r, g, b)
-    const setDrawColor = ([r, g, b]: RgbColor) => pdf.setDrawColor(r, g, b)
+    const drawHeader = (subheading: string) => {
+      pdf.setFillColor(brandPrimary[0], brandPrimary[1], brandPrimary[2])
+      pdf.rect(0, 0, pageWidth, headerHeight, "F")
+      pdf.setTextColor(255, 255, 255)
+      pdf.setFont("helvetica", "bold")
+      pdf.setFontSize(24)
+      pdf.text("Communicaly 7-Day Speaking Sprint", marginX, 40)
+      pdf.setFont("helvetica", "normal")
+      pdf.setFontSize(12)
+      const headerLine = ownerName ? `For ${ownerName} • Generated ${formattedDate}` : `Generated ${formattedDate}`
+      pdf.text(headerLine, marginX, 60)
+      pdf.setFont("helvetica", "italic")
+      pdf.setFontSize(10)
+      pdf.text(subheading, marginX, 76)
+    }
 
-    const drawFooter = () => {
-      setDrawColor(divider)
-      pdf.setLineWidth(0.5)
-      pdf.line(marginX, pageHeight - footerHeight, pageWidth - marginX, pageHeight - footerHeight)
-      setTextColor(slateMuted)
+    const drawFooter = (tip: string) => {
+      const footerY = pageHeight - footerHeight + 24
+      pdf.setFont("helvetica", "italic")
+      pdf.setFontSize(9)
+      pdf.setTextColor(slateMuted[0], slateMuted[1], slateMuted[2])
+      pdf.text(tip, marginX, footerY)
       pdf.setFont("helvetica", "normal")
       pdf.setFontSize(9)
-      pdf.text(`Communicaly Goal Plan • Page ${pageNumber}`, marginX, pageHeight - footerHeight + 28)
+      pdf.text("communicaly.com", pageWidth - marginX, footerY, { align: "right" })
     }
 
-    const drawNameBadge = (topOffset: number, fontSize: number) => {
-      if (!ownerName) return
-      const label = `Plan for ${ownerName}`
+    drawHeader("Build momentum with one simple focus every day.")
+    let currentY = headerHeight + 24
+
+    pdf.setFont("helvetica", "bold")
+    pdf.setFontSize(14)
+    pdf.setTextColor(brandPrimary[0], brandPrimary[1], brandPrimary[2])
+    pdf.text("How to use this plan", marginX, currentY)
+    pdf.setFont("helvetica", "normal")
+    pdf.setFontSize(10)
+    pdf.setTextColor(slateMuted[0], slateMuted[1], slateMuted[2])
+    const instructionLines = [
+      "1. Review the focus for today and keep the task somewhere visible.",
+      "2. Spend 10 focused minutes completing the micro-task.",
+      "3. Write one sentence about what sounded smoother."
+    ]
+    let lineY = currentY + 18
+    instructionLines.forEach(line => {
+      pdf.text(line, marginX, lineY)
+      lineY += 14
+    })
+    currentY = lineY + 18
+
+    if (focusAreas.length > 0) {
       pdf.setFont("helvetica", "bold")
-      pdf.setFontSize(fontSize)
-      const textWidth = pdf.getTextWidth(label)
-      const padX = 18
-      const padY = fontSize <= 11 ? 6 : 8
-      const badgeWidth = textWidth + padX * 2
-      const badgeHeight = fontSize + padY * 2
-      const badgeX = Math.max(marginX, pageWidth - marginX - badgeWidth)
-      const badgeY = topOffset
-      setFillColor([255, 255, 255])
-      setDrawColor(brandPrimary)
-      pdf.roundedRect(badgeX, badgeY, badgeWidth, badgeHeight, 18, 18, "FD")
-      setTextColor(brandPrimary)
-      const textY = badgeY + badgeHeight / 2 + fontSize * 0.32
-      pdf.text(label, badgeX + badgeWidth / 2, textY, { align: "center" })
-    }
+      pdf.setFontSize(14)
+      pdf.setTextColor(brandPrimary[0], brandPrimary[1], brandPrimary[2])
+      pdf.text("Top focus areas", marginX, currentY)
+      pdf.setFont("helvetica", "normal")
+      pdf.setFontSize(10)
+      pdf.setTextColor(slateMuted[0], slateMuted[1], slateMuted[2])
+      pdf.text("Scores show where daily reps will create the biggest lift.", marginX, currentY + 16)
 
-    const drawPageHeader = (firstPage: boolean) => {
-      if (firstPage) {
-        setFillColor(brandAccent)
-        pdf.rect(0, 0, pageWidth, 92, "F")
-        setFillColor([224, 231, 255])
-        pdf.rect(0, 92, pageWidth, 28, "F")
-        setTextColor([255, 255, 255])
+      const cardGap = 12
+      const cardWidth = (contentWidth - cardGap * (focusAreas.length - 1)) / focusAreas.length
+      const preparedCards = focusAreas.map(area => {
+        const recommendation = getRecommendation(area.category, area.average)
+        const summaryLines = pdf.splitTextToSize(recommendation, cardWidth - 32)
+        const quickHabit = categoryDailyActivities[area.category]?.[0]
+        const quickLines = quickHabit
+          ? pdf.splitTextToSize(`${quickHabit.title} - ${quickHabit.description}`, cardWidth - 32)
+          : []
+        const contentHeight = summaryLines.length * 12 + (quickLines.length > 0 ? quickLines.length * 12 + 20 : 8)
+        const cardHeight = Math.max(120, 72 + contentHeight)
+        return { area, summaryLines, quickLines, cardHeight }
+      })
+      const cardHeight = Math.max(...preparedCards.map(card => card.cardHeight))
+      const cardStartY = currentY + 32
+
+      preparedCards.forEach((card, index) => {
+        const x = marginX + index * (cardWidth + cardGap)
+        const y = cardStartY
+        pdf.setFillColor(softFill[0], softFill[1], softFill[2])
+        pdf.roundedRect(x, y, cardWidth, cardHeight, 12, 12, "F")
+        pdf.setDrawColor(lightBorder[0], lightBorder[1], lightBorder[2])
+        pdf.roundedRect(x, y, cardWidth, cardHeight, 12, 12)
         pdf.setFont("helvetica", "bold")
-        pdf.setFontSize(22)
-        pdf.text("Communicaly Goal Plan", marginX, 48)
-        pdf.setFont("helvetica", "normal")
         pdf.setFontSize(12)
-        pdf.text(`Generated ${formattedDate}`, marginX, 68)
-        drawNameBadge(36, 12)
-        setTextColor(slate)
-        return 132
-      }
-
-      setFillColor([236, 253, 245])
-      pdf.rect(0, 0, pageWidth, 64, "F")
-      setTextColor(brandPrimary)
-      pdf.setFont("helvetica", "bold")
-      pdf.setFontSize(14)
-      pdf.text("Communicaly Goal Plan", marginX, 36)
-      pdf.setFont("helvetica", "normal")
-      pdf.setFontSize(10)
-      setTextColor(slateMuted)
-      pdf.text(`Generated ${formattedDate}`, marginX, 52)
-      drawNameBadge(18, 10)
-      setTextColor(slate)
-      return 96
-    }
-
-    const ensureSpace = (requiredHeight: number) => {
-      if (y + requiredHeight <= pageHeight - footerHeight) return
-      drawFooter()
-      pdf.addPage()
-      pageNumber += 1
-      pageWidth = pdf.internal.pageSize.getWidth()
-      pageHeight = pdf.internal.pageSize.getHeight()
-      y = drawPageHeader(false)
-    }
-
-    const addSectionTitle = (title: string, helper?: string) => {
-      const helperLines = helper ? pdf.splitTextToSize(helper, contentWidth) : []
-      const helperHeight = helperLines.length > 0 ? helperLines.length * 14 + 6 : 0
-      ensureSpace(34 + helperHeight)
-      setTextColor(brandPrimary)
-      pdf.setFont("helvetica", "bold")
-      pdf.setFontSize(14)
-      pdf.text(title, marginX, y)
-      y += 18
-      if (helperLines.length > 0) {
-        setTextColor(slateMuted)
-        pdf.setFont("helvetica", "normal")
-        pdf.setFontSize(11)
-        pdf.text(helperLines, marginX, y)
-        y += helperHeight
-      }
-      setDrawColor(divider)
-      pdf.setLineWidth(0.5)
-      pdf.line(marginX, y, marginX + contentWidth, y)
-      y += 16
-    }
-
-    const addPriorityCard = (category: Category, average: number) => {
-      const recommendation = getRecommendation(category, average)
-      const lines = pdf.splitTextToSize(recommendation, contentWidth - 32)
-      const cardHeight = 72 + lines.length * 14
-      ensureSpace(cardHeight + 10)
-      setFillColor([240, 253, 244])
-      pdf.roundedRect(marginX, y, contentWidth, cardHeight, 12, 12, "F")
-      setDrawColor([187, 247, 208])
-      pdf.roundedRect(marginX, y, contentWidth, cardHeight, 12, 12)
-
-      const badge = getPdfScoreMeta(average)
-      setFillColor(badge.color)
-      pdf.roundedRect(marginX + contentWidth - 126, y + 16, 110, 26, 13, 13, "F")
-      setTextColor([255, 255, 255])
-      pdf.setFont("helvetica", "bold")
-      pdf.setFontSize(10)
-      pdf.text(badge.label, marginX + contentWidth - 71, y + 33, { align: "center" })
-
-      setTextColor(brandPrimary)
-      pdf.setFont("helvetica", "bold")
-      pdf.setFontSize(12)
-      pdf.text(`${category} • ${average.toFixed(1)}/5`, marginX + 18, y + 30)
-
-      setTextColor(slateMuted)
-      pdf.setFont("helvetica", "normal")
-      pdf.setFontSize(11)
-      pdf.text(lines, marginX + 18, y + 54)
-      y += cardHeight + 16
-    }
-
-    const addCategoryCard = (category: Category, average: number) => {
-      const recommendation = getRecommendation(category, average)
-      const summaryLines = pdf.splitTextToSize(recommendation, contentWidth - 32)
-      const height = 64 + summaryLines.length * 14
-      ensureSpace(height + 10)
-      setFillColor([255, 255, 255])
-      pdf.roundedRect(marginX, y, contentWidth, height, 10, 10, "F")
-      setDrawColor([209, 250, 229])
-      pdf.roundedRect(marginX, y, contentWidth, height, 10, 10)
-
-      setTextColor(brandPrimary)
-      pdf.setFont("helvetica", "bold")
-      pdf.setFontSize(12)
-      pdf.text(category, marginX + 16, y + 26)
-
-      setTextColor(slate)
-      pdf.setFontSize(20)
-      pdf.text(average.toFixed(1), marginX + 16, y + 52)
-      pdf.setFont("helvetica", "normal")
-      pdf.setFontSize(11)
-      setTextColor(slateMuted)
-      pdf.text("/ 5", marginX + 52, y + 52)
-
-      const badge = getPdfScoreMeta(average)
-      setFillColor([255, 255, 255])
-      setDrawColor(badge.color)
-      pdf.roundedRect(marginX + contentWidth - 138, y + 18, 122, 24, 12, 12, "D")
-      setTextColor(badge.color)
-      pdf.setFont("helvetica", "bold")
-      pdf.setFontSize(10)
-      pdf.text(badge.label, marginX + contentWidth - 77, y + 35, { align: "center" })
-
-      setTextColor(slateMuted)
-      pdf.setFont("helvetica", "normal")
-      pdf.setFontSize(11)
-      pdf.text(summaryLines, marginX + 16, y + 72)
-      y += height + 16
-    }
-
-    const addDetailedRatings = () => {
-      addSectionTitle("Detailed Ratings", "Keep this section for monthly reviews and track rising scores over time.")
-      likertQuestions.forEach(question => {
-        const value = summary.responses[question.id]
-        const questionLines = pdf.splitTextToSize(question.prompt, contentWidth)
-        ensureSpace(questionLines.length * 14 + 36)
-        setTextColor(slate)
+        pdf.setTextColor(brandPrimary[0], brandPrimary[1], brandPrimary[2])
+        pdf.text(card.area.category, x + 16, y + 24)
         pdf.setFont("helvetica", "bold")
-        pdf.setFontSize(11)
-        pdf.text(questionLines, marginX, y)
-        y += questionLines.length * 14 + 6
-        setTextColor(slateMuted)
+        pdf.setFontSize(20)
+        pdf.setTextColor(slate[0], slate[1], slate[2])
+        pdf.text(card.area.average.toFixed(1), x + 16, y + 48)
         pdf.setFont("helvetica", "normal")
         pdf.setFontSize(10)
-        pdf.text(`Score: ${value} — ${scaleLabels[value]}`, marginX, y)
-        y += 22
+        pdf.setTextColor(slateMuted[0], slateMuted[1], slateMuted[2])
+        pdf.text("/ 5", x + 56, y + 48)
+        pdf.setFont("helvetica", "normal")
+        pdf.setFontSize(10)
+        pdf.setTextColor(slateMuted[0], slateMuted[1], slateMuted[2])
+        pdf.text(card.summaryLines, x + 16, y + 66)
+        if (card.quickLines.length > 0) {
+          const quickY = y + 66 + card.summaryLines.length * 12 + 10
+          pdf.setFont("helvetica", "bold")
+          pdf.setFontSize(9)
+          pdf.setTextColor(slate[0], slate[1], slate[2])
+          pdf.text("Micro-task to start:", x + 16, quickY)
+          pdf.setFont("helvetica", "normal")
+          pdf.setFontSize(9)
+          pdf.setTextColor(slateMuted[0], slateMuted[1], slateMuted[2])
+          pdf.text(card.quickLines, x + 16, quickY + 12)
+        }
       })
+
+      currentY = cardStartY + cardHeight + 24
     }
 
-    y = drawPageHeader(true)
+    if (sevenDayPlan.length > 0) {
+      pdf.setFont("helvetica", "bold")
+      pdf.setFontSize(14)
+      pdf.setTextColor(brandPrimary[0], brandPrimary[1], brandPrimary[2])
+      pdf.text("7-day focus roadmap", marginX, currentY)
+      pdf.setFont("helvetica", "normal")
+      pdf.setFontSize(10)
+      pdf.setTextColor(slateMuted[0], slateMuted[1], slateMuted[2])
+      pdf.text("Keep it easy: complete one micro-task each day and note your progress.", marginX, currentY + 16)
 
-    addSectionTitle("Priority Focus", "Start each practice block here. Revisit this section weekly and celebrate shifts upward.")
-    summary.lowest.forEach(({ category, average }) => addPriorityCard(category, average))
+      let bulletY = currentY + 34
+      sevenDayPlan.forEach(item => {
+        const text = `Day ${item.day} • ${item.category}: ${item.title} — ${item.description}`
+        const lines = pdf.splitTextToSize(text, contentWidth)
+        pdf.text(lines, marginX, bulletY)
+        bulletY += lines.length * 12 + 8
+      })
+      currentY = bulletY + 12
+    }
 
-    addSectionTitle("Category Score Snapshot", "Glance at these averages to see what's humming and where to add a little extra practice time.")
-    summary.categorySummaries.forEach(({ category, average }) => addCategoryCard(category, average))
+    drawFooter("Re-run the goal planner after seven days to refresh your focus.")
 
-    addDetailedRatings()
-
-    ensureSpace(40)
-    setTextColor(slateMuted)
-    pdf.setFont("helvetica", "italic")
-    pdf.setFontSize(10)
-    pdf.text(
-      "Tip: Re-run the questionnaire monthly and compare PDFs to spot the habits that moved your scores.",
-      marginX,
-      y
-    )
-
-    drawFooter()
     pdf.save("communicaly-goal-plan.pdf")
   }
+
 
   return (
     <section className="space-y-10 pb-12">
@@ -691,7 +880,7 @@ export default function GoalPlanPage() {
                 <p className="text-sm font-medium text-emerald-900">Plan for {summary.ownerName}</p>
               )}
               <p className="text-sm text-emerald-800">
-                Use this snapshot during weekly reviews. The focus areas below pull directly from your questionnaire.
+                Use this snapshot during your daily check-ins. The focus areas below pull directly from your questionnaire.
               </p>
             </div>
             <button
