@@ -13,6 +13,7 @@ const PLACEHOLDER_BY_EPISODE: Record<string, string> = {
   "trust-takes-time-9": "e.g. Use: “earn my trust…”, “kept the small promise…”, and a sentence like “I stay open but let people prove themselves over time.”",
   "when-meetings-run-long-10": "e.g. Use: “ran long…”, “checking out…”, and a sentence like “Once we hit the 30-minute mark, I could feel the room drift.”",
   "catching-up-11": "e.g. Use: “ran into…”, “catch up…”, and a sentence like “Once she smiled, all the old memories came rushing back.”",
+  "when-you-hit-your-toe-12": "e.g. Use: “bam, the bed…”, “held my breath…”, and a sentence like “Now I give that corner a warning glance before I walk by.”",
 }
 
 const DEFAULT_PLACEHOLDER = "e.g. Use: “ended up…”, “supposed to…”, and a sentence like “When I walk in, I’m heading straight to the kitchen.”"

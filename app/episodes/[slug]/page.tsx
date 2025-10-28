@@ -96,6 +96,13 @@ const TEXT_ANSWER_OVERRIDE_MAP: Record<string, Partial<Record<TextAnswerCat, str
     conversation: "What question could you ask Sophie to keep the catching-up vibe going?",
     summary: "In one or two sentences, how would you retell this coffee-shop reunion?",
   },
+  "when-you-hit-your-toe-12": {
+    short: "What’s the first thing you do right after you slam your toe on a piece of furniture?",
+    reflective: "How do tiny accidents like stubbing your toe change the way you move through your space?",
+    personal: "Tell a quick story about the last time you hurt yourself doing something ordinary at home.",
+    conversation: "What question could you ask the narrator to keep the chat light while you both laugh about the mishap?",
+    summary: "In one or two sentences, how would you retell this whole stubbed-toe moment?",
+  },
 }
 
 const TEXT_HELPER_OVERRIDE_MAP: Record<string, Partial<Record<TextAnswerCat, string[]>>> = {
@@ -350,6 +357,34 @@ const TEXT_HELPER_OVERRIDE_MAP: Record<string, Partial<Record<TextAnswerCat, str
       "The main memory is…",
     ],
   },
+  "when-you-hit-your-toe-12": {
+    short: [
+      "I always freeze for a second…",
+      "First, I grab my foot and…",
+      "My quick fix is to breathe and…",
+    ],
+    reflective: [
+      "Moments like this remind me…",
+      "It makes me rethink where…",
+      "I notice the pain fades once…",
+    ],
+    personal: [
+      "One time I smacked my toe on…",
+      "I remember hopping around because…",
+      "Back at my old apartment, I…",
+    ],
+    conversation: [
+      "Does that corner get you often?",
+      "Should we add a night-light so…?",
+      "What’s the worst toe-hit you’ve had?",
+      "Want to rearrange things so…?",
+    ],
+    summary: [
+      "Quick recap: …",
+      "Basically, they…",
+      "Bottom line: one toe-hit led to…",
+    ],
+  },
 }
 
 const JOURNAL_REFLECTION_OVERRIDE_MAP: Record<string, string[] | undefined> = {
@@ -430,6 +465,13 @@ const JOURNAL_REFLECTION_OVERRIDE_MAP: Record<string, string[] | undefined> = {
     "Who would you like to reconnect with next, and what would you say first?",
     "What detail would show them that you still remember your shared history?",
     "How will you follow up after an unexpected reunion so it doesn’t fade again?",
+  ],
+  "when-you-hit-your-toe-12": [
+    "When you bump into furniture at home, how do you calm down once the shock hits?",
+    "What reminder helps you stop a tiny pain from controlling the rest of your mood?",
+    "Which spot in your home always seems to catch your toes, and why?",
+    "Who do you text or call when you need to laugh off a clumsy moment?",
+    "What small change could make your space safer for bare feet this week?",
   ],
 }
 
