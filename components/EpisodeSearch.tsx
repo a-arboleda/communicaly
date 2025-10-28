@@ -121,12 +121,11 @@ export default function EpisodeSearch({ episodes }: { episodes: EpisodeItem[] })
               href={`/episodes/${ep.slug}`}
               className="card group block overflow-hidden rounded-3xl border border-gray-200 transition-transform transition-colors duration-200 hover:-translate-y-1 hover:border-brand-500 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-700"
             >
-              <div className="card-body flex items-start justify-between gap-4">
-                <div className="space-y-1">
+              <div className="flex items-center justify-between gap-4 px-4 py-3">
+                <div className="flex-1 space-y-1">
                   <h3 className="text-lg font-semibold">{displayTitle(ep.title)}</h3>
-                  {ep.excerpt && <p className="text-gray-700 mt-1">{ep.excerpt}</p>}
                   {!!ep.tags?.length && (
-                    <div className="mt-2 flex flex-wrap gap-2 max-h-16 overflow-hidden">
+                    <div className="flex flex-wrap gap-2 text-sm">
                       {ep.tags.map((t) => (
                         <span key={t} className="tag tag-accent">{t}</span>
                       ))}
