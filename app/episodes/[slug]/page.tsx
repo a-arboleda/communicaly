@@ -103,6 +103,13 @@ const TEXT_ANSWER_OVERRIDE_MAP: Record<string, Partial<Record<TextAnswerCat, str
     conversation: "What question could you ask the narrator to keep the chat light while you both laugh about the mishap?",
     summary: "In one or two sentences, how would you retell this whole stubbed-toe moment?",
   },
+  "my-mind-was-racing-13": {
+    short: "Which moment from his sleepless night felt most familiar to you?",
+    reflective: "When your mind races after lights-out, what helps you slow it down?",
+    personal: "Tell a quick story about the last time you lay awake overthinking everything.",
+    conversation: "What could you ask him about letting his thoughts run wild at 2 a.m.?",
+    summary: "In one or two sentences, how would you retell this can't-sleep, mind-racing moment?",
+  },
 }
 
 const TEXT_HELPER_OVERRIDE_MAP: Record<string, Partial<Record<TextAnswerCat, string[]>>> = {
@@ -385,6 +392,34 @@ const TEXT_HELPER_OVERRIDE_MAP: Record<string, Partial<Record<TextAnswerCat, str
       "Bottom line: one toe-hit led to…",
     ],
   },
+  "my-mind-was-racing-13": {
+    short: [
+      "When my mind won't slow down, I…",
+      "I catch myself staring at the clock because…",
+      "Eventually I just…",
+    ],
+    reflective: [
+      "Nights like this remind me…",
+      "I notice my thoughts jump from… to…",
+      "If I try to force sleep, it usually…",
+    ],
+    personal: [
+      "One night I kept replaying…",
+      "Back in college I would…",
+      "I finally drifted off after…",
+    ],
+    conversation: [
+      "Does your brain always sprint like that at night?",
+      "Have you tried letting the thoughts run out?",
+      "What kept looping in your head?",
+      "Want to trade late-night tricks so we both get some sleep?",
+    ],
+    summary: [
+      "Bottom line: …",
+      "In short, it's a restless night that…",
+      "Basically, his mind ran laps until…",
+    ],
+  },
 }
 
 const JOURNAL_REFLECTION_OVERRIDE_MAP: Record<string, string[] | undefined> = {
@@ -472,6 +507,13 @@ const JOURNAL_REFLECTION_OVERRIDE_MAP: Record<string, string[] | undefined> = {
     "Which spot in your home always seems to catch your toes, and why?",
     "Who do you text or call when you need to laugh off a clumsy moment?",
     "What small change could make your space safer for bare feet this week?",
+  ],
+  "my-mind-was-racing-13": [
+    "What usually triggers your mind to start racing right when you want to sleep?",
+    "Which bedtime habits help you slow the mental spiral when it shows up?",
+    "Who or what do you reach for when you need comfort during a sleepless stretch?",
+    "How does a night of tossing and turning change the way your next day unfolds?",
+    "What experiment will you try this week to quiet your thoughts before bed?",
   ],
 }
 
