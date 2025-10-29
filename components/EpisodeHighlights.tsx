@@ -39,6 +39,9 @@ export default function EpisodeHighlights({
             <p className="text-sm text-gray-600">
               Tap a card to reveal the prompt. Start with the function goal, then flip to guide the conversation or practice response.
             </p>
+            <p className="text-xs text-gray-500">
+              Need a nudge? Toss a die and respond to whichever card matches the number—no second guessing, just jump in.
+            </p>
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4">
               {quizItems.map((item, idx) => (
                 <QuizCard key={`quiz-${idx}`} item={item} index={idx} />

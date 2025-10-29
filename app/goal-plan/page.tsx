@@ -1,7 +1,6 @@
 // app/goal-plan/page.tsx
 "use client"
 
-import Link from "next/link"
 import { FormEvent, useEffect, useMemo, useState } from "react"
 import jsPDF from "jspdf"
 
@@ -31,13 +30,6 @@ type PlanSummary = {
   lowest: CategorySummary[]
   responses: Record<string, LikertValue>
   ownerName?: string
-}
-
-type ContentRecommendation = {
-  title: string
-  slug: `/episodes/${string}`
-  description: string
-  format: "Episode"
 }
 
 const likertQuestions: LikertQuestion[] = [
@@ -187,109 +179,6 @@ const getRecommendation = (category: Category, score: number) => {
   if (score >= 4.2) return guidance.high
   if (score >= 3) return guidance.medium
   return guidance.low
-}
-
-const contentRecommendations: Record<Category, ContentRecommendation[]> = {
-  "Pace & Presence": [
-    {
-      title: "Episode 10 — When Meetings Run Long",
-      slug: "/episodes/when-meetings-run-long-10",
-      description: "Shadow the opening story to practice calm pacing even when energy drops.",
-      format: "Episode"
-    },
-    {
-      title: "Episode 4 — One Bus an Hour",
-      slug: "/episodes/one-bus-an-hour-4",
-      description: "Use the transit delays narrative to rehearse measured storytelling with patient pauses.",
-      format: "Episode"
-    },
-    {
-      title: "Episode 1 — Morning Coffee",
-      slug: "/episodes/morning-coffee-1",
-      description: "Read the ritual aloud to sync breathing with natural everyday pacing.",
-      format: "Episode"
-    }
-  ],
-  "Clarity & Articulation": [
-    {
-      title: "Episode 2 — Cooking Dinner",
-      slug: "/episodes/cooking-dinner-2",
-      description: "Mirror the step-by-step instructions to sharpen consonants and syllable endings.",
-      format: "Episode"
-    },
-    {
-      title: "Episode 6 — Where Are My Keys?",
-      slug: "/episodes/where-are-my-keys-6",
-      description: "Retell the scene focusing on crisp transitions and descriptive details.",
-      format: "Episode"
-    },
-    {
-      title: "Episode 8 — Tools, Plans, and a Little Patience",
-      slug: "/episodes/tools-plans-patience-8",
-      description: "Use the hardware-store checklist to practice precise sequencing language.",
-      format: "Episode"
-    }
-  ],
-  "Language & Word Choice": [
-    {
-      title: "Episode 5 — Making a House a Home",
-      slug: "/episodes/a-budget-dilemma-5",
-      description: "Study the vivid verbs and swap your filler phrases with stronger wording.",
-      format: "Episode"
-    },
-    {
-      title: "Episode 7 — Small Surprises",
-      slug: "/episodes/small-surprises-7",
-      description: "Note how contrast and precise vocabulary build emotional impact.",
-      format: "Episode"
-    },
-    {
-      title: "Episode 9 — Trust Takes Time",
-      slug: "/episodes/trust-takes-time-9",
-      description: "Lift calm, persuasive phrases for thoughtful and confident responses.",
-      format: "Episode"
-    }
-  ],
-  "Practice & Feedback": [
-    {
-      title: "Episode 11 — Catching Up",
-      slug: "/episodes/catching-up-11",
-      description: "Record yourself answering the reflection prompts, then review tone and clarity.",
-      format: "Episode"
-    },
-    {
-      title: "Episode 10 — When Meetings Run Long",
-      slug: "/episodes/when-meetings-run-long-10",
-      description: "Share the recap with a partner and invite feedback on how engaging your summary sounds.",
-      format: "Episode"
-    },
-    {
-      title: "Episode 6 — Where Are My Keys?",
-      slug: "/episodes/where-are-my-keys-6",
-      description: "Swap practice recordings and ask listeners for clarity notes on details and delivery.",
-      format: "Episode"
-    }
-  ],
-  "Preparation & Growth": [
-    {
-      title: "Episode 3 — Decisions, Decisions",
-      slug: "/episodes/decisions-decisions-3",
-      description: "Outline the narrative before listening, then compare to refine your prep template.",
-      format: "Episode"
-    },
-    {
-      title: "Episode 9 — Trust Takes Time",
-      slug: "/episodes/trust-takes-time-9",
-      description: "Pull relationship language and thoughtful pauses into your own planning scripts.",
-      format: "Episode"
-    },
-    {
-      title: "Episode 8 — Tools, Plans, and a Little Patience",
-      slug: "/episodes/tools-plans-patience-8",
-      description: "Map the checklist structure onto your next big conversation or presentation.",
-      format: "Episode"
-    }
-  ]
 }
 
 type DailyActivityTemplate = {
@@ -927,40 +816,6 @@ export default function GoalPlanPage() {
             ))}
             <p className="text-xs text-emerald-700">
               Tip: Start each practice block by reviewing the first priority, then layer in the next area once the score climbs above 4.
-            </p>
-          </div>
-
-          <div className="space-y-3 rounded-xl border border-emerald-200 bg-white p-4 shadow-sm">
-            <p className="font-semibold text-emerald-900">Communicaly Practice Plan</p>
-            <p className="text-sm text-emerald-700">
-              Start with the playlists below. Each one combines Communicaly episodes and tools tailored to your top priorities.
-            </p>
-            {summary.lowest.map(({ category }) => {
-              const playlist = contentRecommendations[category] ?? []
-              if (playlist.length === 0) return null
-              return (
-                <div key={`playlist-${category}`} className="space-y-2">
-                  <p className="text-sm font-semibold text-emerald-900">{category}</p>
-                  <ul className="space-y-2">
-                    {playlist.map(item => (
-                      <li key={`${category}-${item.slug}`} className="rounded-lg border border-emerald-100 bg-emerald-50/60 p-3 text-sm text-emerald-900">
-                        <p className="font-medium">
-                          <span className="mr-2 inline-flex h-5 items-center rounded-full bg-emerald-100 px-2 text-xs font-semibold uppercase tracking-wide text-emerald-700">
-                            {item.format}
-                          </span>
-                          <Link href={item.slug} className="transition hover:text-emerald-600 hover:underline">
-                            {item.title}
-                          </Link>
-                        </p>
-                        <p className="text-xs text-emerald-700">{item.description}</p>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )
-            })}
-            <p className="text-xs text-emerald-700">
-              Bonus: When a playlist feels solid, rotate in content from the other categories to stay sharp across every skill.
             </p>
           </div>
 
