@@ -197,12 +197,12 @@ const categoryDailyActivities: Record<Category, DailyActivityTemplate[]> = {
       description: "Replay the memo and insert three intentional pauses; note where silence supports meaning."
     },
     {
-      title: "Episode pacing",
-      description: "Read Episode 1 — Morning Coffee aloud with a metronome at 70 bpm to steady your delivery."
+      title: "Steady paragraph",
+      description: "Read a short paragraph aloud while tapping your finger to keep a steady pace."
     },
     {
       title: "Calm openers",
-      description: "Draft two conversation openers and practice starting each one with a grounding breath."
+      description: "Write two conversation openers and practice saying each after a calming breath."
     },
     {
       title: "Walking rehearsal",
@@ -222,7 +222,7 @@ const categoryDailyActivities: Record<Category, DailyActivityTemplate[]> = {
     },
     {
       title: "Slow story drill",
-      description: "Tell a two-minute story to your phone, focusing on crisp starts and finishes to each idea."
+      description: "Tell a two-minute story out loud, focusing on smooth starts and finishes to each idea."
     },
     {
       title: "Pause swaps",
@@ -236,7 +236,7 @@ const categoryDailyActivities: Record<Category, DailyActivityTemplate[]> = {
     },
     {
       title: "Consonant drill",
-      description: "Read Episode 2 — Cooking Dinner, exaggerating consonants and syllable endings."
+      description: "Read a short set of instructions, exaggerating consonants and syllable endings."
     },
     {
       title: "Mirror check",
@@ -277,8 +277,8 @@ const categoryDailyActivities: Record<Category, DailyActivityTemplate[]> = {
       description: "Rewrite yesterday's email with stronger verbs that show action."
     },
     {
-      title: "Episode vocabulary",
-      description: "List five vivid verbs from Episode 5 — Making a House a Home."
+      title: "Word hunt",
+      description: "List five vivid verbs from something you read today."
     },
     {
       title: "Concise summary",
@@ -293,8 +293,8 @@ const categoryDailyActivities: Record<Category, DailyActivityTemplate[]> = {
       description: "Repeat the answer, replacing fillers with a purposeful pause."
     },
     {
-      title: "Power phrases",
-      description: "Collect five phrases from a podcast that you want to reuse this week."
+      title: "Phrase list",
+      description: "Collect five useful phrases from today's conversations or reading."
     },
     {
       title: "Specific nouns",
@@ -323,8 +323,8 @@ const categoryDailyActivities: Record<Category, DailyActivityTemplate[]> = {
       description: "Send a partner a prompt asking for one note on tone or clarity."
     },
     {
-      title: "Episode shadow",
-      description: "Shadow Episode 11 — Catching Up and compare your pacing to the audio."
+      title: "Shadow practice",
+      description: "Shadow a two-minute clip from a speaker you like and match their pacing."
     },
     {
       title: "Partner swap",
@@ -365,8 +365,8 @@ const categoryDailyActivities: Record<Category, DailyActivityTemplate[]> = {
       description: "Draft five audience questions and sketch fair responses."
     },
     {
-      title: "Episode mapping",
-      description: "Map Episode 3 — Decisions, Decisions to your next presentation structure."
+      title: "Outline mapping",
+      description: "Map a favorite talk outline onto your next presentation."
     },
     {
       title: "Story bank",
