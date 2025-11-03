@@ -8,7 +8,6 @@ import { useEffect, useState } from "react"
 const links = [
   { href: "/", label: "Home" },
   { href: "/episodes", label: "Episodes" },
-  { href: "/goal-plan", label: "Goal Plan" },
   { href: "/about", label: "About" },
 ] as const satisfies ReadonlyArray<{ href: Route; label: string }>
 
