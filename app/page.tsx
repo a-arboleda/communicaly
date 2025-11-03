@@ -46,13 +46,13 @@ const practicePillars = [
     icon: "🌱",
     title: "Personal stories",
     description:
-      "Every scenario bends to your life so you practice the words you&rsquo;ll really need with friends, colleagues, and clients.",
+      "Every scenario bends to your life so you practice the words you'll really need in daily conversations.",
   },
   {
     icon: "🎯",
     title: "Intentional repetition",
     description:
-      "Prompts guide you to say it again with better rhythm and tone--great accents are built through mindful redo&rsquo;s.",
+      "Prompts guide you to say it again with better rhythm and tone—great accents grow from mindful redos.",
   },
   {
     icon: "🪞",
