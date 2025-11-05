@@ -110,6 +110,20 @@ const TEXT_ANSWER_OVERRIDE_MAP: Record<string, Partial<Record<TextAnswerCat, str
     conversation: "What could you ask him about letting his thoughts run wild at 2 a.m.?",
     summary: "In one or two sentences, how would you retell this can't-sleep, mind-racing moment?",
   },
+  "laundry-day-thoughts-14": {
+    short: "What part of their laundry routine sounded the most like yours?",
+    reflective: "How do repetitive chores like folding clothes change your mood or focus?",
+    personal: "Tell a quick story about a time a chore stirred up old memories for you.",
+    conversation: "What question would you ask the speaker to hear more about the stories each item carries?",
+    summary: "In one or two sentences, how would you retell this memory-filled laundry session?",
+  },
+  "waiting-in-line-15": {
+    short: "What’s your go-to move when the checkout line stops moving?",
+    reflective: "How do slow lines like this change the way you feel about running errands?",
+    personal: "Tell a quick story about a time a stranger made a long wait easier for you.",
+    conversation: "What question would you ask the speaker to keep the small talk going while you both inch forward?",
+    summary: "In one or two sentences, how would you retell this stuck-in-line moment?",
+  },
 }
 
 const TEXT_HELPER_OVERRIDE_MAP: Record<string, Partial<Record<TextAnswerCat, string[]>>> = {
@@ -418,6 +432,62 @@ const TEXT_HELPER_OVERRIDE_MAP: Record<string, Partial<Record<TextAnswerCat, str
       "Bottom line: …",
       "In short, it's a restless night that…",
       "Basically, his mind ran laps until…",
+    ],
+  },
+  "laundry-day-thoughts-14": {
+    short: [
+      "When the machine starts humming, I…",
+      "Folding clothes puts me in the mood to…",
+      "I speed up the process by…",
+    ],
+    reflective: [
+      "Sorting laundry usually reminds me…",
+      "When the room gets quiet, I notice…",
+      "It helps me think through…",
+    ],
+    personal: [
+      "One shirt that brings back memories is…",
+      "I still laugh about the time…",
+      "Growing up, we used to…",
+    ],
+    conversation: [
+      "Does any piece have a story behind it?",
+      "Which item took you the longest to fold?",
+      "Want to swap laundry hacks while we work?",
+      "Should we pair socks or tackle the shirts first?",
+    ],
+    summary: [
+      "Quick recap: …",
+      "In short, the chore turned into…",
+      "Basically, they sorted clothes and…",
+    ],
+  },
+  "waiting-in-line-15": {
+    short: [
+      "When the line stalls, I…",
+      "My quick calm-down is to…",
+      "If the register slows, I…",
+    ],
+    reflective: [
+      "Moments like this remind me…",
+      "I notice my patience shift when…",
+      "Long waits usually make me…",
+    ],
+    personal: [
+      "One time I was stuck behind…",
+      "I remember chatting with…",
+      "My longest wait was when…",
+    ],
+    conversation: [
+      "Did you see that headline about…?",
+      "How often do you get stuck in lines like this?",
+      "Want to swap weekend plans while we wait?",
+      "Should we guess how many coins she has left?",
+    ],
+    summary: [
+      "Quick recap: …",
+      "In short, the line…",
+      "Basically, we both…",
     ],
   },
 }

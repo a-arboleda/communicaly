@@ -15,6 +15,8 @@ const PLACEHOLDER_BY_EPISODE: Record<string, string> = {
   "catching-up-11": "e.g. Use: “ran into…”, “catch up…”, and a sentence like “Once she smiled, all the old memories came rushing back.”",
   "when-you-hit-your-toe-12": "e.g. Use: “bam, the bed…”, “held my breath…”, and a sentence like “Now I give that corner a warning glance before I walk by.”",
   "my-mind-was-racing-13": "e.g. Use: “mind was racing…”, “checked the time…”, and a sentence like “I let the late-night spiral run until I finally drifted off.”",
+  "laundry-day-thoughts-14": "e.g. Use: “humming machine…”, “matching socks…”, and a sentence like “By the last fold, I’d sorted my thoughts along with the clothes.”",
+  "waiting-in-line-15": "e.g. Use: “slowest line…”, “counting coins…”, and a sentence like “I ended up laughing with the guy behind me about the tabloid covers.”",
 }
 
 const DEFAULT_PLACEHOLDER = "e.g. Use: “ended up…”, “supposed to…”, and a sentence like “When I walk in, I’m heading straight to the kitchen.”"
