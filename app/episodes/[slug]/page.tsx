@@ -8,13 +8,11 @@ import { displayTitle } from "@/utils/format"
 import Details from "@/components/Details"
 import EpisodeQuickNav from "@/components/EpisodeQuickNav"
 import { getTranscript } from "@/utils/transcripts"
-import EpisodeInteractive from "@/components/EpisodeInteractive"
-import EpisodeTextAnswer from "@/components/EpisodeTextAnswer"
-import PracticeJournal from "@/components/PracticeJournal"
 import PracticeTips from "@/components/PracticeTips"
 import EpisodeHero from "@/components/EpisodeHero"
 import EpisodeHighlights from "@/components/EpisodeHighlights"
-import EpisodeTaskCheckbox from "@/components/EpisodeTaskCheckbox"
+import RespondCard from "@/components/RespondCard"
+import { AUDIO_PROMPTS } from "@/data/audioPrompts"
 
 type TextAnswerCat = "short" | "reflective" | "personal" | "conversation" | "summary"
 
@@ -738,32 +736,12 @@ export default async function EpisodePage({
         </div>
       </section>
 
-      {/* Combined: Respond + Practice Journal in one card */}
-      <section id="answer" className="card scroll-mt-20">
-        <div className="card-body">
-          <h3 className="font-semibold">Respond to the audio</h3>
-          <div className="mt-2">
-            <EpisodeTextAnswer
-              episodeId={slug}
-              overrideQuestions={textAnswerOverrides}
-              overrideHelpers={textHelperOverrides}
-            />
-          </div>
-          <PracticeJournal
-            inline
-            episodeId={slug}
-            audioTitle={frontmatter.title}
-            textAnswerQuestionsOverride={textAnswerOverrides}
-          />
-          <EpisodeTaskCheckbox episodeId={slug} task="responded" />
-        </div>
-      </section>
-
-      <EpisodeInteractive
+      <RespondCard
         episodeId={slug}
         audioTitle={frontmatter.title}
-        showPhrasebook={false}
-        showResetControls={false}
+        textAnswerQuestionsOverride={textAnswerOverrides}
+        textHelperOverrides={textHelperOverrides}
+        audioPrompt={AUDIO_PROMPTS[slug]}
       />
 
       <EpisodeHighlights

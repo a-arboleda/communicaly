@@ -17,12 +17,16 @@ type EpisodeHighlightsProps = {
   practiceQuiz?: TutorStudentQuizItem[]
 }
 
+const MAX_FLIPCARD_COUNT = 8
+
 export default function EpisodeHighlights({
   slug,
   practiceQuiz,
 }: EpisodeHighlightsProps) {
   const quizItems = Array.isArray(practiceQuiz)
-    ? practiceQuiz.filter((item) => item?.prompt && (item?.function || item?.expected))
+    ? practiceQuiz
+        .filter((item) => item?.prompt && (item?.function || item?.expected))
+        .slice(0, MAX_FLIPCARD_COUNT)
     : []
   const hasQuiz = quizItems.length > 0
 

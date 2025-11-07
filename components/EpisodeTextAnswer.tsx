@@ -1,10 +1,10 @@
 "use client"
 import { useEffect, useMemo, useRef, useState } from "react"
 
-const CATS = ["short", "reflective", "personal", "conversation", "summary"] as const
-type Cat = (typeof CATS)[number]
+export const TEXT_RESPONSE_CATS = ["short", "reflective", "personal", "conversation", "summary"] as const
+export type TextResponseCat = (typeof TEXT_RESPONSE_CATS)[number]
 
-function createEmptyAnswers(): Record<Cat, string> {
+function createEmptyAnswers(): Record<TextResponseCat, string> {
   return {
     short: "",
     reflective: "",
@@ -14,7 +14,7 @@ function createEmptyAnswers(): Record<Cat, string> {
   }
 }
 
-const TEMPLATES: Record<Cat, { label: string; question: string; helpers: string[] }> = {
+export const TEXT_RESPONSE_TEMPLATES: Record<TextResponseCat, { label: string; question: string; helpers: string[] }> = {
   short: {
     label: "Short/neutral",
     question: "What do you think of what you just heard?",
@@ -62,8 +62,8 @@ const TEMPLATES: Record<Cat, { label: string; question: string; helpers: string[
   },
 }
 
-export default function EpisodeTextAnswer({ episodeId, overrideQuestions, overrideHelpers }: { episodeId?: string; overrideQuestions?: Partial<Record<Cat, string>>; overrideHelpers?: Partial<Record<Cat, string[]>> }) {
-  const [cat, setCat] = useState<Cat>("short")
+export default function EpisodeTextAnswer({ episodeId, overrideQuestions, overrideHelpers }: { episodeId?: string; overrideQuestions?: Partial<Record<TextResponseCat, string>>; overrideHelpers?: Partial<Record<TextResponseCat, string[]>> }) {
+  const [cat, setCat] = useState<TextResponseCat>("short")
   const taRef = useRef<HTMLTextAreaElement | null>(null)
 
   // Question styling uses brand-blue color and a subtle left border
@@ -71,13 +71,13 @@ export default function EpisodeTextAnswer({ episodeId, overrideQuestions, overri
   const baseKey = episodeId ? `ep:${episodeId}:textAnswer` : undefined
   const catKey = useMemo(() => (baseKey ? `${baseKey}:cat` : undefined), [baseKey])
 
-  const [answers, setAnswers] = useState<Record<Cat, string>>(() => createEmptyAnswers())
+  const [answers, setAnswers] = useState<Record<TextResponseCat, string>>(() => createEmptyAnswers())
 
   // Load persisted answers per category and last selected category
   useEffect(() => {
     try {
-      const next: Record<Cat, string> = { ...answers }
-      CATS.forEach((c) => {
+      const next: Record<TextResponseCat, string> = { ...answers }
+      TEXT_RESPONSE_CATS.forEach((c) => {
         const k = baseKey ? `${baseKey}:${c}:value` : undefined
         if (!k) return
         const v = localStorage.getItem(k)
@@ -91,8 +91,8 @@ export default function EpisodeTextAnswer({ episodeId, overrideQuestions, overri
       }
       setAnswers(next)
       if (catKey) {
-        const stored = localStorage.getItem(catKey) as Cat | null
-        if (stored && TEMPLATES[stored]) setCat(stored)
+        const stored = localStorage.getItem(catKey) as TextResponseCat | null
+        if (stored && TEXT_RESPONSE_TEMPLATES[stored]) setCat(stored)
       }
     } catch {}
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -102,7 +102,7 @@ export default function EpisodeTextAnswer({ episodeId, overrideQuestions, overri
     try { if (catKey && cat) localStorage.setItem(catKey, cat) } catch {}
   }, [cat, catKey])
 
-  function setCatAnswer(which: Cat, value: string) {
+  function setCatAnswer(which: TextResponseCat, value: string) {
     setAnswers((prev) => {
       const next = { ...prev, [which]: value }
       try {
@@ -121,7 +121,7 @@ export default function EpisodeTextAnswer({ episodeId, overrideQuestions, overri
       setCat("short")
       try {
         if (baseKey) {
-          CATS.forEach((c) => {
+          TEXT_RESPONSE_CATS.forEach((c) => {
             const valueKey = `${baseKey}:${c}:value`
             localStorage.removeItem(valueKey)
           })
@@ -144,7 +144,7 @@ export default function EpisodeTextAnswer({ episodeId, overrideQuestions, overri
     }
   }, [episodeId, baseKey, catKey])
 
-  const current = TEMPLATES[cat]
+  const current = TEXT_RESPONSE_TEMPLATES[cat]
   const currentHelpers: string[] = overrideHelpers && overrideHelpers[cat]
     ? overrideHelpers[cat] as string[]
     : current.helpers
@@ -160,7 +160,7 @@ export default function EpisodeTextAnswer({ episodeId, overrideQuestions, overri
   return (
     <div className="space-y-3">
       <ul className="mt-[10px] mb-[15px] list-none flex flex-col gap-2 sm:flex-row sm:flex-wrap" role="list">
-        {(Object.keys(TEMPLATES) as Cat[]).map((k) => {
+        {TEXT_RESPONSE_CATS.map((k) => {
           const active = cat === k
           return (
             <li key={k} className="w-full sm:w-auto">
@@ -169,7 +169,7 @@ export default function EpisodeTextAnswer({ episodeId, overrideQuestions, overri
                 onClick={() => setCat(k)}
                 className={`btn btn-ghost ${active ? "border-brand-900 bg-brand-200/40" : ""} w-full justify-start text-left sm:w-auto sm:justify-center`}
               >
-                {TEMPLATES[k].label}
+                {TEXT_RESPONSE_TEMPLATES[k].label}
               </button>
             </li>
           )
