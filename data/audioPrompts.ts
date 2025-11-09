@@ -76,4 +76,12 @@ export const AUDIO_PROMPTS: Record<string, AudioPrompt> = {
     question: "When was the last time you completely lost your train of thought—and how did you handle it?",
     src: "/audio/prompts/forgot-what-i-was-saying-18.mp3",
   },
+  "sunday-mornings-19": {
+    question: "What’s one small thing that makes your Sunday mornings feel special?",
+    src: "/audio/prompts/sunday-mornings-19.mp3",
+  },
+  "did-i-flush-the-toilet-20": {
+    question: "Have you ever had one of those small, harmless worries that you couldn't stop thinking about - like the 'Did I flush?' moment?",
+    src: "/audio/prompts/did-i-flush-the-toilet-20.mp3",
+  },
 }

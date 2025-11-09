@@ -143,6 +143,20 @@ const TEXT_ANSWER_OVERRIDE_MAP: Record<string, Partial<Record<TextAnswerCat, str
     conversation: "Ask the speaker something that might help them remember—what would you ask right now?",
     summary: "In one or two sentences, how would you retell their reminder to slow down after a blank-out?",
   },
+  "sunday-mornings-19": {
+    short: "What’s the first little detail that tells you Sunday finally feels slow?",
+    reflective: "When you listen to this, what do you learn about your own need for rest versus productivity?",
+    personal: "Share a quick story about a Sunday morning you let yourself linger longer than planned.",
+    conversation: "You’re chatting with the narrator—what would you ask them about protecting quiet time?",
+    summary: "In one or two sentences, how would you retell their reminder that Sunday can just be about being?",
+  },
+  "did-i-flush-the-toilet-20": {
+    short: "Which tiny moment in this story felt the most relatable to you?",
+    reflective: "What does this episode make you notice about how small doubts can take over your focus?",
+    personal: "Share a quick story about the last time you worried you messed up something minor at someone else’s place.",
+    conversation: "If you were sitting next to the narrator, what would you ask them to help them calm down?",
+    summary: "In one or two sentences, how would you retell their reminder that invisible worries can still hijack a night?",
+  },
 }
 
 const TEXT_HELPER_OVERRIDE_MAP: Record<string, Partial<Record<TextAnswerCat, string[]>>> = {
@@ -587,6 +601,50 @@ const TEXT_HELPER_OVERRIDE_MAP: Record<string, Partial<Record<TextAnswerCat, str
       "Overall, I hear a reminder to…",
     ],
   },
+  "sunday-mornings-19": {
+    short: [
+      "Sunday feels real when…",
+      "The first calm detail I notice is…",
+      "My slow start begins with…",
+    ],
+    reflective: [
+      "It reminds me that I need…",
+      "I notice my energy shifts when…",
+      "This makes me rethink how I…",
+    ],
+    personal: [
+      "One Sunday I decided to…",
+      "My favorite lazy ritual is…",
+      "Usually I linger by…",
+    ],
+    summary: [
+      "In short, Sundays are…",
+      "Basically, their morning shows…",
+      "Overall, it’s a reminder that…",
+    ],
+  },
+  "did-i-flush-the-toilet-20": {
+    short: [
+      "The moment that hooked me was…",
+      "I’d probably panic when…",
+      "The funniest part is…",
+    ],
+    reflective: [
+      "It shows me that my brain tends to…",
+      "I notice I spiral when…",
+      "This reminds me to check…",
+    ],
+    personal: [
+      "One time at a friend’s place I…",
+      "I still cringe when I remember…",
+      "Usually I double-check by…",
+    ],
+    summary: [
+      "Bottom line: …",
+      "In short, a tiny doubt…",
+      "Overall, it’s about…",
+    ],
+  },
 }
 
 const JOURNAL_REFLECTION_OVERRIDE_MAP: Record<string, string[] | undefined> = {
@@ -702,6 +760,20 @@ const JOURNAL_REFLECTION_OVERRIDE_MAP: Record<string, string[] | undefined> = {
     "Who helps you get back on track when you forget your point, and how?",
     "What phrases or breaths help you settle before the idea returns?",
     "What would “handling it gracefully” look like the next time it happens?",
+  ],
+  "sunday-mornings-19": [
+    "What tells you it’s finally a slow morning and not just another rushed day?",
+    "How do you want your body to feel before you start moving on Sundays?",
+    "Which chores can wait so that resting actually feels intentional?",
+    "Who or what usually interrupts your quiet time, and how could you set a boundary?",
+    "What tiny ritual will you protect next Sunday so the calm sticks around?",
+  ],
+  "did-i-flush-the-toilet-20": [
+    "Which small social what-ifs tend to hijack your attention the fastest?",
+    "How does your body signal that a harmless doubt is turning into anxiety?",
+    "What double-check routine helps you calm down before you rejoin the group?",
+    "Who could you text or glance at for reassurance when you’re spiraling quietly?",
+    "What will you tell yourself next time so you return to the moment sooner?",
   ],
 }
 
