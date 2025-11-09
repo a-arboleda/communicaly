@@ -136,6 +136,13 @@ const TEXT_ANSWER_OVERRIDE_MAP: Record<string, Partial<Record<TextAnswerCat, str
     conversation: "What question would you ask the narrator so they feel encouraged to trust their next yes?",
     summary: "In one or two sentences, how would you retell their reminder about moving before the moment passes?",
   },
+  "forgot-what-i-was-saying-18": {
+    short: "Which part of their mid-sentence blackout felt the most familiar to you?",
+    reflective: "What does this story make you notice about how you react when your brain suddenly blanks?",
+    personal: "Tell a quick story about the last time you forgot your point and how you handled it.",
+    conversation: "Ask the speaker something that might help them remember—what would you ask right now?",
+    summary: "In one or two sentences, how would you retell their reminder to slow down after a blank-out?",
+  },
 }
 
 const TEXT_HELPER_OVERRIDE_MAP: Record<string, Partial<Record<TextAnswerCat, string[]>>> = {
@@ -558,6 +565,28 @@ const TEXT_HELPER_OVERRIDE_MAP: Record<string, Partial<Record<TextAnswerCat, str
       "Basically, hesitating meant…",
     ],
   },
+  "forgot-what-i-was-saying-18": {
+    short: [
+      "That blank stare moment reminded me…",
+      "When my mind suddenly empties, I…",
+      "The most relatable part was…",
+    ],
+    reflective: [
+      "It makes me notice that I…",
+      "Moments like this remind me to…",
+      "I realize my brain shuts down when…",
+    ],
+    personal: [
+      "One time I froze mid-sentence because…",
+      "My coworker watched me stumble when…",
+      "What helped me recover was…",
+    ],
+    summary: [
+      "In short, it’s about…",
+      "Basically, forgetting gave them…",
+      "Overall, I hear a reminder to…",
+    ],
+  },
 }
 
 const JOURNAL_REFLECTION_OVERRIDE_MAP: Record<string, string[] | undefined> = {
@@ -666,6 +695,13 @@ const JOURNAL_REFLECTION_OVERRIDE_MAP: Record<string, string[] | undefined> = {
     "Who could you ask for a quick gut check before you pass on something small?",
     "What promise could you make to yourself so the next easy yes doesn’t sit on your someday list?",
     "How will you remind yourself of this episode the next time a trusted friend shares an idea?",
+  ],
+  "forgot-what-i-was-saying-18": [
+    "What clues tell you a thought is about to disappear mid-sentence?",
+    "How do you usually buy yourself a few seconds when your mind goes blank?",
+    "Who helps you get back on track when you forget your point, and how?",
+    "What phrases or breaths help you settle before the idea returns?",
+    "What would “handling it gracefully” look like the next time it happens?",
   ],
 }
 

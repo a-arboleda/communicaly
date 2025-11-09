@@ -72,4 +72,8 @@ export const AUDIO_PROMPTS: Record<string, AudioPrompt> = {
     question: "Have you ever hesitated on a decision and later wondered what might have happened if you’d said yes?",
     src: "/audio/prompts/the-one-that-got-away-17.mp3",
   },
+  "forgot-what-i-was-saying-18": {
+    question: "When was the last time you completely lost your train of thought—and how did you handle it?",
+    src: "/audio/prompts/forgot-what-i-was-saying-18.mp3",
+  },
 }
