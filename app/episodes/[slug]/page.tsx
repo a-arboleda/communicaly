@@ -122,6 +122,13 @@ const TEXT_ANSWER_OVERRIDE_MAP: Record<string, Partial<Record<TextAnswerCat, str
     conversation: "What question would you ask the speaker to keep the small talk going while you both inch forward?",
     summary: "In one or two sentences, how would you retell this stuck-in-line moment?",
   },
+  "arguments-16": {
+    short: "When did the argument in this story feel like it shifted from casual to serious for you?",
+    reflective: "What does this episode remind you about the way you communicate when emotions run high?",
+    personal: "Share a quick moment when you realized you were arguing harder because the person mattered to you.",
+    conversation: "What could you ask the narrator so they feel heard instead of feeling like they have to win?",
+    summary: "In one or two sentences, how would you restate their lesson about choosing when to speak up versus let it go?",
+  },
 }
 
 const TEXT_HELPER_OVERRIDE_MAP: Record<string, Partial<Record<TextAnswerCat, string[]>>> = {
@@ -488,6 +495,34 @@ const TEXT_HELPER_OVERRIDE_MAP: Record<string, Partial<Record<TextAnswerCat, str
       "Basically, we both…",
     ],
   },
+  "arguments-16": {
+    short: [
+      "When an argument heats up, I…",
+      "If it suddenly feels serious, I…",
+      "My quick gut check is…",
+    ],
+    reflective: [
+      "Moments like this remind me…",
+      "I notice my tone shifts when…",
+      "It teaches me that…",
+    ],
+    personal: [
+      "I once argued with someone close when…",
+      "Back then I realized…",
+      "My toughest disagreement was…",
+    ],
+    conversation: [
+      "How do you want me to listen right now?",
+      "What would help you feel heard before we keep going?",
+      "Could we pause so we don’t talk in circles?",
+      "Should we come back to this after a breather?",
+    ],
+    summary: [
+      "Bottom line: …",
+      "In short, it’s about…",
+      "The lesson is knowing when to…",
+    ],
+  },
 }
 
 const JOURNAL_REFLECTION_OVERRIDE_MAP: Record<string, string[] | undefined> = {
@@ -582,6 +617,13 @@ const JOURNAL_REFLECTION_OVERRIDE_MAP: Record<string, string[] | undefined> = {
     "Who or what do you reach for when you need comfort during a sleepless stretch?",
     "How does a night of tossing and turning change the way your next day unfolds?",
     "What experiment will you try this week to quiet your thoughts before bed?",
+  ],
+  "arguments-16": [
+    "What usually sparks disagreements for you when the other person really matters?",
+    "How do you know whether you’re still listening or only defending your point?",
+    "Who helps you cool down after an argument, and what do they typically say?",
+    "What phrase or pause helps you signal that you need a break before things escalate?",
+    "What will you try next time so the conversation ends with more understanding than tension?",
   ],
 }
 

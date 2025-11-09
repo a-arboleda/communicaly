@@ -64,4 +64,8 @@ export const AUDIO_PROMPTS: Record<string, AudioPrompt> = {
     question: "You just heard them stuck in the slowest checkout line—what would you ask to make the wait feel shorter?",
     src: "/audio/prompts/waiting-in-line-15.mp3",
   },
+  "arguments-16": {
+    question: "Think about the last time you argued with someone who matters to you—what did it teach you about the way you communicate?",
+    src: "/audio/prompts/arguments-16.mp3",
+  },
 }
