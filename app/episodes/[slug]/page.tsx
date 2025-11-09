@@ -129,6 +129,13 @@ const TEXT_ANSWER_OVERRIDE_MAP: Record<string, Partial<Record<TextAnswerCat, str
     conversation: "What could you ask the narrator so they feel heard instead of feeling like they have to win?",
     summary: "In one or two sentences, how would you restate their lesson about choosing when to speak up versus let it go?",
   },
+  "the-one-that-got-away-17": {
+    short: "Which detail from this missed opportunity felt most familiar to you?",
+    reflective: "What does this story make you notice about your own hesitation habits?",
+    personal: "Tell a quick story about a time you said “maybe later” and the chance disappeared.",
+    conversation: "What question would you ask the narrator so they feel encouraged to trust their next yes?",
+    summary: "In one or two sentences, how would you retell their reminder about moving before the moment passes?",
+  },
 }
 
 const TEXT_HELPER_OVERRIDE_MAP: Record<string, Partial<Record<TextAnswerCat, string[]>>> = {
@@ -523,6 +530,34 @@ const TEXT_HELPER_OVERRIDE_MAP: Record<string, Partial<Record<TextAnswerCat, str
       "The lesson is knowing when to…",
     ],
   },
+  "the-one-that-got-away-17": {
+    short: [
+      "I keep replaying the moment when…",
+      "Looking back, the clue was…",
+      "My easy yes would have been…",
+    ],
+    reflective: [
+      "This reminds me that hesitation usually…",
+      "I notice my brain stalls when…",
+      "It teaches me to trust…",
+    ],
+    personal: [
+      "Once, I hesitated because…",
+      "I still think about the time I…",
+      "The opportunity I skipped was…",
+    ],
+    conversation: [
+      "What made you so sure this was worth trying?",
+      "How did you know it was low risk?",
+      "What would you ask me to help me say yes sooner?",
+      "Could you walk me through the part I missed?",
+    ],
+    summary: [
+      "Bottom line: …",
+      "In short, the lesson is…",
+      "Basically, hesitating meant…",
+    ],
+  },
 }
 
 const JOURNAL_REFLECTION_OVERRIDE_MAP: Record<string, string[] | undefined> = {
@@ -624,6 +659,13 @@ const JOURNAL_REFLECTION_OVERRIDE_MAP: Record<string, string[] | undefined> = {
     "Who helps you cool down after an argument, and what do they typically say?",
     "What phrase or pause helps you signal that you need a break before things escalate?",
     "What will you try next time so the conversation ends with more understanding than tension?",
+  ],
+  "the-one-that-got-away-17": [
+    "What kinds of opportunities tend to slip by you because you wait too long?",
+    "How can you tell the difference between healthy caution and plain hesitation?",
+    "Who could you ask for a quick gut check before you pass on something small?",
+    "What promise could you make to yourself so the next easy yes doesn’t sit on your someday list?",
+    "How will you remind yourself of this episode the next time a trusted friend shares an idea?",
   ],
 }
 

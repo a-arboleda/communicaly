@@ -68,4 +68,8 @@ export const AUDIO_PROMPTS: Record<string, AudioPrompt> = {
     question: "Think about the last time you argued with someone who matters to you—what did it teach you about the way you communicate?",
     src: "/audio/prompts/arguments-16.mp3",
   },
+  "the-one-that-got-away-17": {
+    question: "Have you ever hesitated on a decision and later wondered what might have happened if you’d said yes?",
+    src: "/audio/prompts/the-one-that-got-away-17.mp3",
+  },
 }

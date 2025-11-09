@@ -178,19 +178,21 @@ export default function EpisodeTextAnswer({ episodeId, overrideQuestions, overri
 
       <div className="space-y-2">
         <div className="text-base sm:text-lg text-brand-900 font-semibold italic pl-3 border-l-2 border-brand-300">{overrideQuestions?.[cat] || current.question}</div>
-        <div className="flex flex-wrap gap-2">
-          {currentHelpers.map((h) => (
-            <button
-              key={h}
-              type="button"
-              onClick={() => insertHelper(h)}
-              className="tag tag-accent hover:border-brand-accent"
-              title="Click to add to your answer"
-            >
-              {h}
-            </button>
-          ))}
-        </div>
+        {cat !== "conversation" && (
+          <div className="flex flex-wrap gap-2">
+            {currentHelpers.map((h) => (
+              <button
+                key={h}
+                type="button"
+                onClick={() => insertHelper(h)}
+                className="tag tag-accent hover:border-brand-accent"
+                title="Click to add to your answer"
+              >
+                {h}
+              </button>
+            ))}
+          </div>
+        )}
         <div>
           <label htmlFor={`text-answer-${episodeId || "ep"}-${cat}`} className="text-sm text-gray-600">
             Write your answer
