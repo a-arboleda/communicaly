@@ -157,6 +157,13 @@ const TEXT_ANSWER_OVERRIDE_MAP: Record<string, Partial<Record<TextAnswerCat, str
     conversation: "If you were sitting next to the narrator, what would you ask them to help them calm down?",
     summary: "In one or two sentences, how would you retell their reminder that invisible worries can still hijack a night?",
   },
+  "the-lost-remote-21": {
+    short: "What’s the small thing you always seem to lose the moment you finally get comfortable?",
+    reflective: "What does this lost-remote saga make you notice about how tiny hassles change the mood?",
+    personal: "Tell a quick story about the last time you tore apart the living room searching for something basic like a remote or charger.",
+    conversation: "If you were sitting with them, what question could you ask to help track down the remote faster?",
+    summary: "In a sentence or two, how would you retell their couch-cushion scavenger hunt?",
+  },
 }
 
 const TEXT_HELPER_OVERRIDE_MAP: Record<string, Partial<Record<TextAnswerCat, string[]>>> = {
@@ -645,6 +652,28 @@ const TEXT_HELPER_OVERRIDE_MAP: Record<string, Partial<Record<TextAnswerCat, str
       "Overall, it’s about…",
     ],
   },
+  "the-lost-remote-21": {
+    short: [
+      "Every time I get comfy, the remote…",
+      "The smallest thing I always misplace is…",
+      "My first instinct is to pat around because…",
+    ],
+    reflective: [
+      "Little hunts like this remind me…",
+      "When tiny hassles steal my night, I notice…",
+      "It usually tells me I need to…",
+    ],
+    personal: [
+      "Once I ended up kneeling on the floor because…",
+      "My funniest lost-remote story was when…",
+      "I finally found it hiding…",
+    ],
+    summary: [
+      "Bottom line: …",
+      "In short, a missing remote turned into…",
+      "Overall, it shows how quickly…",
+    ],
+  },
 }
 
 const JOURNAL_REFLECTION_OVERRIDE_MAP: Record<string, string[] | undefined> = {
@@ -774,6 +803,13 @@ const JOURNAL_REFLECTION_OVERRIDE_MAP: Record<string, string[] | undefined> = {
     "What double-check routine helps you calm down before you rejoin the group?",
     "Who could you text or glance at for reassurance when you’re spiraling quietly?",
     "What will you tell yourself next time so you return to the moment sooner?",
+  ],
+  "the-lost-remote-21": [
+    "Which small item disappears most often when you finally sit down, and what chain reaction does it start?",
+    "How does your mood shift from cozy to frantic while you’re tearing apart the couch?",
+    "Who do you loop into the hunt (or secretly blame), and what does that reveal about your habits?",
+    "What simple ritual could keep remotes, chargers, or other gadgets parked in one predictable spot?",
+    "How could you turn the next lost-remote search into something playful instead of stressful?",
   ],
 }
 

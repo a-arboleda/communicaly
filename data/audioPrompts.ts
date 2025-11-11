@@ -84,4 +84,8 @@ export const AUDIO_PROMPTS: Record<string, AudioPrompt> = {
     question: "Have you ever had one of those small, harmless worries that you couldn't stop thinking about - like the 'Did I flush?' moment?",
     src: "/audio/prompts/did-i-flush-the-toilet-20.mp3",
   },
+  "the-lost-remote-21": {
+    question: "What’s something small that always seems to go missing right when you need it?",
+    src: "/audio/prompts/the-lost-remote-21.mp3",
+  },
 }
