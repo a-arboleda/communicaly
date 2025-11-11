@@ -88,4 +88,8 @@ export const AUDIO_PROMPTS: Record<string, AudioPrompt> = {
     question: "What’s something small that always seems to go missing right when you need it?",
     src: "/audio/prompts/the-lost-remote-21.mp3",
   },
+  "the-fridge-stare-22": {
+    question: "Do you ever open the fridge just to look — even when you’re not really hungry?",
+    src: "/audio/prompts/the-fridge-stare-22.mp3",
+  },
 }

@@ -164,6 +164,13 @@ const TEXT_ANSWER_OVERRIDE_MAP: Record<string, Partial<Record<TextAnswerCat, str
     conversation: "If you were sitting with them, what question could you ask to help track down the remote faster?",
     summary: "In a sentence or two, how would you retell their couch-cushion scavenger hunt?",
   },
+  "the-fridge-stare-22": {
+    short: "What usually runs through your head when you open the fridge even though you’re not hungry?",
+    reflective: "What does this episode make you notice about the habits you use to fill quiet late-night minutes?",
+    personal: "Share a quick story about a time you kept reopening the fridge hoping something would magically appear.",
+    conversation: "You’re standing beside the narrator—what would you ask them so you both laugh about the fridge stare?",
+    summary: "In one or two sentences, how would you retell their late-night fridge ritual?",
+  },
 }
 
 const TEXT_HELPER_OVERRIDE_MAP: Record<string, Partial<Record<TextAnswerCat, string[]>>> = {
@@ -674,6 +681,28 @@ const TEXT_HELPER_OVERRIDE_MAP: Record<string, Partial<Record<TextAnswerCat, str
       "Overall, it shows how quickly…",
     ],
   },
+  "the-fridge-stare-22": {
+    short: [
+      "Every so often I open the fridge just to…",
+      "I end up staring at the shelf because…",
+      "Nothing looks good and yet I still…",
+    ],
+    reflective: [
+      "Late-night fridge checks usually mean I’m…",
+      "I notice the quiet feels different when…",
+      "It reminds me that boredom often sounds like…",
+    ],
+    personal: [
+      "One night I kept reopening the door because…",
+      "I still laugh about the time I found…",
+      "My default move is to grab the handle when…",
+    ],
+    summary: [
+      "Bottom line: …",
+      "In short, a fridge stare became…",
+      "Overall, the episode shows…",
+    ],
+  },
 }
 
 const JOURNAL_REFLECTION_OVERRIDE_MAP: Record<string, string[] | undefined> = {
@@ -810,6 +839,13 @@ const JOURNAL_REFLECTION_OVERRIDE_MAP: Record<string, string[] | undefined> = {
     "Who do you loop into the hunt (or secretly blame), and what does that reveal about your habits?",
     "What simple ritual could keep remotes, chargers, or other gadgets parked in one predictable spot?",
     "How could you turn the next lost-remote search into something playful instead of stressful?",
+  ],
+  "the-fridge-stare-22": [
+    "What usually sends you to the fridge when you know you’re not hungry?",
+    "How does the cold light or hum of the fridge make the late-night quiet feel different?",
+    "What else could you reach for (tea, water, journal, stretch) before opening the door again?",
+    "Who or what often interrupts your fridge staring, and how do you react?",
+    "What gentle boundary could you set so bedtime boredom doesn’t start in the kitchen?",
   ],
 }
 
