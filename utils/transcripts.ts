@@ -88,18 +88,8 @@ function isCue(value: unknown): value is Cue {
 }
 
 export function getTranscript(slug: string): TranscriptData | null {
-  if (!fs.existsSync(T_DIR)) return null
-  const slugFile = slug + ".json"
-  let p = path.join(T_DIR, slugFile)
-  if (!fs.existsSync(p)) {
-    try {
-      const match = fs.readdirSync(T_DIR).find((file) => file.toLowerCase() === slugFile.toLowerCase())
-      if (match) p = path.join(T_DIR, match)
-      else return null
-    } catch {
-      return null
-    }
-  }
+  const p = path.join(T_DIR, slug + ".json")
+  if (!fs.existsSync(p)) return null
   try {
     const raw = fs.readFileSync(p, "utf8")
     const data: unknown = JSON.parse(raw)
