@@ -87,9 +87,23 @@ function isCue(value: unknown): value is Cue {
   return typeof maybe.start === "number" && typeof maybe.text === "string" && (typeof maybe.end === "number" || typeof maybe.end === "undefined")
 }
 
+function resolveTranscriptPath(slug: string): string | null {
+  const filename = slug.endsWith(".json") ? slug : `${slug}.json`
+  const direct = path.join(T_DIR, filename)
+  if (fs.existsSync(direct)) return direct
+  if (!fs.existsSync(T_DIR)) return null
+  try {
+    const lower = filename.toLowerCase()
+    const match = fs.readdirSync(T_DIR).find((file) => file.toLowerCase() === lower)
+    return match ? path.join(T_DIR, match) : null
+  } catch {
+    return null
+  }
+}
+
 export function getTranscript(slug: string): TranscriptData | null {
-  const p = path.join(T_DIR, slug + ".json")
-  if (!fs.existsSync(p)) return null
+  const p = resolveTranscriptPath(slug)
+  if (!p) return null
   try {
     const raw = fs.readFileSync(p, "utf8")
     const data: unknown = JSON.parse(raw)
