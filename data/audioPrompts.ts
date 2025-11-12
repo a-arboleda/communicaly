@@ -92,4 +92,8 @@ export const AUDIO_PROMPTS: Record<string, AudioPrompt> = {
     question: "Do you ever open the fridge just to look — even when you’re not really hungry?",
     src: "/audio/prompts/the-fridge-stare-22.mp3",
   },
+  "canceling-plans-23": {
+    question: "How do you usually feel when plans get canceled — disappointed or secretly relieved?",
+    src: "/audio/prompts/canceling-plans-23.mp3",
+  },
 }

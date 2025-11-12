@@ -1,0 +1,1461 @@
+{
+  "language_code": null,
+  "segments": [
+    {
+      "text": "You ever have one of those days where you have plans, real confirmed plans, but deep down you're secretly hoping they get canceled? That was me last Friday. I had dinner plans with a couple of friends. I like them, I really do, but it had been a long week. I was tired, the weather was bad, and honestly, my couch was calling. I kept checking my phone all afternoon half hoping someone would text, \"Hey, should we reschedule?\" And then it happened, one of them sent the message, \"Hey, something came up. Can we do it another day?\" I swear I smiled like I'd just won the lottery. I texted back, \"No worries at all,\" pretending to be disappointed but I was already in sweatpants. Ten minutes later, I was eating leftovers watching a movie I'd already seen and feeling zero guilt about it.",
+      "start_time": 0.14,
+      "end_time": 54.139,
+      "speaker": {
+        "id": "speaker_0",
+        "name": "Speaker 0"
+      },
+      "words": [
+        {
+          "text": "You",
+          "start_time": 0.14,
+          "end_time": 0.239
+        },
+        {
+          "text": " ",
+          "start_time": 0.239,
+          "end_time": 0.259
+        },
+        {
+          "text": "ever",
+          "start_time": 0.259,
+          "end_time": 0.379
+        },
+        {
+          "text": " ",
+          "start_time": 0.379,
+          "end_time": 0.479
+        },
+        {
+          "text": "have",
+          "start_time": 0.479,
+          "end_time": 0.579
+        },
+        {
+          "text": " ",
+          "start_time": 0.579,
+          "end_time": 0.6
+        },
+        {
+          "text": "one",
+          "start_time": 0.6,
+          "end_time": 0.68
+        },
+        {
+          "text": " ",
+          "start_time": 0.68,
+          "end_time": 0.699
+        },
+        {
+          "text": "of",
+          "start_time": 0.699,
+          "end_time": 0.759
+        },
+        {
+          "text": " ",
+          "start_time": 0.759,
+          "end_time": 0.78
+        },
+        {
+          "text": "those",
+          "start_time": 0.78,
+          "end_time": 0.959
+        },
+        {
+          "text": " ",
+          "start_time": 0.959,
+          "end_time": 0.98
+        },
+        {
+          "text": "days",
+          "start_time": 0.98,
+          "end_time": 1.22
+        },
+        {
+          "text": " ",
+          "start_time": 1.22,
+          "end_time": 1.239
+        },
+        {
+          "text": "where",
+          "start_time": 1.24,
+          "end_time": 1.359
+        },
+        {
+          "text": " ",
+          "start_time": 1.359,
+          "end_time": 1.379
+        },
+        {
+          "text": "you",
+          "start_time": 1.379,
+          "end_time": 1.5
+        },
+        {
+          "text": " ",
+          "start_time": 1.5,
+          "end_time": 1.539
+        },
+        {
+          "text": "have",
+          "start_time": 1.539,
+          "end_time": 1.679
+        },
+        {
+          "text": " ",
+          "start_time": 1.679,
+          "end_time": 1.719
+        },
+        {
+          "text": "plans,",
+          "start_time": 1.719,
+          "end_time": 2.84
+        },
+        {
+          "text": " ",
+          "start_time": 2.84,
+          "end_time": 2.919
+        },
+        {
+          "text": "real",
+          "start_time": 2.919,
+          "end_time": 3.279
+        },
+        {
+          "text": " ",
+          "start_time": 3.279,
+          "end_time": 3.88
+        },
+        {
+          "text": "confirmed",
+          "start_time": 3.88,
+          "end_time": 4.319
+        },
+        {
+          "text": " ",
+          "start_time": 4.319,
+          "end_time": 4.379
+        },
+        {
+          "text": "plans,",
+          "start_time": 4.38,
+          "end_time": 5.0
+        },
+        {
+          "text": " ",
+          "start_time": 5.0,
+          "end_time": 5.86
+        },
+        {
+          "text": "but",
+          "start_time": 5.86,
+          "end_time": 5.98
+        },
+        {
+          "text": " ",
+          "start_time": 5.98,
+          "end_time": 6.019
+        },
+        {
+          "text": "deep",
+          "start_time": 6.019,
+          "end_time": 6.199
+        },
+        {
+          "text": " ",
+          "start_time": 6.199,
+          "end_time": 6.239
+        },
+        {
+          "text": "down",
+          "start_time": 6.239,
+          "end_time": 6.579
+        },
+        {
+          "text": " ",
+          "start_time": 6.579,
+          "end_time": 6.96
+        },
+        {
+          "text": "you're",
+          "start_time": 6.96,
+          "end_time": 7.139
+        },
+        {
+          "text": " ",
+          "start_time": 7.139,
+          "end_time": 7.179
+        },
+        {
+          "text": "secretly",
+          "start_time": 7.179,
+          "end_time": 7.5
+        },
+        {
+          "text": " ",
+          "start_time": 7.5,
+          "end_time": 7.579
+        },
+        {
+          "text": "hoping",
+          "start_time": 7.579,
+          "end_time": 7.839
+        },
+        {
+          "text": " ",
+          "start_time": 7.839,
+          "end_time": 7.859
+        },
+        {
+          "text": "they",
+          "start_time": 7.859,
+          "end_time": 7.979
+        },
+        {
+          "text": " ",
+          "start_time": 7.979,
+          "end_time": 8.0
+        },
+        {
+          "text": "get",
+          "start_time": 8.0,
+          "end_time": 8.119
+        },
+        {
+          "text": " ",
+          "start_time": 8.119,
+          "end_time": 8.159
+        },
+        {
+          "text": "canceled?",
+          "start_time": 8.159,
+          "end_time": 8.68
+        },
+        {
+          "text": " ",
+          "start_time": 8.68,
+          "end_time": 9.579
+        },
+        {
+          "text": "That",
+          "start_time": 9.579,
+          "end_time": 9.659
+        },
+        {
+          "text": " ",
+          "start_time": 9.659,
+          "end_time": 9.699
+        },
+        {
+          "text": "was",
+          "start_time": 9.699,
+          "end_time": 9.819
+        },
+        {
+          "text": " ",
+          "start_time": 9.819,
+          "end_time": 9.86
+        },
+        {
+          "text": "me",
+          "start_time": 9.86,
+          "end_time": 9.96
+        },
+        {
+          "text": " ",
+          "start_time": 9.96,
+          "end_time": 10.0
+        },
+        {
+          "text": "last",
+          "start_time": 10.0,
+          "end_time": 10.14
+        },
+        {
+          "text": " ",
+          "start_time": 10.14,
+          "end_time": 10.199
+        },
+        {
+          "text": "Friday.",
+          "start_time": 10.199,
+          "end_time": 10.64
+        },
+        {
+          "text": " ",
+          "start_time": 10.64,
+          "end_time": 11.34
+        },
+        {
+          "text": "I",
+          "start_time": 11.34,
+          "end_time": 11.42
+        },
+        {
+          "text": " ",
+          "start_time": 11.42,
+          "end_time": 11.46
+        },
+        {
+          "text": "had",
+          "start_time": 11.46,
+          "end_time": 11.579
+        },
+        {
+          "text": " ",
+          "start_time": 11.579,
+          "end_time": 11.599
+        },
+        {
+          "text": "dinner",
+          "start_time": 11.599,
+          "end_time": 11.779
+        },
+        {
+          "text": " ",
+          "start_time": 11.779,
+          "end_time": 11.819
+        },
+        {
+          "text": "plans",
+          "start_time": 11.819,
+          "end_time": 12.079
+        },
+        {
+          "text": " ",
+          "start_time": 12.079,
+          "end_time": 12.099
+        },
+        {
+          "text": "with",
+          "start_time": 12.099,
+          "end_time": 12.179
+        },
+        {
+          "text": " ",
+          "start_time": 12.179,
+          "end_time": 12.199
+        },
+        {
+          "text": "a",
+          "start_time": 12.199,
+          "end_time": 12.239
+        },
+        {
+          "text": " ",
+          "start_time": 12.239,
+          "end_time": 12.279
+        },
+        {
+          "text": "couple",
+          "start_time": 12.279,
+          "end_time": 12.439
+        },
+        {
+          "text": " ",
+          "start_time": 12.439,
+          "end_time": 12.46
+        },
+        {
+          "text": "of",
+          "start_time": 12.46,
+          "end_time": 12.539
+        },
+        {
+          "text": " ",
+          "start_time": 12.539,
+          "end_time": 12.579
+        },
+        {
+          "text": "friends.",
+          "start_time": 12.579,
+          "end_time": 13.079
+        },
+        {
+          "text": " ",
+          "start_time": 13.079,
+          "end_time": 13.879
+        },
+        {
+          "text": "I",
+          "start_time": 13.88,
+          "end_time": 13.96
+        },
+        {
+          "text": " ",
+          "start_time": 13.96,
+          "end_time": 13.979
+        },
+        {
+          "text": "like",
+          "start_time": 13.979,
+          "end_time": 14.159
+        },
+        {
+          "text": " ",
+          "start_time": 14.159,
+          "end_time": 14.199
+        },
+        {
+          "text": "them,",
+          "start_time": 14.199,
+          "end_time": 14.42
+        },
+        {
+          "text": " ",
+          "start_time": 14.42,
+          "end_time": 15.059
+        },
+        {
+          "text": "I",
+          "start_time": 15.059,
+          "end_time": 15.119
+        },
+        {
+          "text": " ",
+          "start_time": 15.119,
+          "end_time": 15.139
+        },
+        {
+          "text": "really",
+          "start_time": 15.139,
+          "end_time": 15.379
+        },
+        {
+          "text": " ",
+          "start_time": 15.379,
+          "end_time": 15.42
+        },
+        {
+          "text": "do,",
+          "start_time": 15.42,
+          "end_time": 15.72
+        },
+        {
+          "text": " ",
+          "start_time": 15.72,
+          "end_time": 16.579
+        },
+        {
+          "text": "but",
+          "start_time": 16.579,
+          "end_time": 16.68
+        },
+        {
+          "text": " ",
+          "start_time": 16.68,
+          "end_time": 16.7
+        },
+        {
+          "text": "it",
+          "start_time": 16.7,
+          "end_time": 16.76
+        },
+        {
+          "text": " ",
+          "start_time": 16.76,
+          "end_time": 16.799
+        },
+        {
+          "text": "had",
+          "start_time": 16.799,
+          "end_time": 16.899
+        },
+        {
+          "text": " ",
+          "start_time": 16.899,
+          "end_time": 16.92
+        },
+        {
+          "text": "been",
+          "start_time": 16.92,
+          "end_time": 17.04
+        },
+        {
+          "text": " ",
+          "start_time": 17.04,
+          "end_time": 17.079
+        },
+        {
+          "text": "a",
+          "start_time": 17.079,
+          "end_time": 17.12
+        },
+        {
+          "text": " ",
+          "start_time": 17.12,
+          "end_time": 17.159
+        },
+        {
+          "text": "long",
+          "start_time": 17.159,
+          "end_time": 17.319
+        },
+        {
+          "text": " ",
+          "start_time": 17.319,
+          "end_time": 17.359
+        },
+        {
+          "text": "week.",
+          "start_time": 17.359,
+          "end_time": 18.499
+        },
+        {
+          "text": " ",
+          "start_time": 18.5,
+          "end_time": 18.559
+        },
+        {
+          "text": "I",
+          "start_time": 18.559,
+          "end_time": 18.6
+        },
+        {
+          "text": " ",
+          "start_time": 18.6,
+          "end_time": 18.639
+        },
+        {
+          "text": "was",
+          "start_time": 18.639,
+          "end_time": 18.76
+        },
+        {
+          "text": " ",
+          "start_time": 18.76,
+          "end_time": 18.84
+        },
+        {
+          "text": "tired,",
+          "start_time": 18.84,
+          "end_time": 19.619
+        },
+        {
+          "text": " ",
+          "start_time": 19.619,
+          "end_time": 19.659
+        },
+        {
+          "text": "the",
+          "start_time": 19.659,
+          "end_time": 19.739
+        },
+        {
+          "text": " ",
+          "start_time": 19.739,
+          "end_time": 19.76
+        },
+        {
+          "text": "weather",
+          "start_time": 19.76,
+          "end_time": 19.94
+        },
+        {
+          "text": " ",
+          "start_time": 19.94,
+          "end_time": 19.979
+        },
+        {
+          "text": "was",
+          "start_time": 19.979,
+          "end_time": 20.139
+        },
+        {
+          "text": " ",
+          "start_time": 20.139,
+          "end_time": 20.199
+        },
+        {
+          "text": "bad,",
+          "start_time": 20.199,
+          "end_time": 21.18
+        },
+        {
+          "text": " ",
+          "start_time": 21.18,
+          "end_time": 21.239
+        },
+        {
+          "text": "and",
+          "start_time": 21.239,
+          "end_time": 21.34
+        },
+        {
+          "text": " ",
+          "start_time": 21.34,
+          "end_time": 21.36
+        },
+        {
+          "text": "honestly,",
+          "start_time": 21.36,
+          "end_time": 22.659
+        },
+        {
+          "text": " ",
+          "start_time": 22.659,
+          "end_time": 22.739
+        },
+        {
+          "text": "my",
+          "start_time": 22.739,
+          "end_time": 22.839
+        },
+        {
+          "text": " ",
+          "start_time": 22.84,
+          "end_time": 22.899
+        },
+        {
+          "text": "couch",
+          "start_time": 22.899,
+          "end_time": 23.12
+        },
+        {
+          "text": " ",
+          "start_time": 23.12,
+          "end_time": 23.159
+        },
+        {
+          "text": "was",
+          "start_time": 23.159,
+          "end_time": 23.279
+        },
+        {
+          "text": " ",
+          "start_time": 23.279,
+          "end_time": 23.34
+        },
+        {
+          "text": "calling.",
+          "start_time": 23.34,
+          "end_time": 23.779
+        },
+        {
+          "text": " ",
+          "start_time": 23.779,
+          "end_time": 24.62
+        },
+        {
+          "text": "I",
+          "start_time": 24.62,
+          "end_time": 24.679
+        },
+        {
+          "text": " ",
+          "start_time": 24.68,
+          "end_time": 24.72
+        },
+        {
+          "text": "kept",
+          "start_time": 24.72,
+          "end_time": 24.88
+        },
+        {
+          "text": " ",
+          "start_time": 24.88,
+          "end_time": 24.92
+        },
+        {
+          "text": "checking",
+          "start_time": 24.92,
+          "end_time": 25.159
+        },
+        {
+          "text": " ",
+          "start_time": 25.159,
+          "end_time": 25.2
+        },
+        {
+          "text": "my",
+          "start_time": 25.2,
+          "end_time": 25.3
+        },
+        {
+          "text": " ",
+          "start_time": 25.3,
+          "end_time": 25.379
+        },
+        {
+          "text": "phone",
+          "start_time": 25.379,
+          "end_time": 25.559
+        },
+        {
+          "text": " ",
+          "start_time": 25.559,
+          "end_time": 25.619
+        },
+        {
+          "text": "all",
+          "start_time": 25.619,
+          "end_time": 25.739
+        },
+        {
+          "text": " ",
+          "start_time": 25.739,
+          "end_time": 25.799
+        },
+        {
+          "text": "afternoon",
+          "start_time": 25.799,
+          "end_time": 26.6
+        },
+        {
+          "text": " ",
+          "start_time": 26.6,
+          "end_time": 26.719
+        },
+        {
+          "text": "half",
+          "start_time": 26.719,
+          "end_time": 26.92
+        },
+        {
+          "text": " ",
+          "start_time": 26.92,
+          "end_time": 26.96
+        },
+        {
+          "text": "hoping",
+          "start_time": 26.96,
+          "end_time": 27.259
+        },
+        {
+          "text": " ",
+          "start_time": 27.26,
+          "end_time": 27.319
+        },
+        {
+          "text": "someone",
+          "start_time": 27.319,
+          "end_time": 27.52
+        },
+        {
+          "text": " ",
+          "start_time": 27.52,
+          "end_time": 27.54
+        },
+        {
+          "text": "would",
+          "start_time": 27.54,
+          "end_time": 27.659
+        },
+        {
+          "text": " ",
+          "start_time": 27.659,
+          "end_time": 27.719
+        },
+        {
+          "text": "text,",
+          "start_time": 27.719,
+          "end_time": 28.939
+        },
+        {
+          "text": " ",
+          "start_time": 28.939,
+          "end_time": 28.999
+        },
+        {
+          "text": "\"Hey,",
+          "start_time": 29.0,
+          "end_time": 29.899
+        },
+        {
+          "text": " ",
+          "start_time": 29.899,
+          "end_time": 29.979
+        },
+        {
+          "text": "should",
+          "start_time": 29.979,
+          "end_time": 30.1
+        },
+        {
+          "text": " ",
+          "start_time": 30.1,
+          "end_time": 30.12
+        },
+        {
+          "text": "we",
+          "start_time": 30.12,
+          "end_time": 30.2
+        },
+        {
+          "text": " ",
+          "start_time": 30.2,
+          "end_time": 30.239
+        },
+        {
+          "text": "reschedule?\"",
+          "start_time": 30.239,
+          "end_time": 31.939
+        },
+        {
+          "text": " ",
+          "start_time": 31.939,
+          "end_time": 31.979
+        },
+        {
+          "text": "And",
+          "start_time": 31.979,
+          "end_time": 32.06
+        },
+        {
+          "text": " ",
+          "start_time": 32.06,
+          "end_time": 32.08
+        },
+        {
+          "text": "then",
+          "start_time": 32.08,
+          "end_time": 32.18
+        },
+        {
+          "text": " ",
+          "start_time": 32.18,
+          "end_time": 32.2
+        },
+        {
+          "text": "it",
+          "start_time": 32.2,
+          "end_time": 32.259
+        },
+        {
+          "text": " ",
+          "start_time": 32.259,
+          "end_time": 32.319
+        },
+        {
+          "text": "happened,",
+          "start_time": 32.319,
+          "end_time": 33.319
+        },
+        {
+          "text": " ",
+          "start_time": 33.319,
+          "end_time": 33.4
+        },
+        {
+          "text": "one",
+          "start_time": 33.4,
+          "end_time": 33.479
+        },
+        {
+          "text": " ",
+          "start_time": 33.479,
+          "end_time": 33.5
+        },
+        {
+          "text": "of",
+          "start_time": 33.5,
+          "end_time": 33.54
+        },
+        {
+          "text": " ",
+          "start_time": 33.54,
+          "end_time": 33.58
+        },
+        {
+          "text": "them",
+          "start_time": 33.58,
+          "end_time": 33.7
+        },
+        {
+          "text": " ",
+          "start_time": 33.7,
+          "end_time": 33.74
+        },
+        {
+          "text": "sent",
+          "start_time": 33.74,
+          "end_time": 33.86
+        },
+        {
+          "text": " ",
+          "start_time": 33.86,
+          "end_time": 33.9
+        },
+        {
+          "text": "the",
+          "start_time": 33.9,
+          "end_time": 33.959
+        },
+        {
+          "text": " ",
+          "start_time": 33.959,
+          "end_time": 34.0
+        },
+        {
+          "text": "message,",
+          "start_time": 34.0,
+          "end_time": 35.159
+        },
+        {
+          "text": " ",
+          "start_time": 35.159,
+          "end_time": 35.2
+        },
+        {
+          "text": "\"Hey,",
+          "start_time": 35.2,
+          "end_time": 35.799
+        },
+        {
+          "text": " ",
+          "start_time": 35.799,
+          "end_time": 35.84
+        },
+        {
+          "text": "something",
+          "start_time": 35.84,
+          "end_time": 36.02
+        },
+        {
+          "text": " ",
+          "start_time": 36.02,
+          "end_time": 36.08
+        },
+        {
+          "text": "came",
+          "start_time": 36.08,
+          "end_time": 36.22
+        },
+        {
+          "text": " ",
+          "start_time": 36.22,
+          "end_time": 36.28
+        },
+        {
+          "text": "up.",
+          "start_time": 36.28,
+          "end_time": 36.459
+        },
+        {
+          "text": " ",
+          "start_time": 36.459,
+          "end_time": 37.459
+        },
+        {
+          "text": "Can",
+          "start_time": 37.459,
+          "end_time": 37.56
+        },
+        {
+          "text": " ",
+          "start_time": 37.56,
+          "end_time": 37.58
+        },
+        {
+          "text": "we",
+          "start_time": 37.58,
+          "end_time": 37.68
+        },
+        {
+          "text": " ",
+          "start_time": 37.68,
+          "end_time": 37.7
+        },
+        {
+          "text": "do",
+          "start_time": 37.7,
+          "end_time": 37.779
+        },
+        {
+          "text": " ",
+          "start_time": 37.779,
+          "end_time": 37.799
+        },
+        {
+          "text": "it",
+          "start_time": 37.799,
+          "end_time": 37.86
+        },
+        {
+          "text": " ",
+          "start_time": 37.86,
+          "end_time": 37.9
+        },
+        {
+          "text": "another",
+          "start_time": 37.9,
+          "end_time": 38.159
+        },
+        {
+          "text": " ",
+          "start_time": 38.159,
+          "end_time": 38.22
+        },
+        {
+          "text": "day?\"",
+          "start_time": 38.22,
+          "end_time": 39.22
+        },
+        {
+          "text": " ",
+          "start_time": 39.22,
+          "end_time": 39.299
+        },
+        {
+          "text": "I",
+          "start_time": 39.299,
+          "end_time": 39.38
+        },
+        {
+          "text": " ",
+          "start_time": 39.38,
+          "end_time": 39.4
+        },
+        {
+          "text": "swear",
+          "start_time": 39.4,
+          "end_time": 39.619
+        },
+        {
+          "text": " ",
+          "start_time": 39.619,
+          "end_time": 39.68
+        },
+        {
+          "text": "I",
+          "start_time": 39.68,
+          "end_time": 39.779
+        },
+        {
+          "text": " ",
+          "start_time": 39.779,
+          "end_time": 39.86
+        },
+        {
+          "text": "smiled",
+          "start_time": 39.86,
+          "end_time": 40.139
+        },
+        {
+          "text": " ",
+          "start_time": 40.139,
+          "end_time": 40.159
+        },
+        {
+          "text": "like",
+          "start_time": 40.159,
+          "end_time": 40.279
+        },
+        {
+          "text": " ",
+          "start_time": 40.279,
+          "end_time": 40.319
+        },
+        {
+          "text": "I'd",
+          "start_time": 40.319,
+          "end_time": 40.439
+        },
+        {
+          "text": " ",
+          "start_time": 40.439,
+          "end_time": 40.459
+        },
+        {
+          "text": "just",
+          "start_time": 40.459,
+          "end_time": 40.56
+        },
+        {
+          "text": " ",
+          "start_time": 40.56,
+          "end_time": 40.599
+        },
+        {
+          "text": "won",
+          "start_time": 40.599,
+          "end_time": 40.72
+        },
+        {
+          "text": " ",
+          "start_time": 40.72,
+          "end_time": 40.74
+        },
+        {
+          "text": "the",
+          "start_time": 40.74,
+          "end_time": 40.799
+        },
+        {
+          "text": " ",
+          "start_time": 40.799,
+          "end_time": 40.84
+        },
+        {
+          "text": "lottery.",
+          "start_time": 40.84,
+          "end_time": 41.339
+        },
+        {
+          "text": " ",
+          "start_time": 41.339,
+          "end_time": 41.919
+        },
+        {
+          "text": "I",
+          "start_time": 41.919,
+          "end_time": 41.979
+        },
+        {
+          "text": " ",
+          "start_time": 41.979,
+          "end_time": 42.04
+        },
+        {
+          "text": "texted",
+          "start_time": 42.04,
+          "end_time": 42.319
+        },
+        {
+          "text": " ",
+          "start_time": 42.319,
+          "end_time": 42.36
+        },
+        {
+          "text": "back,",
+          "start_time": 42.36,
+          "end_time": 43.119
+        },
+        {
+          "text": " ",
+          "start_time": 43.119,
+          "end_time": 43.159
+        },
+        {
+          "text": "\"No",
+          "start_time": 43.159,
+          "end_time": 43.319
+        },
+        {
+          "text": " ",
+          "start_time": 43.319,
+          "end_time": 43.36
+        },
+        {
+          "text": "worries",
+          "start_time": 43.36,
+          "end_time": 43.56
+        },
+        {
+          "text": " ",
+          "start_time": 43.56,
+          "end_time": 43.619
+        },
+        {
+          "text": "at",
+          "start_time": 43.619,
+          "end_time": 43.68
+        },
+        {
+          "text": " ",
+          "start_time": 43.68,
+          "end_time": 43.74
+        },
+        {
+          "text": "all,\"",
+          "start_time": 43.74,
+          "end_time": 44.72
+        },
+        {
+          "text": " ",
+          "start_time": 44.72,
+          "end_time": 44.779
+        },
+        {
+          "text": "pretending",
+          "start_time": 44.779,
+          "end_time": 45.139
+        },
+        {
+          "text": " ",
+          "start_time": 45.139,
+          "end_time": 45.159
+        },
+        {
+          "text": "to",
+          "start_time": 45.159,
+          "end_time": 45.22
+        },
+        {
+          "text": " ",
+          "start_time": 45.22,
+          "end_time": 45.259
+        },
+        {
+          "text": "be",
+          "start_time": 45.259,
+          "end_time": 45.34
+        },
+        {
+          "text": " ",
+          "start_time": 45.34,
+          "end_time": 45.38
+        },
+        {
+          "text": "disappointed",
+          "start_time": 45.38,
+          "end_time": 46.159
+        },
+        {
+          "text": " ",
+          "start_time": 46.159,
+          "end_time": 46.22
+        },
+        {
+          "text": "but",
+          "start_time": 46.22,
+          "end_time": 46.299
+        },
+        {
+          "text": " ",
+          "start_time": 46.299,
+          "end_time": 46.38
+        },
+        {
+          "text": "I",
+          "start_time": 46.38,
+          "end_time": 46.399
+        },
+        {
+          "text": " ",
+          "start_time": 46.399,
+          "end_time": 46.459
+        },
+        {
+          "text": "was",
+          "start_time": 46.459,
+          "end_time": 46.559
+        },
+        {
+          "text": " ",
+          "start_time": 46.559,
+          "end_time": 46.599
+        },
+        {
+          "text": "already",
+          "start_time": 46.599,
+          "end_time": 46.799
+        },
+        {
+          "text": " ",
+          "start_time": 46.799,
+          "end_time": 46.84
+        },
+        {
+          "text": "in",
+          "start_time": 46.84,
+          "end_time": 46.899
+        },
+        {
+          "text": " ",
+          "start_time": 46.899,
+          "end_time": 46.959
+        },
+        {
+          "text": "sweatpants.",
+          "start_time": 46.959,
+          "end_time": 48.399
+        },
+        {
+          "text": " ",
+          "start_time": 48.399,
+          "end_time": 48.479
+        },
+        {
+          "text": "Ten",
+          "start_time": 48.479,
+          "end_time": 48.579
+        },
+        {
+          "text": " ",
+          "start_time": 48.579,
+          "end_time": 48.619
+        },
+        {
+          "text": "minutes",
+          "start_time": 48.619,
+          "end_time": 48.86
+        },
+        {
+          "text": " ",
+          "start_time": 48.86,
+          "end_time": 48.9
+        },
+        {
+          "text": "later,",
+          "start_time": 48.9,
+          "end_time": 49.239
+        },
+        {
+          "text": " ",
+          "start_time": 49.239,
+          "end_time": 49.319
+        },
+        {
+          "text": "I",
+          "start_time": 49.319,
+          "end_time": 49.34
+        },
+        {
+          "text": " ",
+          "start_time": 49.34,
+          "end_time": 49.38
+        },
+        {
+          "text": "was",
+          "start_time": 49.38,
+          "end_time": 49.5
+        },
+        {
+          "text": " ",
+          "start_time": 49.5,
+          "end_time": 49.54
+        },
+        {
+          "text": "eating",
+          "start_time": 49.54,
+          "end_time": 49.7
+        },
+        {
+          "text": " ",
+          "start_time": 49.7,
+          "end_time": 49.74
+        },
+        {
+          "text": "leftovers",
+          "start_time": 49.74,
+          "end_time": 50.399
+        },
+        {
+          "text": " ",
+          "start_time": 50.399,
+          "end_time": 50.459
+        },
+        {
+          "text": "watching",
+          "start_time": 50.459,
+          "end_time": 50.7
+        },
+        {
+          "text": " ",
+          "start_time": 50.7,
+          "end_time": 50.74
+        },
+        {
+          "text": "a",
+          "start_time": 50.74,
+          "end_time": 50.779
+        },
+        {
+          "text": " ",
+          "start_time": 50.779,
+          "end_time": 50.84
+        },
+        {
+          "text": "movie",
+          "start_time": 50.84,
+          "end_time": 51.06
+        },
+        {
+          "text": " ",
+          "start_time": 51.06,
+          "end_time": 51.119
+        },
+        {
+          "text": "I'd",
+          "start_time": 51.119,
+          "end_time": 51.279
+        },
+        {
+          "text": " ",
+          "start_time": 51.279,
+          "end_time": 51.299
+        },
+        {
+          "text": "already",
+          "start_time": 51.299,
+          "end_time": 51.6
+        },
+        {
+          "text": " ",
+          "start_time": 51.6,
+          "end_time": 51.659
+        },
+        {
+          "text": "seen",
+          "start_time": 51.659,
+          "end_time": 52.419
+        },
+        {
+          "text": " ",
+          "start_time": 52.419,
+          "end_time": 52.479
+        },
+        {
+          "text": "and",
+          "start_time": 52.479,
+          "end_time": 52.599
+        },
+        {
+          "text": " ",
+          "start_time": 52.599,
+          "end_time": 52.639
+        },
+        {
+          "text": "feeling",
+          "start_time": 52.639,
+          "end_time": 52.84
+        },
+        {
+          "text": " ",
+          "start_time": 52.84,
+          "end_time": 52.939
+        },
+        {
+          "text": "zero",
+          "start_time": 52.939,
+          "end_time": 53.2
+        },
+        {
+          "text": " ",
+          "start_time": 53.2,
+          "end_time": 53.239
+        },
+        {
+          "text": "guilt",
+          "start_time": 53.239,
+          "end_time": 53.399
+        },
+        {
+          "text": " ",
+          "start_time": 53.399,
+          "end_time": 53.459
+        },
+        {
+          "text": "about",
+          "start_time": 53.459,
+          "end_time": 53.639
+        },
+        {
+          "text": " ",
+          "start_time": 53.639,
+          "end_time": 53.7
+        },
+        {
+          "text": "it.",
+          "start_time": 53.7,
+          "end_time": 54.139
+        }
+      ]
+    }
+  ]
+}

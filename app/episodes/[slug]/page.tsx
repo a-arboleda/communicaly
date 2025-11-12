@@ -171,6 +171,13 @@ const TEXT_ANSWER_OVERRIDE_MAP: Record<string, Partial<Record<TextAnswerCat, str
     conversation: "You’re standing beside the narrator—what would you ask them so you both laugh about the fridge stare?",
     summary: "In one or two sentences, how would you retell their late-night fridge ritual?",
   },
+  "canceling-plans-23": {
+    short: "What’s the first thought that hits you when plans suddenly disappear?",
+    reflective: "What does this story make you notice about how your social battery drains and refills?",
+    personal: "Tell a quick story about a time you were relieved when someone else canceled.",
+    conversation: "You’re texting them back—what question could you ask so they know you still want to see them soon?",
+    summary: "In a sentence or two, how would you retell their secretly-celebrated cancellation night?",
+  },
 }
 
 const TEXT_HELPER_OVERRIDE_MAP: Record<string, Partial<Record<TextAnswerCat, string[]>>> = {
@@ -703,6 +710,28 @@ const TEXT_HELPER_OVERRIDE_MAP: Record<string, Partial<Record<TextAnswerCat, str
       "Overall, the episode shows…",
     ],
   },
+  "canceling-plans-23": {
+    short: [
+      "When plans fall through, I usually…",
+      "My first reaction is…",
+      "Honestly, I think…",
+    ],
+    reflective: [
+      "It reminds me that my energy…",
+      "I notice I need rest when…",
+      "Moments like this make me rethink…",
+    ],
+    personal: [
+      "One rainy night I…",
+      "I remember replying with…",
+      "I ended up spending the evening…",
+    ],
+    summary: [
+      "Bottom line: …",
+      "In short, their night turned from… to…",
+      "Overall, it’s about…",
+    ],
+  },
 }
 
 const JOURNAL_REFLECTION_OVERRIDE_MAP: Record<string, string[] | undefined> = {
@@ -846,6 +875,13 @@ const JOURNAL_REFLECTION_OVERRIDE_MAP: Record<string, string[] | undefined> = {
     "What else could you reach for (tea, water, journal, stretch) before opening the door again?",
     "Who or what often interrupts your fridge staring, and how do you react?",
     "What gentle boundary could you set so bedtime boredom doesn’t start in the kitchen?",
+  ],
+  "canceling-plans-23": [
+    "What usually drains you enough that you secretly wish plans would cancel?",
+    "How does your body feel when you want to stay home but say yes anyway?",
+    "Who do you feel comfortable asking for a rain check, and what makes that trust work?",
+    "What could you offer instead—a new date, a quick call, a message—so connection still exists?",
+    "How can you plan a cozy backup so canceled plans feel intentional instead of awkward?",
   ],
 }
 
