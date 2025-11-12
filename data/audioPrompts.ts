@@ -96,4 +96,12 @@ export const AUDIO_PROMPTS: Record<string, AudioPrompt> = {
     question: "How do you usually feel when plans get canceled — disappointed or secretly relieved?",
     src: "/audio/prompts/canceling-plans-23.mp3",
   },
+  "doing-the-dishes-24": {
+    question: "Have you ever thought you were done cleaning, only to spot one last thing you missed?",
+    src: "/audio/prompts/doing-the-dishes-24.mp3",
+  },
+  "packing-for-a-trip-25": {
+    question: "Are you the type to pack light — or the one who brings everything 'just in case'?",
+    src: "/audio/Packing-for-a-Trip-25.mp3",
+  },
 }
