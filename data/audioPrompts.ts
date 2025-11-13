@@ -104,4 +104,8 @@ export const AUDIO_PROMPTS: Record<string, AudioPrompt> = {
     question: "Are you the type to pack light — or the one who brings everything 'just in case'?",
     src: "/audio/Packing-for-a-Trip-25.mp3",
   },
+  "the-voice-message-26": {
+    question: "Do you ever re-record voice messages because you want them to sound 'just right'? What usually makes you start over?",
+    src: "/audio/The-Voice-Message-26.mp3",
+  },
 }

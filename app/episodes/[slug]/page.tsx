@@ -192,6 +192,13 @@ const TEXT_ANSWER_OVERRIDE_MAP: Record<string, Partial<Record<TextAnswerCat, str
     conversation: "Suitcase won't zip and she's ready to start over—what would you ask her so she feels okay leaving something behind?",
     summary: "In one or two sentences, how would you retell her journey from tidy checklist to sitting on the suitcase?",
   },
+  "the-voice-message-26": {
+    short: "How do you feel the moment you realize take four still doesn’t sound casual?",
+    reflective: "How does listening to your own voice change the way you judge a message?",
+    personal: "Tell a quick story about the last time background noise or self-consciousness made you start over.",
+    conversation: "You’re beside her while she hovers over delete—what question could you ask that would calm her before she records again?",
+    summary: "In one or two sentences, how would you retell her decision to ditch the voice note and send a text?",
+  },
 }
 
 const TEXT_HELPER_OVERRIDE_MAP: Record<string, Partial<Record<TextAnswerCat, string[]>>> = {
@@ -790,6 +797,28 @@ const TEXT_HELPER_OVERRIDE_MAP: Record<string, Partial<Record<TextAnswerCat, str
       "Overall, it shows how…",
     ],
   },
+  "the-voice-message-26": {
+    short: [
+      "Halfway through I usually restart because…",
+      "When the red dot appears, I…",
+      "A “quick” voice note turns complicated when…",
+    ],
+    reflective: [
+      "Moments like this remind me that…",
+      "I notice I want my recordings to sound…",
+      "It tells me I’m trying to control…",
+    ],
+    personal: [
+      "Once I deleted five takes because…",
+      "My background-noise nemesis is…",
+      "Usually I give up and text when…",
+    ],
+    summary: [
+      "Bottom line: sending the message turned into…",
+      "In short, perfection made her…",
+      "Overall, it proves that…",
+    ],
+  },
 }
 
 const JOURNAL_REFLECTION_OVERRIDE_MAP: Record<string, string[] | undefined> = {
@@ -954,6 +983,13 @@ const JOURNAL_REFLECTION_OVERRIDE_MAP: Record<string, string[] | undefined> = {
     "How do you calm that buzz that says you forgot something once the zipper finally closes?",
     "Who keeps you accountable (or eggs you on) when you start tossing in extra outfits?",
     "If you had only ten minutes to pack, what would stay, what would go, and why?",
+  ],
+  "the-voice-message-26": [
+    "What usually makes you hit delete on a voice note even when the words are fine?",
+    "How does hearing your recorded voice change the way you pace or phrase your thoughts?",
+    "Which background noises or interruptions instantly pull you out of the message?",
+    "What reminder could help you accept a slightly imperfect recording as more human?",
+    "How would it feel to send the next voice message without listening back first?",
   ],
 }
 
