@@ -108,4 +108,12 @@ export const AUDIO_PROMPTS: Record<string, AudioPrompt> = {
     question: "Do you ever re-record voice messages because you want them to sound 'just right'? What usually makes you start over?",
     src: "/audio/The-Voice-Message-26.mp3",
   },
+  "the-snooze-button-27": {
+    question: "Are you someone who wakes up on the first alarm… or do you always end up tapping snooze?",
+    src: "/audio/The-Snooze-Button-27.mp3",
+  },
+  "i-couldnt-be-bothered-28": {
+    question: "Have you ever skipped a small task — like ironing — and ended up regretting it later?",
+    src: "/audio/I-Couldnt-Be-Bothered-28.mp3",
+  },
 }

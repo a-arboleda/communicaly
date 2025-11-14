@@ -199,6 +199,20 @@ const TEXT_ANSWER_OVERRIDE_MAP: Record<string, Partial<Record<TextAnswerCat, str
     conversation: "You’re beside her while she hovers over delete—what question could you ask that would calm her before she records again?",
     summary: "In one or two sentences, how would you retell her decision to ditch the voice note and send a text?",
   },
+  "the-snooze-button-27": {
+    short: "What runs through your mind the second you realize “five more minutes” is about to rewrite your morning?",
+    reflective: "What does his snooze spiral reveal about the way you balance rest with responsibility?",
+    personal: "Share a quick story about the last time you bargained with your alarm and what you sacrificed to keep sleeping.",
+    conversation: "You’re in the room when he’s awake-but-unmoving—what question could you ask him right then to nudge him upright?",
+    summary: "In one or two sentences, how would you retell his nightly promises versus the snooze-button reality?",
+  },
+  "i-couldnt-be-bothered-28": {
+    short: "When’s the last time you looked at a wrinkled shirt (or anything similar) and thought, “eh, it’ll pass”?",
+    reflective: "What does his couldn’t-be-bothered morning say about the little corners you cut when you’re tired?",
+    personal: "Tell me about the outfit or tiny chore you skipped and then obsessed over all day.",
+    conversation: "If you and the speaker had 30 seconds before heading out, what would you ask to make sure he doesn’t regret skipping the iron?",
+    summary: "If a friend asked what happened, how would you retell his smooth-it-with-your-hands experiment in a sentence or two?",
+  },
 }
 
 const TEXT_HELPER_OVERRIDE_MAP: Record<string, Partial<Record<TextAnswerCat, string[]>>> = {
@@ -819,6 +833,52 @@ const TEXT_HELPER_OVERRIDE_MAP: Record<string, Partial<Record<TextAnswerCat, str
       "Overall, it proves that…",
     ],
   },
+  "the-snooze-button-27": {
+    short: [
+      "When the alarm hits, my first thought is…",
+      "Five more minutes usually means…",
+      "I tell myself it’s okay because…",
+    ],
+    reflective: [
+      "Moments like this show me that…",
+      "It reminds me I’m trying to balance…",
+      "I notice I judge myself when…",
+    ],
+    personal: [
+      "Last week I bargained with my alarm and…",
+      "Usually the thing I skip is…",
+      "I still laugh about the morning when…",
+    ],
+    conversation: [],
+    summary: [
+      "Bottom line: every night I promise…, every morning I…",
+      "In short, the snooze cycle turns into…",
+      "Overall, it proves mornings feel…",
+    ],
+  },
+  "i-couldnt-be-bothered-28": {
+    short: [
+      "I knew I should, but…",
+      "I told myself it looked fine because…",
+      "I figured no one would notice…",
+    ],
+    reflective: [
+      "Moments like this remind me that…",
+      "It shows me how tiny choices…",
+      "I notice I trade confidence for…",
+    ],
+    personal: [
+      "One time I skipped ironing and…",
+      "Usually the chore I dodge is…",
+      "I still laugh about the day…",
+    ],
+    conversation: [],
+    summary: [
+      "Bottom line: I gambled on “good enough” and…",
+      "In short, skipping the chore turned into…",
+      "Overall, it proves that…",
+    ],
+  },
 }
 
 const JOURNAL_REFLECTION_OVERRIDE_MAP: Record<string, string[] | undefined> = {
@@ -990,6 +1050,20 @@ const JOURNAL_REFLECTION_OVERRIDE_MAP: Record<string, string[] | undefined> = {
     "Which background noises or interruptions instantly pull you out of the message?",
     "What reminder could help you accept a slightly imperfect recording as more human?",
     "How would it feel to send the next voice message without listening back first?",
+  ],
+  "the-snooze-button-27": [
+    "What promise do you make yourself the night before that rarely survives the first alarm?",
+    "Which morning task is always the first to get sacrificed once you tap snooze?",
+    "How does your body feel during that awake-but-not-moving moment?",
+    "Who or what could interrupt the bargaining long enough for you to sit up?",
+    "What gentle reward (or boundary) might convince you to skip snooze tomorrow?",
+  ],
+  "i-couldnt-be-bothered-28": [
+    "What small prep task do you most often skip even though you know it helps you feel confident?",
+    "How do you usually talk yourself into (or out of) fixing little details like wrinkles or scuffs?",
+    "What tells you—mirror, friend, gut—that the shortcut wasn’t worth it?",
+    "Who could you ask for quick accountability so you stick to the habit next time?",
+    "What two-minute ritual would save future-you from the same regret tomorrow?",
   ],
 }
 
