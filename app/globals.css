@@ -1,65 +1,189 @@
+@import "tailwindcss";
 
-/* app/globals.css */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* Base */
+/* --------------------------------------------- */
+/* THEME TOKENS */
+/* --------------------------------------------- */
 :root {
-  color-scheme: light;
+  /* Colors */
+  --color-brand-900: #5c2e11;
+  --color-brand-700: #6E4E31;
+  --color-brand-500: #B2854C;
+  --color-brand-200: #E7D7C0;
+  --color-brand-accent: #9AAB63;
+  --color-gray-200: #e5e7eb;
+
+  /* Shadow */
+  --shadow-card: 0 10px 30px rgba(63,47,37,.08);
+
+  /* Radii */
+  --radius-xl: 1rem;
+  --radius-2xl: 1.25rem;
+
+  /* Fonts */
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-serif: "Playfair Display", "Georgia", serif;
-  --font-journey-script: "Dancing Script", "Brush Script MT", cursive;
+  --font-script: "Dancing Script", "Brush Script MT", cursive;
 }
+
+/* --------------------------------------------- */
+/* BASE STYLES */
+/* --------------------------------------------- */
 html, body {
   background: white;
-  font-family: var(--font-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
+  font-family: var(--font-sans);
+  color-scheme: light;
 }
 
-/* UX: remove mobile tap highlight for designated elements */
-@layer components {
-  .no-tap-highlight { -webkit-tap-highlight-color: transparent; }
+.no-tap-highlight {
+  -webkit-tap-highlight-color: transparent;
 }
 
-/* Reusable primitives */
-@layer components {
-  .container { @apply max-w-4xl mx-auto px-3 sm:px-6; }
-
-  .card { @apply border bg-white rounded-2xl shadow-card; }
-  .card-body { @apply px-4 py-5 sm:p-6; }
-
-  .btn { @apply inline-flex items-center gap-2 px-4 py-2 rounded-xl border font-medium transition; }
-  .btn-sm { @apply text-sm px-3 py-1.5; }
-  .btn-primary { @apply bg-brand-900 text-white border-black hover:opacity-90; }
-  .btn-ghost { @apply bg-white text-black border-black/60 hover:border-black; }
-  .btn-muted { @apply bg-white text-gray-700 border-black/30 hover:border-black/60; }
-  .btn-episode { @apply bg-transparent text-brand-900 border-black/60 hover:border-black; }
-  .btn-light-green { @apply bg-emerald-100 text-black border-transparent hover:bg-emerald-200; }
-
-  .tag { @apply inline-flex items-center px-2.5 py-1 rounded-full text-xs border bg-white; }
-  .tag-accent { @apply border-black/40; }
+/* --------------------------------------------- */
+/* CONTAINERS */
+/* --------------------------------------------- */
+.container {
+  @apply max-w-4xl mx-auto px-3 sm:px-6;
 }
 
-/* Optional: prose tweaks */
-.prose :where(h1,h2,h3,h4) { @apply text-brand-900 font-sans; }
-.prose :where(p,li) { @apply text-gray-700; }
-.prose a { @apply text-brand-900 no-underline hover:no-underline; }
-
-/* Remove underline on all link hovers app-wide */
-@layer base {
-  a { text-decoration-line: none; }
-  a:hover { text-decoration-line: none !important; }
+/* --------------------------------------------- */
+/* CARDS */
+/* --------------------------------------------- */
+.card {
+  background: white;
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-card);
 }
 
-/* Neutralize underline utilities on hover/group-hover */
-@layer utilities {
-  .font-journey { font-family: var(--font-serif, "Georgia", serif); }
-  .font-journey-script { font-family: var(--font-journey-script, "Brush Script MT", cursive); }
-  .hover\:underline:hover { text-decoration-line: none !important; }
-  .group:hover .group-hover\:underline { text-decoration-line: none !important; }
-  .tag-scroll-area { scrollbar-width: thin; scrollbar-color: rgba(178,133,76,0.6) transparent; }
-  .tag-scroll-area::-webkit-scrollbar { width: 6px; }
-  .tag-scroll-area::-webkit-scrollbar-track { background: transparent; }
-  .tag-scroll-area::-webkit-scrollbar-thumb { background: rgba(154,171,99,0.55); border-radius: 9999px; }
-  .tag-scroll-area:hover::-webkit-scrollbar-thumb { background: rgba(178,133,76,0.65); }
+.card-body {
+  @apply px-4 py-5 sm:p-6;
+}
+
+/* --------------------------------------------- */
+/* BUTTONS */
+/* --------------------------------------------- */
+.btn {
+  @apply inline-flex items-center gap-2 px-4 py-2 font-medium border transition;
+  border-radius: var(--radius-xl);
+  border-color: var(--color-gray-200);
+}
+
+.btn-primary {
+  background: var(--color-brand-900);
+  @apply text-white;
+  border-color: var(--color-gray-200);
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+.btn-ghost {
+  @apply bg-white text-black;
+  border-color: var(--color-gray-200);
+}
+
+.btn-ghost:hover {
+  border-color: var(--color-brand-900);
+}
+
+.btn-muted {
+  @apply bg-white text-gray-700;
+  border-color: var(--color-gray-200);
+}
+
+.btn-muted:hover {
+  border-color: var(--color-gray-200);
+}
+
+.btn-episode {
+  color: var(--color-brand-900);
+  @apply bg-transparent;
+  border-color: var(--color-gray-200);
+}
+
+.btn-episode:hover {
+  border-color: var(--color-brand-900);
+}
+
+.btn-light-green {
+  @apply bg-emerald-100 text-black;
+  border-color: var(--color-gray-200);
+}
+
+.btn-light-green:hover {
+  background: #d1fae5; /* Tailwind emerald-200 equivalent */
+}
+
+/* --------------------------------------------- */
+/* TAGS */
+/* --------------------------------------------- */
+.tag {
+  @apply inline-flex items-center px-2.5 py-1 rounded-full text-xs bg-white;
+  border-color: var(--color-gray-200);
+}
+
+.tag-accent {
+  border-color: var(--color-brand-accent);
+}
+
+/* --------------------------------------------- */
+/* TYPOGRAPHY */
+/* --------------------------------------------- */
+.prose :where(h1,h2,h3,h4) {
+  color: var(--color-brand-900);
+  font-family: var(--font-sans);
+}
+
+.prose :where(p, li) {
+  @apply text-gray-700;
+}
+
+.prose a {
+  color: var(--color-brand-900);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none !important;
+}
+
+/* --------------------------------------------- */
+/* UTILITIES */
+/* --------------------------------------------- */
+.font-journey {
+  font-family: var(--font-serif);
+}
+
+.font-journey-script {
+  font-family: var(--font-script);
+}
+
+/* Prevent unwanted underline utilities */
+.hover\:underline:hover,
+.group:hover .group-hover\:underline {
+  text-decoration: none !important;
+}
+
+/* Scrollbars */
+.tag-scroll-area {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(178,133,76,0.6) transparent;
+}
+
+.tag-scroll-area::-webkit-scrollbar {
+  width: 6px;
+}
+
+.tag-scroll-area::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.tag-scroll-area::-webkit-scrollbar-thumb {
+  background: rgba(154,171,99,0.55);
+  border-radius: 9999px;
+}
+
+.tag-scroll-area:hover::-webkit-scrollbar-thumb {
+  background: rgba(178,133,76,0.65);
 }
