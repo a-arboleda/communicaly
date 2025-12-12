@@ -119,7 +119,7 @@ export default function EpisodeSearch({ episodes }: { episodes: EpisodeItem[] })
           <li key={ep.slug}>
             <Link
               href={`/episodes/${ep.slug}`}
-              className="card group block overflow-hidden rounded-3xl border border-gray-200 transition-transform transition-colors duration-200 hover:-translate-y-1 hover:border-brand-500 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-700"
+              className="card group block overflow-hidden rounded-3xl border border-gray-200 transition-all duration-200 hover:-translate-y-1 hover:border-black hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-700"
             >
               <div className="flex items-center justify-between gap-4 px-4 py-3">
                 <div className="flex-1 space-y-1">

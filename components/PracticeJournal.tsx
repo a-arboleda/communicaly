@@ -230,7 +230,7 @@ export default function PracticeJournal({
         <h3 className="font-semibold">Practice Journal</h3>
         <p className="text-sm text-gray-600 mt-1">Download a PDF with your thoughts, phrases, and reflection questions.</p>
         <div className="mt-3">
-          <button onClick={exportJournal} className="btn btn-ghost">Download PDF</button>
+          <button onClick={exportJournal} className="btn btn-light-green">Download PDF</button>
         </div>
       </div>
     )
@@ -242,7 +242,7 @@ export default function PracticeJournal({
         <h3 className="font-semibold">Practice Journal</h3>
         <p className="text-sm text-gray-600 mt-1">Download a PDF with your thoughts, phrases, and reflection questions.</p>
         <div className="mt-3">
-          <button onClick={exportJournal} className="btn btn-ghost">Download PDF</button>
+          <button onClick={exportJournal} className="btn btn-light-green">Download PDF</button>
         </div>
       </div>
     </section>

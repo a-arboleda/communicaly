@@ -309,7 +309,7 @@ export default function Home() {
               ))}
             </ul>
             <span className="pointer-events-none absolute -bottom-2 right-0 inline-flex items-center gap-1 rounded-full bg-white/80 px-4 py-2 text-sm font-semibold text-brand-900 shadow-sm">
-              Start talkning <span aria-hidden>→</span>
+              Start talking <span aria-hidden>→</span>
             </span>
           </div>
         </section>

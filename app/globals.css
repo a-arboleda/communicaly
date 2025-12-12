@@ -30,13 +30,14 @@ html, body {
 
   .btn { @apply inline-flex items-center gap-2 px-4 py-2 rounded-xl border font-medium transition; }
   .btn-sm { @apply text-sm px-3 py-1.5; }
-  .btn-primary { @apply bg-brand-900 text-white border-brand-900 hover:opacity-90; }
-  .btn-ghost { @apply bg-white text-brand-900 border-brand-900/60 hover:border-brand-900; }
-  .btn-muted { @apply bg-white text-gray-700 border-gray-300 hover:border-gray-400; }
-  .btn-episode { @apply bg-transparent text-brand-900 border-brand-900 hover:bg-brand-200/40; }
+  .btn-primary { @apply bg-brand-900 text-white border-black hover:opacity-90; }
+  .btn-ghost { @apply bg-white text-black border-black/60 hover:border-black; }
+  .btn-muted { @apply bg-white text-gray-700 border-black/30 hover:border-black/60; }
+  .btn-episode { @apply bg-transparent text-brand-900 border-black/60 hover:border-black; }
+  .btn-light-green { @apply bg-emerald-100 text-black border-transparent hover:bg-emerald-200; }
 
   .tag { @apply inline-flex items-center px-2.5 py-1 rounded-full text-xs border bg-white; }
-  .tag-accent { @apply border-brand-accent/40; }
+  .tag-accent { @apply border-black/40; }
 }
 
 /* Optional: prose tweaks */

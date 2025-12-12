@@ -1,23 +1,21 @@
-'use client'
+"use client"
 
 import { setEpisodeCompletion } from "@/utils/statsModel"
 
 const STORAGE_KEY = "communicaly.episodeProgress.v1"
 const PROGRESS_EVENT = "communicaly:episode-progress-updated"
 
-export type EpisodeTaskKey = "responded" | "recorded" | "flipcards"
+export type EpisodeTaskKey = "responded" | "recorded"
 
 export type EpisodeProgressEntry = {
   responded: boolean
   recorded: boolean
-  flipcards: boolean
   updatedAt: string | null
 }
 
 const DEFAULT_ENTRY: EpisodeProgressEntry = {
   responded: false,
   recorded: false,
-  flipcards: false,
   updatedAt: null,
 }
 
@@ -60,7 +58,7 @@ export function getEpisodeProgress(episodeId: string): EpisodeProgressEntry {
 }
 
 export function isEpisodeComplete(entry: EpisodeProgressEntry) {
-  return entry.responded && entry.recorded && entry.flipcards
+  return entry.responded && entry.recorded
 }
 
 type ProgressPatch = Partial<Record<EpisodeTaskKey, boolean>>

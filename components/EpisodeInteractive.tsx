@@ -752,8 +752,24 @@ export default function EpisodeInteractive({
     pdf.setTextColor(75, 85, 99)
     const subtitle = `${audioTitle ? `${audioTitle}` : ""}`
     if (subtitle) pdf.text(subtitle, margin, brandY + 76)
-
-    let y = brandY + 116
+    
+    // Initialize y position based on whether there's a rating or not
+    let y = brandY + 110
+    
+    // Add self-rating if available
+    if (selfRate > 0) {
+      const ratingText = '★'.repeat(selfRate) + '☆'.repeat(5 - selfRate)
+      pdf.setFont("helvetica", "bold")
+      pdf.setFontSize(12)
+      pdf.setTextColor(0, 0, 0) // Black text
+      pdf.text("Self-Rating:", margin, brandY + 100)
+      pdf.setFont("helvetica", "normal")
+      pdf.setFontSize(14)
+      pdf.text(ratingText, margin + 80, brandY + 100)
+      // Update y position to add more space after the rating
+      y = brandY + 130
+    }
+    
     if (!items.length) {
       pdf.setFontSize(12)
       pdf.setTextColor(107, 114, 128) // gray-500
@@ -832,13 +848,12 @@ export default function EpisodeInteractive({
             </button>
             <button
               onClick={recording ? stopRec : startRec}
-              className={`inline-flex items-center gap-1 btn ${recording ? "btn-danger bg-red-600 hover:bg-red-700 border-red-700" : "btn-primary"}`}
+              className={`inline-flex items-center gap-1 btn ${recording ? "btn-danger bg-red-600 hover:bg-red-700 border-red-700" : "btn-light-green"}`}
               title={recording ? "Stop recording" : "Start recording"}
             >
               <span aria-hidden>{recording ? "⏹" : "⏺"}</span>
               <span>{recording ? "Stop" : "Record"}</span>
             </button>
-            <button onClick={skipRecording} className="btn btn-ghost">Skip recording</button>
             <span className="text-sm text-gray-600 tabular-nums">{fmtTime(elapsed)}</span>
           </div>
           <p className="mt-2 text-sm">{micMsg}</p>
