@@ -2,6 +2,7 @@
 "use client"
 import { useEffect, useMemo, useState } from "react"
 import jsPDF from "jspdf"
+import addStarsToPdf from "@/utils/pdfStars"
 
 type Cat = "short" | "reflective" | "personal" | "conversation" | "summary"
 type RgbColor = [number, number, number]
@@ -107,7 +108,7 @@ export default function PracticeJournal({
       pdf.text(`Communicaly Practice Journal • Page ${pageNumber}`, marginX, pageHeight - footerHeight + 28)
     }
 
-    const drawHeader = (firstPage: boolean) => {
+    const drawHeader = (firstPage: boolean, selfRate: number = 0) => {
       fillPageBackground()
       setFillColor(headerBand)
       pdf.rect(0, 0, pageWidth, 88, "F")
@@ -138,6 +139,16 @@ export default function PracticeJournal({
           setTextColor(textPrimary)
           pdf.text(label, badgeX + badgeWidth / 2, badgeY + badgeHeight / 2 + 3.5, { align: "center" })
         }
+        // Optionally show self rating
+        if (selfRate && selfRate > 0) {
+          pdf.setFont("helvetica", "bold")
+          pdf.setFontSize(11)
+          setTextColor(textSecondary)
+          pdf.text("Self Rating:", marginX, 92)
+          // Add stars as an image so symbols render consistently
+          addStarsToPdf(pdf, marginX + 80, 92, 5, 12, selfRate)
+          return 160
+        }
         return 140
       }
 
@@ -148,7 +159,17 @@ export default function PracticeJournal({
       return 120
     }
 
-    let y = drawHeader(true)
+    // Read self-rating from episode storage and include in header if present
+    let journalSelfRate = 0
+    try {
+      const raw = localStorage.getItem(STORAGE_EP)
+      if (raw) {
+        const parsed = JSON.parse(raw)
+        if (typeof parsed?.selfRate === "number") journalSelfRate = Math.min(5, Math.max(0, parsed.selfRate))
+      }
+    } catch {}
+
+    let y = drawHeader(true, journalSelfRate)
 
     const ensureSpace = (required: number) => {
       if (y + required <= pageHeight - footerHeight) return
@@ -157,7 +178,7 @@ export default function PracticeJournal({
       pageNumber += 1
       pageWidth = pdf.internal.pageSize.getWidth()
       pageHeight = pdf.internal.pageSize.getHeight()
-      y = drawHeader(false)
+      y = drawHeader(false, journalSelfRate)
     }
 
     const addSectionTitle = (title: string, helper?: string) => {

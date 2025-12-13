@@ -1,6 +1,7 @@
 "use client"
 import { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import jsPDF from "jspdf"
+import addStarsToPdf from "@/utils/pdfStars"
 import { Mp3Encoder } from "lamejs"
 import EpisodeTaskCheckbox from "@/components/EpisodeTaskCheckbox"
 
@@ -758,14 +759,13 @@ export default function EpisodeInteractive({
     
     // Add self-rating if available
     if (selfRate > 0) {
-      const ratingText = '★'.repeat(selfRate) + '☆'.repeat(5 - selfRate)
       pdf.setFont("helvetica", "bold")
       pdf.setFontSize(12)
       pdf.setTextColor(0, 0, 0) // Black text
       pdf.text("Self-Rating:", margin, brandY + 100)
       pdf.setFont("helvetica", "normal")
       pdf.setFontSize(14)
-      pdf.text(ratingText, margin + 80, brandY + 100)
+      addStarsToPdf(pdf, margin + 80, brandY + 100, 5, 14, selfRate)
       // Update y position to add more space after the rating
       y = brandY + 130
     }

@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useState } from "react"
 import jsPDF from "jspdf"
+import addStarsToPdf from "@/utils/pdfStars"
 import EpisodeInteractive from "@/components/EpisodeInteractive"
 
 type PracticeQuizItem = {
@@ -39,17 +40,28 @@ export default function EpisodePracticeQuestions({
     return questions
       .map((question, index) => {
         const text = window.localStorage.getItem(`ep:${episodeId}:practice:${index + 1}:text`)?.trim()
-        if (!text) return null
-        return { question, response: text, number: index + 1 }
+        // Also collect audio rating if present (from the EpisodeInteractive storage key)
+        let rating = 0
+        try {
+          const raw = window.localStorage.getItem(`ep:${episodeId}:practice:${index + 1}:audio`)
+          if (raw) {
+            const parsed = JSON.parse(raw)
+            if (typeof parsed?.selfRate === "number") rating = Math.min(5, Math.max(0, parsed.selfRate))
+          }
+        } catch {}
+        // If there is no typed text and no rating, skip
+        if (!text && !rating) return null
+        const responseText = text || "(audio response)"
+        return { question, response: responseText, number: index + 1, rating }
       })
-      .filter((entry): entry is { question: PracticeQuizItem; response: string; number: number } => !!entry)
+      .filter((entry): entry is { question: PracticeQuizItem; response: string; number: number; rating: number } => !!entry)
   }, [episodeId, questions])
 
   const handleDownloadPdf = useCallback(() => {
     if (!isBrowser()) return
     const entries = collectTextResponses()
     if (entries.length === 0) {
-      setDownloadNotice("Add at least one text response to export.")
+      setDownloadNotice("Add at least one text or audio response to export.")
       return
     }
     setExporting(true)
@@ -91,11 +103,12 @@ export default function EpisodePracticeQuestions({
         y = marginY
       }
 
-      entries.forEach(({ question, response, number }) => {
+      entries.forEach(({ question, response, number, rating }) => {
         const questionLines = pdf.splitTextToSize(question.prompt, contentWidth)
         const responseLines = pdf.splitTextToSize(response, contentWidth)
         const header = `Prompt ${number}${question.function ? ` • ${question.function}` : ""}`
-        const blockHeight = 18 + questionLines.length * 14 + 20 + responseLines.length * 14
+        const ratingHeight = rating && rating > 0 ? 18 : 0
+        const blockHeight = 18 + questionLines.length * 14 + 20 + responseLines.length * 14 + ratingHeight
 
         ensureSpace(blockHeight + 12)
 
@@ -119,7 +132,16 @@ export default function EpisodePracticeQuestions({
           pdf.text(line, marginX, y)
           y += 14
         })
-
+        if (rating && rating > 0) {
+          y += 8
+          pdf.setFont("helvetica", "normal")
+          pdf.setFontSize(12)
+          pdf.setTextColor(75, 85, 99)
+          pdf.text("Self Rating:", marginX, y + 4)
+          addStarsToPdf(pdf, marginX + 80, y, 5, 12, rating)
+          y += 20
+          pdf.setTextColor(17, 24, 39)
+        }
         y += 12
       })
 
@@ -157,7 +179,7 @@ export default function EpisodePracticeQuestions({
         </div>
         <div className="flex flex-col gap-2 border-t border-brand-100 pt-4 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-sm text-gray-600">
-            {downloadNotice ?? "Exports every text response you’ve typed into these prompts."}
+            {downloadNotice ?? "Exports text responses; audio responses (with rating) are included if present."}
           </p>
           <button
             type="button"
