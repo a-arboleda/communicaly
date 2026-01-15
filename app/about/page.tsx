@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 export default function About() {
   return (
     <article className="space-y-10 max-w-3xl mx-auto">
@@ -5,17 +7,22 @@ export default function About() {
         <p className="text-sm text-gray-600 text-center">Home • About</p>
         <h1 className="font-serif text-3xl font-bold text-center">Everyday English you’ll actually use</h1>
         <p className="text-gray-700 mx-auto text-center">
-          Short, natural audios about daily life. Each episode ends with a simple question so you write what{" "}
-          <em>you</em> would say in a real conversation—no random vocabulary, only words that fit your life.
+          Communicaly was created for people who don’t want to just study English — but live in it.
+        </p>
+        <p className="text-gray-700 mx-auto text-center">
+          I noticed that many learners understand English well, yet still hesitate when it’s time to speak or express something personal.
+          Not because they don’t know the rules, but because real-life English feels different from what we’re taught.
         </p>
       </header>
 
       <section className="space-y-3">
         <h2 className="font-serif text-2xl font-semibold">What this is</h2>
         <p className="text-gray-700">
-          Communicaly is a library of short, natural audios about everyday life—coffee chats, commute small talk, quiet evenings at home.
-          Pick an episode, listen for a minute, then open its interactive page to answer the closing question and rewrite the story with
-          details from your own life.
+          Communicaly is an invitation to slow down and listen.
+        </p>
+        <p className="text-gray-700">
+          The stories are simple and familiar, inspired by everyday moments. They create space for reflection — the kind that helps language
+          feel more natural, more human, and less intimidating.
         </p>
       </section>
 
@@ -68,8 +75,22 @@ export default function About() {
       <section className="space-y-3">
         <h2 className="font-serif text-2xl font-semibold">Who it’s for</h2>
         <p className="text-gray-700">
-          Anyone learning English who wants to build their identity in the language, and tutors who need ready-to-go lessons to light up real conversations.
+          Communicaly is for adult English learners who already understand English but want to feel more confident using it in real life.
         </p>
+        <p className="text-gray-700">
+          It’s especially helpful if you’re tired of textbooks and want to sound more natural, thoughtful, and yourself in English.
+        </p>
+      </section>
+
+      <section className="space-y-4 rounded-2xl border border-brand-200/60 bg-white/80 p-6 text-center">
+        <p className="text-gray-700">
+          If you’re looking for a calmer, more human way to practice English, you’re in the right place.
+        </p>
+        <div className="flex justify-center">
+          <Link href="/episodes" className="btn btn-primary">
+            Start listening
+          </Link>
+        </div>
       </section>
 
       <section className="space-y-3">

@@ -4,6 +4,7 @@ export default function Footer() {
     <footer className="border-t mt-16 print:hidden">
       <div className="container py-10 text-sm text-gray-600">
         <p>© {new Date().getFullYear()} <strong>Communicaly</strong> — built for active listening & shadowing.</p>
+        <p className="mt-2">English doesn’t have to feel rushed to be real.</p>
         <p className="mt-2 inline-flex items-center gap-2 flex-wrap">
           Also on YouTube:
           <a

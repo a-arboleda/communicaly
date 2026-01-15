@@ -41,27 +41,6 @@ const statHighlights = [
   { value: "100+", label: "Real phrases saved", detail: "Build a personal bank of natural sentences." },
 ] as const
 
-const practicePillars = [
-  {
-    icon: "🌱",
-    title: "Personal stories",
-    description:
-      "Every scenario bends to your life so you practice the words you'll really need in daily conversations.",
-  },
-  {
-    icon: "🎯",
-    title: "Intentional repetition",
-    description:
-      "Prompts guide you to say it again with better rhythm and tone—great accents grow from mindful redos.",
-  },
-  {
-    icon: "🪞",
-    title: "Honest feedback",
-    description:
-      "Self-rate recordings with friendly rubrics so you notice what improved and what still needs attention next round.",
-  },
-] as const
-
 const backgroundLeaves = [
   { src: "/images/leaf-green.svg", className: "absolute -top-16 -left-14 w-32 sm:w-36 opacity-70" },
   { src: "/images/leaf-brown.svg", className: "absolute -top-12 right-0 sm:right-6 w-32 sm:w-40 opacity-60" },
@@ -107,22 +86,19 @@ export default function Home() {
               Speaking confidence
             </p>
             <h1 className="font-serif text-4xl font-bold text-brand-900 sm:text-5xl">
-              Speak English the way you mean it
+              Practice real-life English through everyday moments.
             </h1>
             <p className="text-lg leading-relaxed text-pretty text-gray-700/90">
-              Communicaly guides English learners through short stories, thoughtful prompts, and real speech practice so you can sound natural when it&rsquo;s time to talk.
-              Each session helps you plan what you want to say, rehearse it aloud, and make it stick.
+              Communicaly helps adult English learners build confidence by listening to short, natural audio stories inspired by daily life
+              — and reflecting on them.
+            </p>
+            <p className="text-sm text-gray-600">
+              No lessons. No pressure. Just real English, as it&rsquo;s lived.
             </p>
             <div className="flex flex-wrap gap-3">
-              <span className="rounded-full bg-gradient-to-r from-emerald-200/80 to-brand-200/70 px-4 py-2 text-sm font-medium text-emerald-900">
-                Daily 10-minute loops
-              </span>
-              <span className="rounded-full border border-brand-300/70 bg-white/70 px-4 py-2 text-sm font-medium text-brand-800">
-                Record, review, improve
-              </span>
-              <span className="rounded-full border border-emerald-300/70 bg-white/70 px-4 py-2 text-sm font-medium text-emerald-800">
-                Built for real conversations
-              </span>
+              <Link href="/episodes" className="btn btn-primary">
+                Start listening
+              </Link>
             </div>
           </div>
           <aside className="rounded-3xl border border-emerald-200/60 bg-gradient-to-br from-emerald-100/60 via-white/90 to-sky-100/60 p-6 backdrop-blur">
@@ -152,77 +128,67 @@ export default function Home() {
 
         <section className="space-y-6 rounded-[2rem] border border-emerald-200/60 bg-white/80 p-6 sm:p-10">
           <div className="max-w-2xl space-y-3">
-            <h2 className="font-serif text-3xl font-semibold text-brand-900">Why Communicaly helps you talk better</h2>
+            <h2 className="font-serif text-3xl font-semibold text-brand-900">Why Communicaly</h2>
             <p className="text-lg leading-relaxed text-pretty text-gray-700">
-              You don&rsquo;t memorize rules here—you practice speaking like yourself. Every prompt ends with a question about your real life,
-              so the English you build is ready for the conversations you actually have.
+              Most language platforms focus on rules, tests, and perfect sentences.
             </p>
             <p className="text-lg leading-relaxed text-pretty text-gray-700">
-              The <strong>interactive practice pages</strong> walk you from ideas to full sentences, then ask you to record and self-evaluate.
-              That loop trains clarity, pacing, and confidence every day.
+              Communicaly focuses on something different.
+            </p>
+            <p className="text-lg leading-relaxed text-pretty text-gray-700">
+              Here, English is not about being perfect. It&rsquo;s about thinking, feeling, and expressing yourself — the way you do in real life.
             </p>
           </div>
-          <div className="grid gap-5 lg:grid-cols-3">
-            {practicePillars.map(pillar => (
-              <div
-                key={pillar.title}
-                className="group rounded-3xl border border-brand-200/60 bg-gradient-to-br from-white via-brand-100/50 to-emerald-50/60 p-6 transition hover:-translate-y-1 hover:border-brand-300"
-              >
-                <span className="text-2xl" aria-hidden>{pillar.icon}</span>
-                <h3 className="mt-3 font-semibold text-brand-900">{pillar.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-gray-700">{pillar.description}</p>
-              </div>
-            ))}
-          </div>
+          <ul className="space-y-3 text-sm text-gray-700">
+            <li className="rounded-2xl border border-brand-200/60 bg-white/80 px-4 py-3">Short, calm audio stories</li>
+            <li className="rounded-2xl border border-brand-200/60 bg-white/80 px-4 py-3">Real-life language, not scripts</li>
+            <li className="rounded-2xl border border-brand-200/60 bg-white/80 px-4 py-3">Space to reflect, not rush</li>
+            <li className="rounded-2xl border border-brand-200/60 bg-white/80 px-4 py-3">Confidence over correctness</li>
+          </ul>
         </section>
 
-        <section className="grid gap-8 rounded-[2rem] border border-brand-200/60 bg-gradient-to-br from-brand-100/80 via-white to-emerald-100/70 p-6 sm:grid-cols-[minmax(0,1fr)_1fr] sm:p-10">
+        <section className="rounded-[2rem] border border-brand-200/60 bg-gradient-to-br from-brand-100/80 via-white to-emerald-100/70 p-6 sm:p-10">
           <div className="space-y-3">
-            <h2 className="font-serif text-3xl font-semibold text-brand-900">Your speaking loop</h2>
-            <p className="text-lg leading-relaxed text-pretty text-gray-700">
-              Follow the same rhythm every day so your mouth, memory, and confidence stay aligned.
-            </p>
+            <h2 className="font-serif text-3xl font-semibold text-brand-900">How it works</h2>
             <div className="space-y-4">
               <article className="rounded-2xl border border-emerald-200/70 bg-white/80 p-4">
-                <h3 className="font-semibold text-emerald-900">1. Listen in context</h3>
+                <h3 className="font-semibold text-emerald-900">Listen</h3>
                 <p className="mt-1 text-sm text-gray-700">
-                  Play a short, natural audio to hear tone, rhythm, and phrasing from real conversations.
+                  Start with a short audio story inspired by a real-life moment.
                 </p>
               </article>
               <article className="rounded-2xl border border-brand-200/70 bg-white/80 p-4">
-                <h3 className="font-semibold text-brand-900">2. Plan your response</h3>
+                <h3 className="font-semibold text-brand-900">Reflect</h3>
                 <p className="mt-1 text-sm text-gray-700">
-                  Personalize prompts to match your life so your sentences feel true to you.
+                  Think about the story using simple prompts designed to get you thinking in English.
                 </p>
               </article>
               <article className="rounded-2xl border border-emerald-200/70 bg-white/80 p-4">
-                <h3 className="font-semibold text-emerald-900">3. Say it out loud</h3>
+                <h3 className="font-semibold text-emerald-900">Build confidence</h3>
                 <p className="mt-1 text-sm text-gray-700">
-                  Record, self-rate, and repeat until your English sounds and feels natural.
+                  Practice expressing thoughts and emotions in natural, everyday English.
                 </p>
               </article>
             </div>
           </div>
-          <div className="relative isolate overflow-hidden rounded-[1.75rem] border border-white/70 bg-white/85 p-6">
-            <div className="absolute -top-20 right-0 h-48 w-48 rounded-full bg-emerald-200/50 blur-3xl" aria-hidden />
-            <div className="absolute -bottom-24 left-0 h-56 w-56 rounded-full bg-brand-200/50 blur-3xl" aria-hidden />
-            <div className="relative space-y-4">
-              <h3 className="font-serif text-2xl font-semibold text-brand-900">Micro-habits to unlock your voice</h3>
-              <p className="text-sm text-gray-700">
-                We track the questions you answer, the recordings you revisit, and the phrases you save so you notice growth every session.
-              </p>
-              <ul className="space-y-3 text-sm text-emerald-900">
-                <li className="rounded-xl border border-emerald-200/80 bg-emerald-50/60 px-4 py-3">
-                  <strong className="font-semibold">Streak support:</strong> gentle nudges keep your speaking muscle active.
-                </li>
-                <li className="rounded-xl border border-brand-200/80 bg-brand-50/60 px-4 py-3">
-                  <strong className="font-semibold">Voice workshop:</strong> compare takes to hear your own improvement.
-                </li>
-                <li className="rounded-xl border border-emerald-200/80 bg-white px-4 py-3">
-                  <strong className="font-semibold">Phrase locker:</strong> capture your best sentences for future conversations.
-                </li>
-              </ul>
-            </div>
+        </section>
+
+        <section className="space-y-3 rounded-[2rem] border border-emerald-200/60 bg-white/80 p-6 sm:p-10">
+          <h2 className="font-serif text-3xl font-semibold text-brand-900">Who Communicaly is for</h2>
+          <p className="text-lg leading-relaxed text-pretty text-gray-700">
+            Communicaly is for adult English learners who already understand English but want to feel more confident using it in real life.
+          </p>
+          <p className="text-lg leading-relaxed text-pretty text-gray-700">
+            It&rsquo;s especially helpful if you&rsquo;re tired of textbooks and want to sound more natural, thoughtful, and yourself in English.
+          </p>
+        </section>
+
+        <section className="rounded-[2rem] border border-brand-200/60 bg-gradient-to-br from-brand-100/80 via-white to-emerald-100/70 p-6 text-center sm:p-10">
+          <h2 className="font-serif text-2xl font-semibold text-brand-900">Ready to practice real-life English?</h2>
+          <div className="mt-4 flex justify-center">
+            <Link href="/episodes" className="btn btn-primary">
+              Explore the episodes
+            </Link>
           </div>
         </section>
 
