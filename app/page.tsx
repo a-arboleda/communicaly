@@ -6,16 +6,11 @@ export default function Home() {
     <div className="flex min-h-screen flex-col font-sans text-[#1F1F1F]">
       <section className="relative flex min-h-screen items-center">
         <div className="absolute inset-0 z-0">
-          <video
-            className="h-full w-full object-cover blur-[2px]"
-            autoPlay
-            muted
-            playsInline
-            preload="auto"
-            poster="/images/home-bg.jpg"
-          >
-            <source src="/videos/communicaly-bg-video.mp4" type="video/mp4" />
-          </video>
+          <div
+            className="h-full w-full bg-cover bg-center"
+            style={{ backgroundImage: "url('/images/bg-image.jpg')" }}
+            aria-hidden
+          />
           <div
             className="absolute inset-0"
             style={{ background: "color-mix(in oklab, var(--color-black) 45%, transparent)" }}
