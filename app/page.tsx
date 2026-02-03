@@ -9,9 +9,9 @@ export default function Home() {
           <video
             className="h-full w-full object-cover blur-[2px]"
             autoPlay
-            loop
             muted
             playsInline
+            preload="auto"
             poster="/images/home-bg.jpg"
           >
             <source src="/videos/communicaly-bg-video.mp4" type="video/mp4" />
