@@ -1,21 +1,26 @@
 // components/Navbar.tsx
 "use client"
+import Image from "next/image"
 import Link from "next/link"
-import type { Route } from "next"
 import { usePathname } from "next/navigation"
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 const links = [
   { href: "/", label: "Home" },
+  { href: "/conversation-frameworks", label: "Frameworks" },
   { href: "/episodes", label: "Episodes" },
+  { href: "/practice-lab", label: "Practice Lab" },
   { href: "/about", label: "About" },
-] as const satisfies ReadonlyArray<{ href: Route; label: string }>
+] as const
 
 export default function Navbar() {
   const pathname = usePathname()
+  const isHome = pathname === "/"
   // No pre-selected item on load; set after user clicks or path change
   const [selectedHref, setSelectedHref] = useState<string | null>(null)
   const [menuOpen, setMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+  const panelRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
     setSelectedHref(pathname || null)
@@ -31,6 +36,18 @@ export default function Navbar() {
   }, [menuOpen])
 
   useEffect(() => {
+    function handleScroll() {
+      setIsScrolled(window.scrollY > 8)
+    }
+
+    handleScroll()
+    window.addEventListener("scroll", handleScroll, { passive: true })
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+    }
+  }, [])
+
+  useEffect(() => {
     if (!menuOpen) return
     function handleResize() {
       if (window.innerWidth >= 768) setMenuOpen(false)
@@ -39,83 +56,138 @@ export default function Navbar() {
     return () => window.removeEventListener("resize", handleResize)
   }, [menuOpen])
 
-  function handleNavClick(href: Route) {
+  useEffect(() => {
+    if (!menuOpen) return
+    function handleMouseDown(event: MouseEvent) {
+      if (panelRef.current && !panelRef.current.contains(event.target as Node)) {
+        setMenuOpen(false)
+      }
+    }
+    document.addEventListener("mousedown", handleMouseDown)
+    return () => document.removeEventListener("mousedown", handleMouseDown)
+  }, [menuOpen])
+
+  function handleNavClick(href: string) {
     setSelectedHref(href)
     setMenuOpen(false)
   }
+  const isActive = (href: string) => selectedHref === href
 
   return (
-    <header className="sticky top-0 z-40 bg-white/80 backdrop-blur border-b print:hidden">
-      <nav className="container">
-        <div className="relative flex h-14 items-center justify-between">
-          <Link href="/" className="font-semibold tracking-tight">
-            Communicaly
-          </Link>
-          <button
-            type="button"
-            className="flex h-10 w-10 items-center justify-center rounded-lg border border-transparent text-sm text-gray-600 transition hover:bg-emerald-100/70 hover:text-emerald-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400/60 md:hidden"
-            aria-label="Toggle menu"
-            aria-expanded={menuOpen}
-            onClick={() => setMenuOpen(open => !open)}
+    <header
+      className={`fixed left-0 right-0 top-0 z-50 h-[100px] w-full overflow-visible print:hidden transition-colors duration-300 ease-out ${
+        menuOpen
+          ? "bg-white"
+          : isHome || isScrolled
+            ? "bg-white/70 backdrop-blur-md"
+            : "bg-transparent"
+      }`}
+    >
+      <nav className="h-full w-full" aria-label="Primary">
+        <div className="container grid h-full grid-cols-[auto_1fr_auto] items-center text-sm text-[#1F1F1F] md:grid-cols-[240px_1fr_240px]">
+          <Link
+            href="/"
+            className="justify-self-start transition-opacity duration-150 ease-out opacity-100"
           >
-            <span className="sr-only">Menu</span>
-            <svg
-              aria-hidden
-              className="h-5 w-5"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.8"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              {menuOpen ? (
-                <path d="M6 6L18 18M6 18L18 6" />
-              ) : (
-                <g>
-                  <path d="M4 6H20" />
-                  <path d="M4 12H20" />
-                  <path d="M4 18H20" />
-                </g>
-              )}
-            </svg>
-          </button>
-          <ul className="hidden gap-2 text-sm md:flex">
+            <Image
+              src="/images/communicaly-logo.png"
+              alt="Communicaly"
+              width={240}
+              height={70}
+              className="h-[70px] w-[240px] md:h-[70px] md:w-[240px]"
+              priority
+            />
+          </Link>
+          <ul className="hidden items-center justify-center gap-6 text-sm md:flex md:justify-self-center">
             {links.map(l => (
               <li key={l.href}>
                 <Link
                   href={l.href}
-                  aria-current={selectedHref === l.href ? "page" : undefined}
+                  aria-current={isActive(l.href) ? "page" : undefined}
                   onClick={() => handleNavClick(l.href)}
-                  className={`px-3 py-1.5 rounded-lg border transition transform-gpu duration-300 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400/50 active:translate-y-0 motion-reduce:transition-none no-tap-highlight ${
-                    selectedHref === l.href
-                      ? "bg-emerald-600 text-white border-emerald-600 shadow-card"
-                      : "border-transparent hover:bg-emerald-100/70 hover:text-emerald-900 hover:shadow-card hover:-translate-y-0.5"
-                  }`}
+                  className="hover:opacity-70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2E2E2E] focus-visible:ring-offset-2"
                 >
                   {l.label}
                 </Link>
               </li>
             ))}
           </ul>
+          <div className="justify-self-end md:w-[240px] md:flex md:justify-end">
+            <button
+              type="button"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-md text-[#1F1F1F] transition hover:opacity-70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2E2E2E] focus-visible:ring-offset-2 md:hidden"
+              aria-label="Toggle menu"
+              aria-expanded={menuOpen}
+              aria-controls="mobile-menu"
+              onClick={() => setMenuOpen(true)}
+            >
+              <span className="sr-only">Menu</span>
+              <svg
+                aria-hidden
+                className="h-5 w-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <g>
+                  <path d="M4 6H20" />
+                  <path d="M4 12H20" />
+                  <path d="M4 18H20" />
+                </g>
+              </svg>
+            </button>
+          </div>
         </div>
         <div
-          className={`md:hidden transition-[max-height,opacity] duration-200 ease-out overflow-hidden ${
-            menuOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0"
+          className={`fixed inset-0 z-40 bg-black/30 transition-opacity duration-300 ease-out md:hidden ${
+            menuOpen ? "opacity-100" : "pointer-events-none opacity-0"
           }`}
+          aria-hidden={!menuOpen}
+        />
+        <div
+          id="mobile-menu"
+          ref={panelRef}
+          className={`fixed right-0 top-0 z-50 flex h-full w-[82vw] max-w-[320px] flex-col bg-white px-6 pb-8 pt-6 shadow-sm transition-transform duration-300 ease-out md:hidden ${
+            menuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Mobile menu"
         >
-          <ul className="space-y-1 pb-3 pt-2 text-sm">
+          <div className="flex items-center justify-between">
+            <span className="text-sm font-semibold tracking-tight">Communicaly</span>
+            <button
+              type="button"
+              className="flex h-10 w-10 items-center justify-center rounded-md text-[#1F1F1F] transition hover:opacity-70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2E2E2E] focus-visible:ring-offset-2"
+              aria-label="Close menu"
+              onClick={() => setMenuOpen(false)}
+            >
+              <svg
+                aria-hidden
+                className="h-5 w-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M6 6L18 18" />
+                <path d="M6 18L18 6" />
+              </svg>
+            </button>
+          </div>
+          <ul className="mt-10 space-y-3 text-base">
             {links.map(l => (
               <li key={`${l.href}-mobile`}>
                 <Link
                   href={l.href}
-                  aria-current={selectedHref === l.href ? "page" : undefined}
+                  aria-current={isActive(l.href) ? "page" : undefined}
                   onClick={() => handleNavClick(l.href)}
-                  className={`block rounded-lg border px-3 py-2 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400/50 no-tap-highlight ${
-                    selectedHref === l.href
-                      ? "bg-emerald-600 text-white border-emerald-600 shadow-card"
-                      : "border-gray-100 bg-emerald-50/80 text-emerald-900 hover:bg-emerald-100/80"
-                  }`}
+                  className="block rounded-md px-1 py-1 transition hover:opacity-70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2E2E2E] focus-visible:ring-offset-2"
                 >
                   {l.label}
                 </Link>

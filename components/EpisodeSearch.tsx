@@ -56,6 +56,10 @@ export default function EpisodeSearch({ episodes }: { episodes: EpisodeItem[] })
     })
   }
 
+  function clearTagFilters() {
+    setSelected(new Set())
+  }
+
   function clearFilters() {
     setQuery("")
     setSelected(new Set())
@@ -81,28 +85,47 @@ export default function EpisodeSearch({ episodes }: { episodes: EpisodeItem[] })
 
       {allTags.length > 0 && (
         <fieldset className="rounded-xl border border-gray-200 p-3">
-          <legend className="text-sm font-medium text-gray-700">Filter by tag</legend>
-          <div className="mt-2 flex flex-wrap gap-2 max-h-16 overflow-y-auto overflow-x-hidden pr-1 tag-scroll-area">
+          <div className="flex items-center justify-between gap-3">
+            <legend className="text-sm font-medium text-gray-700">Filter by tag</legend>
+            {selected.size > 0 && (
+              <button
+                type="button"
+                onClick={clearTagFilters}
+                className="text-xs font-medium text-gray-600 hover:text-gray-900"
+              >
+                Clear tags
+              </button>
+            )}
+          </div>
+          <div className="mt-2 flex flex-wrap gap-2 max-h-24 overflow-y-auto overflow-x-hidden pr-1 tag-scroll-area">
+            <button
+              type="button"
+              onClick={clearTagFilters}
+              aria-pressed={selected.size === 0}
+              className={`tag select-none transition-[background-color,color,box-shadow] duration-200 ease-out ${
+                selected.size === 0
+                  ? "bg-emerald-200 text-emerald-900 ring-1 ring-inset ring-emerald-300"
+                  : "tag-accent"
+              }`}
+            >
+              All
+            </button>
             {allTags.map((t) => {
               const active = selected.has(t)
               return (
-                <label
+                <button
                   key={t}
-                  className={`tag cursor-pointer select-none transition ${
+                  type="button"
+                  onClick={() => toggleTag(t)}
+                  aria-pressed={active}
+                  className={`tag select-none transition-[background-color,color,box-shadow] duration-200 ease-out ${
                     active
-                      ? "bg-brand-accent/10 border-brand-accent text-brand-accent"
+                      ? "bg-emerald-200 text-emerald-900 ring-1 ring-inset ring-emerald-300"
                       : "tag-accent"
                   }`}
                 >
-                  <input
-                    type="checkbox"
-                    value={t}
-                    checked={active}
-                    onChange={() => toggleTag(t)}
-                    className="sr-only"
-                  />
-                  <span>{t}</span>
-                </label>
+                  {t}
+                </button>
               )
             })}
           </div>
@@ -126,9 +149,19 @@ export default function EpisodeSearch({ episodes }: { episodes: EpisodeItem[] })
                   <h3 className="text-lg font-semibold">{displayTitle(ep.title)}</h3>
                   {!!ep.tags?.length && (
                     <div className="flex flex-wrap gap-2 text-sm">
-                      {ep.tags.map((t) => (
-                        <span key={t} className="tag tag-accent">{t}</span>
-                      ))}
+                      {ep.tags.map((t) => {
+                        const isSelected = selected.has(t)
+                        return (
+                          <span
+                            key={t}
+                            className={`tag ${
+                              isSelected ? "bg-emerald-200 text-emerald-900 ring-1 ring-emerald-300" : "tag-accent"
+                            }`}
+                          >
+                            {t}
+                          </span>
+                        )
+                      })}
                     </div>
                   )}
                 </div>

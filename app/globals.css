@@ -126,6 +126,7 @@ html, body {
 
 .btn-muted:hover {
   border-color: #9ca3af; /* Tailwind gray-400 / optional hover */
+  box-shadow: inset 0 0 0 1px #9ca3af;
 }
 
 .btn-episode {
@@ -169,7 +170,7 @@ html, body {
 /* GLOBAL BORDER COLOR                            */
 /* Force any element with a border (including Tailwind border-* classes)
    to use the theme gray-200 color. This makes borders consistent app-wide. */
-[class*="border"], .btn, .card, .tag, fieldset, header, footer {
+[class*="border"]:not([data-border]), .btn, .card, .tag, fieldset, header, footer {
   border-color: var(--color-gray-200) !important;
 }
 

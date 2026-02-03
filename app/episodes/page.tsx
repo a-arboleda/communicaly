@@ -11,12 +11,11 @@ export default function Episodes() {
   return (
     <section className="space-y-6">
       <div className="space-y-2">
-        <p className="text-sm text-gray-600">Home • Episodes</p>
-        <h1 className="font-serif text-3xl font-bold">All Episodes</h1>
-        <p className="text-gray-700">
+        <h1 className="font-serif text-3xl sm:text-4xl text-brand-900">All Episodes</h1>
+        <p className="text-sm sm:text-base text-gray-700">
           Each episode is a short, natural reflection on a familiar moment — waiting in line, missing someone, overthinking at night.
         </p>
-        <p className="text-gray-700">
+        <p className="text-sm sm:text-base text-gray-700">
           Listen, reflect, and practice expressing your thoughts in English.
         </p>
         {/* Removed YouTube badge per request */}
