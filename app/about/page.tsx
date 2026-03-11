@@ -24,32 +24,6 @@ export default function About() {
         </p>
       </section>
 
-      <section className="card bg-[#E6E1DE] text-[#0F0C13]">
-        <div className="card-body space-y-4">
-          <p className="text-sm sm:text-base text-gray-700">My English journey</p>
-          <h2 className="font-serif text-3xl sm:text-4xl text-brand-900">From first book to confident voice</h2>
-          <div className="space-y-4">
-            <p className="text-sm sm:text-base text-gray-700">
-              I’ve been learning English since I was 15. My first introduction was an old English book I found at home.
-              That book gave me a foundation, but I didn’t have chances to practice pronunciation or watch movies and shows in English, so speaking stayed difficult.
-            </p>
-            <p className="text-sm sm:text-base text-gray-700">
-              I kept going—taking lessons and even spending a couple years in Australia—and still felt something was missing.
-              I was usually translating in my head instead of speaking with real fluency.
-            </p>
-            <p className="text-sm sm:text-base text-gray-700">
-              As a Spanish tutor and an English learner, I realized how little attention we give to building an identity in the new language.
-              Yet that’s the difference-maker: shaping how you sound, the words you choose, and how you show your personality.
-              When your English reflects you, confidence grows and speaking feels natural instead of stressful.
-            </p>
-            <p className="text-sm sm:text-base text-gray-700">
-              That’s why I created Communicaly—a space focused on small, everyday activities and on practicing the vocabulary you’ll actually use.
-              Building your identity in English isn’t just practice; it’s the path to speaking with confidence.
-            </p>
-          </div>
-        </div>
-      </section>
-
       <section className="space-y-3">
         <h2 className="font-serif text-3xl sm:text-4xl text-brand-900">Why it works</h2>
         <ul className="space-y-2 text-sm sm:text-base text-gray-700 list-disc list-inside">
