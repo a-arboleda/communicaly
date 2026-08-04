@@ -1,39 +1,36 @@
 // app/page.tsx
 import Link from "next/link"
+import VoiceWaves from "@/components/VoiceWaves"
 
 export default function Home() {
   return (
     <div className="flex min-h-screen flex-col font-sans text-[#1F1F1F]">
-      <section className="relative flex min-h-screen items-center">
-        <div className="absolute inset-0 z-0">
-          <div
-            className="h-full w-full bg-cover bg-center"
-            style={{ backgroundImage: "url('/images/bg-image.jpg')" }}
-            aria-hidden
-          />
-          <div
-            className="absolute inset-0"
-            style={{ background: "color-mix(in oklab, var(--color-black) 45%, transparent)" }}
-            aria-hidden
-          />
-        </div>
-        <div className="container relative z-10 flex items-center justify-center">
-          <div className="w-full max-w-[640px] text-center">
-          <h1 className="text-[48px] font-semibold tracking-[-0.02em] text-white sm:text-[64px]">
-            Speak with clarity.
-          </h1>
-          <p className="mt-4 inline-block text-[20px] leading-[1.7] text-white sm:text-[20px] font-serif">
-            Find the right words and sound like yourself.
-          </p>
-          <div className="mt-8">
-            <Link
-              href="/conversation-frameworks"
-              className="inline-flex items-center justify-center rounded-lg bg-[#C24A0D] px-8 py-3 text-[15px] font-bold text-white shadow-sm transition hover:translate-y-[-1px] hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C24A0D] focus-visible:ring-offset-2"
-            >
-              Start practicing
-            </Link>
+      <section
+        className="relative isolate flex min-h-[600px] items-center overflow-hidden bg-[#F8F3EA] px-[clamp(24px,6vw,100px)] pb-14 pt-[112px] sm:min-h-[620px] sm:pb-16 sm:pt-[118px] lg:min-h-[min(620px,41.45vw)]"
+        style={{
+          background:
+            "radial-gradient(circle at 50% 35%, #fffdf8 0%, #f8f3ea 55%, #f1e8dc 100%)",
+        }}
+      >
+        <VoiceWaves />
+        <div className="relative z-10 mx-auto flex w-full max-w-[620px] items-center justify-center -translate-y-4 sm:-translate-y-5">
+          <div className="relative w-full text-center">
+            <h1 className="font-serif text-[clamp(2.9rem,5vw,4.25rem)] font-medium leading-[0.98] tracking-[-0.035em] text-[#1E1D1A]">
+              Speak with clarity.
+            </h1>
+            <p className="mx-auto mt-5 max-w-[380px] text-[1.05rem] leading-[1.55] text-[#35332F] sm:text-[1.12rem]">
+              Find the right words and
+              <br className="hidden sm:block" /> sound like yourself.
+            </p>
+            <div className="mt-7">
+              <Link
+                href="/conversation-frameworks"
+                className="inline-flex items-center justify-center rounded-md bg-[#C94E16] px-6 py-3.5 text-[13px] font-semibold text-white shadow-[0_7px_20px_rgba(117,48,19,0.12)] transition-[transform,background-color,box-shadow] duration-200 ease-out hover:-translate-y-0.5 hover:bg-[#A93F11] hover:shadow-[0_10px_24px_rgba(117,48,19,0.18)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#48675C] focus-visible:ring-offset-4 focus-visible:ring-offset-[#F8F3EA] motion-reduce:transform-none motion-reduce:transition-none"
+              >
+                Start practicing
+              </Link>
+            </div>
           </div>
-        </div>
         </div>
       </section>
       <section className="container relative z-10 py-16 md:py-20">

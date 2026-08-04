@@ -75,16 +75,20 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed left-0 right-0 top-0 z-50 h-[100px] w-full overflow-visible print:hidden transition-colors duration-300 ease-out ${
+      className={`fixed left-0 right-0 top-0 z-50 h-[88px] w-full overflow-visible print:hidden transition-colors duration-300 ease-out ${
         menuOpen
-          ? "bg-white"
-          : isHome || isScrolled
-            ? "bg-white/70 backdrop-blur-md"
+          ? isHome ? "bg-[#F8F3EA]" : "bg-white"
+          : isHome
+            ? isScrolled
+              ? "bg-[#F8F3EA]/90 backdrop-blur-md"
+              : "bg-transparent"
+            : isScrolled
+              ? "bg-white/70 backdrop-blur-md"
             : "bg-transparent"
       }`}
     >
       <nav className="h-full w-full" aria-label="Primary">
-        <div className="container grid h-full grid-cols-[auto_1fr_auto] items-center text-sm text-[#1F1F1F] md:grid-cols-[240px_1fr_240px]">
+        <div className="mx-auto grid h-full w-full max-w-[1380px] grid-cols-[auto_1fr_auto] items-center px-4 text-[13px] text-[#1F1F1F] sm:px-8 md:grid-cols-[230px_1fr_230px] lg:px-10">
           <Link
             href="/"
             className="justify-self-start transition-opacity duration-150 ease-out opacity-100"
@@ -94,11 +98,11 @@ export default function Navbar() {
               alt="Communicaly"
               width={240}
               height={70}
-              className="h-[70px] w-[240px] md:h-[70px] md:w-[240px]"
+              className="h-[47px] w-[160px] origin-left scale-y-[0.78] md:h-[70px] md:w-[240px] md:scale-y-[0.72]"
               priority
             />
           </Link>
-          <ul className="hidden items-center justify-center gap-6 text-sm md:flex md:justify-self-center">
+          <ul className="hidden items-center justify-center gap-8 text-sm md:flex md:translate-x-8 md:justify-self-center">
             {links.map(l => (
               <li key={l.href}>
                 <Link
@@ -150,7 +154,9 @@ export default function Navbar() {
         <div
           id="mobile-menu"
           ref={panelRef}
-          className={`fixed right-0 top-0 z-50 flex h-full w-[82vw] max-w-[320px] flex-col bg-white px-6 pb-8 pt-6 shadow-sm transition-transform duration-300 ease-out md:hidden ${
+          className={`fixed right-0 top-0 z-50 flex h-full w-[82vw] max-w-[320px] flex-col px-6 pb-8 pt-6 shadow-sm transition-transform duration-300 ease-out motion-reduce:transition-none md:hidden ${
+            isHome ? "bg-[#F8F3EA]" : "bg-white"
+          } ${
             menuOpen ? "translate-x-0" : "translate-x-full"
           }`}
           role="dialog"
