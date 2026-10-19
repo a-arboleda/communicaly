@@ -1,12 +1,13 @@
 "use client"
 
 import { useCallback, useEffect, useMemo, useState } from "react"
-import jsPDF from "jspdf"
-import addStarsToPdf from "@/utils/pdfStars"
+import { createPracticePdf } from "@/utils/practicePdf"
 import EpisodeInteractive from "@/components/EpisodeInteractive"
 
 type PracticeQuizItem = {
   prompt: string
+  support?: string
+  followUp?: string
   expected?: string
   function?: string
 }
@@ -23,9 +24,11 @@ export default function EpisodePracticeQuestions({
   episodeId,
   episodeTitle,
   practiceQuiz,
+  conversational = false,
 }: {
   episodeId: string
   episodeTitle?: string
+  conversational?: boolean
   practiceQuiz?: PracticeQuizItem[]
 }) {
   const questions = useMemo(() => {
@@ -61,90 +64,19 @@ export default function EpisodePracticeQuestions({
     if (!isBrowser()) return
     const entries = collectTextResponses()
     if (entries.length === 0) {
-      setDownloadNotice("Add at least one text or audio response to export.")
+      setDownloadNotice("Write a response or transcribe a recording before downloading your PDF.")
       return
     }
     setExporting(true)
     setDownloadNotice(null)
     try {
-      const pdf = new jsPDF({ orientation: "p", unit: "pt", format: "a4" })
-      let pageWidth = pdf.internal.pageSize.getWidth()
-      let pageHeight = pdf.internal.pageSize.getHeight()
-      const marginX = 56
-      const marginY = 64
-      const contentWidth = pageWidth - marginX * 2
-      const title = episodeTitle ? `Practice responses — ${episodeTitle}` : "Practice responses"
-
+      const pdf = createPracticePdf(episodeTitle || "Your practice responses", entries, !conversational)
       const safeName = (episodeTitle || episodeId || "episode")
         .toString()
         .trim()
         .toLowerCase()
         .replace(/[^a-z0-9]+/g, "-")
         .replace(/(^-|-$)/g, "")
-      let y = marginY
-
-      pdf.setFont("helvetica", "bold")
-      pdf.setFontSize(16)
-      pdf.text(title, marginX, y)
-      y += 26
-
-      pdf.setFont("helvetica", "normal")
-      pdf.setFontSize(11)
-      pdf.setTextColor(75, 85, 99)
-      pdf.text("Saved text responses from Practice Prompts.", marginX, y)
-      pdf.setTextColor(17, 24, 39)
-      y += 22
-
-      const ensureSpace = (needed: number) => {
-        if (y + needed <= pageHeight - marginY) return
-        pdf.addPage()
-        pageWidth = pdf.internal.pageSize.getWidth()
-        pageHeight = pdf.internal.pageSize.getHeight()
-        y = marginY
-      }
-
-      entries.forEach(({ question, response, number, rating }) => {
-        const questionLines = pdf.splitTextToSize(question.prompt, contentWidth)
-        const responseLines = pdf.splitTextToSize(response, contentWidth)
-        const header = `Prompt ${number}${question.function ? ` • ${question.function}` : ""}`
-        const ratingHeight = rating && rating > 0 ? 18 : 0
-        const blockHeight = 18 + questionLines.length * 14 + 20 + responseLines.length * 14 + ratingHeight
-
-        ensureSpace(blockHeight + 12)
-
-        pdf.setFont("helvetica", "bold")
-        pdf.setFontSize(12)
-        pdf.text(header, marginX, y)
-        y += 16
-
-        pdf.setFont("helvetica", "italic")
-        pdf.setFontSize(11)
-        questionLines.forEach((line) => {
-          pdf.text(line, marginX, y)
-          y += 14
-        })
-
-        pdf.setFont("helvetica", "normal")
-        pdf.setFontSize(11)
-        pdf.text("Your response:", marginX, y)
-        y += 14
-        responseLines.forEach((line) => {
-          pdf.text(line, marginX, y)
-          y += 14
-        })
-        if (rating && rating > 0) {
-          y += 8
-          pdf.setFont("helvetica", "normal")
-          pdf.setFontSize(12)
-          pdf.setTextColor(75, 85, 99)
-          pdf.text("Self Rating:", marginX, y + 4)
-          addStarsToPdf(pdf, marginX + 80, y, 5, 12, rating)
-          y += 20
-          pdf.setTextColor(17, 24, 39)
-        }
-        y += 12
-      })
-
       pdf.save(`practice-prompts-${safeName || episodeId}.pdf`)
       setDownloadNotice("Downloaded your text responses.")
     } catch (error) {
@@ -153,7 +85,7 @@ export default function EpisodePracticeQuestions({
     } finally {
       setExporting(false)
     }
-  }, [collectTextResponses, episodeId, episodeTitle])
+  }, [collectTextResponses, episodeId, episodeTitle, conversational])
 
   if (questions.length === 0) return null
 
@@ -163,13 +95,14 @@ export default function EpisodePracticeQuestions({
         <div className="space-y-2">
           <h2 className="text-xl font-semibold text-brand-700">Practice prompts</h2>
           <p className="text-sm text-gray-600">
-            Pick text or audio for each prompt. Stay in one mode or mix them—whatever keeps you practicing out loud and on paper.
+            {conversational ? "Respond out loud in two short sentences: share your answer, then say a little about why. You don’t need to use a phrasal verb in every answer." : "Pick text or audio for each prompt. Stay in one mode or mix them—whatever keeps you practicing out loud and on paper."}
           </p>
         </div>
         <div className="space-y-6">
           {questions.map((question, index) => (
             <PracticeQuestionCard
               key={`practice-${index}-${question.prompt.slice(0, 12)}`}
+              conversational={conversational}
               question={question}
               index={index}
               episodeId={episodeId}
@@ -179,7 +112,7 @@ export default function EpisodePracticeQuestions({
         </div>
         <div className="flex flex-col gap-2 border-t border-brand-100 pt-4 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-sm text-gray-600">
-            {downloadNotice ?? "Exports text responses; audio responses (with rating) are included if present."}
+            {downloadNotice ?? (conversational ? "Your PDF includes your written responses and any transcriptions added to them." : "Transcribe your recordings to include their words in the PDF. Review your written responses before exporting.")}
           </p>
           <button
             type="button"
@@ -190,17 +123,20 @@ export default function EpisodePracticeQuestions({
             {exporting ? "Preparing..." : "Download PDF"}
           </button>
         </div>
+        {conversational && <p className="text-sm text-gray-600">Try saying your answer again. Keep the idea, but let the words change.</p>}
       </div>
     </section>
   )
 }
 
 function PracticeQuestionCard({
+  conversational,
   question,
   index,
   episodeId,
   episodeTitle,
 }: {
+  conversational: boolean
   question: PracticeQuizItem
   index: number
   episodeId: string
@@ -255,6 +191,8 @@ function PracticeQuestionCard({
         <div className="space-y-1">
           {question.function && <p className="text-sm font-medium text-brand-900">{question.function}</p>}
           <p className="text-base text-stone-900">{question.prompt}</p>
+          {question.support && <p className="text-sm text-gray-600">{question.support}</p>}
+          {question.followUp && <p className="text-sm italic text-gray-600">{question.followUp}</p>}
           {question.expected && <p className="text-sm italic text-gray-500">Hint: {question.expected}</p>}
         </div>
         <div className="inline-flex gap-1" role="group" aria-label={`Response mode for prompt ${questionNumber}`}>
@@ -299,33 +237,43 @@ function PracticeQuestionCard({
       </div>
 
       <div className="mt-4">
-        {mode === "text" ? (
-          <div className="space-y-2">
-            <label htmlFor={`practice-text-${episodeId}-${questionNumber}`} className="text-sm text-gray-600">
-              Type your response
-            </label>
-            <textarea
-              id={`practice-text-${episodeId}-${questionNumber}`}
-              className="w-full rounded-2xl border border-brand-100 bg-white p-3 text-base shadow-inner focus:border-brand-500 focus:outline-none"
-              placeholder="Write what you’d say here..."
-              value={text}
-              onChange={(event) => setText(event.target.value)}
-            />
-            <p className="text-xs text-gray-500">Saved locally on this device.</p>
-          </div>
-        ) : (
-          <div className="space-y-3">
-            <p className="text-sm text-brand-900">Record how you’d answer this prompt.</p>
+        {mode === "audio" && (
+          <div className="space-y-3 mb-4">
+
             <EpisodeInteractive
               episodeId={episodeId}
               audioTitle={episodeTitle}
+              showReflectionMetrics={!conversational}
               showPhrasebook={false}
               showResetControls={false}
               renderStandaloneCard={false}
               storageKey={`${storageBase}:audio`}
               showTaskCheckbox={false}
+              onTranscribed={(transcript) => {
+                setText((previous) => {
+                  const next = previous.includes(transcript) ? previous : [previous.trim(), transcript].filter(Boolean).join("\n\n")
+                  return next
+                })
+              }}
             />
           </div>
+        )}
+        {(
+          <div className="space-y-2">
+            <label htmlFor={`practice-text-${episodeId}-${questionNumber}`} className="text-sm text-gray-600">
+              {mode === "audio" ? "Your response" : "Type your response"}
+            </label>
+            <textarea
+              id={`practice-text-${episodeId}-${questionNumber}`}
+              rows={3}
+              className="w-full rounded-2xl border border-brand-100 bg-white p-3 text-sm focus:border-sky-400 focus:outline-none"
+              placeholder="Write what you’d say here..."
+              value={text}
+              onChange={(event) => setText(event.target.value)}
+            />
+            <p className="text-xs text-gray-500">Edit your words before exporting. Saved on this device.</p>
+          </div>
+
         )}
       </div>
     </div>

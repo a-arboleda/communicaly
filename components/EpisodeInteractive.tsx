@@ -3,6 +3,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import jsPDF from "jspdf"
 import addStarsToPdf from "@/utils/pdfStars"
 import { Mp3Encoder } from "lamejs"
+import RecordingTranscription from "@/components/RecordingTranscription"
 import EpisodeTaskCheckbox from "@/components/EpisodeTaskCheckbox"
 
 type PhraseItem = {
@@ -14,6 +15,7 @@ type PhraseItem = {
 }
 
 type SavedRecording = {
+  transcript?: string
   id: string
   createdAt: number
   dataUrl: string
@@ -104,6 +106,8 @@ export default function EpisodeInteractive({
   renderStandaloneCard = true,
   storageKey,
   showTaskCheckbox = true,
+  showReflectionMetrics = true,
+  onTranscribed,
 }: {
   episodeId: string
   audioTitle?: string
@@ -112,6 +116,8 @@ export default function EpisodeInteractive({
   renderStandaloneCard?: boolean
   storageKey?: string
   showTaskCheckbox?: boolean
+  showReflectionMetrics?: boolean
+  onTranscribed?: (text: string) => void
 }) {
   const STORAGE_EP = useMemo(() => storageKey ?? `ep:${episodeId}`, [episodeId, storageKey])
   const STORAGE_PB = "pb:myphrases"
@@ -175,6 +181,7 @@ export default function EpisodeInteractive({
                 id: typeof idRaw === "string" && idRaw ? idRaw : `rec-${Date.now()}-${Math.random().toString(16).slice(2)}`,
                 createdAt: typeof createdAtRaw === "number" ? createdAtRaw : Date.now(),
                 dataUrl,
+                transcript: typeof rec.transcript === "string" ? rec.transcript : undefined,
                 mimeType: typeof mimeTypeRaw === "string" ? mimeTypeRaw : "audio/webm",
                 duration: typeof durationRaw === "number" ? durationRaw : 0,
               } as SavedRecording
@@ -838,40 +845,40 @@ export default function EpisodeInteractive({
           {autoResetNotice}
         </div>
       )}
-      <h3 className="font-semibold">Record yourself</h3>
+      {!onTranscribed && <h3 className="font-semibold">Record yourself</h3>}
       {!recSkipped ? (
         <div>
           <div className="flex items-center gap-2 mt-2 flex-wrap">
-            <button onClick={preflight} className="btn btn-muted inline-flex items-center gap-1" title="Enable microphone">
+            {!onTranscribed && <button onClick={preflight} className="btn btn-muted inline-flex items-center gap-1" title="Enable microphone">
               <span aria-hidden>🎙️</span>
               <span>Enable microphone</span>
-            </button>
+            </button>}
             <button
               onClick={recording ? stopRec : startRec}
-              className={`inline-flex items-center gap-1 btn ${recording ? "btn-danger bg-red-600 hover:bg-red-700 border-red-700" : "btn-light-green"}`}
+              className={`inline-flex items-center gap-1 btn btn-sm ${recording ? "btn-danger bg-red-600 hover:bg-red-700 border-red-700" : "btn-light-green"}`}
               title={recording ? "Stop recording" : "Start recording"}
             >
               <span aria-hidden>{recording ? "⏹" : "⏺"}</span>
               <span>{recording ? "Stop" : "Record"}</span>
             </button>
-            <span className="text-sm text-gray-600 tabular-nums">{fmtTime(elapsed)}</span>
+            {(showReflectionMetrics || recording) && <span className="text-sm text-gray-600 tabular-nums">{fmtTime(elapsed)}</span>}
           </div>
-          <p className="mt-2 text-sm">{micMsg}</p>
+          {(!onTranscribed || !/^(Click Enable|Status:|Microphone enabled|Recording saved locally)/.test(micMsg)) && <p role="status" className="mt-2 text-xs text-gray-500">{micMsg}</p>}
           {recordings.length > 0 && (
             <div className="mt-4 space-y-3">
-              <p className="text-sm font-semibold text-brand-900">Your recordings ({recordings.length})</p>
+              {!onTranscribed && <p className="text-sm font-semibold text-brand-900">Your recordings ({recordings.length})</p>}
               <div className="space-y-3">
                 {recordings.map((rec, index) => {
                   const takeNumber = recordings.length - index
                   return (
-                    <div key={rec.id} className="rounded-lg border p-3 space-y-2">
+                    <div key={rec.id} className="recording-take rounded-2xl bg-sky-50/50 p-3 space-y-2">
                       <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-gray-600">
                         <span>
                           Take {takeNumber} • {fmtTime(rec.duration || 0)}
                         </span>
                         <div className="flex gap-2">
                           <a
-                            className="btn btn-muted px-3 py-1 text-sm"
+                            className="recording-action"
                             download={`${downloadBaseName}-take-${takeNumber}.${mimeToExtension(rec.mimeType)}`}
                             href={rec.dataUrl}
                           >
@@ -879,14 +886,18 @@ export default function EpisodeInteractive({
                           </a>
                           <button
                             type="button"
-                            className="btn btn-ghost px-3 py-1 text-sm"
+                            className="recording-action"
                             onClick={() => setRecordings((prev) => prev.filter((r) => r.id !== rec.id))}
                           >
                             Delete
                           </button>
                         </div>
                       </div>
-                      <audio controls className="w-full" src={rec.dataUrl} />
+                      <audio controls preload="metadata" className="w-full h-10" src={rec.dataUrl} />
+                      {onTranscribed && <RecordingTranscription dataUrl={rec.dataUrl} transcript={rec.transcript} onTranscribed={(text) => {
+                        setRecordings((previous) => previous.map((item) => item.id === rec.id ? { ...item, transcript: text } : item))
+                        onTranscribed(text)
+                      }} />}
                     </div>
                   )
                 })}
@@ -896,13 +907,13 @@ export default function EpisodeInteractive({
         </div>
       ) : (
         <div className="rounded-lg border p-3 bg-gray-50 mt-2">
-          <p className="text-sm mb-2">Recording was skipped. Practice out loud, then use the self‑rating below. You can enable the recorder anytime.</p>
+          <p className="text-sm mb-2">{showReflectionMetrics ? "Recording was skipped. Practice out loud, then use the self‑rating below. You can enable the recorder anytime." : "Practice out loud. You can enable the recorder anytime."}</p>
           {micMsg && <p className="text-sm text-gray-600 mb-2">{micMsg}</p>}
           <button onClick={enableRecording} className="btn btn-muted">Enable recorder</button>
         </div>
       )}
 
-      <div className="mt-4">
+      {showReflectionMetrics && <div className="mt-4">
         <label className="text-sm text-gray-600 mr-3">How natural did that sound?</label>
         <div className="inline-flex items-center gap-1" role="radiogroup" aria-label="Self-rating out of 5">
           {Array.from({ length: 5 }).map((_, i) => {
@@ -923,8 +934,8 @@ export default function EpisodeInteractive({
           })}
           <span className="text-sm text-gray-600 ml-2">{selfRate}/5</span>
         </div>
-      </div>
-      <p className="text-xs text-gray-500 mt-1">Your recordings + rating stay on this device.</p>
+      </div>}
+      {!onTranscribed && <p className="text-xs text-gray-500 mt-1">{showReflectionMetrics ? "Your recordings + rating stay on this device." : "Your recordings stay on this device."}</p>}
       {showTaskCheckbox && <EpisodeTaskCheckbox episodeId={episodeId} task="recorded" />}
     </>
   )

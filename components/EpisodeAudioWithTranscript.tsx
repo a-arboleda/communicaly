@@ -12,6 +12,8 @@ export default function EpisodeAudioWithTranscript({
   collapsible = true,
   defaultOpen = false,
   timeOffset = 0,
+  story = false,
+  children,
 }: {
   src?: string
   start?: number
@@ -19,15 +21,17 @@ export default function EpisodeAudioWithTranscript({
   cues?: Cue[]
   collapsible?: boolean
   defaultOpen?: boolean
+  story?: boolean
+  children?: React.ReactNode
   timeOffset?: number
 }) {
   const audioRef = useRef<HTMLAudioElement | null>(null)
   return (
     <div>
-      <AudioPlayer ref={audioRef} src={src} start={start} end={end} />
+      <AudioPlayer ref={audioRef} src={src} start={start} end={end} showSpeed={story} pendingMessage={story ? "Audio coming soon. You can still read along and practice below." : undefined} />
       {cues && cues.length > 0 ? (
-        <TranscriptSync audioRef={audioRef} cues={cues} collapsible={collapsible} defaultOpen={defaultOpen} timeOffset={timeOffset} />
-      ) : null}
+        <TranscriptSync audioRef={audioRef} cues={cues} collapsible={collapsible} defaultOpen={defaultOpen} timeOffset={timeOffset} label={story ? "Read along" : "Transcript"} preserveParagraphs={story} />
+      ) : children}
     </div>
   )
 }

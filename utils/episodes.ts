@@ -5,6 +5,7 @@ import matter from "gray-matter"
 const EP_DIR = path.join(process.cwd(), "content/episodes")
 
 export type EpisodeMeta = {
+  layout?: "story-practice"
   title: string
   date: string
   audioUrl?: string
@@ -16,6 +17,8 @@ export type EpisodeMeta = {
   imageAlt?: string
   practiceQuiz?: Array<{
     prompt: string
+    support?: string
+    followUp?: string
     expected?: string
     function?: string
   }>

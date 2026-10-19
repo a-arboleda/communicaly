@@ -1,0 +1,125 @@
+{
+  "cues": [
+    {
+      "start": 0.0,
+      "end": 2.58,
+      "text": "I finally did my laundry today.",
+      "paragraph": 0
+    },
+    {
+      "start": 3.48,
+      "end": 9.02,
+      "text": "I’d been putting it off all week, and this morning I realised I had no clean socks left.",
+      "paragraph": 0
+    },
+    {
+      "start": 9.78,
+      "end": 11.12,
+      "text": "So that was my sign.",
+      "paragraph": 0
+    },
+    {
+      "start": 12.54,
+      "end": 16.36,
+      "text": "I put a load on, made some coffee, and sat down for a bit.",
+      "paragraph": 1
+    },
+    {
+      "start": 17.22,
+      "end": 25.1,
+      "text": "I always tell myself I’ll clean the kitchen while the washing machine’s running, but today I just didn’t feel like it.",
+      "paragraph": 1
+    },
+    {
+      "start": 25.1,
+      "end": 30.8,
+      "text": "A friend called while I was waiting, and we ended up talking for almost an hour.",
+      "paragraph": 2
+    },
+    {
+      "start": 31.54,
+      "end": 36.06,
+      "text": "Nothing special—just work, dinner plans, that kind of thing.",
+      "paragraph": 2
+    },
+    {
+      "start": 36.78,
+      "end": 40.04,
+      "text": "It was nice to have a chat without having to be anywhere.",
+      "paragraph": 2
+    },
+    {
+      "start": 41.32,
+      "end": 44.78,
+      "text": "Anyway, I got the washing out and hung everything up.",
+      "paragraph": 3
+    },
+    {
+      "start": 45.22,
+      "end": 50.52,
+      "text": "And now it’s all dry, sitting on my bed, waiting for me to put it away.",
+      "paragraph": 3
+    },
+    {
+      "start": 51.78,
+      "end": 54.6,
+      "text": "That’s the part I always leave until later.",
+      "paragraph": 4
+    },
+    {
+      "start": 55.34,
+      "end": 56.0,
+      "text": "Washing it?",
+      "paragraph": 4
+    },
+    {
+      "start": 56.42,
+      "end": 56.68,
+      "text": "Fine.",
+      "paragraph": 4
+    },
+    {
+      "start": 57.32,
+      "end": 58.06,
+      "text": "Hanging it up?",
+      "paragraph": 4
+    },
+    {
+      "start": 58.54,
+      "end": 58.88,
+      "text": "Fine.",
+      "paragraph": 4
+    },
+    {
+      "start": 59.6,
+      "end": 60.28,
+      "text": "Putting it away?",
+      "paragraph": 4
+    },
+    {
+      "start": 62.36,
+      "end": 65.36,
+      "text": "Somehow, that feels like a whole other job.",
+      "paragraph": 4
+    },
+    {
+      "start": 66.56,
+      "end": 68.56,
+      "text": "But at least I’ve caught up on the laundry.",
+      "paragraph": 5
+    },
+    {
+      "start": 69.46,
+      "end": 70.28,
+      "text": "Well, almost.",
+      "paragraph": 5
+    },
+    {
+      "start": 70.28,
+      "end": 74.22,
+      "text": "I’ll probably move the clothes onto the chair when I go to bed.",
+      "paragraph": 5
+    }
+  ],
+  "offset": 0
+}

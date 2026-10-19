@@ -1,7 +1,7 @@
 import fs from "fs"
 import path from "path"
 
-export type Cue = { start: number; end?: number; text: string }
+export type Cue = { start: number; end?: number; text: string; paragraph?: number }
 export type TranscriptData = { cues: Cue[]; offset?: number }
 
 type RawWord = {

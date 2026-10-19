@@ -1,3 +1,4 @@
+import ExpressionPractice from "@/components/ExpressionPractice"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { MDXRemote } from "next-mdx-remote/rsc"
@@ -35,6 +36,42 @@ export default async function EpisodePage({ params }: { params: Promise<{ slug: 
   const { frontmatter, content } = episode
   const transcript = getTranscript(slug)
   const youtubeLinks = getYouTubeLinks(frontmatter.audioUrl, frontmatter.youtubeStart, frontmatter.youtubeEnd)
+
+  if (frontmatter.layout === "story-practice") {
+    return (
+      <article className="story-episode mx-auto max-w-3xl space-y-8">
+        <Link href="/episodes" className="text-sm text-brand-700">← Episodes</Link>
+        <header className="space-y-3">
+          <h1 className="font-serif text-3xl font-bold sm:text-4xl">{displayTitle(frontmatter.title)}</h1>
+          <p className="text-stone-600">{frontmatter.excerpt}</p>
+          {frontmatter.imageUrl && <EpisodeHero slug={slug} imageUrl={frontmatter.imageUrl} imageAlt={frontmatter.imageAlt} />}
+        </header>
+        <EpisodeAudioWithTranscript src={frontmatter.audioUrl} cues={transcript?.cues} timeOffset={transcript?.offset ?? 0} story>
+        <section className="card"><div className="card-body">
+          <Details title="Read along"><div className="space-y-4 leading-relaxed">
+            <MDXRemote source={content} />
+          </div></Details>
+        </div></section>
+        </EpisodeAudioWithTranscript>
+        <EpisodePracticeQuestions episodeId={slug} episodeTitle={frontmatter.title} practiceQuiz={frontmatter.practiceQuiz} conversational />
+        <section className="card" aria-labelledby="expressions-heading"><div className="card-body">
+          <h2 id="expressions-heading" className="text-xl font-semibold text-brand-700">Useful expressions</h2>
+          <dl className="mt-4 space-y-4">
+            {[
+              ["Put off", "delay doing something.", "I’d been putting it off all week."],
+              ["Catch up on", "do something you haven’t had time to do.", "At least I’ve caught up on the laundry."],
+              ["Hang up", "put clothes on a line or rack to dry.", "I got the washing out and hung everything up."],
+              ["Put away", "put something where it belongs.", "Waiting for me to put it away."],
+            ].map(([expression, meaning, example]) => <div key={expression}>
+              <dt className="font-semibold">{expression}</dt>
+              <dd className="text-sm text-stone-600">{meaning}<span className="mt-1 block italic">“{example}”</span></dd>
+            </div>)}
+          </dl>
+        </div></section>
+        <ExpressionPractice />
+      </article>
+    )
+  }
 
   return (
     <article className="space-y-6">

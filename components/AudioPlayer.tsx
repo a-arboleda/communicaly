@@ -1,6 +1,6 @@
 "use client"
 
-import { forwardRef } from "react"
+import { forwardRef, useRef, useState } from "react"
 function isYouTubeUrl(url: string) {
   try {
     const u = new URL(url)
@@ -62,13 +62,15 @@ function parseTimeToSeconds(t: string): number | undefined {
   return h * 3600 + mm * 60 + ss
 }
 
-type Props = { src?: string; start?: number; end?: number }
+type Props = { src?: string; start?: number; end?: number; pendingMessage?: string; showSpeed?: boolean }
 
 const AudioPlayer = forwardRef<HTMLAudioElement, Props>(function AudioPlayer(
-  { src, start, end }: Props,
+  { src, start, end, pendingMessage, showSpeed = false }: Props,
   ref
 ) {
-  if (!src) return null
+  const localRef = useRef<HTMLAudioElement | null>(null)
+  const [failed, setFailed] = useState(false)
+  if (!src || failed) return pendingMessage ? <p role="status" className="rounded-xl bg-stone-50 p-4 text-stone-600">{failed ? "Audio is unavailable right now. You can still read along and practice below." : pendingMessage}</p> : null
 
   if (isYouTubeUrl(src)) {
     const base = getYouTubeIdAndParams(src)
@@ -97,10 +99,20 @@ const AudioPlayer = forwardRef<HTMLAudioElement, Props>(function AudioPlayer(
   }
 
   return (
-    <audio ref={ref} controls className="w-full mt-4">
-      <source src={src} />
+    <div>
+    <audio key={src} ref={(element) => { localRef.current = element; if (typeof ref === "function") ref(element); else if (ref) ref.current = element }} controls preload="metadata" onError={() => setFailed(true)} aria-label="Episode audio" className="w-full mt-4">
+      <source src={src} onError={() => setFailed(true)} />
       Your browser does not support the audio element.
     </audio>
+    {showSpeed && <label className="mt-4 flex items-center gap-3 text-sm text-stone-500">Playback speed
+      <span className="playback-speed-control">
+      <select defaultValue="1" className="playback-speed-select" onChange={(event) => { if (localRef.current) localRef.current.playbackRate = Number(event.target.value) }}>
+        {[0.75, 1, 1.25, 1.5, 2].map((speed) => <option key={speed} value={speed}>{speed}×</option>)}
+      </select>
+      <svg aria-hidden="true" className="playback-speed-chevron" viewBox="0 0 16 16" fill="none"><path d="m4 6 4 4 4-4" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+      </span>
+    </label>}
+    </div>
   )
 })
 
