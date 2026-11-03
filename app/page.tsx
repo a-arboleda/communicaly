@@ -1,5 +1,6 @@
 import Link from "next/link"
 import VoiceWaves from "@/components/VoiceWaves"
+import HomeScrollAnimations from "@/components/HomeScrollAnimations"
 
 const topics = [
   { label: "01 / EVERYDAY LIFE", title: "The little things", description: "Ordinary moments, meaningful stories.", hue: "cream" },
@@ -17,6 +18,7 @@ const steps = [
 export default function Home() {
   return (
     <div className="communicaly-home">
+      <HomeScrollAnimations />
       <section className="home-hero" aria-labelledby="home-title">
         <div className="home-hero-waves" aria-hidden="true"><VoiceWaves /></div>
         <div className="home-hero-glow" aria-hidden="true" />
@@ -76,7 +78,7 @@ export default function Home() {
         <div className="home-bottom-swoop" aria-hidden="true" />
       </section>
 
-      <section className="home-manifesto home-shell" aria-labelledby="manifesto-title">
+      <section data-home-reveal className="home-manifesto home-shell" aria-labelledby="manifesto-title">
         <p className="home-eyebrow">A DIFFERENT KIND OF PRACTICE</p>
         <h2 id="manifesto-title">
           You don&apos;t have to be fluent to have <em>something worth saying.</em>
@@ -88,14 +90,14 @@ export default function Home() {
 
       <section id="how-it-works" className="home-method" aria-labelledby="method-title">
         <div className="home-shell">
-          <div className="home-section-heading">
+          <div data-home-reveal className="home-section-heading">
             <div>
               <p className="home-eyebrow">THE COMMUNICALY EXPERIENCE</p>
               <h2 id="method-title">Make space for <em>your voice.</em></h2>
             </div>
             <p>Simple, meaningful practice designed around what you want to say.</p>
           </div>
-          <div className="home-step-grid">
+          <div data-home-reveal className="home-step-grid">
             {steps.map((step) => (
               <div className="home-step" key={step.number}>
                 <span className="home-step-number">{step.number}</span>
@@ -109,14 +111,14 @@ export default function Home() {
       </section>
 
       <section className="home-topics home-shell" aria-labelledby="topics-title">
-        <div className="home-section-heading">
+        <div data-home-reveal className="home-section-heading">
           <div>
             <p className="home-eyebrow">WHAT'S ON YOUR MIND?</p>
             <h2 id="topics-title">Real life makes the <em>best conversations.</em></h2>
           </div>
           <Link className="home-text-link" href="/episodes">Browse all stories <span aria-hidden="true">↗</span></Link>
         </div>
-        <div className="home-topic-grid">
+        <div data-home-reveal className="home-topic-grid">
           {topics.map((topic) => (
             <Link href="/episodes" className={"home-topic-card home-topic-" + topic.hue} key={topic.label}>
               <span className="home-topic-caption">{topic.label}</span>
@@ -133,12 +135,12 @@ export default function Home() {
 
       <section className="home-quiet-section">
         <div className="home-shell home-quiet-grid">
-          <div className="home-quiet-decor" aria-hidden="true">
+          <div data-home-reveal className="home-quiet-decor" aria-hidden="true">
             <span className="home-quiet-circle home-quiet-circle-one" />
             <span className="home-quiet-circle home-quiet-circle-two" />
             <span className="home-quiet-quote">“Your voice matters.”</span>
           </div>
-          <div className="home-quiet-copy">
+          <div data-home-reveal className="home-quiet-copy">
             <p className="home-eyebrow">PRACTICE FOR EXPRESSION, NOT PERFECTION</p>
             <h2>Your story doesn&apos;t need <em>better words.</em> It needs room to breathe.</h2>
             <p>Try a story, think about your own experience, and speak naturally. You can start again, pause, or simply enjoy listening.</p>
@@ -148,13 +150,13 @@ export default function Home() {
       </section>
 
       <section className="home-resources home-shell" aria-labelledby="resources-title">
-        <div className="home-section-heading">
+        <div data-home-reveal className="home-section-heading">
           <div>
             <p className="home-eyebrow">MORE WAYS TO EXPLORE</p>
             <h2 id="resources-title">Support for <em>your own way</em> of speaking.</h2>
           </div>
         </div>
-        <div className="home-resource-grid">
+        <div data-home-reveal className="home-resource-grid">
           <Link href="/conversation-frameworks" className="home-resource-link">
             <span className="home-resource-icon" aria-hidden="true">✳</span>
             <div><h3>Conversation frameworks</h3><p>Gentle structure for when you want help organizing your thoughts.</p></div>
@@ -169,7 +171,7 @@ export default function Home() {
       </section>
 
       <section className="home-final-cta">
-        <div className="home-shell home-final-content">
+        <div data-home-reveal className="home-shell home-final-content">
           <p className="home-eyebrow">COME AS YOU ARE</p>
           <h2>The process is <em>the point.</em></h2>
           <p>A little curiosity is all you need to begin.</p>
