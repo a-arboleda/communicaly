@@ -1,11 +1,12 @@
 import Link from "next/link"
-import VoiceWaves from "@/components/VoiceWaves"
 import HomeScrollAnimations from "@/components/HomeScrollAnimations"
 
 const topics = [
-  { label: "01 / EVERYDAY LIFE", title: "The little things", description: "Ordinary moments, meaningful stories.", hue: "cream" },
-  { label: "02 / WORK & CAREER", title: "The life you build", description: "Ambition, balance, changes and choices.", hue: "sage" },
-  { label: "03 / RELATIONSHIPS", title: "People & connection", description: "Friendships, family and what matters to us.", hue: "clay" },
+  { label: "01 / EVERYDAY LIFE", title: "I Finally Did My Laundry", description: "A familiar story about everyday habits.", hue: "cream", href: "/episodes/i-finally-did-my-laundry-29" },
+  { label: "02 / WORK & CAREER", title: "When Meetings Run Long", description: "A story about work and everyday frustrations.", hue: "sage", href: "/episodes/when-meetings-run-long-10" },
+  { label: "03 / RELATIONSHIPS", title: "Trust Takes Time", description: "Reflect on trust and meaningful connection.", hue: "clay", href: "/episodes/trust-takes-time-9" },
+  { label: "04 / COMMUNICATION", title: "The Voice Message", description: "What happens when we overthink what to say?", hue: "sage", href: "/episodes/the-voice-message-26" },
+  { label: "05 / SELF-EXPRESSION", title: "Forgot What I Was Saying", description: "A relatable moment of losing your train of thought.", hue: "cream", href: "/episodes/forgot-what-i-was-saying-18" },
 ]
 
 const steps = [
@@ -20,8 +21,6 @@ export default function Home() {
     <div className="communicaly-home">
       <HomeScrollAnimations />
       <section className="home-hero" aria-labelledby="home-title">
-        <div className="home-hero-waves" aria-hidden="true"><VoiceWaves /></div>
-        <div className="home-hero-glow" aria-hidden="true" />
         <div className="home-shell home-hero-grid">
           <div className="home-hero-copy">
             <p className="home-eyebrow home-rise">ENGLISH, AT YOUR OWN PACE</p>
@@ -35,13 +34,13 @@ export default function Home() {
             </p>
             <div className="home-actions home-rise home-delay-3">
               <Link className="home-button home-button-primary" href="/episodes">
-                Explore audio stories <span aria-hidden="true">↗</span>
+                Try five free practices <span aria-hidden="true">↗</span>
               </Link>
               <Link className="home-text-link" href="#how-it-works">
                 See how it works <span aria-hidden="true">↓</span>
               </Link>
             </div>
-            <p className="home-hero-note home-rise home-delay-3">Listen first. Speak when you&apos;re ready.</p>
+            <p className="home-hero-note home-rise home-delay-3">No sign-up needed to try. Listen first. Speak when you&apos;re ready.</p>
           </div>
 
           <div className="home-preview-wrap home-rise home-delay-2">
@@ -113,14 +112,14 @@ export default function Home() {
       <section className="home-topics home-shell" aria-labelledby="topics-title">
         <div data-home-reveal className="home-section-heading">
           <div>
-            <p className="home-eyebrow">WHAT'S ON YOUR MIND?</p>
-            <h2 id="topics-title">Real life makes the <em>best conversations.</em></h2>
+            <p className="home-eyebrow">FIVE FREE PRACTICES</p>
+            <h2 id="topics-title">Try a story. <em>Find your voice.</em></h2>
           </div>
-          <Link className="home-text-link" href="/episodes">Browse all stories <span aria-hidden="true">↗</span></Link>
+          <p className="home-topic-intro">Choose any of these five stories. Come back and repeat them whenever you like — no account needed.</p>
         </div>
         <div data-home-reveal className="home-topic-grid">
           {topics.map((topic) => (
-            <Link href="/episodes" className={"home-topic-card home-topic-" + topic.hue} key={topic.label}>
+            <Link href={topic.href} className={"home-topic-card home-topic-" + topic.hue} key={topic.label}>
               <span className="home-topic-caption">{topic.label}</span>
               <div className="home-topic-ornament" aria-hidden="true"><span /><span /><span /></div>
               <div className="home-topic-info">
@@ -175,7 +174,7 @@ export default function Home() {
           <p className="home-eyebrow">COME AS YOU ARE</p>
           <h2>The process is <em>the point.</em></h2>
           <p>A little curiosity is all you need to begin.</p>
-          <Link className="home-button home-button-light" href="/episodes">Find something to talk about <span aria-hidden="true">↗</span></Link>
+          <Link className="home-button home-button-light" href="#topics-title">Choose a free practice <span aria-hidden="true">↗</span></Link>
         </div>
       </section>
     </div>
