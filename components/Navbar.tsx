@@ -77,14 +77,14 @@ export default function Navbar() {
     <header
       className={`fixed left-0 right-0 top-0 z-50 h-[88px] w-full overflow-visible print:hidden transition-colors duration-300 ease-out ${
         menuOpen
-          ? isHome ? "bg-[#F8F3EA]" : "bg-white"
+          ? isHome ? "bg-white" : "bg-white"
           : isHome
             ? isScrolled
-              ? "bg-[#F8F3EA]/90 backdrop-blur-md"
-              : "bg-transparent"
+              ? "bg-white/95 backdrop-blur-md"
+              : "bg-white/90 backdrop-blur-md"
             : isScrolled
               ? "bg-white/70 backdrop-blur-md"
-            : "bg-transparent"
+            : "bg-white/90 backdrop-blur-md"
       }`}
     >
       <nav className="h-full w-full" aria-label="Primary">
@@ -155,7 +155,7 @@ export default function Navbar() {
           id="mobile-menu"
           ref={panelRef}
           className={`fixed right-0 top-0 z-50 flex h-full w-[82vw] max-w-[320px] flex-col px-6 pb-8 pt-6 shadow-sm transition-transform duration-300 ease-out motion-reduce:transition-none md:hidden ${
-            isHome ? "bg-[#F8F3EA]" : "bg-white"
+            isHome ? "bg-white" : "bg-white"
           } ${
             menuOpen ? "translate-x-0" : "translate-x-full"
           }`}
