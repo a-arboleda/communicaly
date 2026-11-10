@@ -1,6 +1,8 @@
 type Props = { title: string; children: React.ReactNode; open?: boolean }
 
 export default function Details({ title, children, open = false }: Props) {
+  if (title === "Shadowing practice" || title === "Practical, learner-friendly tips") return null
+
   return (
     <details className="my-4 group" open={open}>
       <summary

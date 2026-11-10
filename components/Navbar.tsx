@@ -50,7 +50,7 @@ export default function Navbar() {
   useEffect(() => {
     if (!menuOpen) return
     function handleResize() {
-      if (window.innerWidth >= 768) setMenuOpen(false)
+      if (window.innerWidth >= 1280) setMenuOpen(false)
     }
     window.addEventListener("resize", handleResize)
     return () => window.removeEventListener("resize", handleResize)
@@ -71,24 +71,24 @@ export default function Navbar() {
     setSelectedHref(href)
     setMenuOpen(false)
   }
-  const isActive = (href: string) => selectedHref === href
+  const isActive = (href: string) => selectedHref === href || (href !== "/" && !!selectedHref?.startsWith(`${href}/`))
 
   return (
     <header
       className={`fixed left-0 right-0 top-0 z-50 h-[88px] w-full overflow-visible print:hidden transition-colors duration-300 ease-out ${
         menuOpen
-          ? isHome ? "bg-[#F8F3EA]" : "bg-white"
+          ? "bg-white"
           : isHome
             ? isScrolled
-              ? "bg-[#F8F3EA]/90 backdrop-blur-md"
-              : "bg-transparent"
+              ? "bg-white/95 backdrop-blur-md"
+              : "bg-white/90 backdrop-blur-md"
             : isScrolled
               ? "bg-white/70 backdrop-blur-md"
-            : "bg-transparent"
+            : "bg-white/90 backdrop-blur-md"
       }`}
     >
       <nav className="h-full w-full" aria-label="Primary">
-        <div className="mx-auto grid h-full w-full max-w-[1380px] grid-cols-[auto_1fr_auto] items-center px-4 text-[13px] text-[#1F1F1F] sm:px-8 md:grid-cols-[230px_1fr_230px] lg:px-10">
+        <div className="mx-auto grid h-full w-full max-w-[1380px] grid-cols-[auto_1fr_auto] items-center px-4 text-[13px] text-[#1F1F1F] sm:px-8 xl:grid-cols-[230px_1fr_230px] lg:px-10">
           <Link
             href="/"
             className="justify-self-start transition-opacity duration-150 ease-out opacity-100"
@@ -98,11 +98,11 @@ export default function Navbar() {
               alt="Communicaly"
               width={240}
               height={70}
-              className="h-[47px] w-[160px] origin-left scale-y-[0.78] md:h-[70px] md:w-[240px] md:scale-y-[0.72]"
+              className="h-[47px] w-[160px] origin-left scale-y-[0.78] xl:h-[70px] xl:w-[240px] xl:scale-y-[0.72]"
               priority
             />
           </Link>
-          <ul className="hidden items-center justify-center gap-8 text-sm md:flex md:translate-x-8 md:justify-self-center">
+          <ul className="hidden items-center justify-center gap-8 text-sm xl:flex xl:translate-x-8 xl:justify-self-center">
             {links.map(l => (
               <li key={l.href}>
                 <Link
@@ -116,10 +116,10 @@ export default function Navbar() {
               </li>
             ))}
           </ul>
-          <div className="justify-self-end md:w-[240px] md:flex md:justify-end">
+          <div className="justify-self-end xl:w-[240px] xl:flex xl:justify-end">
             <button
               type="button"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-md text-[#1F1F1F] transition hover:opacity-70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2E2E2E] focus-visible:ring-offset-2 md:hidden"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-md text-[#1F1F1F] transition hover:opacity-70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2E2E2E] focus-visible:ring-offset-2 xl:hidden"
               aria-label="Toggle menu"
               aria-expanded={menuOpen}
               aria-controls="mobile-menu"
@@ -146,7 +146,7 @@ export default function Navbar() {
           </div>
         </div>
         <div
-          className={`fixed inset-0 z-40 bg-black/30 transition-opacity duration-300 ease-out md:hidden ${
+          className={`fixed inset-0 z-40 bg-black/30 transition-opacity duration-300 ease-out xl:hidden ${
             menuOpen ? "opacity-100" : "pointer-events-none opacity-0"
           }`}
           aria-hidden={!menuOpen}
@@ -154,11 +154,10 @@ export default function Navbar() {
         <div
           id="mobile-menu"
           ref={panelRef}
-          className={`fixed right-0 top-0 z-50 flex h-full w-[82vw] max-w-[320px] flex-col px-6 pb-8 pt-6 shadow-sm transition-transform duration-300 ease-out motion-reduce:transition-none md:hidden ${
-            isHome ? "bg-[#F8F3EA]" : "bg-white"
-          } ${
+          className={`fixed right-0 top-0 z-50 flex h-full w-[82vw] max-w-[320px] flex-col px-6 pb-8 pt-6 shadow-sm transition-transform duration-300 ease-out motion-reduce:transition-none xl:hidden bg-white ${
             menuOpen ? "translate-x-0" : "translate-x-full"
           }`}
+          inert={!menuOpen}
           role="dialog"
           aria-modal="true"
           aria-label="Mobile menu"

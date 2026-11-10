@@ -1,74 +1,35 @@
-"use client"
-
 import Link from "next/link"
-import { useMemo } from "react"
-import { frameworks, frameworkById } from "@/components/conversation-frameworks/frameworkData"
+import { frameworks } from "@/components/conversation-frameworks/frameworkData"
 
 export default function ConversationFrameworksPage() {
-  const frameworkByIdMemo = useMemo(() => frameworkById, [])
-  const recommendedId = frameworks[0]?.id
-
-  function handleScrollTo(targetId: string) {
-    const element = document.getElementById(targetId)
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" })
-    }
-  }
-
+  const recommended = frameworks[0]
   return (
-    <div className="space-y-16 pb-10 text-gray-800">
-      <section className="relative overflow-hidden rounded-[32px] border border-brand-200/70 bg-gradient-to-br from-[#F2F7F4] via-white to-[#E9F1F6] p-8 sm:p-12">
-        <div className="absolute -left-10 -top-10 h-40 w-40 rounded-full bg-[#DDEBE3] opacity-60 blur-3xl" />
-        <div className="absolute -bottom-16 right-0 h-48 w-48 rounded-full bg-[#DCE8F2] opacity-50 blur-3xl" />
-        <div className="relative z-10 space-y-6">
-          <div className="space-y-3">
-            <p className="text-xs uppercase tracking-[0.2em] text-gray-500">Conversation frameworks</p>
-            <h1 className="text-3xl font-semibold text-brand-900 sm:text-4xl">
-              Speak with confidence
-            </h1>
-            <p className="max-w-xl text-sm text-gray-600 sm:text-base">
-              Simple frameworks to help you respond clearly in everyday English conversations.
-            </p>
-          </div>
-          <div className="flex flex-wrap gap-3">
-            <button
-              type="button"
-              className="inline-flex items-center rounded-lg border border-brand-200/70 bg-brand-100/40 px-3 py-1.5 text-xs font-medium text-brand-900 transition-[border-color,box-shadow] duration-200 hover:ring-1 hover:ring-brand-700/30 cursor-pointer"
-              onClick={() => handleScrollTo("recommendation")}
-            >
-              See recommended framework
-            </button>
-            <button
-              type="button"
-              className="inline-flex items-center rounded-lg border border-brand-200/70 bg-brand-100/40 px-3 py-1.5 text-xs font-medium text-brand-900 transition-[border-color,box-shadow] duration-200 hover:ring-1 hover:ring-brand-700/30 cursor-pointer"
-              onClick={() => handleScrollTo("frameworks")}
-            >
-              Explore framework
-            </button>
-          </div>
-        </div>
-      </section>
-
-      <section id="frameworks" className="space-y-6">
+    <div className="signal-page space-y-10 pb-10">
+      <header className="space-y-3">
+        <h1>Conversation frameworks</h1>
+        <p className="max-w-xl text-lg text-slate-600">Choose a situation and practice building a clear response in English.</p>
+        {recommended && <a href="#recommendation" className="inline-block py-2 font-medium text-[#2852d6] hover:underline">See recommended framework ↓</a>}
+      </header>
+      <section id="frameworks" className="scroll-mt-28 space-y-4 border-t border-slate-200 pt-6">
         <div className="space-y-2">
-          <h2 className="text-2xl font-semibold text-brand-900">
-            What is your situation right now?
+          <h2 className="text-2xl font-semibold text-[#182021]">
+            Choose a situation
           </h2>
           <p className="text-sm text-gray-600">
             Choose the moment you are in, and we will suggest a framework.
           </p>
         </div>
-        <div className="space-y-3">
+        <div className="grid gap-4 sm:grid-cols-2">
           {frameworks.map(framework => (
             <Link
               key={framework.id}
               href={`/conversation-frameworks/${framework.slug}`}
-              className="flex w-full items-center justify-between rounded-2xl border border-brand-200/60 bg-white px-4 py-4 text-left transition-[border-color,box-shadow] duration-200 hover:border-brand-700/40 hover:ring-1 hover:ring-brand-700/30"
+              className="flex w-full items-center justify-between rounded-2xl border border-slate-200 bg-white px-4 py-4 text-left transition-[border-color,box-shadow] duration-200 hover:border-blue-300 hover:bg-[#f6f8ff]"
             >
               <div className="flex w-full items-center justify-between gap-4">
                 <div>
-                  <p className="text-base font-medium text-brand-900">{framework.situationLabel}</p>
-                  <p className="mt-1 text-[11px] font-bold uppercase tracking-[0.24em] text-green-900">
+                  <p className="text-base font-medium text-[#182021]">{framework.situationLabel}</p>
+                  <p className="mt-1 text-[11px] font-bold uppercase tracking-[0.24em] text-[#2852d6]">
                     {framework.name}
                   </p>
                   <p className="mt-2 text-sm leading-relaxed text-gray-600">
@@ -84,36 +45,36 @@ export default function ConversationFrameworksPage() {
         </div>
       </section>
 
-      {recommendedId ? (
-        <section id="recommendation" className="space-y-6">
+      {recommended ? (
+        <section id="recommendation" className="scroll-mt-28 space-y-4">
           <div className="space-y-2">
-            <h2 className="text-2xl font-semibold text-brand-900">Recommended framework</h2>
+            <h2 className="text-2xl font-semibold text-[#182021]">Recommended framework</h2>
             <p className="text-sm text-gray-600">
               A framework we suggest based on the most common situations.
             </p>
           </div>
-          <div className="card bg-[#F6F3EE]">
+          <div className="rounded-2xl bg-[#eff3ff]">
             <div className="card-body space-y-4">
               <div className="space-y-1">
                 <p className="text-xs uppercase tracking-[0.2em] text-gray-500">Framework</p>
-                <h3 className="text-xl font-semibold text-brand-900">
-                  {frameworkByIdMemo[recommendedId].name}
+                <h3 className="text-xl font-semibold text-[#182021]">
+                  {recommended.name}
                 </h3>
                 <p className="text-sm text-gray-600">
-                  {frameworkByIdMemo[recommendedId].summary}
+                  {recommended.summary}
                 </p>
               </div>
               <div className="space-y-2">
                 <p className="text-xs uppercase tracking-[0.2em] text-gray-500">Example</p>
                 <div className="space-y-1 text-sm text-gray-700">
-                  {frameworkByIdMemo[recommendedId].exampleAnswer.map(line => (
+                  {recommended.exampleAnswer.map(line => (
                     <p key={line}>{line}</p>
                   ))}
                 </div>
               </div>
               <Link
-                href={`/conversation-frameworks/${frameworkByIdMemo[recommendedId].slug}`}
-                className="inline-flex items-center justify-center rounded-[7px] bg-[#2E2E2E] px-7 py-3.5 text-[15px] font-medium text-white transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2E2E2E] focus-visible:ring-offset-2"
+                href={`/conversation-frameworks/${recommended.slug}`}
+                className="signal-action"
               >
                 Practice this framework
               </Link>

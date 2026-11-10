@@ -3,6 +3,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import jsPDF from "jspdf"
 import addStarsToPdf from "@/utils/pdfStars"
 import { Mp3Encoder } from "lamejs"
+import { practiceDrafts } from "@/utils/practiceDrafts"
 import RecordingTranscription from "@/components/RecordingTranscription"
 import EpisodeTaskCheckbox from "@/components/EpisodeTaskCheckbox"
 
@@ -108,6 +109,7 @@ export default function EpisodeInteractive({
   showTaskCheckbox = true,
   showReflectionMetrics = true,
   onTranscribed,
+  onDeleteTake,
 }: {
   episodeId: string
   audioTitle?: string
@@ -117,6 +119,7 @@ export default function EpisodeInteractive({
   storageKey?: string
   showTaskCheckbox?: boolean
   showReflectionMetrics?: boolean
+  onDeleteTake?: () => void
   onTranscribed?: (text: string) => void
 }) {
   const STORAGE_EP = useMemo(() => storageKey ?? `ep:${episodeId}`, [episodeId, storageKey])
@@ -133,6 +136,8 @@ export default function EpisodeInteractive({
   const [answer, setAnswer] = useState("")
   const [selfRate, setSelfRate] = useState<number>(0)
   const [recSkipped, setRecSkipped] = useState<boolean>(false)
+  const starting = useRef(false)
+  const newTakeId = useRef<string | null>(null)
   const [recordings, setRecordings] = useState<SavedRecording[]>([])
 
   // Recorder state
@@ -161,7 +166,7 @@ export default function EpisodeInteractive({
   // Load persisted state
   useEffect(() => {
     try {
-      const raw = localStorage.getItem(STORAGE_EP)
+      const raw = storageKey ? practiceDrafts.get(STORAGE_EP) : localStorage.getItem(STORAGE_EP)
       if (raw) {
         const s = JSON.parse(raw)
         if (s.answer) setAnswer(s.answer)
@@ -187,7 +192,7 @@ export default function EpisodeInteractive({
               } as SavedRecording
             })
             .filter((rec): rec is SavedRecording => !!rec)
-          if (normalized.length) setRecordings(normalized)
+          if (normalized.length) setRecordings(normalized.slice(0, 1))
         } else if (s.recordingUrl && typeof s.recordingUrl === "string") {
           setRecordings([
             {
@@ -213,15 +218,16 @@ export default function EpisodeInteractive({
     } else {
       setMicMsg("Click Enable microphone to grant access.")
     }
-  }, [STORAGE_EP])
+  }, [STORAGE_EP, storageKey])
 
   // Persist per-episode state
   useEffect(() => {
     const s = { answer, selfRate, recSkipped, recordings }
     try {
-      localStorage.setItem(STORAGE_EP, JSON.stringify(s))
+      if (storageKey) practiceDrafts.set(STORAGE_EP, JSON.stringify(s))
+      else localStorage.setItem(STORAGE_EP, JSON.stringify(s))
     } catch {}
-  }, [STORAGE_EP, answer, selfRate, recSkipped, recordings])
+  }, [STORAGE_EP, storageKey, answer, selfRate, recSkipped, recordings])
 
   // Helpers
   function todayStr() {
@@ -455,8 +461,9 @@ export default function EpisodeInteractive({
   }
 
   async function startRec() {
+    if (recSkipped || starting.current || mediaRecorderRef.current?.state === "recording") return
+    starting.current = true
     try {
-      if (recSkipped) return
       if (!window.isSecureContext)
         throw new Error("Recording requires HTTPS or http://localhost")
       const stream = await navigator.mediaDevices.getUserMedia({
@@ -489,20 +496,23 @@ export default function EpisodeInteractive({
           : convertBlobToMp3(blob)
         conversionPromise
           .then(({ dataUrl, mimeType }) => {
-            setRecordings((prev) => [
-              { id: makeRecordingId(), createdAt: Date.now(), dataUrl, mimeType, duration },
-              ...prev,
+            const id = makeRecordingId()
+            if (mediaRecorderRef.current !== mr) return
+            newTakeId.current = id
+            setRecordings([
+              { id, createdAt: Date.now(), dataUrl, mimeType, duration },
             ])
             setMicMsg(mimeType === "audio/mpeg" ? "Recording saved locally as MP3." : "Recording saved locally.")
           })
           .catch(() => {
             setMicMsg("Recording saved, but couldn’t prepare playback.")
           })
-          .finally(() => {
-            elapsedRef.current = 0
-          })
+
       }
       mr.start()
+      setRecordings([])
+      onTranscribed?.("")
+      setMicMsg("")
       setRecording(true)
       setElapsed(0)
       elapsedRef.current = 0
@@ -514,7 +524,11 @@ export default function EpisodeInteractive({
         elapsedRef.current = seconds
       }, 200)
     } catch (err) {
-      setMicMsg(formatGetUserMediaError(err))
+      clearPcmTap()
+      stopActiveStream()
+      setMicMsg(err instanceof Error && err.name === "Error" ? err.message : formatGetUserMediaError(err))
+    } finally {
+      starting.current = false
     }
   }
 
@@ -569,7 +583,8 @@ export default function EpisodeInteractive({
       }
       setAutoResetNotice(null)
       try {
-        localStorage.removeItem(STORAGE_EP)
+        if (storageKey) practiceDrafts.delete(STORAGE_EP)
+        else localStorage.removeItem(STORAGE_EP)
         if (shouldClearEpisodeExtras && episodeId) {
           const textBase = `ep:${episodeId}:textAnswer`
           const cats = ["short", "reflective", "personal", "conversation", "summary"]
@@ -597,7 +612,7 @@ export default function EpisodeInteractive({
         )
       }
     },
-    [STORAGE_EP, clearPcmTap, episodeId, shouldBroadcastReset, shouldClearEpisodeExtras, stopRec],
+    [STORAGE_EP, storageKey, clearPcmTap, episodeId, shouldBroadcastReset, shouldClearEpisodeExtras, stopRec],
   )
 
   useEffect(() => {
@@ -702,9 +717,10 @@ export default function EpisodeInteractive({
           recorder.stop()
         }
       } catch {}
+      clearPcmTap()
       stopActiveStream()
     }
-  }, [])
+  }, [clearPcmTap])
 
   useEffect(() => {
     if (!autoResetNotice) return
@@ -887,17 +903,28 @@ export default function EpisodeInteractive({
                           <button
                             type="button"
                             className="recording-action"
-                            onClick={() => setRecordings((prev) => prev.filter((r) => r.id !== rec.id))}
+                            onClick={() => {
+                              setRecordings((prev) => prev.filter((r) => r.id !== rec.id))
+                              onDeleteTake?.()
+                            }}
                           >
                             Delete
                           </button>
                         </div>
                       </div>
                       <audio controls preload="metadata" className="w-full h-10" src={rec.dataUrl} />
-                      {onTranscribed && <RecordingTranscription dataUrl={rec.dataUrl} transcript={rec.transcript} onTranscribed={(text) => {
-                        setRecordings((previous) => previous.map((item) => item.id === rec.id ? { ...item, transcript: text } : item))
-                        onTranscribed(text)
-                      }} />}
+                      {onTranscribed && (
+                        <RecordingTranscription
+                          dataUrl={rec.dataUrl}
+                          transcript={rec.transcript}
+                          autoStart={newTakeId.current === rec.id}
+                          onTranscribed={(text) => {
+                            setRecordings((previous) => previous.map((item) =>
+                              item.id === rec.id ? { ...item, transcript: text } : item))
+                            onTranscribed(text)
+                          }}
+                        />
+                      )}
                     </div>
                   )
                 })}

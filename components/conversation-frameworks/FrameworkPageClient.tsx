@@ -44,11 +44,11 @@ export default function FrameworkPageClient({ framework }: FrameworkPageClientPr
   }
 
   return (
-    <div className="space-y-12 pb-10 text-gray-800">
+    <div className="signal-page space-y-10 pb-10">
       <section className="relative overflow-hidden">
         <div className="relative z-10 space-y-4">
           <p className="text-xs uppercase tracking-[0.2em] text-gray-500">Conversation framework</p>
-          <h1 className="text-3xl font-semibold text-brand-900 sm:text-4xl">
+          <h1 className="font-semibold">
             {framework.name}
           </h1>
           <p className="text-sm text-gray-600 sm:text-base">{framework.subtitle}</p>
@@ -82,7 +82,7 @@ export default function FrameworkPageClient({ framework }: FrameworkPageClientPr
           </div>
         </div>
 
-        <div className="card bg-[#F6F3EE]">
+        <div className="card bg-[#eff3ff]">
           <div className="card-body space-y-4">
             <div className="space-y-1">
               <p className="text-xs uppercase tracking-[0.2em] text-gray-500">Example</p>
@@ -104,7 +104,7 @@ export default function FrameworkPageClient({ framework }: FrameworkPageClientPr
 
       <section className="space-y-3">
         <div className="space-y-1">
-          <p className="text-lg font-semibold uppercase tracking-[0.24em] text-blue-700 font-serif">
+          <p className="text-lg font-semibold uppercase tracking-[0.24em] text-blue-700 font-sans">
             Interactive practice
           </p>
           <p className="text-sm text-gray-600">
@@ -118,7 +118,7 @@ export default function FrameworkPageClient({ framework }: FrameworkPageClientPr
             </p>
             <button
               type="button"
-              className="inline-flex items-center justify-center rounded-[7px] bg-[#2E2E2E] px-3 py-1.5 text-xs font-medium text-white transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2E2E2E] focus-visible:ring-offset-2"
+              className="inline-flex items-center justify-center rounded-[7px] bg-[#2852d6] px-3 py-1.5 text-xs font-medium text-white transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2852d6] focus-visible:ring-offset-2"
               onClick={handleRandomQuestion}
             >
               Try another question
@@ -139,7 +139,7 @@ export default function FrameworkPageClient({ framework }: FrameworkPageClientPr
                   <button type="button" className="btn btn-ghost" onClick={handleReset}>
                     Try another framework
                   </button>
-                  <Link href="/conversation-frameworks#situations" className="btn btn-primary">
+                  <Link href="/conversation-frameworks#frameworks" className="btn btn-primary">
                     Choose a new situation
                   </Link>
                 </div>
@@ -155,7 +155,7 @@ export default function FrameworkPageClient({ framework }: FrameworkPageClientPr
                   </p>
                 </div>
 
-                <div className="rounded-2xl border border-brand-200/70 bg-gradient-to-br from-[#F2F7F4] via-white to-[#E9F1F6] p-4">
+                <div className="rounded-2xl border border-brand-200/70 bg-[#eff3ff] p-4">
                   <p className="text-base font-semibold text-gray-700">
                     {isReflection ? "Full combined answer" : steps[stepIndex].prompt}
                   </p>

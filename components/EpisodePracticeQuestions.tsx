@@ -1,11 +1,13 @@
 "use client"
 
 import { useCallback, useEffect, useMemo, useState } from "react"
+import { practiceDrafts } from "@/utils/practiceDrafts"
 import { createPracticePdf } from "@/utils/practicePdf"
 import EpisodeInteractive from "@/components/EpisodeInteractive"
 
 type PracticeQuizItem = {
   prompt: string
+  starter?: string
   support?: string
   followUp?: string
   expected?: string
@@ -14,7 +16,7 @@ type PracticeQuizItem = {
 
 type PracticeMode = "audio" | "text"
 
-const MAX_PRACTICE_QUESTIONS = 6
+const MAX_PRACTICE_QUESTIONS = 1
 
 function isBrowser() {
   return typeof window !== "undefined"
@@ -22,12 +24,18 @@ function isBrowser() {
 
 export default function EpisodePracticeQuestions({
   episodeId,
+  slug,
+  additional,
   episodeTitle,
   practiceQuiz,
   conversational = false,
+  storyLayout = false,
 }: {
   episodeId: string
+  slug: string
+  additional: { skill: string; prompt: string; slot: number; followUp?: string }[]
   episodeTitle?: string
+  storyLayout?: boolean
   conversational?: boolean
   practiceQuiz?: PracticeQuizItem[]
 }) {
@@ -35,18 +43,34 @@ export default function EpisodePracticeQuestions({
     if (!Array.isArray(practiceQuiz)) return []
     return practiceQuiz.filter((item) => !!item?.prompt?.trim()).slice(0, MAX_PRACTICE_QUESTIONS)
   }, [practiceQuiz])
+  const [selected, setSelected] = useState(0)
+  const [visited, setVisited] = useState<number[]>([])
   const [downloadNotice, setDownloadNotice] = useState<string | null>(null)
   const [exporting, setExporting] = useState(false)
 
+  useEffect(() => {
+    // Discard drafts saved by versions that kept practice in local storage.
+    const prefixes = [`ep:${slug}:practice:`, `ep:${episodeId}:practice:`]
+    try {
+      for (const key of Object.keys(window.localStorage)) {
+        if (prefixes.some(prefix => key.startsWith(prefix))) window.localStorage.removeItem(key)
+      }
+    } catch {}
+  }, [episodeId, slug])
+
   const collectTextResponses = useCallback(() => {
     if (!isBrowser()) return []
-    return questions
-      .map((question, index) => {
-        const text = window.localStorage.getItem(`ep:${episodeId}:practice:${index + 1}:text`)?.trim()
+    const entries = [
+      ...questions.map(question => ({ question, base: `ep:${episodeId}:practice:1` })),
+      ...additional.map(question => ({ question, base: `ep:${slug}:practice:${question.slot}` })),
+    ]
+    return entries
+      .map(({ question, base }, index) => {
+        const text = practiceDrafts.get(`${base}:text`)?.trim()
         // Also collect audio rating if present (from the EpisodeInteractive storage key)
         let rating = 0
         try {
-          const raw = window.localStorage.getItem(`ep:${episodeId}:practice:${index + 1}:audio`)
+          const raw = practiceDrafts.get(`${base}:audio`)
           if (raw) {
             const parsed = JSON.parse(raw)
             if (typeof parsed?.selfRate === "number") rating = Math.min(5, Math.max(0, parsed.selfRate))
@@ -58,7 +82,7 @@ export default function EpisodePracticeQuestions({
         return { question, response: responseText, number: index + 1, rating }
       })
       .filter((entry): entry is { question: PracticeQuizItem; response: string; number: number; rating: number } => !!entry)
-  }, [episodeId, questions])
+  }, [episodeId, questions, slug, additional])
 
   const handleDownloadPdf = useCallback(() => {
     if (!isBrowser()) return
@@ -70,7 +94,7 @@ export default function EpisodePracticeQuestions({
     setExporting(true)
     setDownloadNotice(null)
     try {
-      const pdf = createPracticePdf(episodeTitle || "Your practice responses", entries, !conversational)
+      const pdf = createPracticePdf(episodeTitle || "Your practice responses", entries, !conversational && !storyLayout)
       const safeName = (episodeTitle || episodeId || "episode")
         .toString()
         .trim()
@@ -85,34 +109,55 @@ export default function EpisodePracticeQuestions({
     } finally {
       setExporting(false)
     }
-  }, [collectTextResponses, episodeId, episodeTitle, conversational])
+  }, [collectTextResponses, episodeId, episodeTitle, conversational, storyLayout])
 
   if (questions.length === 0) return null
 
   return (
-    <section id="practice-questions" className="card scroll-mt-20">
-      <div className="card-body space-y-6">
-        <div className="space-y-2">
-          <h2 className="text-xl font-semibold text-brand-700">Practice prompts</h2>
-          <p className="text-sm text-gray-600">
-            {conversational ? "Respond out loud in two short sentences: share your answer, then say a little about why. You don’t need to use a phrasal verb in every answer." : "Pick text or audio for each prompt. Stay in one mode or mix them—whatever keeps you practicing out loud and on paper."}
-          </p>
-        </div>
-        <div className="space-y-6">
-          {questions.map((question, index) => (
-            <PracticeQuestionCard
-              key={`practice-${index}-${question.prompt.slice(0, 12)}`}
-              conversational={conversational}
-              question={question}
-              index={index}
-              episodeId={episodeId}
-              episodeTitle={episodeTitle}
-            />
-          ))}
-        </div>
+    <section id="practice-questions" className={storyLayout ? "scroll-mt-28 border-t border-stone-200 pt-6" : "card scroll-mt-20"}>
+      <div className={storyLayout ? "space-y-4" : "card-body space-y-6"}>
+        <p className="text-xs font-medium uppercase tracking-widest text-stone-600">Your turn to share</p>
+        <h2 className="text-2xl font-semibold tracking-tight">{questions[0].prompt}</h2>
+        {questions[0].starter && (
+          <details className="text-sm text-stone-600">
+            <summary className="w-fit cursor-pointer underline underline-offset-4">Need a little help getting started?</summary>
+            <p className="mt-2">{questions[0].starter}</p>
+          </details>
+        )}
+        <p className="text-sm text-stone-600">Write or record your answer. When you stop recording, your words appear here automatically. The first transcription downloads an English speech model.</p>
+        <PracticeQuestionCard key={episodeId} episodeId={episodeId} episodeTitle={episodeTitle} index={0} conversational={conversational || storyLayout} />
+        {additional.length > 0 && (
+          <details className="border-t border-slate-200 pt-4" onToggle={event => {
+            if (event.currentTarget.open) setVisited(previous => previous.length ? previous : [0])
+          }}>
+            <summary className="w-fit cursor-pointer py-2 font-semibold text-[#2852d6]">Explore more questions</summary>
+            <div role="group" aria-label="Choose a speaking skill" className="my-3 flex flex-wrap gap-2">
+              {additional.map((question, i) => (
+                <button key={question.skill} type="button" aria-pressed={selected === i}
+                  onClick={() => {
+                    setSelected(i)
+                    setVisited(previous => previous.includes(i) ? previous : [...previous, i])
+                  }}
+                  className="rounded-full border border-slate-300 px-3 py-2 text-sm aria-pressed:border-[#2852d6] aria-pressed:bg-[#2852d6] aria-pressed:text-white">
+                  {question.skill}
+                </button>
+              ))}
+            </div>
+            {visited.map(i => {
+              const question = additional[i]
+              return (
+                <div key={question.skill} hidden={selected !== i} className="rounded-xl bg-[#eff3ff] p-4">
+                  <p className="font-medium text-[#162852]">{question.prompt}</p>
+                  {question.followUp && <p className="mt-1 text-sm">{question.followUp}</p>}
+                  <PracticeQuestionCard episodeId={slug} index={question.slot - 1} episodeTitle={episodeTitle} conversational />
+                </div>
+              )
+            })}
+          </details>
+        )}
         <div className="flex flex-col gap-2 border-t border-brand-100 pt-4 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-sm text-gray-600">
-            {downloadNotice ?? (conversational ? "Your PDF includes your written responses and any transcriptions added to them." : "Transcribe your recordings to include their words in the PDF. Review your written responses before exporting.")}
+            {downloadNotice ?? (conversational ? "Your PDF includes your written responses and any transcriptions added to them." : "You can edit your response before downloading it.")}
           </p>
           <button
             type="button"
@@ -131,13 +176,11 @@ export default function EpisodePracticeQuestions({
 
 function PracticeQuestionCard({
   conversational,
-  question,
   index,
   episodeId,
   episodeTitle,
 }: {
   conversational: boolean
-  question: PracticeQuizItem
   index: number
   episodeId: string
   episodeTitle?: string
@@ -153,11 +196,11 @@ function PracticeQuestionCard({
   useEffect(() => {
     if (!isBrowser()) return
     try {
-      const storedMode = window.localStorage.getItem(modeKey)
+      const storedMode = practiceDrafts.get(modeKey)
       if (storedMode === "audio" || storedMode === "text") {
         setMode(storedMode)
       }
-      const storedText = window.localStorage.getItem(textKey)
+      const storedText = practiceDrafts.get(textKey)
       if (typeof storedText === "string") {
         setText(storedText)
       }
@@ -168,7 +211,7 @@ function PracticeQuestionCard({
   useEffect(() => {
     if (!loaded || !isBrowser()) return
     try {
-      window.localStorage.setItem(modeKey, mode)
+      practiceDrafts.set(modeKey, mode)
     } catch {}
   }, [loaded, mode, modeKey])
 
@@ -176,9 +219,9 @@ function PracticeQuestionCard({
     if (!loaded || !isBrowser()) return
     try {
       if (text.trim()) {
-        window.localStorage.setItem(textKey, text)
+        practiceDrafts.set(textKey, text)
       } else {
-        window.localStorage.removeItem(textKey)
+        practiceDrafts.delete(textKey)
       }
     } catch {}
   }, [loaded, text, textKey])
@@ -186,15 +229,8 @@ function PracticeQuestionCard({
   const questionNumber = index + 1
 
   return (
-    <div className="rounded-3xl border border-brand-100 bg-white/70 p-4 shadow-sm sm:p-6">
+    <div className="mt-3">
       <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
-        <div className="space-y-1">
-          {question.function && <p className="text-sm font-medium text-brand-900">{question.function}</p>}
-          <p className="text-base text-stone-900">{question.prompt}</p>
-          {question.support && <p className="text-sm text-gray-600">{question.support}</p>}
-          {question.followUp && <p className="text-sm italic text-gray-600">{question.followUp}</p>}
-          {question.expected && <p className="text-sm italic text-gray-500">Hint: {question.expected}</p>}
-        </div>
         <div className="inline-flex gap-1" role="group" aria-label={`Response mode for prompt ${questionNumber}`}>
           {(["audio", "text"] as PracticeMode[]).map((key) => {
             const isAudio = key === "audio"
@@ -249,12 +285,8 @@ function PracticeQuestionCard({
               renderStandaloneCard={false}
               storageKey={`${storageBase}:audio`}
               showTaskCheckbox={false}
-              onTranscribed={(transcript) => {
-                setText((previous) => {
-                  const next = previous.includes(transcript) ? previous : [previous.trim(), transcript].filter(Boolean).join("\n\n")
-                  return next
-                })
-              }}
+              onDeleteTake={() => setText("")}
+              onTranscribed={setText}
             />
           </div>
         )}
@@ -271,7 +303,7 @@ function PracticeQuestionCard({
               value={text}
               onChange={(event) => setText(event.target.value)}
             />
-            <p className="text-xs text-gray-500">Edit your words before exporting. Saved on this device.</p>
+            <p className="text-xs text-gray-500">{mode === "audio" ? "Your transcript appears after you stop recording." : "Refreshing the page clears your practice."}</p>
           </div>
 
         )}

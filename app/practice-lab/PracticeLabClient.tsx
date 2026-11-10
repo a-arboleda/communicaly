@@ -4651,6 +4651,18 @@ function shuffle<T>(items: T[]) {
 
 export default function PracticeLabPage() {
   const searchParams = useSearchParams()
+  const [query, setQuery] = useState("")
+  const term = query.trim().toLowerCase()
+  const visibleCategories = useMemo(() => {
+    if (!term) return CATEGORIES
+    const exact = CATEGORIES.find(category => category.title.toLowerCase() === term)
+    if (exact) return [exact]
+    return CATEGORIES.filter(category =>
+      category.title.toLowerCase().includes(term) ||
+      category.effect.toLowerCase().includes(term) ||
+      category.questions.some(question => question.answer.toLowerCase().includes(term))
+    )
+  }, [term])
   const [view, setView] = useState<"list" | "setup" | "quiz" | "result">("list")
   const [activeCategory, setActiveCategory] = useState<Category | null>(null)
   const [questionCount, setQuestionCount] = useState(5)
@@ -4801,37 +4813,35 @@ export default function PracticeLabPage() {
   }
 
   return (
-    <main className="min-h-screen">
-      <section className="py-10 sm:py-14">
-        <div className="rounded-[2rem] bg-white/80 shadow-card">
-          <div className="space-y-3">
-            <h1 className="font-serif text-3xl sm:text-4xl text-brand-900">Everyday Phrasal Verbs</h1>
-            <p className="text-sm sm:text-base text-gray-700 max-w-2xl">
-              Fill in the blank with the best option. Each category shows how the particle (off, up, down, etc.)
-              shifts the overall meaning.
-            </p>
-          </div>
-        </div>
-      </section>
+    <div className="signal-page min-h-screen space-y-8">
+      <header className="space-y-3">
+        <h1>Practice Lab</h1>
+        <p className="max-w-xl text-lg text-slate-600">Practice everyday phrasal verbs. Choose a category, then fill in the blanks.</p>
+      </header>
 
       <section className="pb-16">
         {view === "list" && (
           <div className="space-y-3">
-            <div className="flex items-center justify-between">
-              <p className="text-xs uppercase tracking-[0.2em] text-brand-700">Category</p>
-              <span className="text-xs text-gray-500">{CATEGORIES.length} options</span>
+            <label htmlFor="lab-search" className="sr-only">Search categories or phrasal verbs</label>
+            <input id="lab-search" type="search" value={query} onChange={event => setQuery(event.target.value)}
+              placeholder="Search categories or phrasal verbs"
+              className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-base" />
+            <div className="flex items-center justify-between text-sm">
+              <p role="status" className="text-slate-600">{visibleCategories.length} {visibleCategories.length === 1 ? "category" : "categories"}</p>
+              {query && <button type="button" className="text-[#2852d6] hover:underline" onClick={() => setQuery("")}>Clear search</button>}
             </div>
-            <ul className="space-y-3">
-            {CATEGORIES.map((cat) => (
+            {visibleCategories.length === 0 && <p className="rounded-xl bg-slate-50 p-4">No matches. Try a category like “Off” or a phrasal verb like “take off”.</p>}
+            <ul className="grid gap-4 sm:grid-cols-2">
+            {visibleCategories.map((cat) => (
               <li key={cat.key}>
                 <button
                   type="button"
                   onClick={() => chooseCategory(cat)}
-                  className="w-full cursor-pointer text-left rounded-2xl border border-brand-200/60 bg-white/85 p-4 sm:p-5 shadow-card transition hover:-translate-y-0.5 hover:shadow-lg"
+                  className="h-full w-full cursor-pointer rounded-2xl border border-slate-200 bg-white p-5 text-left transition-colors hover:border-blue-300 hover:bg-[#f6f8ff]"
                 >
                   <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                     <div>
-                      <h2 className="font-serif text-xl text-brand-900">{cat.title}</h2>
+                      <h2 className="text-xl font-semibold text-[#182021]">{cat.title}</h2>
                       <p className="mt-2 inline-flex rounded-md px-0 py-0 text-xs font-medium text-gray-600">
                         {cat.effect}
                       </p>
@@ -4861,7 +4871,7 @@ export default function PracticeLabPage() {
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <p className="text-xs uppercase tracking-[0.2em] text-brand-700">Selected Category</p>
-                <h2 className="mt-2 font-serif text-2xl text-brand-900">{activeCategory.title}</h2>
+                <h2 className="mt-2 text-2xl font-semibold text-[#182021]">{activeCategory.title}</h2>
               </div>
             </div>
 
@@ -4891,7 +4901,7 @@ export default function PracticeLabPage() {
               <button
                 type="button"
                 onClick={startQuiz}
-                className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-full border border-emerald-500 bg-gradient-to-r from-emerald-400 via-emerald-500 to-emerald-600 px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md hover:from-emerald-500 hover:to-emerald-700"
+                className="signal-action gap-2"
               >
                 Start quiz
                 <span aria-hidden className="text-base">→</span>
@@ -4915,12 +4925,12 @@ export default function PracticeLabPage() {
               <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                 <div>
                   <p className="text-xs uppercase tracking-[0.2em] text-brand-700">Category</p>
-                  <h2 className="mt-2 font-serif text-2xl text-brand-900">{activeCategory.title}</h2>
+                  <h2 className="mt-2 text-2xl font-semibold text-[#182021]">{activeCategory.title}</h2>
                   <p className="mt-2 inline-flex rounded-md bg-gray-800 px-3 py-1.5 text-sm font-medium text-white">
                     {activeCategory.effect}
                   </p>
                 </div>
-                <div className="rounded-2xl border border-emerald-200/70 bg-emerald-50/80 px-4 py-3 text-sm text-emerald-900">
+                <div className="rounded-2xl border border-blue-100 bg-[#eff3ff] px-4 py-3 text-sm text-blue-900">
                   <div className="font-semibold">Progress</div>
                   <div className="text-xl font-semibold">
                     {answeredCount} / {quizQuestions.length}
@@ -5069,12 +5079,12 @@ export default function PracticeLabPage() {
                   <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                     <div>
                       <p className="text-xs uppercase tracking-[0.2em] text-brand-700">Result</p>
-                      <h2 className="mt-2 font-serif text-2xl text-brand-900">{activeCategory.title}</h2>
+                      <h2 className="mt-2 text-2xl font-semibold text-[#182021]">{activeCategory.title}</h2>
                       <p className="mt-2 text-sm text-gray-700">
                         Completed: {quizQuestions.length} questions • Time: {timeLabel}
                       </p>
                     </div>
-                    <div className="rounded-2xl border border-emerald-200/70 bg-emerald-50/80 px-4 py-3 text-sm text-emerald-900">
+                    <div className="rounded-2xl border border-blue-100 bg-[#eff3ff] px-4 py-3 text-sm text-blue-900">
                       <div className="font-semibold">Score</div>
                       <div className="text-xl font-semibold">
                         {finalScore} / {quizQuestions.length}
@@ -5123,6 +5133,6 @@ export default function PracticeLabPage() {
           </div>
         )}
       </section>
-    </main>
+    </div>
   )
 }

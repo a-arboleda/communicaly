@@ -1,14 +1,10 @@
-import ExpressionPractice from "@/components/ExpressionPractice"
-import Link from "next/link"
 import { notFound } from "next/navigation"
 import { MDXRemote } from "next-mdx-remote/rsc"
-import remarkGfm from "remark-gfm"
 import EpisodeAudioWithTranscript from "@/components/EpisodeAudioWithTranscript"
 import EpisodeHero from "@/components/EpisodeHero"
+import additionalQuestions from "@/data/additionalQuestions.json"
 import EpisodePracticeQuestions from "@/components/EpisodePracticeQuestions"
 import Details from "@/components/Details"
-import EpisodeQuickNav from "@/components/EpisodeQuickNav"
-import PracticeTips from "@/components/PracticeTips"
 import { displayTitle } from "@/utils/format"
 import { getTranscript } from "@/utils/transcripts"
 import { getAllEpisodes, getEpisode } from "@/utils/episodes"
@@ -37,106 +33,49 @@ export default async function EpisodePage({ params }: { params: Promise<{ slug: 
   const transcript = getTranscript(slug)
   const youtubeLinks = getYouTubeLinks(frontmatter.audioUrl, frontmatter.youtubeStart, frontmatter.youtubeEnd)
 
-  if (frontmatter.layout === "story-practice") {
-    return (
-      <article className="story-episode mx-auto max-w-3xl space-y-8">
-        <Link href="/episodes" className="text-sm text-brand-700">← Episodes</Link>
-        <header className="space-y-3">
-          <h1 className="font-serif text-3xl font-bold sm:text-4xl">{displayTitle(frontmatter.title)}</h1>
-          <p className="text-stone-600">{frontmatter.excerpt}</p>
-          {frontmatter.imageUrl && <EpisodeHero slug={slug} imageUrl={frontmatter.imageUrl} imageAlt={frontmatter.imageAlt} />}
-        </header>
-        <EpisodeAudioWithTranscript src={frontmatter.audioUrl} cues={transcript?.cues} timeOffset={transcript?.offset ?? 0} story>
-        <section className="card"><div className="card-body">
-          <Details title="Read along"><div className="space-y-4 leading-relaxed">
-            <MDXRemote source={content} />
-          </div></Details>
-        </div></section>
-        </EpisodeAudioWithTranscript>
-        <EpisodePracticeQuestions episodeId={slug} episodeTitle={frontmatter.title} practiceQuiz={frontmatter.practiceQuiz} conversational />
-        <section className="card" aria-labelledby="expressions-heading"><div className="card-body">
-          <h2 id="expressions-heading" className="text-xl font-semibold text-brand-700">Useful expressions</h2>
-          <dl className="mt-4 space-y-4">
-            {[
-              ["Put off", "delay doing something.", "I’d been putting it off all week."],
-              ["Catch up on", "do something you haven’t had time to do.", "At least I’ve caught up on the laundry."],
-              ["Hang up", "put clothes on a line or rack to dry.", "I got the washing out and hung everything up."],
-              ["Put away", "put something where it belongs.", "Waiting for me to put it away."],
-            ].map(([expression, meaning, example]) => <div key={expression}>
-              <dt className="font-semibold">{expression}</dt>
-              <dd className="text-sm text-stone-600">{meaning}<span className="mt-1 block italic">“{example}”</span></dd>
-            </div>)}
-          </dl>
-        </div></section>
-        <ExpressionPractice />
-      </article>
-    )
-  }
+  const isStoryPractice = frontmatter.layout === "story-practice"
+  const tag = frontmatter.tags?.[0]?.replace(/-/g, " ")
+  const topic = frontmatter.layout === "conversation-cards" || !tag ? "Everyday life" : tag[0].toUpperCase() + tag.slice(1)
 
   return (
-    <article className="space-y-6">
-      <div className="flex items-center justify-between">
-        <p className="text-sm text-gray-600">
-          <Link href="/episodes">Episodes</Link> • Episode
-        </p>
-      </div>
-
-      <header className="space-y-2">
-        <h1 className="font-serif text-3xl font-bold">{displayTitle(frontmatter.title)}</h1>
+    <article className="mx-auto max-w-4xl space-y-6 rounded-3xl border border-stone-200 bg-white p-4 text-stone-900 sm:p-7">
+      <header className="space-y-4">
+        <div className="flex items-center justify-between gap-3 text-sm">
+          <span className="rounded-full bg-stone-100 px-3 py-1">{topic}</span>
+          <span className="text-stone-600">Story &amp; Conversation</span>
+        </div>
+        <h1 className="text-3xl font-semibold tracking-tight">{displayTitle(frontmatter.title)}</h1>
         <EpisodeHero slug={slug} imageUrl={frontmatter.imageUrl} imageAlt={frontmatter.imageAlt} />
+        <p className="text-stone-600">{frontmatter.excerpt}</p>
       </header>
-
-      <section id="listen" className="card scroll-mt-20">
-        <div className="card-body">
-          <EpisodeAudioWithTranscript
-            src={frontmatter.audioUrl}
-            start={frontmatter.youtubeStart}
-            end={frontmatter.youtubeEnd}
-            cues={transcript?.cues ?? undefined}
-            timeOffset={transcript?.offset ?? 0}
-            collapsible
-            defaultOpen={false}
-          />
-
-          {youtubeLinks && (
-            <p className="mt-3 text-sm text-gray-700">
-              {youtubeLinks.startHref && (
-                <>
-                  Starts at{" "}
-                  <a className="text-brand-900" href={youtubeLinks.startHref} target="yt-player" rel="noreferrer">
-                    {formatSeconds(youtubeLinks.startSeconds)}
-                  </a>
-                </>
-              )}
-              {youtubeLinks.startHref && youtubeLinks.endHref && <span> • </span>}
-              {youtubeLinks.endHref && (
-                <>
-                  Stops at{" "}
-                  <a className="text-brand-900" href={youtubeLinks.endHref} target="yt-player" rel="noreferrer">
-                    {formatSeconds(youtubeLinks.endSeconds)}
-                  </a>
-                </>
-              )}
-            </p>
-          )}
-        </div>
+      <section id="listen" className="scroll-mt-28" aria-labelledby="listen-title">
+        <h2 id="listen-title" className="text-xl font-semibold">Listen to the story</h2>
+        <EpisodeAudioWithTranscript src={frontmatter.audioUrl} cues={transcript?.cues} start={frontmatter.youtubeStart} end={frontmatter.youtubeEnd} timeOffset={transcript?.offset ?? 0} story>
+          {isStoryPractice && <Details title="Read along"><MDXRemote source={content} /></Details>}
+        </EpisodeAudioWithTranscript>
+        {youtubeLinks && (
+          <p className="mt-3 text-sm text-gray-700">
+            {youtubeLinks.startHref && (
+              <>
+                Starts at{" "}
+                <a className="text-brand-900" href={youtubeLinks.startHref} target="yt-player" rel="noreferrer">
+                  {formatSeconds(youtubeLinks.startSeconds)}
+                </a>
+              </>
+            )}
+            {youtubeLinks.startHref && youtubeLinks.endHref && <span> • </span>}
+            {youtubeLinks.endHref && (
+              <>
+                Stops at{" "}
+                <a className="text-brand-900" href={youtubeLinks.endHref} target="yt-player" rel="noreferrer">
+                  {formatSeconds(youtubeLinks.endSeconds)}
+                </a>
+              </>
+            )}
+          </p>
+        )}
       </section>
-
-      <section className="prose max-w-none card prose-hr:my-2">
-        <div className="card-body">
-          <MDXRemote
-            source={content}
-            components={{ Details, EpisodeQuickNav, PracticeTips }}
-            options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
-          />
-        </div>
-      </section>
-
-      <EpisodePracticeQuestions
-        episodeId={slug}
-        episodeTitle={frontmatter.title}
-        practiceQuiz={frontmatter.practiceQuiz}
-      />
+      <EpisodePracticeQuestions additional={additionalQuestions[slug as keyof typeof additionalQuestions] ?? []} slug={slug} episodeId={frontmatter.practiceVersion ? slug + ":" + frontmatter.practiceVersion : slug} episodeTitle={frontmatter.title} practiceQuiz={frontmatter.practiceQuiz} conversational={isStoryPractice} storyLayout />
     </article>
   )
 }

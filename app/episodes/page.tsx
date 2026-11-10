@@ -1,5 +1,3 @@
-// app/episodes/page.tsx
-// app/episodes/page.tsx
 import { getAllEpisodes } from "@/utils/episodes"
 import EpisodeSearch from "@/components/EpisodeSearch"
 
@@ -9,24 +7,12 @@ export const runtime = "nodejs"
 export default function Episodes() {
   const episodes = getAllEpisodes()
   return (
-    <section className="space-y-6">
-      <div className="space-y-2">
-        <h1 className="font-serif text-3xl sm:text-4xl text-brand-900">All Episodes</h1>
-        <p className="text-sm sm:text-base text-gray-700">
-          Each episode is a short, natural reflection on a familiar moment — waiting in line, missing someone, overthinking at night.
-        </p>
-        <p className="text-sm sm:text-base text-gray-700">
-          Listen, reflect, and practice expressing your thoughts in English.
-        </p>
-        {/* Removed YouTube badge per request */}
-      </div>
-      {episodes.length === 0 ? (
-        <p className="text-gray-600">
-          No episodes yet. Add an <code>.mdx</code> file to <code>content/episodes</code>.
-        </p>
-      ) : (
-        <EpisodeSearch episodes={episodes} />
-      )}
+    <section className="mx-auto max-w-6xl space-y-8 bg-white font-sans text-[#182021]">
+      <header className="space-y-3">
+        <h1 className="text-5xl font-semibold tracking-[-0.055em] sm:text-6xl">Story library</h1>
+        <p className="max-w-xl text-base text-slate-600 sm:text-lg">Find a short story to listen to, then share your take in English.</p>
+      </header>
+      {episodes.length ? <EpisodeSearch episodes={episodes} /> : <p>New stories are on their way.</p>}
     </section>
   )
 }

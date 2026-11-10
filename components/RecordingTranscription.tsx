@@ -1,9 +1,10 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useEffectEvent, useRef, useState } from "react"
 
-export default function RecordingTranscription({ dataUrl, transcript, onTranscribed }: {
+export default function RecordingTranscription({ dataUrl, transcript, autoStart = false, onTranscribed }: {
   dataUrl: string
+  autoStart?: boolean
   transcript?: string
   onTranscribed: (text: string) => void
 }) {
@@ -12,6 +13,13 @@ export default function RecordingTranscription({ dataUrl, transcript, onTranscri
   const worker = useRef<Worker | null>(null)
   const run = useRef(0)
   useEffect(() => () => { run.current++; worker.current?.terminate() }, [])
+
+  const startAutomatically = useEffectEvent(() => { void transcribe() })
+  useEffect(() => {
+    if (!autoStart || transcript) return
+    const timer = window.setTimeout(startAutomatically, 0)
+    return () => window.clearTimeout(timer)
+  }, [autoStart, transcript])
 
   function cancel() {
     run.current++

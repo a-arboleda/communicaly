@@ -2,9 +2,9 @@ import Link from "next/link"
 
 export default function About() {
   return (
-    <article className="space-y-10 max-w-3xl">
-      <header className="space-y-2">
-        <h1 className="font-serif text-3xl sm:text-4xl text-brand-900">Everyday English you’ll actually use</h1>
+    <article className="signal-page mx-auto max-w-4xl space-y-8">
+      <header className="max-w-2xl space-y-3">
+        <h1>About Communicaly</h1>
         <p className="text-sm sm:text-base text-gray-700">
           Communicaly was created for people who don’t want to just study English — but live in it.
         </p>
@@ -14,8 +14,8 @@ export default function About() {
         </p>
       </header>
 
-      <section className="space-y-3">
-        <h2 className="font-serif text-3xl sm:text-4xl text-brand-900">What this is</h2>
+      <section className="grid gap-x-8 gap-y-2 border-t border-slate-200 pt-6 sm:grid-cols-[1fr_2fr] sm:[&>:not(h2)]:col-start-2">
+        <h2 className="text-2xl font-semibold">What this is</h2>
         <p className="text-sm sm:text-base text-gray-700">
           Communicaly is a calm, practical space to build real-life English at your own pace.
         </p>
@@ -24,8 +24,8 @@ export default function About() {
         </p>
       </section>
 
-      <section className="space-y-3">
-        <h2 className="font-serif text-3xl sm:text-4xl text-brand-900">Why it works</h2>
+      <section className="grid gap-x-8 gap-y-2 border-t border-slate-200 pt-6 sm:grid-cols-[1fr_2fr] sm:[&>:not(h2)]:col-start-2">
+        <h2 className="text-2xl font-semibold">Why it works</h2>
         <ul className="space-y-2 text-sm sm:text-base text-gray-700 list-disc list-inside">
           <li><strong>Personalized language:</strong> you practice phrases you’ll actually say.</li>
           <li><strong>Short + consistent:</strong> small daily practice beats long sessions.</li>
@@ -33,19 +33,19 @@ export default function About() {
         </ul>
       </section>
 
-      <section className="space-y-3">
-        <h2 className="font-serif text-3xl sm:text-4xl text-brand-900">How to use the episodes</h2>
+      <section className="grid gap-x-8 gap-y-2 border-t border-slate-200 pt-6 sm:grid-cols-[1fr_2fr] sm:[&>:not(h2)]:col-start-2">
+        <h2 className="text-2xl font-semibold">How to use the episodes</h2>
         <ol className="space-y-2 text-sm sm:text-base text-gray-700 list-decimal list-inside">
           <li>Listen once through to catch the story’s main idea and feeling.</li>
           <li>Shadow short segments—pause, repeat, and match the speaker’s rhythm.</li>
           <li>Respond to the question using your own examples.</li>
-          <li>Flip the communication cards to practice prompts you’d use with a tutor or partner.</li>
-          <li>Use the tutor and student drills to roleplay, then jot quick notes for next time.</li>
+          <li>Open “Explore more questions” and choose a speaking skill to practice.</li>
+          <li>Record an answer and review the transcript in your own words.</li>
         </ol>
       </section>
 
-      <section className="space-y-3">
-        <h2 className="font-serif text-3xl sm:text-4xl text-brand-900">Who it’s for</h2>
+      <section className="grid gap-x-8 gap-y-2 border-t border-slate-200 pt-6 sm:grid-cols-[1fr_2fr] sm:[&>:not(h2)]:col-start-2">
+        <h2 className="text-2xl font-semibold">Who it’s for</h2>
         <p className="text-sm sm:text-base text-gray-700">
           Communicaly is for adult English learners who already understand English but want to feel more confident using it in real life.
         </p>
@@ -54,29 +54,29 @@ export default function About() {
         </p>
       </section>
 
-      <section className="space-y-4 rounded-2xl border border-brand-200/60 bg-white/80 p-6">
+      <section className="space-y-4 rounded-2xl bg-[#eff3ff] p-6">
         <p className="text-sm sm:text-base text-gray-700">
           If you’re looking for a calmer, more human way to practice English, you’re in the right place.
         </p>
         <div className="flex justify-center">
-          <Link href="/episodes" className="btn btn-primary">
+          <Link href="/episodes" className="signal-action">
             Start listening
           </Link>
         </div>
       </section>
 
-      <section className="space-y-3">
-        <h2 className="font-serif text-3xl sm:text-4xl text-brand-900">FAQ</h2>
+      <section className="grid gap-x-8 gap-y-2 border-t border-slate-200 pt-6 sm:grid-cols-[1fr_2fr] sm:[&>:not(h2)]:col-start-2">
+        <h2 className="text-2xl font-semibold">FAQ</h2>
         <div className="space-y-2 text-sm sm:text-base text-gray-700">
           <p><strong>Do I need an account?</strong> No. Your inputs save locally in your browser.</p>
           <p><strong>Can I use this on my phone?</strong> Yes, pages are mobile-friendly.</p>
         </div>
       </section>
 
-      <section className="space-y-3">
-        <h2 className="font-serif text-3xl sm:text-4xl text-brand-900">Contact</h2>
+      <section className="grid gap-x-8 gap-y-2 border-t border-slate-200 pt-6 sm:grid-cols-[1fr_2fr] sm:[&>:not(h2)]:col-start-2">
+        <h2 className="text-2xl font-semibold">Contact</h2>
         <p className="text-sm sm:text-base text-gray-700">
-          Questions or ideas? Email me at <a href="mailto:hello@communicaly.com" className="text-brand-900">hello@communicaly.com</a>.
+          Questions or ideas? Email me at <a href="mailto:hello@communicaly.com" className="text-[#2852d6] underline">hello@communicaly.com</a>.
         </p>
       </section>
     </article>

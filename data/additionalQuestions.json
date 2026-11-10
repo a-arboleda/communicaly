@@ -1,0 +1,932 @@
+{
+  "a-budget-dilemma-5": [
+    {
+      "skill": "Storytelling",
+      "prompt": "If you walked me through the last budget dilemma you faced, what would that story look like from start to finish?",
+      "slot": 1
+    },
+    {
+      "skill": "Emotional Expression",
+      "prompt": "What emotional reaction do you notice in yourself when your budget feels tight?",
+      "slot": 2
+    },
+    {
+      "skill": "Motivation",
+      "prompt": "What keeps you grounded when you need to make a smart money decision?",
+      "slot": 3
+    },
+    {
+      "skill": "Guiding Others",
+      "prompt": "What’s one piece of advice you’d give a friend who’s struggling to make a financial decision?",
+      "slot": 4
+    },
+    {
+      "skill": "Reflection",
+      "prompt": "What three things have changed about your budgeting over the past year?",
+      "slot": 5
+    },
+    {
+      "skill": "Social Interaction",
+      "prompt": "If a coworker mentioned financial stress, how would you describe your own way of handling it?",
+      "slot": 6
+    }
+  ],
+  "arguments-16": [
+    {
+      "skill": "Storytelling",
+      "prompt": "Tell us about a time an argument ended with both of you laughing. What changed the mood?",
+      "slot": 7
+    },
+    {
+      "skill": "Emotional Expression",
+      "prompt": "Do you usually feel regret after arguing with someone you care about?",
+      "slot": 2
+    },
+    {
+      "skill": "Motivation",
+      "prompt": "How can a disagreement inspire you to handle future ones differently?",
+      "slot": 3
+    },
+    {
+      "skill": "Guiding Others",
+      "prompt": "How would you explain the difference between protecting your ego and protecting the relationship?",
+      "slot": 4
+    },
+    {
+      "skill": "Reflection",
+      "prompt": "How have your reactions to conflict evolved over the years?",
+      "slot": 5
+    },
+    {
+      "skill": "Social Interaction",
+      "prompt": "If you disagreed with a coworker, would it be easy for you to move on afterward? Why or why not?",
+      "slot": 6
+    }
+  ],
+  "canceling-plans-23": [
+    {
+      "skill": "Storytelling",
+      "prompt": "Tell us about a time a canceled plan led to a surprisingly good evening.",
+      "slot": 7
+    },
+    {
+      "skill": "Emotional Expression",
+      "prompt": "Have your feelings about canceled plans changed over the years?",
+      "slot": 2
+    },
+    {
+      "skill": "Motivation",
+      "prompt": "What would motivate you to cancel a plan yourself?",
+      "slot": 3
+    },
+    {
+      "skill": "Guiding Others",
+      "prompt": "How would you guide someone who feels drained but still forces themselves to show up socially?",
+      "slot": 4
+    },
+    {
+      "skill": "Reflection",
+      "prompt": "Do you feel like your social battery runs out faster with certain people or in certain gatherings?",
+      "slot": 5
+    },
+    {
+      "skill": "Social Interaction",
+      "prompt": "If the person who rescheduled asked how you felt about it, what would you honestly say?",
+      "slot": 6
+    }
+  ],
+  "catching-up-11": [
+    {
+      "skill": "Storytelling",
+      "prompt": "When have you bumped into someone you hadn’t seen for years? How did the conversation start?",
+      "slot": 7
+    },
+    {
+      "skill": "Emotional Expression",
+      "prompt": "What emotions and thoughts show up for you when an old friend unexpectedly reaches out?",
+      "slot": 2
+    },
+    {
+      "skill": "Motivation",
+      "prompt": "What would motivate you to put genuine effort into reconnecting with someone from your past?",
+      "slot": 3
+    },
+    {
+      "skill": "Guiding Others",
+      "prompt": "How would you guide someone who wants to rebuild a friendship but isn’t sure where to begin?",
+      "slot": 4
+    },
+    {
+      "skill": "Reflection",
+      "prompt": "HHow do old friendships help you understand the kind of connection you value today?",
+      "slot": 5
+    },
+    {
+      "skill": "Social Interaction",
+      "prompt": "If someone asked what you’ve been up to all these years, how would you answer with clarity and confidence?",
+      "slot": 6
+    }
+  ],
+  "cooking-dinner-2": [
+    {
+      "skill": "Storytelling",
+      "prompt": "How do dinners usually play out for you during the week?",
+      "slot": 1
+    },
+    {
+      "skill": "Emotional Expression",
+      "prompt": "How do you feel about the way you currently handle dinner?",
+      "slot": 2
+    },
+    {
+      "skill": "Motivation",
+      "prompt": "What’s the main reason you manage dinner the way you do?",
+      "slot": 3
+    },
+    {
+      "skill": "Guiding Others",
+      "prompt": "If a friend asked you how to make dinner easier, what’s the first thing you’d tell them?",
+      "slot": 4
+    },
+    {
+      "skill": "Reflection",
+      "prompt": "Do you feel your current dinner routine works for you, or does something need adjusting?",
+      "slot": 5
+    },
+    {
+      "skill": "Social Interaction",
+      "prompt": "If someone asked whether you enjoy cooking dinner, how would you answer?",
+      "slot": 6
+    }
+  ],
+  "decisions-decisions-3": [
+    {
+      "skill": "Storytelling",
+      "prompt": "Walk me through the last important decision you made — how did you get to the final call?",
+      "slot": 1
+    },
+    {
+      "skill": "Emotional Expression",
+      "prompt": "What emotion usually shows up first when you’re about to make a financial decision?",
+      "slot": 2
+    },
+    {
+      "skill": "Motivation",
+      "prompt": "What guides your decision-making the most — logic, instinct, timing, or something else?",
+      "slot": 3
+    },
+    {
+      "skill": "Guiding Others",
+      "prompt": "If a friend asked you for advice on making a strong decision, what would you tell them?",
+      "slot": 4
+    },
+    {
+      "skill": "Reflection",
+      "prompt": "What’s one decision-making habit you’ve clearly noticed in yourself?",
+      "slot": 5
+    },
+    {
+      "skill": "Social Interaction",
+      "prompt": "If you were asked in an interview how you make decisions, how would you explain your process?",
+      "slot": 6
+    }
+  ],
+  "did-i-flush-the-toilet-20": [
+    {
+      "skill": "Storytelling",
+      "prompt": "Tell us about a time you went back to double-check something. What did you find?",
+      "slot": 7
+    },
+    {
+      "skill": "Emotional Expression",
+      "prompt": "What emotion hits you first when a tiny doubt spirals — embarrassment, fear, tension, something else?",
+      "slot": 2
+    },
+    {
+      "skill": "Motivation",
+      "prompt": "When you feel thrown off, what helps you regain your sense of calm?",
+      "slot": 3
+    },
+    {
+      "skill": "Guiding Others",
+      "prompt": "How would you help a friend notice the difference between a real problem and a momentary fear?",
+      "slot": 4
+    },
+    {
+      "skill": "Reflection",
+      "prompt": "When you look back, in what ways do you handle doubts differently now compared to your younger self?",
+      "slot": 5
+    },
+    {
+      "skill": "Social Interaction",
+      "prompt": "If you were with someone and they suddenly got anxious, what would you say to ease the moment?",
+      "slot": 6
+    }
+  ],
+  "doing-the-dishes-24": [
+    {
+      "skill": "Storytelling",
+      "prompt": "Tell us about a time you shared the washing-up with someone. What did you talk about?",
+      "slot": 7
+    },
+    {
+      "skill": "Emotional Expression",
+      "prompt": "What goes through you emotionally when the ‘almost done’ turns into ‘not yet’?",
+      "slot": 2
+    },
+    {
+      "skill": "Motivation",
+      "prompt": "With any task, what motivates you more — avoiding future stress or enjoying the satisfaction of finishing everything?",
+      "slot": 3
+    },
+    {
+      "skill": "Guiding Others",
+      "prompt": "If someone asked how to make cleaning feel less draining, what would you suggest?",
+      "slot": 4
+    },
+    {
+      "skill": "Reflection",
+      "prompt": "Do you tend to overlook small messes, or do they bother you right away?",
+      "slot": 5
+    },
+    {
+      "skill": "Social Interaction",
+      "prompt": "If someone walked in and saw that one dirty pot, would you joke about it or explain it?",
+      "slot": 6
+    }
+  ],
+  "forgot-what-i-was-saying-18": [
+    {
+      "skill": "Storytelling",
+      "prompt": "Tell us about a time someone helped you out when you lost your train of thought.",
+      "slot": 7
+    },
+    {
+      "skill": "Emotional Expression",
+      "prompt": "How does your body react when you suddenly lose your words — tension, warmth, adrenaline?",
+      "slot": 2
+    },
+    {
+      "skill": "Motivation",
+      "prompt": "What motivates you to keep speaking, even when the pause feels long?",
+      "slot": 3
+    },
+    {
+      "skill": "Guiding Others",
+      "prompt": "What simple technique would you recommend for easing back in after losing your train of thought?",
+      "slot": 4
+    },
+    {
+      "skill": "Reflection",
+      "prompt": "What does a pause teach you about your communication style today compared to a few years ago?",
+      "slot": 5
+    },
+    {
+      "skill": "Social Interaction",
+      "prompt": "If during a meeting a coworker said, “Don’t worry, that happens to me too,” what would you say back?",
+      "slot": 6
+    }
+  ],
+  "i-couldnt-be-bothered-28": [
+    {
+      "skill": "Storytelling",
+      "prompt": "When did a shortcut save you time at first but make more work for you later?",
+      "slot": 7
+    },
+    {
+      "skill": "Emotional Expression",
+      "prompt": "Do you tend to be hard on yourself about these things or pretty gentle?",
+      "slot": 2
+    },
+    {
+      "skill": "Motivation",
+      "prompt": "Do you think feeling the consequences helps you change your habits?",
+      "slot": 3
+    },
+    {
+      "skill": "Guiding Others",
+      "prompt": "If a friend said they always rush out and then feel uncomfortable all day, what would you tell them?",
+      "slot": 4
+    },
+    {
+      "skill": "Reflection",
+      "prompt": "When you skip small tasks, does it feel like a time-management issue, an energy issue, or something else?",
+      "slot": 5
+    },
+    {
+      "skill": "Social Interaction",
+      "prompt": "If you were the one who skipped ironing and someone called out the wrinkles, what would you say?",
+      "slot": 6
+    }
+  ],
+  "i-finally-did-my-laundry-29": [
+    {
+      "skill": "Storytelling",
+      "prompt": "Tell us about a time you put off a chore until you had no choice. What finally got you moving?",
+      "slot": 4
+    },
+    {
+      "skill": "Emotional Expression",
+      "prompt": "How do you feel when you see a pile of clean clothes waiting to be put away?",
+      "slot": 5
+    },
+    {
+      "skill": "Motivation",
+      "prompt": "What’s one chore you’ve been meaning to do this week?",
+      "followUp": "What’s been making it hard to get started?",
+      "slot": 3
+    },
+    {
+      "skill": "Guiding Others",
+      "prompt": "What would you suggest to someone who keeps running out of clean clothes?",
+      "slot": 6
+    },
+    {
+      "skill": "Reflection",
+      "prompt": "Do you prefer doing small loads or doing everything in one go?",
+      "followUp": "What makes that work better for you?",
+      "slot": 2
+    },
+    {
+      "skill": "Social Interaction",
+      "prompt": "Your roommate has left their laundry in the machine again. How would you ask them to move it?",
+      "slot": 7
+    }
+  ],
+  "laundry-day-thoughts-14": [
+    {
+      "skill": "Storytelling",
+      "prompt": "Has something you found in a pocket ever brought back a memory? Tell us the story.",
+      "slot": 7
+    },
+    {
+      "skill": "Emotional Expression",
+      "prompt": "Does doing repetitive tasks make you feel calm, nostalgic, overwhelmed — or something else?",
+      "slot": 2
+    },
+    {
+      "skill": "Motivation",
+      "prompt": "What motivates you to start when you really don’t feel like doing any chores?",
+      "slot": 3
+    },
+    {
+      "skill": "Guiding Others",
+      "prompt": "What would you recommend to someone who wants to feel more productive while cleaning?",
+      "slot": 4
+    },
+    {
+      "skill": "Reflection",
+      "prompt": "What does your mind usually choose to bring up when everything around you is quiet?",
+      "slot": 5
+    },
+    {
+      "skill": "Social Interaction",
+      "prompt": "How would you describe your favorite playlist or routine to someone who wants to make chores fun?",
+      "slot": 6
+    }
+  ],
+  "morning-coffee-1": [
+    {
+      "skill": "Storytelling",
+      "prompt": "What’s one thing that happened during your morning routine this week that stuck with you?",
+      "slot": 1
+    },
+    {
+      "skill": "Emotional Expression",
+      "prompt": "How did your morning drink honestly make you feel today?",
+      "slot": 2
+    },
+    {
+      "skill": "Motivation",
+      "prompt": "When you think of your morning drink routine, what’s the one thing that motivates you the most?",
+      "slot": 3
+    },
+    {
+      "skill": "Guiding Others",
+      "prompt": "If a friend asked you how to make their morning routine feel nicer, what’s one simple thing you’d tell them?",
+      "slot": 4
+    },
+    {
+      "skill": "Reflection",
+      "prompt": "When you think about your morning drink routine, what’s one thing you’d like to change or improve?",
+      "slot": 5
+    },
+    {
+      "skill": "Social Interaction",
+      "prompt": "If someone made friendly eye contact at your coffee stop, what’s one easy topic you’d bring up?",
+      "slot": 6
+    }
+  ],
+  "my-mind-was-racing-13": [
+    {
+      "skill": "Storytelling",
+      "prompt": "What happened the last time a thought kept you awake and you decided to do something about it?",
+      "slot": 7
+    },
+    {
+      "skill": "Emotional Expression",
+      "prompt": "Was there one thing your mind kept holding onto last night, and how did that make you feel?",
+      "slot": 2
+    },
+    {
+      "skill": "Motivation",
+      "prompt": "Which late-night thought could actually become motivation if you looked at it differently?",
+      "slot": 3
+    },
+    {
+      "skill": "Guiding Others",
+      "prompt": "What gentle advice would you give someone who spirals with overthinking before bed?",
+      "slot": 4
+    },
+    {
+      "skill": "Reflection",
+      "prompt": "What types of thoughts usually keep you awake at night?",
+      "slot": 5
+    },
+    {
+      "skill": "Social Interaction",
+      "prompt": "If a friend said, “You look a little off today,” how would you explain that you had a restless night?",
+      "slot": 6
+    }
+  ],
+  "one-bus-an-hour-4": [
+    {
+      "skill": "Storytelling",
+      "prompt": "If you told someone the story of adjusting to that lifestyle, how would you describe it?",
+      "slot": 1
+    },
+    {
+      "skill": "Emotional Expression",
+      "prompt": "What’s the most honest emotion you feel when you imagine that kind of peaceful but inconvenient setup?",
+      "slot": 2
+    },
+    {
+      "skill": "Motivation",
+      "prompt": "What would keep you committed to living somewhere so peaceful but not very connected?",
+      "slot": 3
+    },
+    {
+      "skill": "Guiding Others",
+      "prompt": "If a friend was unsure about living somewhere calm but hard to get around, what would you advise?",
+      "slot": 4
+    },
+    {
+      "skill": "Reflection",
+      "prompt": "What does this scenario show you about your home priorities: peace, connection, independence, or mobility?",
+      "slot": 5
+    },
+    {
+      "skill": "Social Interaction",
+      "prompt": "If you're looking for a home and your realtor suggests a peaceful countryside area with only one bus an hour, how would you respond?",
+      "slot": 6
+    }
+  ],
+  "packing-for-a-trip-25": [
+    {
+      "skill": "Storytelling",
+      "prompt": "What did you nearly leave out of your suitcase but end up needing on a trip?",
+      "slot": 7
+    },
+    {
+      "skill": "Emotional Expression",
+      "prompt": "When you’re packing, do you feel more prepared or more overwhelmed?",
+      "slot": 2
+    },
+    {
+      "skill": "Motivation",
+      "prompt": "When you travel, what usually motivates your packing choices — style, convenience, or practicality?",
+      "slot": 3
+    },
+    {
+      "skill": "Guiding Others",
+      "prompt": "What’s one tip you’d share for packing smarter, not harder — and do you actually follow it?",
+      "slot": 4
+    },
+    {
+      "skill": "Reflection",
+      "prompt": "Do you think your packing habits reveal anything about your personality?",
+      "slot": 5
+    },
+    {
+      "skill": "Social Interaction",
+      "prompt": "If a travel buddy teased you for overpacking, how would you respond?",
+      "slot": 6
+    }
+  ],
+  "small-surprises-7": [
+    {
+      "skill": "Storytelling",
+      "prompt": "Tell us about a little surprise that made an ordinary day memorable. Where were you when it happened?",
+      "slot": 7
+    },
+    {
+      "skill": "Emotional Expression",
+      "prompt": "After a rough morning, a stranger paid for your coffee without saying a word, what emotions would surface for you in that instant?",
+      "slot": 2
+    },
+    {
+      "skill": "Motivation",
+      "prompt": "What small reminder keeps you going when something unexpected interrupts your plan?",
+      "slot": 3
+    },
+    {
+      "skill": "Guiding Others",
+      "prompt": "If your friend’s birthday plans fell apart because of a sudden storm, what gentle advice would you offer her?",
+      "slot": 4
+    },
+    {
+      "skill": "Reflection",
+      "prompt": "Think of a day when a small surprise forced you to slow down—what did that reveal about your pace of life?",
+      "slot": 5
+    },
+    {
+      "skill": "Social Interaction",
+      "prompt": "If a group conversation turned to moments that truly shifted your life, what story would you share?",
+      "slot": 6
+    }
+  ],
+  "sunday-mornings-19": [
+    {
+      "skill": "Storytelling",
+      "prompt": "What’s a Sunday morning from your childhood that you can still picture?",
+      "slot": 7
+    },
+    {
+      "skill": "Emotional Expression",
+      "prompt": "How does your body feel when you let yourself rest without guilt?",
+      "slot": 2
+    },
+    {
+      "skill": "Motivation",
+      "prompt": "Do slow mornings remind you of what you actually want from your life?",
+      "slot": 3
+    },
+    {
+      "skill": "Guiding Others",
+      "prompt": "What advice would you give someone who only rests when they’re already exhausted?",
+      "slot": 4
+    },
+    {
+      "skill": "Reflection",
+      "prompt": "Was there a moment this week that made you realize you’ve been moving too fast?",
+      "slot": 5
+    },
+    {
+      "skill": "Social Interaction",
+      "prompt": "What question would you ask someone you care about to bring them into a calm energy?",
+      "slot": 6
+    }
+  ],
+  "the-fridge-stare-22": [
+    {
+      "skill": "Storytelling",
+      "prompt": "Tell us about a meal you made from the last few things in your fridge.",
+      "slot": 7
+    },
+    {
+      "skill": "Emotional Expression",
+      "prompt": "When you find yourself checking the same shelves or opening the same apps again, what emotion hits you first — frustration, amusement, or comfort?",
+      "slot": 2
+    },
+    {
+      "skill": "Motivation",
+      "prompt": "What finally makes you say, ‘Okay, enough — I need to sleep’?",
+      "slot": 3
+    },
+    {
+      "skill": "Guiding Others",
+      "prompt": "If someone asked how to turn late-night boredom into a calmer routine, what would you recommend?",
+      "slot": 4
+    },
+    {
+      "skill": "Reflection",
+      "prompt": "Do you think your nighttime boredom comes from a lack of stimulation, or is there something deeper behind it?",
+      "slot": 5
+    },
+    {
+      "skill": "Social Interaction",
+      "prompt": "If you’ve been struggling to fall asleep lately and your partner asked what’s been keeping you up, would you open up or keep it vague?",
+      "slot": 6
+    }
+  ],
+  "the-lost-remote-21": [
+    {
+      "skill": "Storytelling",
+      "prompt": "What happened the last time you asked someone to help you look for something at home?",
+      "slot": 7
+    },
+    {
+      "skill": "Emotional Expression",
+      "prompt": "Have you ever laughed at yourself after overreacting to a small inconvenience?",
+      "slot": 2
+    },
+    {
+      "skill": "Motivation",
+      "prompt": "Have you had a moment where solving a small problem felt like a big win?",
+      "slot": 3
+    },
+    {
+      "skill": "Guiding Others",
+      "prompt": "Have you ever given someone advice about staying calm when something small goes wrong?",
+      "slot": 4
+    },
+    {
+      "skill": "Reflection",
+      "prompt": "Do moments like this make you notice anything about how you handle stress?",
+      "slot": 5
+    },
+    {
+      "skill": "Social Interaction",
+      "prompt": "Would you tell this kind of story to someone you like to make them laugh?",
+      "slot": 6
+    }
+  ],
+  "the-one-that-got-away-17": [
+    {
+      "skill": "Storytelling",
+      "prompt": "When did you get a second chance at something you thought you had missed?",
+      "slot": 7
+    },
+    {
+      "skill": "Emotional Expression",
+      "prompt": "When someone encourages you to take a chance, do you feel supported or pressured?",
+      "slot": 2
+    },
+    {
+      "skill": "Motivation",
+      "prompt": "When you hesitate, what usually pushes you to make a final choice — logic, emotion, advice, instinct?",
+      "slot": 3
+    },
+    {
+      "skill": "Guiding Others",
+      "prompt": "What advice would you give to someone who always assumes the worst outcome?",
+      "slot": 4
+    },
+    {
+      "skill": "Reflection",
+      "prompt": "When you picture your future, what kind of decision-maker do you want to become?",
+      "slot": 5
+    },
+    {
+      "skill": "Social Interaction",
+      "prompt": "What would you say to someone who insists you’re “missing out” on a life-changing opportunity?",
+      "slot": 6
+    }
+  ],
+  "the-snooze-button-27": [
+    {
+      "skill": "Storytelling",
+      "prompt": "What happened one morning when you slept through your alarm?",
+      "slot": 7
+    },
+    {
+      "skill": "Emotional Expression",
+      "prompt": "Does “just five more minutes” feel like self-care or self-sabotage to you?",
+      "slot": 2
+    },
+    {
+      "skill": "Motivation",
+      "prompt": "What part of your morning motivates you the most — coffee, sunlight, tasks, quiet time?",
+      "slot": 3
+    },
+    {
+      "skill": "Guiding Others",
+      "prompt": "How would you guide someone to create a bedtime routine that helps them wake up easily?",
+      "slot": 4
+    },
+    {
+      "skill": "Reflection",
+      "prompt": "Do you think you’re naturally a morning person or a night person — and has that changed over the years?",
+      "slot": 5
+    },
+    {
+      "skill": "Social Interaction",
+      "prompt": "If a friend bragged about waking up at 5 a.m., what would you say back?",
+      "slot": 6
+    }
+  ],
+  "the-voice-message-26": [
+    {
+      "skill": "Storytelling",
+      "prompt": "Tell us about a voice message you still remember receiving. What made it memorable?",
+      "slot": 7
+    },
+    {
+      "skill": "Emotional Expression",
+      "prompt": "How do you feel when you have to re-record your voice note for the third (or tenth) time?",
+      "slot": 2
+    },
+    {
+      "skill": "Motivation",
+      "prompt": "What motivates you to switch from voice note to plain text?",
+      "slot": 3
+    },
+    {
+      "skill": "Guiding Others",
+      "prompt": "If a friend hated the sound of their voice, what would you tell them?",
+      "slot": 4
+    },
+    {
+      "skill": "Reflection",
+      "prompt": "Do you think you’re more yourself in texts or in voice notes?",
+      "slot": 5
+    },
+    {
+      "skill": "Social Interaction",
+      "prompt": "Would you admit to someone that you recorded the note five times?",
+      "slot": 6
+    }
+  ],
+  "tools-plans-patience-8": [
+    {
+      "skill": "Storytelling",
+      "prompt": "What was the first thing you fixed on your own, and who showed you how?",
+      "slot": 7
+    },
+    {
+      "skill": "Emotional Expression",
+      "prompt": "If you accidentally cracked a piece of furniture while trying to fix it, what would your immediate emotional reaction be?",
+      "slot": 2
+    },
+    {
+      "skill": "Motivation",
+      "prompt": "What helps you stay patient when a simple fix suddenly becomes much more complicated?",
+      "slot": 3
+    },
+    {
+      "skill": "Guiding Others",
+      "prompt": "Would you recommend a close friend to take a home–repair course? Do you think it would actually be worth it?",
+      "slot": 4
+    },
+    {
+      "skill": "Reflection",
+      "prompt": "On a scale from 1 to 10, how would you rate your ability to fix things—and why?",
+      "slot": 5
+    },
+    {
+      "skill": "Social Interaction",
+      "prompt": "If you needed a hammer and nails but didn’t know what they were called, how would you explain the problem so the store staff knows exactly how to help you?",
+      "slot": 6
+    }
+  ],
+  "trust-takes-time-9": [
+    {
+      "skill": "Storytelling",
+      "prompt": "Can you remember a small promise someone kept that made you start trusting them?",
+      "slot": 7
+    },
+    {
+      "skill": "Emotional Expression",
+      "prompt": "How does it feel when someone takes their time before trusting you?",
+      "slot": 2
+    },
+    {
+      "skill": "Motivation",
+      "prompt": "What helps you hold back from rushing into trust?",
+      "slot": 3
+    },
+    {
+      "skill": "Guiding Others",
+      "prompt": "What steps would you recommend to rebuild trust after a misunderstanding?",
+      "slot": 4
+    },
+    {
+      "skill": "Reflection",
+      "prompt": "How has your relationship with trust changed over the years? Why?",
+      "slot": 5
+    },
+    {
+      "skill": "Social Interaction",
+      "prompt": "Someone you just met wants to share personal stories and expects you to do the same. Explain how you would interact while keeping the trust-building process slow and respectful.",
+      "slot": 6
+    }
+  ],
+  "waiting-in-line-15": [
+    {
+      "skill": "Storytelling",
+      "prompt": "Tell us about an unexpected conversation you had while waiting in line.",
+      "slot": 7
+    },
+    {
+      "skill": "Emotional Expression",
+      "prompt": "How do you usually feel when someone tries to make small talk with you in a crowded place?",
+      "slot": 2
+    },
+    {
+      "skill": "Motivation",
+      "prompt": "What would motivate you to initiate small talk yourself one day?",
+      "slot": 3
+    },
+    {
+      "skill": "Guiding Others",
+      "prompt": "How would you guide someone who wants to be more open and warm in simple social moments?",
+      "slot": 4
+    },
+    {
+      "skill": "Reflection",
+      "prompt": "How have your feelings toward social interactions changed compared to a few years ago?",
+      "slot": 5
+    },
+    {
+      "skill": "Social Interaction",
+      "prompt": "What would you say if a stranger asked how your day has been so far?",
+      "slot": 6
+    }
+  ],
+  "when-meetings-run-long-10": [
+    {
+      "skill": "Storytelling",
+      "prompt": "Tell us about a meeting that took an unexpected turn. What did someone say or do?",
+      "slot": 7
+    },
+    {
+      "skill": "Emotional Expression",
+      "prompt": "What emotional shift do you feel when a meeting finally wraps up after dragging on?",
+      "slot": 2
+    },
+    {
+      "skill": "Motivation",
+      "prompt": "What mindset helps you regain productivity after a very long meeting?",
+      "slot": 3
+    },
+    {
+      "skill": "Guiding Others",
+      "prompt": "What strategy would you recommend to a friend who wants to communicate more efficiently in meetings?",
+      "slot": 4
+    },
+    {
+      "skill": "Reflection",
+      "prompt": "How do long meetings typically impact your productivity for the rest of the day?",
+      "slot": 5
+    },
+    {
+      "skill": "Social Interaction",
+      "prompt": "Imagine you need to leave a meeting that’s running long — how would you communicate that respectfully?",
+      "slot": 6
+    }
+  ],
+  "when-you-hit-your-toe-12": [
+    {
+      "skill": "Storytelling",
+      "prompt": "Tell us about a little accident that hurt at the time but makes you laugh now.",
+      "slot": 7
+    },
+    {
+      "skill": "Emotional Expression",
+      "prompt": "When sudden pain catches you off guard, do you tend to laugh, get frustrated, or freeze?",
+      "slot": 2
+    },
+    {
+      "skill": "Motivation",
+      "prompt": "What inner dialogue would help you stay composed instead of irritated once the pain fades?",
+      "slot": 3
+    },
+    {
+      "skill": "Guiding Others",
+      "prompt": "What simple steps would you suggest your partner to handle the pain calmly and quickly?",
+      "slot": 4
+    },
+    {
+      "skill": "Reflection",
+      "prompt": "What does your reaction to sudden pain reveal about how you handle unexpected stress?",
+      "slot": 5
+    },
+    {
+      "skill": "Social Interaction",
+      "prompt": "If you hit your toe in front of someone and they asked if you were okay, how would you respond?",
+      "slot": 6
+    }
+  ],
+  "where-are-my-keys-6": [
+    {
+      "skill": "Storytelling",
+      "prompt": "If you walked me through the last time you misplaced something right before leaving, how did that moment unfold from start to finish?",
+      "slot": 1
+    },
+    {
+      "skill": "Emotional Expression",
+      "prompt": "How do those first few seconds feel when you realize something important isn’t where you expected it to be?",
+      "slot": 2
+    },
+    {
+      "skill": "Motivation",
+      "prompt": "Is there one inner dialogue that helps you stay composed when the moment feels tight and everything seems to go wrong at once?",
+      "slot": 3
+    },
+    {
+      "skill": "Guiding Others",
+      "prompt": "If a friend kept losing their essentials before leaving, what would you suggest they try?",
+      "slot": 4
+    },
+    {
+      "skill": "Reflection",
+      "prompt": "What have those high-stress, last-minute moments taught you about yourself?",
+      "slot": 5
+    },
+    {
+      "skill": "Social Interaction",
+      "prompt": "If a coworker joked about misplacing their keys every morning, what would you add about your experience?",
+      "slot": 6
+    }
+  ]
+}

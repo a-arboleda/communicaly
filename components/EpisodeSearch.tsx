@@ -12,6 +12,34 @@ type EpisodeItem = {
   excerpt?: string
 }
 
+type CategoryId = "all" | "everyday" | "work" | "family" | "relationships" | "growth" | "money" | "more"
+type TopicId = Exclude<CategoryId, "all">
+
+const PAGE_SIZE = 9
+
+const CATEGORIES: { id: CategoryId; name: string }[] = [
+  { id: "all", name: "All" },
+  { id: "everyday", name: "Everyday Life" },
+  { id: "work", name: "Work & Career" },
+  { id: "family", name: "Family" },
+  { id: "relationships", name: "Relationships" },
+  { id: "growth", name: "Personal Growth" },
+  { id: "money", name: "Money & Life" },
+  { id: "more", name: "More Topics" },
+]
+
+// Group existing tag-based episodes into broader topics without editing MDX files.
+function categoryForEpisode(episode: EpisodeItem): TopicId {
+  const text = [episode.title, ...(episode.tags ?? [])].join(" ").toLowerCase()
+  if (/family|parent|mother|father|sibling|childhood|relatives/.test(text)) return "family"
+  if (/work|career|job|office|boss|colleague|professional|interview/.test(text)) return "work"
+  if (/relationship|friend|love|dating|partner|trust|breakup|romance/.test(text)) return "relationships"
+  if (/money|financ|saving|spending|budget|salary/.test(text)) return "money"
+  if (/confidence|growth|mindset|emotion|feeling|fear|perfectionis|self-|identity|boundaries|stress|overthink|motivation/.test(text)) return "growth"
+  if (/everyday|daily|routine|habit|home|chores|laundry|small talk|ordinary/.test(text)) return "everyday"
+  return "more"
+}
+
 function useDebounced<T>(value: T, delay = 250) {
   const [debounced, setDebounced] = useState(value)
   useEffect(() => {
@@ -23,154 +51,102 @@ function useDebounced<T>(value: T, delay = 250) {
 
 export default function EpisodeSearch({ episodes }: { episodes: EpisodeItem[] }) {
   const [query, setQuery] = useState("")
-  const [selected, setSelected] = useState<Set<string>>(new Set())
+  const [selectedCategory, setSelectedCategory] = useState<CategoryId>("all")
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE)
   const debouncedQuery = useDebounced(query, 300)
 
-  const allTags = useMemo(() => {
-    const s = new Set<string>()
-    for (const e of episodes) (e.tags || []).forEach((t) => s.add(t))
-    return Array.from(s).sort((a, b) => a.localeCompare(b))
-  }, [episodes])
+  const categorizedEpisodes = useMemo(
+    () => episodes.map((episode) => ({ episode, category: categoryForEpisode(episode) })),
+    [episodes]
+  )
+
+  const categoryCounts = useMemo(() => {
+    const counts: Record<CategoryId, number> = {
+      all: episodes.length,
+      everyday: 0,
+      work: 0,
+      family: 0,
+      relationships: 0,
+      growth: 0,
+      money: 0,
+      more: 0,
+    }
+    for (const item of categorizedEpisodes) counts[item.category] += 1
+    return counts
+  }, [categorizedEpisodes, episodes.length])
 
   const filtered = useMemo(() => {
-    const q = debouncedQuery.trim().toLowerCase()
-    const hasTagFilter = selected.size > 0
-    return episodes.filter((e) => {
-      const text = (e.title + "\n" + (e.excerpt || "")).toLowerCase()
-      const matchesText = !q || text.includes(q)
-      if (!matchesText) return false
-      if (!hasTagFilter) return true
-      const tags = new Set(e.tags || [])
-      // OR match: at least one selected tag present in episode tags
-      for (const t of selected) if (tags.has(t)) return true
-      return false
+    const search = debouncedQuery.trim().toLowerCase()
+    return categorizedEpisodes.filter(({ episode, category }) => {
+      if (selectedCategory !== "all" && category !== selectedCategory) return false
+      if (!search) return true
+      const searchable = [episode.title, episode.excerpt ?? "", ...(episode.tags ?? [])].join(" ").toLowerCase()
+      return searchable.includes(search)
     })
-  }, [episodes, debouncedQuery, selected])
+  }, [categorizedEpisodes, selectedCategory, debouncedQuery])
 
-  function toggleTag(t: string) {
-    setSelected((prev) => {
-      const next = new Set(prev)
-      if (next.has(t)) next.delete(t)
-      else next.add(t)
-      return next
-    })
+  function chooseCategory(category: CategoryId) {
+    setSelectedCategory(category)
+    setVisibleCount(PAGE_SIZE)
   }
 
-  function clearTagFilters() {
-    setSelected(new Set())
+  function changeQuery(nextQuery: string) {
+    setQuery(nextQuery)
+    setVisibleCount(PAGE_SIZE)
   }
 
-  function clearFilters() {
+  function resetFilters() {
     setQuery("")
-    setSelected(new Set())
+    chooseCategory("all")
   }
+
+  const categoryLabel = (id: CategoryId) => CATEGORIES.find((category) => category.id === id)?.name ?? "More Topics"
 
   return (
-    <div className="space-y-4">
-      {/* Search and tag filters */}
-      <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-        <div className="relative flex-1">
-          <input
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search episodes…"
-            className="w-full rounded-xl border px-3 py-2"
-            aria-label="Search episodes"
-          />
-        </div>
-        {(query || selected.size > 0) && (
-          <button onClick={clearFilters} className="btn btn-ghost self-start sm:self-auto">Clear</button>
-        )}
-      </div>
-
-      {allTags.length > 0 && (
-        <fieldset className="rounded-xl border border-gray-200 p-3">
-          <div className="flex items-center justify-between gap-3">
-            <legend className="text-sm font-medium text-gray-700">Filter by tag</legend>
-            {selected.size > 0 && (
-              <button
-                type="button"
-                onClick={clearTagFilters}
-                className="text-xs font-medium text-gray-600 hover:text-gray-900"
-              >
-                Clear tags
-              </button>
-            )}
-          </div>
-          <div className="mt-2 flex flex-wrap gap-2 max-h-24 overflow-y-auto overflow-x-hidden pr-1 tag-scroll-area">
-            <button
-              type="button"
-              onClick={clearTagFilters}
-              aria-pressed={selected.size === 0}
-              className={`tag select-none transition-[background-color,color,box-shadow] duration-200 ease-out ${
-                selected.size === 0
-                  ? "bg-emerald-200 text-emerald-900 ring-1 ring-inset ring-emerald-300"
-                  : "tag-accent"
-              }`}
-            >
-              All
+    <div className="space-y-6">
+      <section aria-label="Filter stories" className="space-y-4">
+        <label htmlFor="practice-search" className="sr-only">Search stories</label>
+        <input id="practice-search" type="search" value={query}
+          onChange={(event) => changeQuery(event.target.value)}
+          placeholder="Search by title, topic or keyword"
+          className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-base focus-visible:outline-2 focus-visible:outline-[#2852d6]" />
+        <div role="group" aria-label="Topic" className="flex flex-wrap gap-2">
+          {CATEGORIES.filter(category => categoryCounts[category.id] > 0).map(({ id, name }) => (
+            <button type="button" key={id} aria-pressed={selectedCategory === id}
+              onClick={() => chooseCategory(id)}
+              className="rounded-full border border-slate-200 px-3.5 py-2 text-sm font-medium hover:border-blue-400 aria-pressed:border-[#2852d6] aria-pressed:bg-[#2852d6] aria-pressed:text-white">
+              {id === "all" ? "All stories" : name}
             </button>
-            {allTags.map((t) => {
-              const active = selected.has(t)
-              return (
-                <button
-                  key={t}
-                  type="button"
-                  onClick={() => toggleTag(t)}
-                  aria-pressed={active}
-                  className={`tag select-none transition-[background-color,color,box-shadow] duration-200 ease-out ${
-                    active
-                      ? "bg-emerald-200 text-emerald-900 ring-1 ring-inset ring-emerald-300"
-                      : "tag-accent"
-                  }`}
-                >
-                  {t}
-                </button>
-              )
-            })}
-          </div>
-        </fieldset>
+          ))}
+        </div>
+      </section>
+      <div className="flex min-h-10 items-center justify-between border-t border-slate-200 pt-4 text-sm">
+        <p aria-live="polite" className="text-slate-600">{filtered.length} {filtered.length === 1 ? "story" : "stories"}</p>
+        {(query || selectedCategory !== "all") && <button type="button" onClick={resetFilters} className="font-medium text-[#2852d6] hover:underline">Clear filters</button>}
+      </div>
+      {filtered.length === 0 ? (
+        <p className="rounded-xl bg-slate-50 p-5">No stories found. Try another keyword or clear the filters.</p>
+      ) : (
+        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {filtered.slice(0, visibleCount).map(({ episode, category }) => (
+            <li key={episode.slug}>
+              <Link href={`/episodes/${episode.slug}`}
+                className="group flex h-full flex-col gap-3 rounded-2xl border border-slate-200 p-5 transition-colors hover:border-blue-300 hover:bg-[#f6f8ff] focus-visible:outline-2 focus-visible:outline-[#2852d6]">
+                <span className="font-mono text-xs text-[#2852d6]">{categoryLabel(category)}</span>
+                <h2 className="text-xl font-semibold leading-tight tracking-tight">{displayTitle(episode.title)}</h2>
+                {episode.excerpt && <p className="text-sm leading-relaxed text-slate-600">{episode.excerpt}</p>}
+                <span className="mt-auto pt-2 text-sm font-medium text-[#2852d6] group-hover:underline">Listen &amp; practice <span aria-hidden="true">↗</span></span>
+              </Link>
+            </li>
+          ))}
+        </ul>
       )}
-
-      <p className="text-sm text-gray-600">Showing {filtered.length} of {episodes.length}</p>
-
-      <ul className="grid gap-4">
-        {filtered.length === 0 && (
-          <li className="text-gray-600">No episodes match your search.</li>
-        )}
-        {filtered.map((ep) => (
-          <li key={ep.slug}>
-            <Link
-              href={`/episodes/${ep.slug}`}
-              className="card group block overflow-hidden rounded-3xl border border-gray-200 transition-all duration-200 hover:-translate-y-1 hover:border-black hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-700"
-            >
-              <div className="flex items-center justify-between gap-4 px-4 py-3">
-                <div className="flex-1 space-y-1">
-                  <h3 className="text-lg font-semibold">{displayTitle(ep.title)}</h3>
-                  {!!ep.tags?.length && (
-                    <div className="flex flex-wrap gap-2 text-sm">
-                      {ep.tags.map((t) => {
-                        const isSelected = selected.has(t)
-                        return (
-                          <span
-                            key={t}
-                            className={`tag ${
-                              isSelected ? "bg-emerald-200 text-emerald-900 ring-1 ring-emerald-300" : "tag-accent"
-                            }`}
-                          >
-                            {t}
-                          </span>
-                        )
-                      })}
-                    </div>
-                  )}
-                </div>
-                <span className="btn btn-episode shrink-0">Open</span>
-              </div>
-            </Link>
-          </li>
-        ))}
-      </ul>
+      {visibleCount < filtered.length && (
+        <button type="button" onClick={() => setVisibleCount(count => count + PAGE_SIZE)}
+          className="mx-auto block rounded-lg border border-slate-300 px-5 py-3 text-sm font-medium hover:border-[#2852d6] hover:text-[#2852d6]">
+          Show more stories
+        </button>
+      )}
     </div>
   )
 }
