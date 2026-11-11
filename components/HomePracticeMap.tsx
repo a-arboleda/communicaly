@@ -3,10 +3,33 @@
 import Link from "next/link"
 import { useState } from "react"
 
+const episode = "/episodes/i-finally-did-my-laundry-29"
+
 const steps = [
-  { name: "Frameworks", action: "Use PREP to plan your answer. Make your point, give a reason, share an example, then return to your point.", why: "A framework helps you decide what to say first and how to build on it.", href: "/conversation-frameworks/prep", link: "Explore PREP" },
-  { name: "Episodes", action: "Listen to I Finally Did My Laundry. Use PREP to sketch your answer about a chore you often leave until later.", why: "A familiar situation gives you a specific moment from your own life to talk about.", href: "/episodes/i-finally-did-my-laundry-29", link: "Listen to the story" },
-  { name: "Practice Lab", action: "Practice “put off” in the Off category. Then record your answer in the episode. Try starting with “I put off folding my laundry because…”", why: "Practicing a phrasal verb in a sentence helps you see when it fits in your own conversations.", href: "/practice-lab", link: "Open Practice Lab" },
+  {
+    name: "Notice",
+    cue: "What did I actually say?",
+    why: "You can’t change what you don’t hear. Listening back lets you hear yourself the way a listener does.",
+    action: "Listen to I Finally Did My Laundry, then record a short answer about a chore you keep putting off. Play it back and notice one thing: a long pause, a word you were missing, or an ending that trailed off.",
+    links: [{ href: episode, label: "Listen to the story" }],
+  },
+  {
+    name: "Choose",
+    cue: "What’s the one thing I’ll change?",
+    why: "One change is easy to hold in your head while you speak. Five changes aren’t.",
+    action: "Pick one change only. If your answer wandered, plan it with PREP. If you were missing a word, practice “put off” in the Practice Lab and start with “I put off folding my laundry because…”",
+    links: [
+      { href: "/conversation-frameworks/prep", label: "Plan with PREP" },
+      { href: "/practice-lab", label: "Open Practice Lab" },
+    ],
+  },
+  {
+    name: "Check",
+    cue: "Did it work?",
+    why: "Hearing the difference yourself is what builds confidence. You don’t need anyone else to tell you it got better.",
+    action: "Record the same answer again and listen. Ask two questions: did the one thing I chose get better, and could a friend understand me? Then rate yourself and move on.",
+    links: [{ href: episode, label: "Record your next take" }],
+  },
 ] as const
 
 export default function HomePracticeMap() {
@@ -16,10 +39,10 @@ export default function HomePracticeMap() {
   const step = steps[current]
 
   return (
-    <section aria-labelledby="why-title" className="border-t border-slate-200 py-10 sm:py-14">
-      <h2 id="why-title" className="text-4xl font-semibold tracking-[-0.05em]">Why it works</h2>
-      <p className="mt-2 text-slate-600">Build one spoken answer, step by step.</p>
-      <div className="mx-auto my-6 flex max-w-3xl flex-col" role="group" aria-label="Explore the practice steps">
+    <section aria-labelledby="method-title" className="border-t border-slate-200 py-10 sm:py-14">
+      <h2 id="method-title" className="scroll-mt-28 text-4xl font-semibold tracking-[-0.05em]">How to coach yourself</h2>
+      <p className="mt-2 text-slate-600">One short answer. Three steps. No teacher needed.</p>
+      <div className="mx-auto my-6 flex max-w-3xl flex-col" role="group" aria-label="Explore the three coaching steps">
         {steps.map((item, i) => (
           <div key={item.name} className="flex w-[72%] flex-col" style={{ marginLeft: (i * 14) + "%" }}>
             {i > 0 && (
@@ -27,7 +50,7 @@ export default function HomePracticeMap() {
                 <svg aria-hidden="true" viewBox="0 0 50 32" className="h-8 w-12 shrink-0 text-[#2852d6]" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M3 2 C3 24 21 25 44 25 M39 20 L45 25 L39 30" />
                 </svg>
-                {i === 1 ? "Use the structure" : "Find the words"}
+                {i === 1 ? "Pick one thing" : "Try it again"}
               </div>
             )}
           <button type="button" aria-pressed={current === i} aria-controls="practice-step"
@@ -36,7 +59,10 @@ export default function HomePracticeMap() {
             onClick={() => { setSelected(i); setHovered(null) }}
             className="group flex w-full items-center gap-3 self-start border-b border-slate-200 py-3 text-left font-semibold text-[#182021] aria-pressed:border-[#2852d6] aria-pressed:text-[#2852d6] focus-visible:outline-2 focus-visible:outline-[#2852d6]">
             <span className="grid size-9 shrink-0 place-items-center rounded-full border border-blue-200 font-mono text-sm text-[#2852d6] group-aria-pressed:border-[#2852d6] group-aria-pressed:bg-[#2852d6] group-aria-pressed:text-white">0{i + 1}</span>
-            {item.name}
+            <span className="flex flex-col sm:flex-row sm:items-baseline sm:gap-3">
+              {item.name}
+              <span className="text-sm font-normal text-slate-600">{item.cue}</span>
+            </span>
           </button>
           </div>
         ))}
@@ -46,7 +72,11 @@ export default function HomePracticeMap() {
         <div>
           <h3 className="font-mono text-xs tracking-wider text-[#2852d6]">TRY IT</h3>
           <p className="mt-2">{step.action}</p>
-          <Link className="mt-3 inline-block font-medium text-[#2852d6] hover:underline" href={step.href}>{step.link} ↗</Link>
+          <div className="mt-3 flex flex-wrap gap-x-5 gap-y-1">
+            {step.links.map(link => (
+              <Link key={link.label} className="font-medium text-[#2852d6] hover:underline" href={link.href}>{link.label} ↗</Link>
+            ))}
+          </div>
         </div>
       </div>
     </section>

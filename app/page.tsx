@@ -18,9 +18,13 @@ export default function Home() {
     <div className="mx-auto max-w-6xl bg-white px-5 pt-[88px] font-sans text-[#182021] sm:px-9">
       <section className="grid items-center gap-10 border-t border-[#d9dfdf] py-14 md:grid-cols-[1.1fr_1fr] md:gap-14 md:py-24" aria-labelledby="home-title">
         <div>
-          <h1 id="home-title" className="text-[clamp(3.2rem,6.8vw,5.6rem)] font-semibold leading-[0.98] tracking-[-0.065em]">Find your voice<br />in English.</h1>
-          <p className="mt-6 max-w-sm text-lg leading-relaxed text-slate-600">Listen to an everyday story. Then tell your side of it.</p>
-          <Link className="mt-7 inline-flex items-center gap-4 rounded-lg bg-[#2852d6] px-5 py-3 font-semibold text-white transition-colors hover:bg-blue-800" href={featured.href}>Try the featured story <span aria-hidden="true">↗</span></Link>
+          <h1 id="home-title" className="text-[clamp(2.7rem,5.6vw,4.6rem)] font-semibold leading-[1] tracking-[-0.06em]">Be your own English speaking coach.</h1>
+          <p className="mt-6 font-mono text-sm tracking-widest text-[#2852d6]">NOTICE <span aria-hidden="true">→</span> CHOOSE <span aria-hidden="true">→</span> CHECK</p>
+          <p className="mt-3 max-w-md text-lg leading-relaxed text-slate-600">Record a short answer to an everyday story. Notice one thing, choose one change, and check it on your next take.</p>
+          <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-3">
+            <Link className="inline-flex items-center gap-4 rounded-lg bg-[#2852d6] px-5 py-3 font-semibold text-white transition-colors hover:bg-blue-800" href={featured.href}>Coach yourself with today’s story <span aria-hidden="true">↗</span></Link>
+            <a className="font-medium text-[#2852d6] hover:underline" href="#method-title">See how it works ↓</a>
+          </div>
         </div>
         <div className="min-w-0 rounded-3xl bg-[#eff3ff] p-6 text-[#162852] sm:p-8">
           <div className="flex justify-between font-mono text-xs tracking-widest"><span>FEATURED STORY</span><span>EP. 29</span></div>
