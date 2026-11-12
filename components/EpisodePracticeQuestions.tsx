@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useState } from "react"
 import { practiceDrafts } from "@/utils/practiceDrafts"
 import { createPracticePdf } from "@/utils/practicePdf"
 import EpisodeInteractive from "@/components/EpisodeInteractive"
+import CoachLoop, { coachFocus, readCoachState } from "@/components/CoachLoop"
 
 type PracticeQuizItem = {
   prompt: string
@@ -65,7 +66,7 @@ export default function EpisodePracticeQuestions({
       ...additional.map(question => ({ question, base: `ep:${slug}:practice:${question.slot}` })),
     ]
     return entries
-      .map(({ question, base }, index) => {
+      .flatMap(({ question, base }, index) => {
         const text = practiceDrafts.get(`${base}:text`)?.trim()
         // Also collect audio rating if present (from the EpisodeInteractive storage key)
         let rating = 0
@@ -77,11 +78,18 @@ export default function EpisodePracticeQuestions({
           }
         } catch {}
         // If there is no typed text and no rating, skip
-        if (!text && !rating) return null
-        const responseText = text || "(audio response)"
-        return { question, response: responseText, number: index + 1, rating }
+        const first = text || rating ? [{ question, response: text || "(audio response)", number: index + 1, rating }] : []
+        const secondTake = practiceDrafts.get(`${base}:text2`)?.trim()
+        if (!secondTake) return first
+        // The coaching loop's second take, with what the learner noticed and chose.
+        const focus = coachFocus(readCoachState(base))
+        return [...first, {
+          question: { prompt: question.prompt, function: "Second take", support: focus ? `What I noticed: ${focus.label}` : undefined, followUp: focus ? `My one change: ${focus.change}` : undefined },
+          response: secondTake,
+          number: index + 1,
+          rating: 0,
+        }]
       })
-      .filter((entry): entry is { question: PracticeQuizItem; response: string; number: number; rating: number } => !!entry)
   }, [episodeId, questions, slug, additional])
 
   const handleDownloadPdf = useCallback(() => {
@@ -116,7 +124,7 @@ export default function EpisodePracticeQuestions({
   return (
     <section id="practice-questions" className={storyLayout ? "scroll-mt-28 border-t border-stone-200 pt-6" : "card scroll-mt-20"}>
       <div className={storyLayout ? "space-y-4" : "card-body space-y-6"}>
-        <p className="text-xs font-medium uppercase tracking-widest text-stone-600">Your turn to share</p>
+        <p className="text-xs font-medium uppercase tracking-widest text-stone-600">Your turn · Notice → Choose → Check</p>
         <h2 className="text-2xl font-semibold tracking-tight">{questions[0].prompt}</h2>
         {questions[0].starter && (
           <details className="text-sm text-stone-600">
@@ -124,8 +132,8 @@ export default function EpisodePracticeQuestions({
             <p className="mt-2">{questions[0].starter}</p>
           </details>
         )}
-        <p className="text-sm text-stone-600">Write or record your answer. When you stop recording, your words appear here automatically. The first transcription downloads an English speech model.</p>
-        <PracticeQuestionCard key={episodeId} episodeId={episodeId} episodeTitle={episodeTitle} index={0} conversational={conversational || storyLayout} />
+        <p className="text-sm text-stone-600">Start with a first take: record your answer out loud. When you stop recording, your words appear below automatically. The first transcription downloads an English speech model.</p>
+        <PracticeQuestionCard key={episodeId} episodeId={episodeId} episodeTitle={episodeTitle} index={0} conversational={conversational || storyLayout} coach />
         {additional.length > 0 && (
           <details className="border-t border-slate-200 pt-4" onToggle={event => {
             if (event.currentTarget.open) setVisited(previous => previous.length ? previous : [0])
@@ -168,7 +176,6 @@ export default function EpisodePracticeQuestions({
             {exporting ? "Preparing..." : "Download PDF"}
           </button>
         </div>
-        {conversational && <p className="text-sm text-gray-600">Try saying your answer again. Keep the idea, but let the words change.</p>}
       </div>
     </section>
   )
@@ -179,13 +186,18 @@ function PracticeQuestionCard({
   index,
   episodeId,
   episodeTitle,
+  coach = false,
 }: {
+  /** Follow the answer with the Notice, Choose, Check loop and a second take. */
+  coach?: boolean
   conversational: boolean
   index: number
   episodeId: string
   episodeTitle?: string
 }) {
-  const [mode, setMode] = useState<PracticeMode>("text")
+  const [chosenMode, setMode] = useState<PracticeMode>("text")
+  // The coaching loop is about speaking, so its takes are always recorded.
+  const mode = coach ? "audio" : chosenMode
   const [text, setText] = useState("")
   const [loaded, setLoaded] = useState(false)
 
@@ -211,9 +223,9 @@ function PracticeQuestionCard({
   useEffect(() => {
     if (!loaded || !isBrowser()) return
     try {
-      practiceDrafts.set(modeKey, mode)
+      practiceDrafts.set(modeKey, chosenMode)
     } catch {}
-  }, [loaded, mode, modeKey])
+  }, [loaded, chosenMode, modeKey])
 
   useEffect(() => {
     if (!loaded || !isBrowser()) return
@@ -230,7 +242,7 @@ function PracticeQuestionCard({
 
   return (
     <div className="mt-3">
-      <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+      {!coach && <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
         <div className="inline-flex gap-1" role="group" aria-label={`Response mode for prompt ${questionNumber}`}>
           {(["audio", "text"] as PracticeMode[]).map((key) => {
             const isAudio = key === "audio"
@@ -270,7 +282,7 @@ function PracticeQuestionCard({
             )
           })}
         </div>
-      </div>
+      </div>}
 
       <div className="mt-4">
         {mode === "audio" && (
@@ -293,21 +305,22 @@ function PracticeQuestionCard({
         {(
           <div className="space-y-2">
             <label htmlFor={`practice-text-${episodeId}-${questionNumber}`} className="text-sm text-gray-600">
-              {mode === "audio" ? "Your response" : "Type your response"}
+              {coach ? "Your first take" : mode === "audio" ? "Your response" : "Type your response"}
             </label>
             <textarea
               id={`practice-text-${episodeId}-${questionNumber}`}
               rows={3}
               className="w-full rounded-2xl border border-brand-100 bg-white p-3 text-sm focus:border-sky-400 focus:outline-none"
-              placeholder="Write what you’d say here..."
+              placeholder={coach ? "Record your first take and your words appear here..." : "Write what you’d say here..."}
               value={text}
               onChange={(event) => setText(event.target.value)}
             />
-            <p className="text-xs text-gray-500">{mode === "audio" ? "Your transcript appears after you stop recording." : "Refreshing the page clears your practice."}</p>
+            <p className="text-xs text-gray-500">{coach ? "Your transcript appears after you stop recording. You can edit it." : mode === "audio" ? "Your transcript appears after you stop recording." : "Refreshing the page clears your practice."}</p>
           </div>
 
         )}
       </div>
+      {coach && <CoachLoop storageBase={storageBase} episodeId={episodeId} episodeTitle={episodeTitle} firstTake={text} />}
     </div>
   )
 }

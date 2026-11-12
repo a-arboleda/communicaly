@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { notFound } from "next/navigation"
 import { MDXRemote } from "next-mdx-remote/rsc"
 import EpisodeAudioWithTranscript from "@/components/EpisodeAudioWithTranscript"
@@ -32,6 +33,10 @@ export default async function EpisodePage({ params }: { params: Promise<{ slug: 
   const { frontmatter, content } = episode
   const transcript = getTranscript(slug)
   const youtubeLinks = getYouTubeLinks(frontmatter.audioUrl, frontmatter.youtubeStart, frontmatter.youtubeEnd)
+
+  // Suggest the next story in the library, wrapping around after the last one.
+  const episodes = getAllEpisodes()
+  const next = episodes.length > 1 ? episodes[(episodes.findIndex(item => item.slug === slug) + 1) % episodes.length] : null
 
   const isStoryPractice = frontmatter.layout === "story-practice"
   const tag = frontmatter.tags?.[0]?.replace(/-/g, " ")
@@ -76,6 +81,21 @@ export default async function EpisodePage({ params }: { params: Promise<{ slug: 
         )}
       </section>
       <EpisodePracticeQuestions additional={additionalQuestions[slug as keyof typeof additionalQuestions] ?? []} slug={slug} episodeId={frontmatter.practiceVersion ? slug + ":" + frontmatter.practiceVersion : slug} episodeTitle={frontmatter.title} practiceQuiz={frontmatter.practiceQuiz} conversational={isStoryPractice} storyLayout />
+      <nav aria-labelledby="next-practice-title" className="border-t border-stone-200 pt-6">
+        <h2 id="next-practice-title" className="text-xs font-medium uppercase tracking-widest text-stone-600">Keep coaching yourself</h2>
+        <div className="mt-3 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          {next && (
+            <Link href={`/episodes/${next.slug}`} className="group flex flex-1 items-center justify-between gap-4 rounded-xl bg-[#eff3ff] p-4 text-[#162852] hover:text-[#2852d6]">
+              <span className="flex flex-col">
+                <span className="text-sm">Next practice</span>
+                <strong className="text-lg font-semibold">{displayTitle(next.title)}</strong>
+              </span>
+              <span aria-hidden="true" className="text-[#2852d6]">→</span>
+            </Link>
+          )}
+          <Link href="/episodes" className="font-medium text-[#2852d6] hover:underline sm:px-4">Browse all stories</Link>
+        </div>
+      </nav>
     </article>
   )
 }

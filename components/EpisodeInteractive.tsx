@@ -108,6 +108,7 @@ export default function EpisodeInteractive({
   storageKey,
   showTaskCheckbox = true,
   showReflectionMetrics = true,
+  takeOffset = 0,
   onTranscribed,
   onDeleteTake,
 }: {
@@ -119,6 +120,8 @@ export default function EpisodeInteractive({
   storageKey?: string
   showTaskCheckbox?: boolean
   showReflectionMetrics?: boolean
+  /** Added to take numbers, so a second recorder can label its take "Take 2". */
+  takeOffset?: number
   onDeleteTake?: () => void
   onTranscribed?: (text: string) => void
 }) {
@@ -885,7 +888,7 @@ export default function EpisodeInteractive({
               {!onTranscribed && <p className="text-sm font-semibold text-brand-900">Your recordings ({recordings.length})</p>}
               <div className="space-y-3">
                 {recordings.map((rec, index) => {
-                  const takeNumber = recordings.length - index
+                  const takeNumber = recordings.length - index + takeOffset
                   return (
                     <div key={rec.id} className="recording-take rounded-2xl bg-sky-50/50 p-3 space-y-2">
                       <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-gray-600">
